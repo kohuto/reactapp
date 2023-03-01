@@ -136,12 +136,9 @@
 }
 
 
-
-
 /* input boxes - create packet quizz */
 .create-packets-input-group input{
   font-size: 1rem;
-  
   margin: 0.4vh;
   border: none;
   border-radius: 1rem;
@@ -161,6 +158,12 @@
   box-shadow: inset 20px 20px 60px #c5c5c5,
       inset -20px -20px 60px #ffffff;
   transition: 0.3s;
+}
+
+/* message to send */
+.message-into-create-packet{
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 /* Slideshow */

@@ -77,6 +77,9 @@ function CreatePacketComponent({ setGame }) {
       <CloseOpen
         content={
           <>
+            <div className="message-into-create-packet">
+              <p>Pošli zprávu: AHOJ HONZO, JAK SE MÁŠ?</p>
+            </div>
             <Slideshow
               setEnd={setGame}
               id1={id1}
@@ -163,7 +166,6 @@ function Slideshow(props) {
 
   return (
     <div className="create-packets-slideshow">
-      <p>asdd</p>
       <div
         className="create-packets-slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
