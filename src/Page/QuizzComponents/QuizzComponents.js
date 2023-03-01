@@ -1,7 +1,7 @@
 import "./Components.css";
 import WhatIsServerComponent from "./whatIsServer";
 import WhatIsClientComponent from "./whatIsClient";
-import FindPacketComponent from "./findPacket";
+import FindPacketComponent from "./findServers";
 import CreatePacketComponent from "./createPacket";
 import ConnectClientsWirelessComponent from "./connectClientsWireless";
 import DataIntoPackets from "./dataIntoPackets";
