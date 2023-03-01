@@ -104,7 +104,12 @@ function CreatePacketComponent({ setGame }) {
               setContent2={setContent2}
               setContent3={setContent3}
             />
-            <button onClick={handleSubmit}>Zkontrolovat</button>
+            <button
+              className="check-button close-open-window"
+              onClick={handleSubmit}
+            >
+              Zkontrolovat
+            </button>
           </>
         }
       />

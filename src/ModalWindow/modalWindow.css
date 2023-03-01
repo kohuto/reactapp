@@ -21,7 +21,11 @@
   border-radius: 30px;
   width: 80%;
   height: 85%;
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
+
+
 
 /* The Close Button */
 .close {
