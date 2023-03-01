@@ -1,4 +1,4 @@
-/* Plus/Minus Zoom Button Styles */
+/* Plus/Minus Zoom Button Styles changing flow */
 .zoom-buttons-container{
   position: absolute;
   bottom: 4vh;
@@ -52,20 +52,50 @@
   transform: scale(1.3);
 }
 
-/* close open window component */
-.close-open-controls {
+/* close/open window - template */
+
+.close-open-content {
+  width: 20vw;
+  height: 60vh;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 7vh;
+  right: 3vw;
   z-index: 15;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  padding-top: 50px;
+  border-radius: 0.5em;
+  background: #c7c7c7;
+  border: 1px solid #bebebe;
+  box-shadow: 6px 6px 12px #7c7c7c,
+  -6px -6px 12px #ffffff;
 }
 
+/* pulsing button */ 
+.pulse-button {
+  border: none;
+  box-shadow: 0 0 0 0 rgba(122, 122, 122, 0.7);
+  border-radius: 50%;
+  background-color: #2c2c2c;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.pulse-button:hover {
+  animation: none;
+  transform: scale(1.2);
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+    transform: scale(1.2);
+  }
+}
+
+/* minimaize/maximaze pulsing button openclose window  */
+
 .close-open-controls button {
-  background-color: rgb(42, 42, 42);
+  background-color: rgb(49, 49, 49);
   color: rgb(237, 237, 237);
   border: none;
   padding: 15px 15px;
@@ -74,41 +104,25 @@
   font-weight: 700;
   cursor: pointer;
   width: 50px;
+  position: absolute;
+  bottom: 3vh;
+  right: 1vw;
+  z-index: 15;
 }
 
-/* check button close open window */
+/* check-validity-button close open window */
+
 .check-button.close-open-window {
-  align-items: center;
-  appearance: none;
   background-color: #fff;
-  border-radius: 24px;
+  border-radius: 2rem;
   border-style: none;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-  box-sizing: border-box;
   color: #3c4043;
   cursor: pointer;
-  display: inline-flex;
-  fill: currentcolor;
   font-family: "Google Sans",Roboto,Arial,sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  height: 48px;
-  justify-content: center;
-  letter-spacing: .25px;
-  line-height: normal;
-  max-width: 100%;
-  overflow: visible;
+  height: 7vh;
   padding: 2px 24px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
-  will-change: transform,opacity;
-  z-index: 0;
+  margin-left: 30%;
 }
 
 .check-button.close-open-window:hover {
@@ -121,41 +135,32 @@
   outline: none;
 }
 
-.check-button.close-open-window:focus {
-  outline: none;
-  border: 2px solid #4285f4;
+
+
+
+/* input boxes - create packet quizz */
+.create-packets-input-group input{
+  font-size: 1rem;
+  
+  margin: 0.4vh;
+  border: none;
+  border-radius: 1rem;
+  background: #e8e8e8;
+  box-shadow: 3px 3px 2px #c5c5c5,
+      -10px -10px 180px #ffffff;
+  transition: 0.3s;
 }
 
-.check-button.close-open-window:not(:disabled) {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+.create-packets-input-group input[type=text] {
+  padding: 10px 20px;
 }
 
-.check-button.close-open-window:not(:disabled):hover {
-  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
-}
-
-.check-button.close-open-window:not(:disabled):focus {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-}
-
-.check-button.close-open-window:not(:disabled):active {
-  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-}
-
-.check-button.close-open-window:disabled {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-}
-
-.close-open-content {
-  width: 300px;
-  height: 300px;
-  border-radius: 20%;
-  background: rgb(119, 119, 119);
-  margin: 0;
-  position: absolute;
-  bottom: 70px;
-  right: 90px;
-  z-index: 15;
+.create-packets-input-group input:focus{
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+      inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
 }
 
 /* Slideshow */
@@ -167,12 +172,12 @@
 
 .create-packets-slideshowSlider {
   white-space: nowrap;
-  transition: ease 1000ms;
+  transition: ease 500ms;
+  margin-bottom: 20px;
 }
 
 .create-packets-slide {
   display: inline-block;
-
   height: 200px;
   width: 300px;
   border-radius: 40px;
@@ -186,21 +191,22 @@
 
 .create-packets-slideshowDot {
   display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-
+  height: 4vh;
+  width: 4vw;
+  border-radius: 0.5rem;
   cursor: pointer;
-  margin: 15px 7px 0px;
-
-  background-color: #c4c4c4;
+  margin: 5%;
+  padding: 1%;
+  background-color: #686868;
+  color: #e4e4e4;
 }
 
 .create-packets-slideshowDot.active {
-  background-color: #333233;
+  color: #c5c5c5;
+  background-color: #292929;
 }
 
-
+/*  a  */
 .find-packet-input-box {
     width: 250px;
     margin-left: auto;

@@ -122,33 +122,33 @@ function InsidePacket(props) {
     <>
       <div className="create-packets-form-container">
         <div className="create-packets-input-group">
-          <label>id</label>
           <input
             type="text"
+            placeholder="ID paketu"
             value={props.id}
             onChange={(e) => props.setId(e.target.value)}
           />
         </div>
         <div className="create-packets-input-group">
-          <label>start</label>
           <input
             type="text"
+            placeholder="Odesílatel"
             value={props.start}
             onChange={(e) => props.setStart(e.target.value)}
           />
         </div>
         <div className="create-packets-input-group">
-          <label>cíl</label>
           <input
             type="text"
+            placeholder="Příjemce"
             value={props.end}
             onChange={(e) => props.setEnd(e.target.value)}
           />
         </div>
         <div className="create-packets-input-group">
-          <label>obsah</label>
           <input
             type="text"
+            placeholder="Obsah paketu"
             value={props.content}
             onChange={(e) => props.setContent(e.target.value)}
           />
@@ -163,6 +163,7 @@ function Slideshow(props) {
 
   return (
     <div className="create-packets-slideshow">
+      <p>asdd</p>
       <div
         className="create-packets-slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -213,7 +214,9 @@ function Slideshow(props) {
           onClick={() => {
             setIndex(0);
           }}
-        ></div>
+        >
+          Paket 1
+        </div>
         <div
           className={`create-packets-slideshowDot${
             index === 1 ? " active" : ""
@@ -221,7 +224,9 @@ function Slideshow(props) {
           onClick={() => {
             setIndex(1);
           }}
-        ></div>
+        >
+          Paket 2
+        </div>
         <div
           className={`create-packets-slideshowDot${
             index === 2 ? " active" : ""
@@ -229,7 +234,9 @@ function Slideshow(props) {
           onClick={() => {
             setIndex(2);
           }}
-        ></div>
+        >
+          Paket 3
+        </div>
       </div>
     </div>
   );

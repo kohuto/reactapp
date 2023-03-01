@@ -31,12 +31,13 @@ function CloseOpen({ content }) {
         {content}
       </motion.div>
       <div className="close-open-controls">
-        <motion.button
+        <button
+          className="pulse-button"
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsVisible(!isVisible)}
         >
           {isVisible ? "-" : "+"}
-        </motion.button>
+        </button>
       </div>
     </div>
   );
