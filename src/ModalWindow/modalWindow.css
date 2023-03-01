@@ -49,9 +49,11 @@
 
 /* start quizz */ 
 .start-quizz-button div {
+  position: absolute;
+  bottom: 15vh;
+  left: 40vw;
   background-color: rgb(26, 26, 26);
   color: white;
-  border-radius: 10px;
   font-size: 20px;
   padding: 20px 100px;  text-align: center;
   display: flex;
@@ -66,31 +68,6 @@
 .start-quizz-button:hover {
   cursor: pointer;
 }
-
-/*
-
-.answers{
-  display: flex;
-
-  justify-content: space-around;
-  align-items: center;
-}
-.answer {
-  background-color: #e7e7e7; 
-  color: black;
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  width: 350px;
-  
-}
-
-*/
 
 /* summary window */
 

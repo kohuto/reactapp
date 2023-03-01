@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function TypingChallenge() {
   const [text, setText] = useState(
@@ -93,21 +94,25 @@ function TypingChallenge() {
         </>
       )}
       {!isCompleted && !isStarted && (
-        <button onClick={handleStartClick}>Start</button>
+        <div className="start-quizz-button" onClick={handleStartClick}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+            START
+          </motion.div>
+        </div>
       )}
       {isCompleted && (
         <div>
-          <p>text má 70 znaků</p>
-          <p>Čas: {formattedTime(timeElapsed)} s</p>
           <p>
-            tudíž jsi psal přibližně rychlostí{" "}
-            {Math.round(70 / (timeElapsed / 1000))}B/s
-          </p>
-          <p>běžná rychlost internetu je přibližně 240Mb/s což je 30MB/s</p>
-          <p>
-            běžná rychlost internetu je tedy přibližně{" "}
+            Perfektní! Právě jsi zvládl správně přepsat 70 znaků za{" "}
+            {formattedTime(timeElapsed)} vteřin. To znamená, že jsi psal
+            rychlostí {Math.round(70 / (timeElapsed / 1000))} Mb/s. Kdybys psal
+            touto rychlostí, tak bys například zvládl přepsat celou knihu
+            medvídka Pú za Y sekund nebo celou bibli za Z sekund. Je dobré ale
+            zmínit, že průměrná rychlost internetu je až 240 Mb/s (30 MB/s). Z
+            toho vyplývá, že bys musel psát{" "}
             {Math.round(30000000 / Math.round(70 / (timeElapsed / 1000)))}x
-            větší
+            rychleji, abys zvládl přenášet data stejně rychle, jako jsou
+            přenášena po internetu.
           </p>
         </div>
       )}

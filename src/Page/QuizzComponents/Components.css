@@ -139,7 +139,7 @@
 }
 
 
-/*    */
+/*  create packet  */
 .create-packets-form-container {
   width: 10vw;
   margin-left: 1.3vw;
@@ -220,19 +220,6 @@
   color: #c5c5c5;
   background-color: #292929;
 }
-
-
-  .circle {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 0.5px );
-    -webkit-backdrop-filter: blur( 0.5px );
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    z-index: 5;
-  }
 
   /* messenger chat styles */
 
@@ -332,11 +319,9 @@ cursor: pointer;
 }
 
 .new-message-box {  /* one part of message */
-  background-color: rgb(160, 68, 68);
   padding: 10px;
   border-radius: 5px;
   margin: 20px;
-
   border-radius: 0.5em;
   background: #e8e8e8;
   border: 1px solid #a5a4a4;
@@ -348,60 +333,52 @@ cursor: pointer;
   position: absolute;
   right: 20px;
   top: 10px;
-  
 }
 
 /* race around world */
-.container-race {
-position: absolute;
-top: 20vh;
-right: 25vw;
+
+.race-around-world-small-circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
 }
-.circle-image {
-  position: relative;
+
+.race-around-world-click-count {
+  position: absolute;
+  top: 10vh;
+  right: 25vw;
+  font-size: 2rem;
+}
+
+.race-around-world-time-left {
+  position: absolute;
+  top: 10vh;
+  right: 50vw;
+  font-size: 2rem;
+}
+
+.race-around-world-globe{
+  position: absolute;
+  top: 20%;
+  left: 45%;
+}
+.race-around-world-globe img {
+  width: 400px;
+}
+
+.race-around-world-modal-window{
+  position: absolute;
   top: 20vh;
   right: 25vw;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #fc0606;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.circles {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.circle-race {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-
-.circle-race.selected {
-  background-color: #fff;
-  transform: scale(1.2);
+  height: 20vh;
+  width: 50vw;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -6px -6px 12px #ffffff;
 }

@@ -15,6 +15,7 @@ import CircleImage from "./raceAroundWorld";
 import SetPaths from "./setPaths";
 import ZoomButtons from "./zoomButtons";
 import WhatIsWiFiComponent from "./wirelessDevice";
+import RaceAroundWorld from "./raceAroundWorld";
 
 function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
   switch (game) {
@@ -45,9 +46,7 @@ function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
     case "whatIsSatelit":
       return <WhatIsSatelitComponent />;
     case "raceAroundWorld":
-      return (
-        <CircleImage images="../../images/Globe-Transparent-Background-PNG.png" />
-      );
+      return <RaceAroundWorld setGame={() => setGame("noGame")} />;
     case "connectClientsWireless":
       return (
         <ConnectClientsWirelessComponent setGame={() => setGame("noGame")} />

@@ -1,50 +1,40 @@
 import React, { useState, useEffect } from "react";
-
+import globe from "../../images/Globe-Transparent-Background-PNG.png";
+import ModalWindowTemplate from "../../ModalWindow/templateModalWindow";
 function openModal(i) {
   var modal = document.getElementById("modal-window" + i);
   modal.style.display = "block";
 }
 
 function SmallCircle(props) {
-  const { x, y, color, onClick, hidden } = props;
+  const { x, y, onClick, hidden } = props;
 
   return (
     <div
+      className="race-around-world-small-circle"
       style={{
-        position: "absolute",
         top: y + "px",
         left: x + "px",
-        width: "50px",
-        height: "50px",
-        borderRadius: "50%",
-        backgroundColor: color,
-        border: "2px solid black",
-        cursor: "pointer",
         visibility: hidden ? "hidden" : "visible",
       }}
       onClick={onClick}
     ></div>
   );
 }
-function RaceAroundWorld() {
+function RaceAroundWorld({ setGame }) {
   const [circles, setCircles] = useState([
-    { x: 750, y: 100, color: "white" },
-    { x: 810, y: 120, color: "white" },
-    { x: 850, y: 170, color: "white" },
-    { x: 865, y: 230, color: "white" },
-    { x: 850, y: 290, color: "white" },
-    { x: 810, y: 330, color: "white" },
-    { x: 750, y: 350, color: "white" },
-    { x: 690, y: 340, color: "white" },
-    { x: 630, y: 290, color: "white" },
-    { x: 615, y: 230, color: "white" },
-    { x: 627, y: 170, color: "white" },
-    { x: 670, y: 120, color: "white" },
+    { x: 860, y: 110 },
+
+    { x: 1060, y: 260 },
+
+    { x: 860, y: 510 },
+
+    { x: 660, y: 260 },
   ]);
   const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [disableClick, setDisableClick] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(5);
 
   useEffect(() => {
     let intervalId;
@@ -55,7 +45,6 @@ function RaceAroundWorld() {
       }, 1000);
     } else {
       setDisableClick(true);
-      openModal(29);
     }
 
     return () => clearInterval(intervalId);
@@ -69,21 +58,21 @@ function RaceAroundWorld() {
   };
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      <div
-        style={{
-          position: "absolute",
-          top: "250px",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "200px",
-          height: "200px",
-          borderRadius: "50%",
-          backgroundColor: "red",
-        }}
-      >
+    <>
+      <ModalWindowTemplate
+        setGame={setGame}
+        ID={137}
+        content={
+          <Finished clickCount={clickCount} countCircles={circles.length} />
+        }
+      />
+      <div className="race-around-world-click-count">
         Click Count: {clickCount}
-        <br />
+      </div>
+      <div className="race-around-world-globe">
+        <img src={globe} alt="" />
+      </div>
+      <div className="race-around-world-time-left">
         {!disableClick ? `Time Left: ${timeLeft}` : "Time's Up!"}
       </div>
       {circles.map((circle, index) => (
@@ -96,8 +85,17 @@ function RaceAroundWorld() {
           onClick={() => handleCircleClick(index)}
         />
       ))}
-    </div>
+      {disableClick && openModal(137)}
+    </>
   );
 }
 
+function Finished({ clickCount, countCircles }) {
+  return (
+    <p>
+      Perfektní! zvládl jsi za 20 sekund {clickCount / 4}x oběhnout zeměkouli!
+      Ovšem internet je daleko rychlejší, internet by to zvládl 100x.
+    </p>
+  );
+}
 export default RaceAroundWorld;
