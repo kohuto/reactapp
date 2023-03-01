@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/reactapp/static/css/main.1e661602.css",
+    "main.js": "/reactapp/static/js/main.3a3d7d3d.js",
+    "static/media/internet.png": "/reactapp/static/media/internet.ca5bf7114dc2f4891963.png",
+    "static/media/server.jpg": "/reactapp/static/media/server.ef38e69411ccc15681be.jpg",
+    "static/media/packet.png": "/reactapp/static/media/packet.ca29bf5de5ac5e9fff33.png",
+    "static/media/gateway.png": "/reactapp/static/media/gateway.ec45d2507860e03074fc.png",
+    "static/media/builder.png": "/reactapp/static/media/builder.563b929d57bbd9f6c921.png",
+    "static/media/cog.svg": "/reactapp/static/media/cog.8c5b9138d8c4be979ec844f26605245f.svg",
+    "index.html": "/reactapp/index.html",
+    "static/media/arrow.svg": "/reactapp/static/media/arrow.2e552680862d14cd24637c6387dfb5b7.svg",
+    "static/media/bolt.svg": "/reactapp/static/media/bolt.bbfd3d7aaf23b286af050b7e10125db6.svg",
+    "main.1e661602.css.map": "/reactapp/static/css/main.1e661602.css.map",
+    "main.3a3d7d3d.js.map": "/reactapp/static/js/main.3a3d7d3d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e661602.css",
+    "static/js/main.3a3d7d3d.js"
+  ]
+}
