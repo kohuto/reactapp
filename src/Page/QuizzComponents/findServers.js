@@ -38,30 +38,35 @@ function InputBox({ setGame }) {
     <>
       <div className="create-packets-form-container">
         <div className="create-packets-input-group">
-          <label>Maruška</label>
           <input
             type="text"
+            placeholder="Maruška"
             value={client1}
             onChange={(e) => setClient1(e.target.value)}
           />
         </div>
         <div className="create-packets-input-group">
-          <label>Pepíček</label>
           <input
             type="text"
+            placeholder="Pepíček"
             value={client2}
             onChange={(e) => setClient2(e.target.value)}
           />
         </div>
         <div className="create-packets-input-group">
-          <label>Anička</label>
           <input
             type="text"
+            placeholder="Anička"
             value={client3}
             onChange={(e) => setClient3(e.target.value)}
           />
         </div>
-        <button onClick={handleSubmit}>Zkontrolovat</button>
+        <button
+          className="check-button close-open-window"
+          onClick={handleSubmit}
+        >
+          Zkontrolovat
+        </button>
       </div>
     </>
   );

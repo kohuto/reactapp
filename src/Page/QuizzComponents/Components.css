@@ -113,6 +113,9 @@
 /* check-validity-button close open window */
 
 .check-button.close-open-window {
+  position: absolute;
+  bottom: 4%;
+  right: 27%;
   background-color: #fff;
   border-radius: 2rem;
   border-style: none;
@@ -122,7 +125,7 @@
   font-size: 14px;
   height: 7vh;
   padding: 2px 24px;
-  margin-left: 30%;
+  
 }
 
 .check-button.close-open-window:hover {
@@ -136,10 +139,19 @@
 }
 
 
+/*    */
+.create-packets-form-container {
+  width: 10vw;
+  margin-left: 1.3vw;
+}
+
+.create-packets-form-container .create-packets-input-group {
+  margin: 2vh;
+}
+
 /* input boxes - create packet quizz */
 .create-packets-input-group input{
   font-size: 1rem;
-  margin: 0.4vh;
   border: none;
   border-radius: 1rem;
   background: #e8e8e8;
@@ -209,58 +221,6 @@
   background-color: #292929;
 }
 
-/*  a  */
-.find-packet-input-box {
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    flex-direction: column;
-  }
-  
-  .find-packet-input-box input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: none;
-  }
-  
-  .find-packet-input-box button {
-    
-    margin-top: 20px;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .create-packets-form-container {
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-  }
-  .create-packets-form-container button {
-    position: relative;
-    left: 35%;
-    cursor: pointer;
-  }
-
-  .create-packets-form-container .create-packets-input-group {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-  }
-  
-  .create-packets-form-container label {
-    width: 50px;
-    margin-right: 10px;
-  }
-  
-  .create-packets-form-container input {
-    flex: 1;
-    padding: 5px;
-  }
 
   .circle {
     width: 250px;
