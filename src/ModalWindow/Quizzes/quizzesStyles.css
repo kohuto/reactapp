@@ -1,27 +1,40 @@
 /* sort file by size*/
-.sort-file-size-buttons, .sort-ip-submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: auto;
-    
-}
-.sort-file-size-buttons a, .sort-file-size-buttons button, .sort-ip-submit button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #767676;
+
+.sort-file-size-button a {
+    font-size: 2rem;
     color: white;
-    border: none;
-    border-radius: 4px;
     text-decoration: none;
-    margin: 20px
+    padding: 50%;
 }
 
+.sort-file-size-button{
+    display: inline-block;
+    font-size: 20px;
+    margin:3%;
+}
+.container-sort {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-column {
+    flex: 1;
+    padding-left: 10%;
+    width: 30%;
+  }
+  
+  .right-column {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+/*
 .sort-file-size-buttons a:hover, .sort-file-size-buttons button:hover, .sort-ip-submit button:hover  {
     background-color: #353535;
     cursor: pointer;
 }
-
+*/
 
 /* typing challenge */
 .form {

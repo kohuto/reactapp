@@ -11,6 +11,10 @@ import { serversZoom0Data } from "../Flow/data/server/serverZoom0";
 import { gatewaysZoom1Data } from "../Flow/data/gateway/gatewayZoom1";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
 import { gatewaysZoom0Data } from "../Flow/data/gateway/gatewayZoom0";
+import { btsData } from "../Flow/data/bts";
+import { wifiData } from "../Flow/data/wifi";
+import { satelitsData } from "../Flow/data/satelits";
+
 import { edgesData } from "../Flow/data/edges";
 import { edgesValueData } from "../Flow/data/edgesValue";
 import WhatIsWiFiComponent from "./QuizzComponents/wirelessDevice";
@@ -20,6 +24,9 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
     .concat(serversZoom2Data)
     .concat(gatewaysZoom2Data);
 
+  const whatIsWifiNodes = defaultNodes.concat(wifiData);
+  const whatIsBTSNodes = defaultNodes.concat(btsData);
+  const whatIsSatelitNodes = defaultNodes.concat(satelitsData);
   const [edges, setEdges, onEdgesChange] = useEdgesState(edgesData);
 
   useEffect(() => {
@@ -60,7 +67,13 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         setEdges([]);
         break;
       case "whatIsWiFi":
-        setNodes(nodes);
+        setNodes(whatIsWifiNodes);
+        break;
+      case "whatIsBTS":
+        setNodes(whatIsBTSNodes);
+        break;
+      case "whatIsSatelit":
+        setNodes(whatIsSatelitNodes);
         break;
       case "shortestPath":
         setEdges(edgesValueData);
@@ -81,7 +94,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
 
   return (
     <>
-      {game === "whatIsWiFi" && (
+      {game === "wirelessDevices" && (
         <WhatIsWiFiComponent game={game} setNodes={setNodes} nodes={nodes} />
       )}
       {game === "buildNetwork" && (

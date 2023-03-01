@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./DnD.css";
-import "./quizzesStyles.css";
+import { motion } from "framer-motion";
 /*https://github.com/thebikashweb/react-drag-drop-without-library/tree/master/src*/
 /*bez pouziti knihovny*/
 const finalFiles = [
@@ -30,7 +30,7 @@ function CheckCorectness(i) {
   if (
     i[0].name == "video.mp4" &&
     i[1].name == "hudba.mp3" &&
-    i[2].name == "obrazek.png" &&
+    i[2].name == "obrazek.jpeg" &&
     i[3].name == "text.txt"
   ) {
     var modal = document.getElementById("modal-window32");
@@ -52,44 +52,58 @@ function SortFileSize(props) {
 
   return (
     <>
-      <header className="App-header">
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="characters">
-            {(provided) => (
-              <ul
-                className="characters"
-                {...provided.droppableProps}
-                ref={provided.innerRef}
+      <div className="container-sort">
+        <div className="left-column">
+          <DragDropContext onDragEnd={handleOnDragEnd}>
+            <Droppable droppableId="characters">
+              {(provided) => (
+                <ul
+                  className="characters"
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                >
+                  {files.map(({ id, name }, index) => {
+                    return (
+                      <Draggable key={id} draggableId={id} index={index}>
+                        {(provided) => (
+                          <li
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                          >
+                            <p>{name}</p>
+                          </li>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
+
+        <div className="right-column">
+          <div className="sort-file-size-button start-quizz-button">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+              <a
+                href="https://drive.google.com/drive/folders/1r9sUnjSo26zLOQhS15xEPKM1PN6LxN7K?usp=share_link"
+                target="_blank"
               >
-                {files.map(({ id, name }, index) => {
-                  return (
-                    <Draggable key={id} draggableId={id} index={index}>
-                      {(provided) => (
-                        <li
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <p>{name}</p>
-                        </li>
-                      )}
-                    </Draggable>
-                  );
-                })}
-                {provided.placeholder}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </header>
-      <div className="sort-file-size-buttons">
-        <a
-          href="https://drive.google.com/drive/folders/1r9sUnjSo26zLOQhS15xEPKM1PN6LxN7K?usp=share_link"
-          download="files"
-        >
-          Download
-        </a>
-        <a onClick={() => CheckCorectness(files)}>OVĚŘ SPRÁVNOST</a>
+                SOUBORY
+              </a>
+            </motion.div>
+          </div>
+          <div
+            className="sort-file-size-button start-quizz-button"
+            onClick={() => CheckCorectness(files)}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+              ZKONTROLUJ
+            </motion.div>
+          </div>
+        </div>
       </div>
     </>
   );

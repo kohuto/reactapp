@@ -1,6 +1,6 @@
 import Sidebar from "../Sidebar/sidebar";
 import InteractiveSidebar from "../interactive-sidebar/sidebar";
-import QuizzComponents from "./QuizzComponents/QuizzComponents";
+import QuizzComponents from "./QuizzComponents/Quizzes";
 import { useState } from "react";
 import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";

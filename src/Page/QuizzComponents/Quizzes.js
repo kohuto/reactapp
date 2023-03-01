@@ -14,6 +14,7 @@ import CountPaths from "./countPaths";
 import CircleImage from "./raceAroundWorld";
 import SetPaths from "./setPaths";
 import ZoomButtons from "./zoomButtons";
+import WhatIsWiFiComponent from "./wirelessDevice";
 
 function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
   switch (game) {
@@ -37,8 +38,8 @@ function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
       return <FindPacketComponent setGame={() => setGame("noGame")} />;
     case "whatIsCabel":
       return <WhatIsCabelComponent />;
-    /*case "whatIsWiFi":
-      return <WhatIsWiFiComponent />;*/
+    case "whatIsWiFi":
+      return <WhatIsWiFiComponent />;
     case "whatIsBTS":
       return <WhatIsBTSComponent />;
     case "whatIsSatelit":

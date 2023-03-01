@@ -1,9 +1,10 @@
 export const wifiData = [
   {
-    id: "2620:0:862:ed1a::1",
-    type: "wifi",
-    x: 825,
-    y: 530,
-    description: "2620:0:862:ed1a::1",
+    id: "39:0:159:aa9b::1",
+    type: "custom",
+    position: { x: 555, y: 130 },
+    className: "wifi",
+    data: { label: "39:0:159:aa9b::1" },
+    dragHandle: "noDrag",
   },
 ];
