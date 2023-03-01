@@ -1,0 +1,70 @@
+
+.client, .client-build {
+  width: 120px;
+  height: 70px;
+  background-image: url("../images/nodes/klient.jpg");
+  background-repeat: no-repeat;
+  border: none;
+}
+.gateway, .gateway-build {
+  width: 82px;
+  height: 20px;
+  background-image: url("../images/nodes/gateway.jpg");
+  background-repeat: no-repeat;
+  border: none;
+}
+.server, .server-build {
+  width: 105px;
+  height: 70px;
+  background-image: url("../images/nodes/server.jpg");
+  background-repeat: no-repeat;
+  border: none;
+}
+
+
+.wifi, .wifi-build {
+  background: rgba( 255, 255, 255, 0.25 ) url("../images/nodes/wifi.jpg") no-repeat center center;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+border-radius: 50%;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 120px;
+  width: 120px;
+  
+}
+.bts, .bts-build {
+  background: rgba( 255, 255, 255, 0.25 ) url("../images/nodes/btsvez.jpg") no-repeat center center;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+border-radius: 50%;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 250px;
+  width: 250px;
+}
+
+.react-flow__edge-text {
+  font-size: 20px;
+}
+
+
+.server .react-flow__handle-bottom, .client .react-flow__handle-bottom, .gateway .react-flow__handle-bottom, .wifi .react-flow__handle-bottom{
+  bottom: 5px;
+  visibility: hidden;
+}
+
+.server .react-flow__handle-top, .gateway .react-flow__handle-top, .client .react-flow__handle-top, .wifi .react-flow__handle-top {
+  top: 5px;
+  visibility: hidden;
+}
+
+
+
+/*.background1{
+
+  background-image: url("../images/background/czech.png");
+  background-repeat: no-repeat;
+  background-size: 80vw 100vh;
+  
+}*/

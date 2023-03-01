@@ -1,0 +1,368 @@
+/* Plus/Minus Zoom Button Styles */
+.zoom-buttons-container{
+  position: absolute;
+  bottom: 4vh;
+  z-index: 1;
+  right: 2vw ;
+  height: 10vh;
+  width: 2.5vw;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  box-shadow: 3px 3px 6px #c5c5c5,
+              -6px -6px 12px #ffffff;
+}
+
+.zoom-in, .zoom-out {
+  border-radius: 0.5em;
+  height: 5vh;
+  cursor: pointer;
+  width: 2.5vw;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+
+}
+.zoom-in {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.zoom-out {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  top: 5vh;
+}
+
+.zoom-out::before {
+  content: "";
+  display: block;
+  width: 80%;
+  border-bottom: 1px solid #696666;
+  position: absolute;
+  top: 5vh;
+  left: 10%;
+}
+
+.zoom-button img {
+  width: 0.8vw;
+  height: auto;
+  transition: transform 0.2s ease-out;
+}
+
+.zoom-button:hover img{
+  transform: scale(1.3);
+}
+
+/* close open button and content */
+.close-open-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-top: 50px;
+}
+
+.close-open-controls button {
+  background-color: rgb(42, 42, 42);
+  color: rgb(237, 237, 237);
+  border: none;
+  padding: 15px 15px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 50px;
+}
+
+.close-open-content {
+  width: 300px;
+  height: 300px;
+  border-radius: 20%;
+  background: rgb(119, 119, 119);
+  margin: 0;
+  position: absolute;
+  bottom: 70px;
+  right: 90px;
+  z-index: 15;
+}
+
+/* Slideshow */
+
+.create-packets-slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.create-packets-slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.create-packets-slide {
+  display: inline-block;
+
+  height: 200px;
+  width: 300px;
+  border-radius: 40px;
+}
+
+/* Buttons of slides show*/
+
+.create-packets-slideshowDots {
+  text-align: center;
+}
+
+.create-packets-slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.create-packets-slideshowDot.active {
+  background-color: #333233;
+}
+
+
+.find-packet-input-box {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    flex-direction: column;
+  }
+  
+  .find-packet-input-box input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+  }
+  
+  .find-packet-input-box button {
+    
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .create-packets-form-container {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+  }
+  .create-packets-form-container button {
+    position: relative;
+    left: 35%;
+    cursor: pointer;
+  }
+
+  .create-packets-form-container .create-packets-input-group {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .create-packets-form-container label {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .create-packets-form-container input {
+    flex: 1;
+    padding: 5px;
+  }
+
+  .circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.5px );
+    -webkit-backdrop-filter: blur( 0.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: 5;
+  }
+
+  /* messenger chat styles */
+
+  .chat-container {
+   position: absolute;
+    z-index: 5;
+    top: 50px;
+    right: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f2f5f8;
+    border-radius: 10px;
+    padding: 20px;
+    border: #333233 solid 3px;
+  }
+
+  .message {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    display: inline-block;
+  }
+
+  .message.user-message {
+    align-self: flex-end;
+    margin-right: 20px;
+    background-color: #1da1f2;
+    color: white;
+  }
+
+  .message.other-message {
+    align-self: flex-start;
+    margin-left: 20px;
+  }
+
+.input-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+}
+
+.chat-container input[type="text"] {
+padding: 10px;
+border-radius: 20px;
+border: none;
+width: 60%;
+margin-right: 10px;
+}
+
+.chat-container button {
+padding: 10px 20px;
+background-color: #1da1f2;
+color: white;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+}
+
+/* rozdelene pakety s vysvetlujicim textem */
+
+.data-into-packets-container-bg{
+  position: fixed; 
+  padding-top: 2%; 
+  left: 0;
+  top: 0;
+  width: 100vw; 
+  height: 100vh; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+  z-index: 15;
+}
+
+.data-into-packets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefefe;
+  height: 50vh;
+  width: 50vw;
+  position: absolute;
+  top: 25vh;
+  left: 25vw;
+  z-index: 15;
+  margin: auto;
+  border: 1px solid #888;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.new-message-box {  /* one part of message */
+  background-color: rgb(160, 68, 68);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px;
+
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #a5a4a4;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -6px -6px 12px #ffffff;
+} 
+
+.close.data-into-packet {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  
+}
+
+/* race around world */
+.container-race {
+position: absolute;
+top: 20vh;
+right: 25vw;
+}
+.circle-image {
+  position: relative;
+  top: 20vh;
+  right: 25vw;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fc0606;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circles {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.circle-race {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.circle-race.selected {
+  background-color: #fff;
+  transform: scale(1.2);
+}

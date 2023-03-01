@@ -1,0 +1,42 @@
+export const gatewaysZoom1Data = [
+  {
+    id: "147.32.3.202",
+    type: "default",
+    position: { x: 175, y: 190 },
+    className: "gateway",
+    data: { label: "147.32.3.202" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "91.198.174.192",
+    type: "default",
+    position: { x: 300, y: 240 },
+    className: "gateway",
+    data: { label: "91.198.174.192" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "2001:1488:0:3::2",
+    type: "default",
+    position: { x: 100, y: 470 },
+    className: "gateway",
+    data: { label: "2001:1488:0:3::2" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "193.85.9.76",
+    type: "default",
+    position: { x: 260, y: 380 },
+    className: "gateway",
+    data: { label: "193.85.9.76" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "217.31.205.50",
+    type: "default",
+    position: { x: 100, y: 310 },
+    className: "gateway",
+    data: { label: "217.31.205.50" },
+    dragHandle: "noDrag",
+  },
+];

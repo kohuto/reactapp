@@ -1,0 +1,63 @@
+/* sort file by size*/
+.sort-file-size-buttons, .sort-ip-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: auto;
+    
+}
+.sort-file-size-buttons a, .sort-file-size-buttons button, .sort-ip-submit button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #767676;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 20px
+}
+
+.sort-file-size-buttons a:hover, .sort-file-size-buttons button:hover, .sort-ip-submit button:hover  {
+    background-color: #353535;
+    cursor: pointer;
+}
+
+
+/* typing challenge */
+.form {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.typing-challenge-text {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: inset 20px 20px 60px #bebebe,
+                inset -20px -20px 60px #ffffff;
+}
+
+#typing-challenge-input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    vertical-align: middle;
+}
+
+.shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+    box-shadow: 0 0 0.5em red;
+}
+
+@keyframes shake {
+    0% { margin-left: 0rem; }
+    25% { margin-left: 0.5rem; }
+    75% { margin-left: -0.5rem; }
+    100% { margin-left: 0rem; }
+}
