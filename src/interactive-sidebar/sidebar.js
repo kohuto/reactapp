@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import klient from "../images/nodes/klient.jpg";
 import server from "../images/nodes/server.jpg";
 import gateway from "../images/nodes/gateway.jpg";
+import rightarrow from "../images/icons/right-arrow.png";
 function InteractiveSidebar({
   setIsLandingPage,
   nodes,
@@ -83,50 +84,46 @@ function InteractiveSidebar({
   const menuItems = [
     {
       id: 1,
-      text: "klient",
+      text: "Klient",
       icon: klient,
     },
     {
       id: 2,
-      text: "gateway",
+      text: "Chytrá křižovatka",
       icon: gateway,
     },
     {
       id: 3,
-      text: "server",
+      text: "Server",
       icon: server,
     },
     {
       id: 4,
-      text: "quizz",
-      icon: "icon4.png",
+      text: "Úkoly",
+      icon: rightarrow,
     },
   ];
 
   return (
-    <div className="container">
-      <div className="navigation-menu-interactive">
-        <div className="menu-items-interactive">
-          {menuItems.map((item) => (
-            <div
-              key={item.id}
-              className={`menu-item-interactive ${
-                hoveredItem === item.id ? "active-interactive" : ""
-              }`}
-              onMouseEnter={() => handleHover(item.id)}
-              onMouseLeave={() => handleHover(null)}
-              onClick={handleClick}
-            >
-              <div className="menu-item-icon-interactive">
-                <img src={item.icon} alt={item.text} />
-                {hoveredItem === item.id && (
-                  <div className="menu-item-text-interactive">{item.text}</div>
-                )}
-              </div>
-            </div>
-          ))}
+    <div className="menu-items-interactive">
+      {menuItems.map((item) => (
+        <div
+          key={item.id}
+          className={`menu-item-interactive ${
+            hoveredItem === item.id ? "active-interactive" : ""
+          } ${item.id === menuItems.length ? "bottom-interactive" : ""}`}
+          onMouseEnter={() => handleHover(item.id)}
+          onMouseLeave={() => handleHover(null)}
+          onClick={handleClick}
+        >
+          <div className="menu-item-icon-interactive icon-button">
+            <img src={item.icon} alt={item.text} />
+            {hoveredItem === item.id && (
+              <div className="menu-item-text-interactive">{item.text}</div>
+            )}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }

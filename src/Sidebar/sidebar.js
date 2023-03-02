@@ -5,17 +5,20 @@ import QuizzTemplate from "../ModalWindow/templateQuizz";
 import SummaryTemplate from "../ModalWindow/templateSummary";
 import { stockData } from "../ModalWindow/dataQuizzes";
 import { correctAnswers } from "../ModalWindow/dataCorrectAnswers";
-import { ReactComponent as CogIcon } from "../images/icons/cog.svg";
-import { ReactComponent as ArrowIcon } from "../images/icons/arrow.svg";
-import { ReactComponent as BoltIcon } from "../images/icons/bolt.svg";
 import internet from "../images/icons/internet.png";
 import packet from "../images/icons/packet.png";
 import wifi from "../images/icons/wifi.png";
 import builder from "../images/icons/builder.png";
 import gateway from "../images/icons/gateway.png";
+import backarrow from "../images/icons/left-arrow.png";
+import settings from "../images/icons/settings.png";
+import summary from "../images/icons/summary.png";
+import question from "../images/icons/question-mark.png";
+import lightbulb from "../images/icons/light-bulb.png";
 
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import { light } from "@mui/material/styles/createPalette";
 
 function openModal(i) {
   var modal = document.getElementById("modal-window" + i);
@@ -144,7 +147,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
             <DropdownItem leftIcon={builder}>POSTAV SÍŤ</DropdownItem>
           </div>
           <div id="downitem" onClick={() => showLandingPage(true)}>
-            <DropdownItem leftIcon={<ArrowIcon />}>Land Page</DropdownItem>
+            <DropdownItem leftIcon={backarrow}>Land Page</DropdownItem>
           </div>
         </div>
       </CSSTransition>
@@ -157,28 +160,26 @@ function DropdownMenu({ showLandingPage, setGame }) {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={backarrow}>
             <h2>INTERNET Z DÁLKY</h2>
           </DropdownItem>
           <div
             className="menu-item-div"
             onClick={() => openModal(countOfQuizzes)}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>ÚVOD</DropdownItem>
+            <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(0)}>
-            <DropdownItem leftIcon={<BoltIcon />}>SERVER</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>SERVER</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(1)}>
-            <DropdownItem leftIcon={<BoltIcon />}>KLIENT</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>KLIENT</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(2)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              CHYTRÁ KŘIŽOVATKA
-            </DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(3)}>
-            <DropdownItem leftIcon={<BoltIcon />}>CESTA</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
           </div>
         </div>
       </CSSTransition>
@@ -191,29 +192,29 @@ function DropdownMenu({ showLandingPage, setGame }) {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={backarrow}>
             <h2>KLIENTI A PAKETY</h2>
           </DropdownItem>
           <div
             className="menu-item-div"
             onClick={() => openModal(countOfQuizzes + 1)}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>ÚVOD</DropdownItem>
+            <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(4)}>
-            <DropdownItem leftIcon={<BoltIcon />}>POSÍLÁNÍ DAT</DropdownItem>
+            <DropdownItem leftIcon={question}>POSÍLÁNÍ DAT</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(5)}>
-            <DropdownItem leftIcon={<BoltIcon />}>PAKET</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>PAKET</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(6)}>
-            <DropdownItem leftIcon={<BoltIcon />}>VYTVOŘ PAKET</DropdownItem>
+            <DropdownItem leftIcon={question}>VYTVOŘ PAKET</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(7)}>
-            <DropdownItem leftIcon={<BoltIcon />}>NAJDI PAKET</DropdownItem>
+            <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(8)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
+            <DropdownItem leftIcon={question}>
               JAK VELKÁ BUDE ZPRÁVA
             </DropdownItem>
           </div>
@@ -227,42 +228,38 @@ function DropdownMenu({ showLandingPage, setGame }) {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={backarrow}>
             <h2>TYPY PŘIPOJENÍ</h2>
           </DropdownItem>
           <div
             className="menu-item-div"
             onClick={() => openModal(countOfQuizzes + 2)}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>ÚVOD</DropdownItem>
+            <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(9)}>
-            <DropdownItem leftIcon={<BoltIcon />}>KABELY</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>KABELY</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(10)}>
-            <DropdownItem leftIcon={<BoltIcon />}>WIFI</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>WIFI</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(11)}>
-            <DropdownItem leftIcon={<BoltIcon />}>MOBILNÍ DATA</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>MOBILNÍ DATA</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(12)}>
-            <DropdownItem leftIcon={<BoltIcon />}>SATELIT</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(13)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              CESTA KOLEM SVĚTA
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>CESTA KOLEM SVĚTA</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(14)}>
-            <DropdownItem leftIcon={<BoltIcon />}>RYCHLOST</DropdownItem>
+            <DropdownItem leftIcon={question}>RYCHLOST</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(15)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              OMEZENÁ VZDÁLENOST
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(16)}>
-            <DropdownItem leftIcon={<BoltIcon />}>JAK SE PŘIPOJIT</DropdownItem>
+            <DropdownItem leftIcon={question}>JAK SE PŘIPOJIT</DropdownItem>
           </div>
         </div>
       </CSSTransition>
@@ -274,43 +271,37 @@ function DropdownMenu({ showLandingPage, setGame }) {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={backarrow}>
             <h2>SERVERY A KŘIŽOVATKY</h2>
           </DropdownItem>
           <div
             className="menu-item-div"
             onClick={() => openModal(countOfQuizzes + 3)}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>ÚVOD</DropdownItem>
+            <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(17)}>
-            <DropdownItem leftIcon={<BoltIcon />}>IP ADRESA</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>IP ADRESA</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(18)}>
-            <DropdownItem leftIcon={<BoltIcon />}>IPV4, IPv6</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(19)}>
-            <DropdownItem leftIcon={<BoltIcon />}>NEZÁVISLÝ PAKET</DropdownItem>
+            <DropdownItem leftIcon={question}>NEZÁVISLÝ PAKET</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(20)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              KUDY TUDY CESTIČKA
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>KUDY TUDY CESTIČKA</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(21)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
+            <DropdownItem leftIcon={question}>
               VŠECHNY CESTY VEDOU DO ŘÍMA
             </DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(22)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              PROBLÉM NA CESTĚ
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(23)}>
-            <DropdownItem leftIcon={<BoltIcon />}>
-              SESTAVENÍ ZPRÁVY
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
           </div>
         </div>
       </CSSTransition>
