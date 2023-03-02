@@ -82,7 +82,7 @@ function InputBoxes({ setFirstPacket, setFirstPacketPath }) {
   return (
     <div>
       {inputValues.map((value, index) => (
-        <div key={index}>
+        <div key={index} className="create-packets-input-group">
           <input
             type="text"
             value={value}
@@ -90,18 +90,19 @@ function InputBoxes({ setFirstPacket, setFirstPacketPath }) {
           />
         </div>
       ))}
-      <div>
-        <div className="set-path-dot" onClick={addInputBox}>
-          PŘIDEJ POLE
+      <div className="set-path-dots">
+        <div className="set-path-add-remove">
+          <div className="set-path-dot" onClick={addInputBox}>
+            PŘIDEJ POLE
+          </div>
+          <div className="set-path-dot" onClick={removeInputBox}>
+            ODEBER POLE
+          </div>
         </div>
-        <div className="set-path-dot" onClick={removeInputBox}>
-          ODEBER POLE
-        </div>
-        <div className="set-path-dot" onClick={validate}>
+        <div className="set-path-dot-check" onClick={validate}>
           ZKONTROLOVAT
         </div>
       </div>
-      className="create-packets-slideshowDots"
     </div>
   );
 }

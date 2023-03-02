@@ -91,6 +91,54 @@
     margin-left: 15%;
 }
 
-.set-path-dot{
-    
+
+.set-path-dots{
+position: absolute;
+bottom: 2vh;
+text-align: center;
+padding: 2%;
 }
+
+.set-path-dot, .set-path-dot-check{
+    display: inline-block;
+  height: 5vh;
+  width: 8vw;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 2%;
+  padding: 2%;
+  background-color: #686868;
+  color: #e4e4e4;
+}
+
+.set-path-add-remove{
+   display: flex;
+   flex-direction: row;
+}
+.set-path-dots{
+    margin-left: 10%;
+}
+
+/* input boxes - create packet quizz */
+.create-packets-input-group input{
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    box-shadow: 3px 3px 2px #c5c5c5,
+        -10px -10px 180px #ffffff;
+    transition: 0.3s;
+    margin: 2%;
+    margin-left: 2.5vw;
+  }
+  
+ 
+  
+  .create-packets-input-group input:focus{
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+        inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+  }
+  
