@@ -11,14 +11,12 @@ import wifi from "../images/icons/wifi.png";
 import builder from "../images/icons/builder.png";
 import gateway from "../images/icons/gateway.png";
 import backarrow from "../images/icons/left-arrow.png";
-import settings from "../images/icons/settings.png";
 import summary from "../images/icons/summary.png";
 import question from "../images/icons/question-mark.png";
 import lightbulb from "../images/icons/light-bulb.png";
 
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { light } from "@mui/material/styles/createPalette";
 
 function openModal(i) {
   var modal = document.getElementById("modal-window" + i);
@@ -147,7 +145,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
             <DropdownItem leftIcon={builder}>POSTAV SÍŤ</DropdownItem>
           </div>
           <div id="downitem" onClick={() => showLandingPage(true)}>
-            <DropdownItem leftIcon={backarrow}>Land Page</DropdownItem>
+            <DropdownItem leftIcon={backarrow}>INTERAKTIVNÍ MÓD</DropdownItem>
           </div>
         </div>
       </CSSTransition>
