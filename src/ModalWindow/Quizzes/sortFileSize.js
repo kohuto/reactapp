@@ -85,7 +85,7 @@ function SortFileSize(props) {
         </div>
 
         <div className="right-column">
-          <div className="sort-file-size-button start-quizz-button">
+          <div className="sort-files-button">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
               <a
                 href="https://drive.google.com/drive/folders/1r9sUnjSo26zLOQhS15xEPKM1PN6LxN7K?usp=share_link"
@@ -96,7 +96,7 @@ function SortFileSize(props) {
             </motion.div>
           </div>
           <div
-            className="sort-file-size-button start-quizz-button"
+            className="sort-files-button"
             onClick={() => CheckCorectness(files)}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>

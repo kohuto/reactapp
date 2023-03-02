@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "./Components.css";
 import "react-slideshow-image/dist/styles.css";
 import CloseOpen from "./closeOpenWindow";
-
+import { serversZoom2Data } from "../../Flow/data/server/serverZoom2";
 const listOfServers = [
   "server1",
   "server2",
   "server3",
 ]; /* TODO: zde budou IP adresy serverů */
-const listOfClients = ["client1", "client2", "client3"];
 
 function CreatePacketComponent({ setGame }) {
   const handleSubmit = () => {
@@ -26,12 +25,13 @@ function CreatePacketComponent({ setGame }) {
       end2 &&
       end3
     ) {
-      if (
-        start1 === start2 &&
-        start2 === start3 &&
-        listOfClients.includes(start1)
-      ) {
-        if (end1 === end2 && end2 === end3 && listOfServers.includes(end1)) {
+      if (start1 === start2 && start2 === start3 && start1 === "172.16.0.1") {
+        setGame();
+        if (
+          end1 === end2 &&
+          end2 === end3 &&
+          serversZoom2Data.some((server) => server.id === end1)
+        ) {
           if (
             (id1 === "1" && content1 === "AHOJ HON") ||
             (id1 === "2" && content1 === "ZO, JAK ") ||
@@ -47,7 +47,6 @@ function CreatePacketComponent({ setGame }) {
                 (id3 === "2" && content3 === "ZO, JAK ") ||
                 (id3 === "3" && content3 === "SE MÁŠ?")
               ) {
-                setGame();
               }
             }
           }

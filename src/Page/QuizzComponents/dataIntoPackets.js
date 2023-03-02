@@ -3,9 +3,9 @@ import DefaultPackets from "../../Packet";
 
 function DataIntoPackets({ setGame }) {
   const [messages, setMessages] = useState([
-    { text: "Hey there! How are you doing today?", sender: "other" },
+    { text: "Ahoj Pepo! Jak se dneska daří?", sender: "other" },
     {
-      text: "I'm doing great, thanks for asking! How about you?",
+      text: "Ahoj Aničko!",
       sender: "user",
     },
   ]);

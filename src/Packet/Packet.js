@@ -83,7 +83,6 @@ function Packet({ content, from, to, path, color, speed }) {
     <>
       <div>
         <motion.div
-          id="1"
           key="my-component"
           onClick={onClick}
           className="paket"

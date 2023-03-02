@@ -1,20 +1,13 @@
 /* sort file by size*/
 
-.sort-file-size-button a {
-    font-size: 2rem;
+.sort-files-button a {
     color: white;
     text-decoration: none;
-    padding: 50%;
 }
 
-.sort-file-size-button{
-    display: inline-block;
-    font-size: 20px;
-    margin:3%;
-}
+
 .container-sort {
     display: flex;
-    justify-content: space-between;
   }
   
   .left-column {
@@ -24,17 +17,29 @@
   }
   
   .right-column {
+    padding: 10%;
     flex: 0 0 auto;
+    width: 70%;
     display: flex;
     flex-direction: column;
-    width: 70%;
   }
-/*
-.sort-file-size-buttons a:hover, .sort-file-size-buttons button:hover, .sort-ip-submit button:hover  {
-    background-color: #353535;
-    cursor: pointer;
-}
-*/
+
+  .sort-files-button {
+    margin-bottom: 5%;
+    width: 10vw;
+    display: flex;
+    background-color:#8c8c8c;
+	border-radius:28px;
+	border:1px solid #525252;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1.7rem;
+	padding:16px 31px;
+	text-decoration:none;
+  }
+
+
 
 /* typing challenge */
 .form {

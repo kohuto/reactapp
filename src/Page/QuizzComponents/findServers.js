@@ -24,9 +24,9 @@ function InputBox({ setGame }) {
 
   const handleSubmit = () => {
     if (
-      client1 === "192.168.1.1" &&
-      client2 === "195.113.76.22" &&
-      client3 === "195.113.89.35"
+      client1 === "195.113.89.35" &&
+      client2 === "192.168.1.1" &&
+      client3 === "195.113.76.22"
     ) {
       openModal(29);
       setGame();
