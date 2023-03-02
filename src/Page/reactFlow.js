@@ -115,7 +115,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         zoomOnDoubleClick={false}
         onNodesChange={onNodesChange}
         className={`${
-          game === "noGame"
+          !zoomGames.includes(game)
             ? ""
             : zoom === 0
             ? "background1"
