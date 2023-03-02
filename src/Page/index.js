@@ -6,20 +6,9 @@ import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
 import { findPacketsData } from "../Packet/data/findPackets";
 import DefaultPackets from "../Packet";
+import city from "../images/background/city.jpg";
 import { useNodesState } from "reactflow";
 function Page() {
-  /*<div                           toto patri do return
-          style={{
-            width: "70vw",
-            height: "100vh",
-            backgroundImage: `url(${
-              zoom === 0 ? city : zoom === 1 ? czech : europe
-            })`,
-            position: "absolute",
-            left: "30vw",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></div>*/
   const [isLandingPage, setIsLandingPage] = useState(true);
   const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
@@ -39,7 +28,7 @@ function Page() {
 
   if (isLandingPage) {
     return (
-      <>
+      <div className="page">
         <DefaultPackets
           packetsData={interactiveModePacketsData}
           game={game === "noGame"}
@@ -52,7 +41,7 @@ function Page() {
             setNodes={setNodes}
             onNodesChange={onNodesChange}
           />
-          <div style={{ flex: 1, marginLeft: "12%" }}>
+          <div style={{ flex: 1 }}>
             <Flow
               game={game}
               zoom={zoom}
@@ -62,7 +51,7 @@ function Page() {
             />
           </div>
         </div>
-      </>
+      </div>
     );
   } else {
     return (

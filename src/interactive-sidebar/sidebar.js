@@ -4,11 +4,19 @@ import klient from "../images/nodes/klient.jpg";
 import server from "../images/nodes/server.jpg";
 import gateway from "../images/nodes/gateway.jpg";
 import rightarrow from "../images/icons/right-arrow.png";
+import { infoData } from "../ModalWindow/dataInfo";
+import ModalWindowTemplate from "../ModalWindow/templateModalWindow";
+function openModal(i) {
+  var modal = document.getElementById("modal-window" + i);
+  modal.style.display = "block";
+}
+
 function InteractiveSidebar({
   setIsLandingPage,
   nodes,
   setNodes,
   onNodesChange,
+  setGame,
 }) {
   const [hoveredItem, setHoveredItem] = useState(null);
   function handleClick() {
@@ -24,9 +32,11 @@ function InteractiveSidebar({
         break;
       case 4:
         setIsLandingPage();
+
         break;
     }
   }
+
   const handleHover = (item) => {
     setHoveredItem(item);
   };
@@ -105,26 +115,28 @@ function InteractiveSidebar({
   ];
 
   return (
-    <div className="menu-items-interactive">
-      {menuItems.map((item) => (
-        <div
-          key={item.id}
-          className={`menu-item-interactive ${
-            hoveredItem === item.id ? "active-interactive" : ""
-          } ${item.id === menuItems.length ? "bottom-interactive" : ""}`}
-          onMouseEnter={() => handleHover(item.id)}
-          onMouseLeave={() => handleHover(null)}
-          onClick={handleClick}
-        >
-          <div className="menu-item-icon-interactive icon-button">
-            <img src={item.icon} alt={item.text} />
-            {hoveredItem === item.id && (
-              <div className="menu-item-text-interactive">{item.text}</div>
-            )}
+    <>
+      <div className="menu-items-interactive">
+        {menuItems.map((item) => (
+          <div
+            key={item.id}
+            className={`menu-item-interactive ${
+              hoveredItem === item.id ? "active-interactive" : ""
+            } ${item.id === menuItems.length ? "bottom-interactive" : ""}`}
+            onMouseEnter={() => handleHover(item.id)}
+            onMouseLeave={() => handleHover(null)}
+            onClick={handleClick}
+          >
+            <div className="menu-item-icon-interactive icon-button">
+              <img src={item.icon} alt={item.text} />
+              {hoveredItem === item.id && (
+                <div className="menu-item-text-interactive">{item.text}</div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 

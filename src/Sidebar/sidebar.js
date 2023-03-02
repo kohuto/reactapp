@@ -5,6 +5,7 @@ import QuizzTemplate from "../ModalWindow/templateQuizz";
 import SummaryTemplate from "../ModalWindow/templateSummary";
 import { stockData } from "../ModalWindow/dataQuizzes";
 import { correctAnswers } from "../ModalWindow/dataCorrectAnswers";
+import { infoData } from "../ModalWindow/dataInfo";
 import internet from "../images/icons/internet.png";
 import packet from "../images/icons/packet.png";
 import wifi from "../images/icons/wifi.png";
@@ -28,6 +29,7 @@ function Sidebar({ setGame, showLandingPage }) {
   let summaryModalWindows = [];
   let correctAnswersModalWindows = [];
   let countOfCorrectAnswers = correctAnswers.length;
+  let countOfInfoData = infoData.length;
   let countOfQuizzes = stockData.length;
   for (let i = 0; i < countOfQuizzes; i++) {
     // create modal windows for quizzes
@@ -63,6 +65,7 @@ function Sidebar({ setGame, showLandingPage }) {
       />
     );
   }
+
   return (
     <>
       {quizzModalWindows}

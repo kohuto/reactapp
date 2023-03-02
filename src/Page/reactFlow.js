@@ -92,6 +92,12 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
     []
   );
 
+  const zoomGames = [
+    "whatIsServer",
+    "whatIsClient",
+    "whatIsRoad",
+    "whatIsGateway",
+  ];
   return (
     <>
       {game === "wirelessDevices" && (
@@ -108,7 +114,17 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         zoomOnPinch={false}
         zoomOnDoubleClick={false}
         onNodesChange={onNodesChange}
-        className="background1"
+        className={`${
+          game === "noGame"
+            ? ""
+            : zoom === 0
+            ? "background1"
+            : zoom === 1
+            ? "background2"
+            : zoom === 2
+            ? "background3"
+            : ""
+        }`}
         onConnect={onConnect}
       />
     </>

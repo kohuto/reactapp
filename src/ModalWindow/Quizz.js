@@ -10,18 +10,6 @@ import HowToConnect from "./Quizzes/howToConnect";
 
 function Quizz({ setGame, taskData, id, closeModal }) {
   switch (taskData.type) {
-    case "abc":
-      return (
-        <ABC
-          a={taskData.a}
-          b={taskData.b}
-          c={taskData.c}
-          question={taskData.question}
-          correct={taskData.correct}
-          id={id}
-          setGame={() => setGame("abc")}
-        />
-      );
     case "howToConnect":
       return <HowToConnect />;
     case "createPacket":
@@ -93,34 +81,6 @@ function Quizz({ setGame, taskData, id, closeModal }) {
       return (
         <StartQuizz
           setGame={() => setGame("shortestPath")}
-          closeModal={closeModal}
-        />
-      );
-    case "whatIsCabel":
-      return (
-        <StartQuizz
-          setGame={() => setGame("whatIsCabel")}
-          closeModal={closeModal}
-        />
-      );
-    case "whatIsWiFi":
-      return (
-        <StartQuizz
-          setGame={() => setGame("whatIsWiFi")}
-          closeModal={closeModal}
-        />
-      );
-    case "whatIsBTS":
-      return (
-        <StartQuizz
-          setGame={() => setGame("whatIsBTS")}
-          closeModal={closeModal}
-        />
-      );
-    case "whatIsSatelit":
-      return (
-        <StartQuizz
-          setGame={() => setGame("whatIsSatelit")}
           closeModal={closeModal}
         />
       );
