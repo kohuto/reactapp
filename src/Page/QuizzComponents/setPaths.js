@@ -90,9 +90,18 @@ function InputBoxes({ setFirstPacket, setFirstPacketPath }) {
           />
         </div>
       ))}
-      <button onClick={addInputBox}>Přidat input box</button>
-      <button onClick={removeInputBox}>Odebrat input box</button>
-      <button onClick={validate}>CHECK</button>
+      <div>
+        <div className="set-path-dot" onClick={addInputBox}>
+          PŘIDEJ POLE
+        </div>
+        <div className="set-path-dot" onClick={removeInputBox}>
+          ODEBER POLE
+        </div>
+        <div className="set-path-dot" onClick={validate}>
+          ZKONTROLOVAT
+        </div>
+      </div>
+      className="create-packets-slideshowDots"
     </div>
   );
 }
