@@ -26,7 +26,7 @@ function selectWifiElements() {
   return allConected;
 }
 
-function WhatIsWiFiComponent({ game, nodes, setNodes }) {
+function WirelessDevices({ game, nodes, setNodes }) {
   const handleAddNode = (device) => {
     let newNode = {};
 
@@ -73,4 +73,4 @@ function WhatIsWiFiComponent({ game, nodes, setNodes }) {
   );
 }
 
-export default WhatIsWiFiComponent;
+export default WirelessDevices;

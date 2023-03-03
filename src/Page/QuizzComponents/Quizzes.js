@@ -11,11 +11,11 @@ import WhatIsSatelitComponent from "./whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
-import CircleImage from "./raceAroundWorld";
 import SetPaths from "./setPaths";
 import ZoomButtons from "./zoomButtons";
-import WhatIsWiFiComponent from "./wirelessDevice";
+import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./raceAroundWorld";
+import WirelessDevices from "./wirelessDevice";
 
 function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
   switch (game) {
