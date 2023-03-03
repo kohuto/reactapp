@@ -13,8 +13,8 @@ function SmallCircle(props) {
     <div
       className="race-around-world-small-circle"
       style={{
-        top: y + "px",
-        left: x + "px",
+        top: y + "%",
+        left: x + "%",
         visibility: hidden ? "hidden" : "visible",
       }}
       onClick={onClick}
@@ -23,18 +23,15 @@ function SmallCircle(props) {
 }
 function RaceAroundWorld({ setGame }) {
   const [circles, setCircles] = useState([
-    { x: 860, y: 110 },
-
-    { x: 1060, y: 260 },
-
-    { x: 860, y: 510 },
-
-    { x: 660, y: 260 },
+    { x: 56, y: 16 },
+    { x: 70, y: 44 },
+    { x: 56, y: 74 },
+    { x: 43, y: 44 },
   ]);
   const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [disableClick, setDisableClick] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(20);
 
   useEffect(() => {
     let intervalId;
