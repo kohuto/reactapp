@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.1e661602.css",
-    "main.js": "/reactapp/static/js/main.3a3d7d3d.js",
+    "main.css": "/reactapp/static/css/main.7a434f92.css",
+    "main.js": "/reactapp/static/js/main.5fac711e.js",
+    "static/media/Globe-Transparent-Background-PNG.png": "/reactapp/static/media/Globe-Transparent-Background-PNG.bbcdf017ed942c8735c3.png",
     "static/media/internet.png": "/reactapp/static/media/internet.ca5bf7114dc2f4891963.png",
+    "static/media/europe.jpg": "/reactapp/static/media/europe.df7671f2d0f18cb63b10.jpg",
+    "static/media/city.jpg": "/reactapp/static/media/city.6846671f1b1ef495a256.jpg",
     "static/media/server.jpg": "/reactapp/static/media/server.ef38e69411ccc15681be.jpg",
     "static/media/packet.png": "/reactapp/static/media/packet.ca29bf5de5ac5e9fff33.png",
     "static/media/gateway.png": "/reactapp/static/media/gateway.ec45d2507860e03074fc.png",
     "static/media/builder.png": "/reactapp/static/media/builder.563b929d57bbd9f6c921.png",
-    "static/media/cog.svg": "/reactapp/static/media/cog.8c5b9138d8c4be979ec844f26605245f.svg",
+    "static/media/question-mark.png": "/reactapp/static/media/question-mark.e99016679957740cc02d.png",
+    "static/media/summary.png": "/reactapp/static/media/summary.7b99b816c1d2914c52cb.png",
+    "static/media/light-bulb.png": "/reactapp/static/media/light-bulb.a51bd6c6c8059390d774.png",
     "index.html": "/reactapp/index.html",
-    "static/media/arrow.svg": "/reactapp/static/media/arrow.2e552680862d14cd24637c6387dfb5b7.svg",
-    "static/media/bolt.svg": "/reactapp/static/media/bolt.bbfd3d7aaf23b286af050b7e10125db6.svg",
-    "main.1e661602.css.map": "/reactapp/static/css/main.1e661602.css.map",
-    "main.3a3d7d3d.js.map": "/reactapp/static/js/main.3a3d7d3d.js.map"
+    "main.7a434f92.css.map": "/reactapp/static/css/main.7a434f92.css.map",
+    "main.5fac711e.js.map": "/reactapp/static/js/main.5fac711e.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e661602.css",
-    "static/js/main.3a3d7d3d.js"
+    "static/css/main.7a434f92.css",
+    "static/js/main.5fac711e.js"
   ]
 }
