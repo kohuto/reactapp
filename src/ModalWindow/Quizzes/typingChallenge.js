@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 function TypingChallenge() {
-  const [text, setText] = useState(
-    "toto je ukázkový text, který teď musíš co nejrychleji přepsat bez chyb"
-  );
+  const [text, setText] = useState("toto je ukázkový text");
   const [userInput, setUserInput] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
@@ -57,12 +55,6 @@ function TypingChallenge() {
     setIsStarted(true);
   };
 
-  const handleResetClick = () => {
-    setUserInput("");
-    setTimeElapsed(0);
-    setIsStarted(false);
-  };
-
   const formattedTime = (time) => {
     const minutes = Math.floor(time / 60000);
     const seconds = ((time % 60000) / 1000).toFixed(2);
@@ -103,15 +95,17 @@ function TypingChallenge() {
       {isCompleted && (
         <div>
           <p>
-            Perfektní! Právě jsi zvládl správně přepsat 70 znaků za{" "}
+            Perfektní! Právě jsi zvládl správně přepsat {text.length} znaků za{" "}
             {formattedTime(timeElapsed)} vteřin. To znamená, že jsi psal
-            rychlostí {Math.round(70 / (timeElapsed / 1000))} Mb/s. Kdybys psal
-            touto rychlostí, tak bys například zvládl přepsat celou knihu
-            medvídka Pú za Y sekund nebo celou bibli za Z sekund. Je dobré ale
-            zmínit, že průměrná rychlost internetu je až 240 Mb/s (30 MB/s). Z
-            toho vyplývá, že bys musel psát{" "}
-            {Math.round(30000000 / Math.round(70 / (timeElapsed / 1000)))}x
-            rychleji, abys zvládl přenášet data stejně rychle, jako jsou
+            rychlostí {Math.round(text.length / (timeElapsed / 1000))} Mb/s.
+            Kdybys psal touto rychlostí, tak bys například zvládl přepsat celou
+            knihu medvídka Pú za Y sekund nebo celou bibli za Z sekund. Je dobré
+            ale zmínit, že průměrná rychlost internetu je až 240 Mb/s (30 MB/s).
+            Z toho vyplývá, že bys musel psát{" "}
+            {Math.round(
+              30000000 / Math.round(text.length / (timeElapsed / 1000))
+            )}
+            x rychleji, abys zvládl přenášet data stejně rychle, jako jsou
             přenášena po internetu.
           </p>
         </div>
