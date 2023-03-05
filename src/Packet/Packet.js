@@ -4,6 +4,9 @@ import React from "react";
 import { serversZoom2Data } from "../Flow/data/server/serverZoom2";
 import { clientsZoom2Data } from "../Flow/data/client/clientsZoom2";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
+import { btsData } from "../Flow/data/bts";
+import { wifiData } from "../Flow/data/wifi";
+import { satelitsData } from "../Flow/data/satelits";
 
 function getCoordinates(id) {
   const server = serversZoom2Data.find((s) => s.id === id);
@@ -19,6 +22,19 @@ function getCoordinates(id) {
   const gateway = gatewaysZoom2Data.find((g) => g.id === id);
   if (gateway) {
     return { x: gateway.position.x, y: gateway.position.y };
+  }
+
+  const bts = btsData.find((g) => g.id === id);
+  if (bts) {
+    return { x: bts.position.x, y: bts.position.y };
+  }
+  const wifi = wifiData.find((g) => g.id === id);
+  if (wifi) {
+    return { x: wifi.position.x, y: wifi.position.y };
+  }
+  const satelit = satelitsData.find((g) => g.id === id);
+  if (satelit) {
+    return { x: satelit.position.x, y: satelit.position.y };
   }
 
   return null;
@@ -67,7 +83,7 @@ const Results = (props) => (
 
 function computeTimes(length) {
   let times = [];
-  for (let i = 1; i <= length; i++) {
+  for (let i = 0; i <= length; i++) {
     times.push(i / length);
   }
   return times;

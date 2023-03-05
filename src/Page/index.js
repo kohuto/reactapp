@@ -8,8 +8,10 @@ import { findPacketsData } from "../Packet/data/findPackets";
 import DefaultPackets from "../Packet";
 import city from "../images/background/city.jpg";
 import { useNodesState } from "reactflow";
+
 function Page() {
-  const [isLandingPage, setIsLandingPage] = useState(true);
+  const [isLandingPage, setIsLandingPage] =
+    useState(false); /* zde změnit na true */
   const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();

@@ -147,7 +147,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
           <div onClick={() => setGame("buildNetwork")}>
             <DropdownItem leftIcon={builder}>POSTAV SÍŤ</DropdownItem>
           </div>
-          <div id="downitem" onClick={() => showLandingPage(true)}>
+          <div id="downitem" onClick={() => showLandingPage(false)}>
             <DropdownItem leftIcon={backarrow}>INTERAKTIVNÍ MÓD</DropdownItem>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CheckboxGroup from "./multipleCheckbox";
 import { motion } from "framer-motion";
 function openModal(i) {
-  var modal = document.getElementById("modal-window" + i);
+  var modal = document.getElementById("modal-window32");
   modal.style.display = "block";
 }
 function CheckBoxes() {
