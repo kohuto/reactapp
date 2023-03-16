@@ -177,10 +177,18 @@ function DropdownMenu({ showLandingPage, setGame }) {
             <DropdownItem leftIcon={lightbulb}>KLIENT</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(2)}>
-            <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
+            <DropdownItem leftIcon={lightbulb}>
+              KOMUNIKACE <br /> KLIENT-SERVER
+            </DropdownItem>
+          </div>
+          <div className="menu-item-div" onClick={() => openModal(3)}>
+            <DropdownItem leftIcon={lightbulb}>PUTOVÁNÍ INFORMACÍ</DropdownItem>
           </div>
           <div className="menu-item-div" onClick={() => openModal(3)}>
             <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
+          </div>
+          <div className="menu-item-div" onClick={() => openModal(2)}>
+            <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
           </div>
         </div>
       </CSSTransition>

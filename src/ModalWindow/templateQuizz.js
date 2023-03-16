@@ -1,4 +1,5 @@
 import "./modalWindow.css";
+import React from "react";
 import { stockData } from "./dataQuizzes";
 import Quizz from "./Quizz";
 
@@ -8,10 +9,18 @@ function closeModal(i) {
 }
 
 function QuizzTemplate({ setGame, modalWindowID, quizzID }) {
+  const formatedContent = stockData[quizzID].content
+    .split("\n")
+    .map((str, index) => (
+      <React.Fragment key={index}>
+        {str}
+        <br />
+      </React.Fragment>
+    ));
   return (
     <>
       <h1 className="modal-window-heading">{stockData[quizzID].header}</h1>
-      <p className="modal-window-content">{stockData[quizzID].content}</p>
+      <p className="modal-window-content">{formatedContent}</p>
       <h3 className="modal-window-question">{stockData[quizzID].question}</h3>
       <Quizz
         setGame={setGame}
