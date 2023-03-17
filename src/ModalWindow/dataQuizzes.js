@@ -21,10 +21,10 @@ export const stockData = [
     question: "",
   },
   {
-    header: "Co je CHYTRÁ KŘIŽOVATKA",
+    header: "Putování informací",
     content:
-      "Křižovatky propojují cesty pro informace. Když po cestě přijede paket, křižovatka ho pošle směrem k jeho cíli. Paket míří buď do serveru, nebo do klienta. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Jsou dva hlavní typy křižovatek - ROUTER a SWITCH. Klikni nyní na tlačítko ZOBRAZIT KŘIŽOVATKY a podívej se, jak se křižovatky objeví. Nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
-    type: "whatIsGateway",
+      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru? \n Požadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.\nKlikni na tlačítko ZOBRAZIT KŘIŽOVATKY A CESTY. V tuto chvíli již máme hotovu internetovou síť.",
+    type: "whatIsRoad",
     question: "",
   },
   {
@@ -32,6 +32,13 @@ export const stockData = [
     content:
       "Pakety (balíčky dat) většinou nelítají jen tak vzduchem kolem nás. Ve většině případů jezdí po cestách. Cesty jsou nejčastěji kabely zakopané pod zemí a pod mořem. Na kratší vzdálenosti se používají i bezdrátové technologie. Více se o cestách dozvíš v poslední kapitole Servery a křižovatky. Klikni nyní na tlačítko ZOBRAZIT CESTY. Všimni si, že už jsme vybudovali celou internetovou síť. Síť obsahuje servery, klienty, křižovatky a cesty pro informace. Nezapomeň se podívat, jak vypadá internetová síť z dálky.",
     type: "whatIsRoad",
+    question: "",
+  },
+  {
+    header: "Co je CHYTRÁ KŘIŽOVATKA",
+    content:
+      "Křižovatky propojují cesty pro informace. Když po cestě přijede paket, křižovatka ho pošle směrem k jeho cíli. Paket míří buď do serveru, nebo do klienta. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Jsou dva hlavní typy křižovatek - ROUTER a SWITCH. Klikni nyní na tlačítko ZOBRAZIT KŘIŽOVATKY a podívej se, jak se křižovatky objeví. Nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
+    type: "whatIsGateway",
     question: "",
   },
   {

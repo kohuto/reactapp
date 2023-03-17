@@ -184,10 +184,10 @@ function DropdownMenu({ showLandingPage, setGame }) {
           <div className="menu-item-div" onClick={() => openModal(3)}>
             <DropdownItem leftIcon={lightbulb}>PUTOVÁNÍ INFORMACÍ</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(3)}>
+          <div className="menu-item-div" onClick={() => openModal(4)}>
             <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(2)}>
+          <div className="menu-item-div" onClick={() => openModal(5)}>
             <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
           </div>
         </div>
@@ -210,19 +210,19 @@ function DropdownMenu({ showLandingPage, setGame }) {
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(4)}>
+          <div className="menu-item-div" onClick={() => openModal(6)}>
             <DropdownItem leftIcon={question}>POSÍLÁNÍ DAT</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(5)}>
+          <div className="menu-item-div" onClick={() => openModal(7)}>
             <DropdownItem leftIcon={lightbulb}>PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(6)}>
+          <div className="menu-item-div" onClick={() => openModal(8)}>
             <DropdownItem leftIcon={question}>VYTVOŘ PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(7)}>
+          <div className="menu-item-div" onClick={() => openModal(9)}>
             <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(8)}>
+          <div className="menu-item-div" onClick={() => openModal(10)}>
             <DropdownItem leftIcon={question}>
               JAK VELKÁ BUDE ZPRÁVA
             </DropdownItem>
