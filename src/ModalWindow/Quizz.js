@@ -19,6 +19,13 @@ function Quizz({ setGame, taskData, id, closeModal }) {
           closeModal={closeModal}
         />
       );
+    case "client-server-communication":
+      return (
+        <StartQuizz
+          setGame={() => setGame("client-server-communication")}
+          closeModal={closeModal}
+        />
+      );
     case "setPathsOfPackets":
       return (
         <StartQuizz

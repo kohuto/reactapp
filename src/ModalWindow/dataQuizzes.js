@@ -14,6 +14,13 @@ export const stockData = [
     question: "",
   },
   {
+    header: "Komunikace KLIENT-SERVER",
+    content:
+      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku? \n Klient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Obecně tedy platí, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.",
+    type: "client-server-communication",
+    question: "",
+  },
+  {
     header: "Co je CHYTRÁ KŘIŽOVATKA",
     content:
       "Křižovatky propojují cesty pro informace. Když po cestě přijede paket, křižovatka ho pošle směrem k jeho cíli. Paket míří buď do serveru, nebo do klienta. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Jsou dva hlavní typy křižovatek - ROUTER a SWITCH. Klikni nyní na tlačítko ZOBRAZIT KŘIŽOVATKY a podívej se, jak se křižovatky objeví. Nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",

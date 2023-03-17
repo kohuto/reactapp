@@ -16,6 +16,7 @@ import ZoomButtons from "./zoomButtons";
 import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./raceAroundWorld";
 import WirelessDevices from "./wirelessDevice";
+import ClientServerCommunication from "./clientServerComunication";
 
 function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
   switch (game) {
@@ -27,6 +28,8 @@ function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
       return (
         <WhatIsClientComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
       );
+    case "client-server-communication":
+      return <ClientServerCommunication />;
     case "whatIsGateway":
       return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
     case "whatIsRoad":
