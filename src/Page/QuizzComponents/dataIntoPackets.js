@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import DefaultPackets from "../../Packet";
+import profileImageMan from "../../images/profile/man.png";
+import profileImageWoman from "../../images/profile/woman.png";
+import gallery from "../../images/icons/image-gallery.png";
+import plus from "../../images/icons/plusmess.png";
+import gif from "../../images/icons/gif.png";
 
 function DataIntoPackets({ setGame }) {
   const [messages, setMessages] = useState([
-    { text: "Ahoj Pepo! Jak se dneska daří?", sender: "other" },
+    { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
-      text: "Ahoj Aničko!",
+      text: "Ahoj Jeronýme!",
       sender: "user",
     },
   ]);
   const [newMessage, setNewMessage] = useState("");
   const [showChat, setShowChat] = useState(true);
   const [showPackets, setShowPackets] = useState(false);
+  const [isSwapedSenders, setIsSwapedSenders] = useState(false);
   const [showPacketsCreatedMessageBox, setShowPacketsCreatedMessageBox] =
     useState(false);
   const [showPacketsInServerMessageBox, setShowPacketsInServerMessageBox] =
@@ -73,6 +79,7 @@ function DataIntoPackets({ setGame }) {
   ];
 
   function swapSenders() {
+    setIsSwapedSenders(true);
     setMessages(
       messages.map((message) => {
         if (message.sender === "user") {
@@ -169,9 +176,16 @@ function DataIntoPackets({ setGame }) {
   } else if (showChat) {
     return (
       <div className={`chat-container ${showChat ? "" : "hidden"}`}>
-        <span className="close data-into-packet" onClick={setGame}>
-          &times;
-        </span>
+        <div className="chat-header">
+          <span className="close data-into-packet" onClick={setGame}>
+            &times;
+          </span>
+          <img
+            className="profile-image"
+            src={isSwapedSenders ? profileImageWoman : profileImageMan}
+          />
+          <h6>{isSwapedSenders ? "Xavier" : "Jeroným"}</h6>
+        </div>
         {messages.map((message, index) => (
           <div
             key={index}
@@ -183,13 +197,22 @@ function DataIntoPackets({ setGame }) {
           </div>
         ))}
         <div className="input-container">
+          <img src={plus} alt="" />
+          <img src={gif} alt="" />
+          <img src={gallery} alt="" />
           <input
             type="text"
-            placeholder="Type a message..."
+            placeholder="Aa"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
           />
-          <button onClick={handleSend}>Send</button>
+          <button
+            onClick={() => {
+              if (!isSwapedSenders) {
+                handleSend();
+              }
+            }}
+          ></button>
         </div>
       </div>
     );
