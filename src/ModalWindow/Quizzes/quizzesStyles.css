@@ -4,17 +4,19 @@
     color: white;
     text-decoration: none;
 }
-
-
-.container-sort {
-    display: flex;
-  }
   
-  .left-column {
-    flex: 1;
-    padding-left: 10%;
-    width: 30%;
-  }
+ .container-sort .first-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ } 
+
+ .container-sort .second-line{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ }
   
   .right-column {
     padding: 10%;
