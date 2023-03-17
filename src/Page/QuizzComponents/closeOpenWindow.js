@@ -36,7 +36,7 @@ function CloseOpen({ content }) {
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsVisible(!isVisible)}
         >
-          {isVisible ? "-" : "+"}
+          {isVisible ? "SKRYJ" : "UKAŽ"}
         </button>
       </div>
     </div>
