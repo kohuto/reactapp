@@ -246,28 +246,28 @@ function DropdownMenu({ showLandingPage, setGame }) {
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(9)}>
+          <div className="menu-item-div" onClick={() => openModal(11)}>
             <DropdownItem leftIcon={lightbulb}>KABELY</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(10)}>
+          <div className="menu-item-div" onClick={() => openModal(12)}>
             <DropdownItem leftIcon={lightbulb}>WIFI</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(11)}>
+          <div className="menu-item-div" onClick={() => openModal(13)}>
             <DropdownItem leftIcon={lightbulb}>MOBILNÍ DATA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(12)}>
+          <div className="menu-item-div" onClick={() => openModal(14)}>
             <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(13)}>
+          <div className="menu-item-div" onClick={() => openModal(15)}>
             <DropdownItem leftIcon={question}>CESTA KOLEM SVĚTA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(14)}>
+          <div className="menu-item-div" onClick={() => openModal(16)}>
             <DropdownItem leftIcon={question}>RYCHLOST</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(15)}>
+          <div className="menu-item-div" onClick={() => openModal(17)}>
             <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(16)}>
+          <div className="menu-item-div" onClick={() => openModal(18)}>
             <DropdownItem leftIcon={question}>JAK SE PŘIPOJIT</DropdownItem>
           </div>
         </div>
