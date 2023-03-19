@@ -18,11 +18,24 @@ import RaceAroundWorld from "./raceAroundWorld";
 import WirelessDevices from "./wirelessDevice";
 import ClientServerCommunication from "./clientServerComunication";
 
-function QuizzComponents({ setGame, game, zoomIn, zoomOut, zoom }) {
+function QuizzComponents({
+  setGame,
+  game,
+  zoomIn,
+  zoomOut,
+  zoom,
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+}) {
   switch (game) {
     case "whatIsServer":
       return (
-        <WhatIsServerComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
+        <WhatIsServerComponent
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
       );
     case "whatIsClient":
       return (

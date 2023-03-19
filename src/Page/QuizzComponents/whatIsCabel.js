@@ -1,7 +1,7 @@
 import { interactiveModePacketsData } from "../../Packet/data/inteactiveModeData";
 import DefaultPackets from "../../Packet";
 
-function WhatIsCabelComponent({ setGame, game }) {
+function WhatIsCabelComponent() {
   return (
     <>
       <DefaultPackets packetsData={interactiveModePacketsData} />

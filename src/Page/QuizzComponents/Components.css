@@ -19,14 +19,29 @@
   padding: 10px;
 }
 
-.fille-server-1 {
+.upload-video, .upload-image, .upload-web, .no-upload {
   width: 100px;
   height: 70px;
   position: absolute;
-  z-index: 45;
-  top: 50px;
-  right: 50px;
+  z-index: 3;
   background-size: cover;
+}
+
+.upload-video {
+  top: 15vh;
+  right: 30vw;
+}
+.upload-image {
+  top: 55vh;
+  right: 40vw;
+}
+.upload-web {
+  top: 80vh;
+  right: 60vw;
+}
+.no-upload {
+  top: 23vh;
+  right: 60vw;
 }
 
 /* Plus/Minus Zoom Button Styles changing flow */

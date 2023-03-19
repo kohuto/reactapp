@@ -1,7 +1,7 @@
 import DefaultPackets from "../../Packet";
 import { btsData } from "../../Packet/data/btsPackets";
 
-function WhatIsBTSComponent({ setGame, game }) {
+function WhatIsBTSComponent() {
   return (
     <>
       <DefaultPackets packetsData={btsData} />

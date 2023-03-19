@@ -92,12 +92,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
     []
   );
 
-  const zoomGames = [
-    "whatIsServer",
-    "whatIsClient",
-    "whatIsRoad",
-    "whatIsGateway",
-  ];
+  const zoomGames = ["whatIsClient", "whatIsRoad", "whatIsGateway"];
   return (
     <>
       {game === "wirelessDevices" && (

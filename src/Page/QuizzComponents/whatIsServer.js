@@ -5,34 +5,49 @@ import web from "../../images/serverscontent/website-design.png";
 import video from "../../images/serverscontent/multimedia.png";
 import picture from "../../images/serverscontent/picture.png";
 import server from "../../images/nodes/server.jpg";
+import serverig from "../../images/nodes/serverig.png";
+import serverweb from "../../images/nodes/serverwebhost.png";
+import serveryoutube from "../../images/nodes/serveryoutube.png";
 import CloseOpen from "./closeOpenWindow";
 
-function WhatIsServerComponent({ zoomIn, zoomOut }) {
-  const element1Ref = useRef(null);
-  const element2Ref = useRef(null);
-  const element3Ref = useRef(null);
-  const element4Ref = useRef(null);
+function WhatIsServerComponent({
+  setOpenEndGame,
+
+  setOpenInform,
+  setAlertMessage,
+}) {
+  const webRef = useRef(null);
+  const imgRef = useRef(null);
+  const videoRef = useRef(null);
+  const serverimgRef = useRef(null);
+  const servernoRef = useRef(null);
+  const servervideoRef = useRef(null);
+  const serverwebRef = useRef(null);
   const [touching14, setTouching14] = useState(false);
   const [touching24, setTouching24] = useState(false);
   const [touching34, setTouching34] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
   const [filledServer, setFilledServer] = useState(0);
 
   const checkTouching = useCallback(() => {
-    const element1 = element1Ref.current;
-    const element2 = element2Ref.current;
-    const element3 = element3Ref.current;
-    const element4 = element4Ref.current;
+    const web = webRef.current;
+    const img = imgRef.current;
+    const video = videoRef.current;
+    const serverimg = serverimgRef.current;
+    const servervideo = servervideoRef.current;
+    const serverweb = serverwebRef.current;
+    const serverno = servernoRef.current;
 
-    if (element1 && element4) {
-      const touching = areElementsTouching(element1, element4);
+    if (web && serverweb) {
+      const touching = areElementsTouching(web, serverweb);
       setTouching14(touching);
     }
-    if (element2 && element4) {
-      const touching = areElementsTouching(element2, element4);
+    if (img && serverimg) {
+      const touching = areElementsTouching(img, serverimg);
       setTouching24(touching);
     }
-    if (element3 && element4) {
-      const touching = areElementsTouching(element3, element4);
+    if (video && servervideo) {
+      const touching = areElementsTouching(video, servervideo);
       setTouching34(touching);
     }
   }, []);
@@ -44,6 +59,13 @@ function WhatIsServerComponent({ zoomIn, zoomOut }) {
 
     return () => clearInterval(intervalId);
   }, [checkTouching]);
+
+  useEffect(() => {
+    if (filledServer == 3) {
+      setAlertMessage("jsi úplně boží");
+      setOpenEndGame(true);
+    }
+  }, [filledServer]);
 
   const areElementsTouching = (element1, element2) => {
     const rect1 = element1.getBoundingClientRect();
@@ -61,52 +83,77 @@ function WhatIsServerComponent({ zoomIn, zoomOut }) {
 
   useEffect(() => {
     if (touching14) {
-      element1Ref.current.style.display = "none";
+      webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
+      setAlertMessage("Správně! Weby se ukládají do web serverů");
+      setOpenInform(true);
     }
     if (touching24) {
-      element2Ref.current.style.display = "none";
+      imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
+      setAlertMessage(
+        "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků"
+      );
+      setOpenInform(true);
     }
     if (touching34) {
-      element3Ref.current.style.display = "none";
+      videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
+      setAlertMessage("Správně! Na YouTube serveru bude uloženo spoustu videí");
+      setOpenInform(true);
     }
   }, [touching14, touching24, touching34]);
   return (
     <>
-      {filledServer < 3 ? (
-        <>
-          <div
-            className="fille-server-1"
-            ref={element4Ref}
-            style={{
-              backgroundImage: `url(${server})`,
-            }}
-          ></div>
-          <CloseOpen
-            content={
-              <>
-                <p className="fill-server-task">
-                  Uploadni soubory do správného serveru. Upload provedeš
-                  přetažením souboru do serveru.
-                </p>
-                <div className="what-is-server-container">
-                  <DraggableComponent refProp={element1Ref} imageUrl={web} />
-                  <DraggableComponent
-                    refProp={element2Ref}
-                    imageUrl={picture}
-                  />
-                  <DraggableComponent refProp={element3Ref} imageUrl={video} />
-                </div>
-              </>
-            }
-          />
-        </>
-      ) : (
-        <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} />
-      )}
+      <UploadServer
+        refProp={servernoRef}
+        imageUrl={server}
+        servername="no-upload"
+      />
+      <UploadServer
+        servername="upload-video"
+        refProp={servervideoRef}
+        imageUrl={serveryoutube}
+      />
+      <UploadServer
+        servername="upload-image"
+        refProp={serverimgRef}
+        imageUrl={serverig}
+      />
+      <UploadServer
+        servername="upload-web"
+        refProp={serverwebRef}
+        imageUrl={serverweb}
+      />
+
+      <CloseOpen
+        content={
+          <>
+            <p className="fill-server-task">
+              Uploadni soubory do správného serveru. Upload provedeš přetažením
+              souboru do serveru.
+            </p>
+            <div className="what-is-server-container">
+              <DraggableComponent refProp={webRef} imageUrl={web} />
+              <DraggableComponent refProp={imgRef} imageUrl={picture} />
+              <DraggableComponent refProp={videoRef} imageUrl={video} />
+            </div>
+          </>
+        }
+      />
     </>
+  );
+}
+
+function UploadServer({ refProp, imageUrl, servername }) {
+  return (
+    <div
+      className={servername}
+      ref={refProp}
+      style={{
+        backgroundImage: `url(${imageUrl})`,
+      }}
+    ></div>
   );
 }
 
@@ -117,8 +164,6 @@ function DraggableComponent({ refProp, imageUrl }) {
         className="server-content"
         ref={refProp}
         style={{
-          padding: "10px",
-          zIndex: "45",
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
         }}
