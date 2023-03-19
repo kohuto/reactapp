@@ -16,7 +16,7 @@ export const stockData = [
   {
     header: "Komunikace KLIENT-SERVER",
     content:
-      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku?\nKlient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači.\nObecně tedy platí, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.",
+      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku?\nKlient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači.",
     type: "client-server-communication",
     question: "",
   },

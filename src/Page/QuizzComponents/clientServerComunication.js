@@ -45,7 +45,9 @@ function ClientServerCommunication({
       setShowHappyClient(true);
     }, 19000);
     const timeoutId8 = setTimeout(() => {
-      setAlertMessage("a takto to probiha");
+      setAlertMessage(
+        "Zpamatuj si, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi."
+      );
       setOpenEndGame(true);
     }, 22000);
 
