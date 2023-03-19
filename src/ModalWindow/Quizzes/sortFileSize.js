@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Button from "@mui/material/Button";
 
 function SortFileSize() {
   function CheckCorectness() {
@@ -36,6 +37,13 @@ function SortFileSize() {
     setValue4(event.target.value);
   }
 
+  const handleOpenFolder = () => {
+    window.open(
+      "https://drive.google.com/drive/folders/1r9sUnjSo26zLOQhS15xEPKM1PN6LxN7K?usp=share_link",
+      "_blank"
+    );
+  };
+
   return (
     <>
       <div className="container-sort">
@@ -63,21 +71,13 @@ function SortFileSize() {
         </div>
 
         <div className="second-line">
-          <div className="sort-files-button">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
-              <a
-                href="https://drive.google.com/drive/folders/1r9sUnjSo26zLOQhS15xEPKM1PN6LxN7K?usp=share_link"
-                target="_blank"
-              >
-                SOUBORY
-              </a>
-            </motion.div>
-          </div>
-          <div className="sort-files-button" onClick={() => CheckCorectness()}>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
-              ZKONTROLUJ
-            </motion.div>
-          </div>
+          <Button variant="outlined" onClick={() => handleOpenFolder()}>
+            SOUBORY
+          </Button>
+
+          <Button variant="outlined" onClick={() => CheckCorectness()}>
+            ZKONTROLUJ
+          </Button>
         </div>
       </div>
     </>

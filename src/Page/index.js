@@ -6,7 +6,6 @@ import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
 import { findPacketsData } from "../Packet/data/findPackets";
 import DefaultPackets from "../Packet";
-import city from "../images/background/city.jpg";
 import { useNodesState } from "reactflow";
 
 function Page() {

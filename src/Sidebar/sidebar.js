@@ -1,5 +1,6 @@
 import "reactflow/dist/style.css";
 import "./Sidebar.css";
+
 import ModalWindowTemplate from "../ModalWindow/templateModalWindow";
 import QuizzTemplate from "../ModalWindow/templateQuizz";
 import SummaryTemplate from "../ModalWindow/templateSummary";
@@ -82,18 +83,18 @@ function Sidebar({ setGame, showLandingPage }) {
 
 function Navbar(props) {
   return (
-    <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
+    <nav className="custom-navbar">
+      <ul className="custom-navbar-nav">{props.children}</ul>
     </nav>
   );
 }
 
 function NavItem(props) {
-  return <li className="nav-item">{props.children}</li>;
+  return <li className="custom-nav-item">{props.children}</li>;
 }
 
 function DropdownMenu({ showLandingPage, setGame }) {
-  const [activeMenu, setActiveMenu] = useState("main");
+  const [activeMenu, setActiveMenu] = useState("custom-main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
   let countOfQuizzes = stockData.length;
@@ -110,10 +111,10 @@ function DropdownMenu({ showLandingPage, setGame }) {
     return (
       <a
         href="#"
-        className="menu-item"
+        className="custom-menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
-        <span className="icon-button">
+        <span className="custom-icon-button">
           <img src={props.leftIcon} alt="" />
         </span>
         {props.children}
@@ -122,15 +123,15 @@ function DropdownMenu({ showLandingPage, setGame }) {
   }
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
+    <div className="custom-dropdown" ref={dropdownRef}>
       <CSSTransition
-        in={activeMenu === "main"}
+        in={activeMenu === "custom-main"}
         timeout={500}
-        classNames="menu-primary"
+        classNames="custom-menu-primary"
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
+        <div className="custom-menu">
           <DropdownItem leftIcon={internet} goToMenu="internet-z-dalky">
             INTERNET Z DÁLKY
           </DropdownItem>
@@ -156,38 +157,38 @@ function DropdownMenu({ showLandingPage, setGame }) {
       <CSSTransition
         in={activeMenu === "internet-z-dalky"}
         timeout={500}
-        classNames="menu-secondary"
+        classNames="custom-menu-secondary"
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={backarrow}>
+        <div className="custom-menu">
+          <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
             <h2>INTERNET Z DÁLKY</h2>
           </DropdownItem>
           <div
-            className="menu-item-div"
+            className="custom-menu-item-div"
             onClick={() => openModal(countOfQuizzes)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(0)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(0)}>
             <DropdownItem leftIcon={lightbulb}>SERVER</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(1)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(1)}>
             <DropdownItem leftIcon={lightbulb}>KLIENT</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(2)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(2)}>
             <DropdownItem leftIcon={lightbulb}>
               KOMUNIKACE <br /> KLIENT-SERVER
             </DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(3)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(3)}>
             <DropdownItem leftIcon={lightbulb}>PUTOVÁNÍ INFORMACÍ</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(4)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(4)}>
             <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(5)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(5)}>
             <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
           </div>
         </div>
@@ -196,33 +197,33 @@ function DropdownMenu({ showLandingPage, setGame }) {
       <CSSTransition
         in={activeMenu === "klienti-a-pakety"}
         timeout={500}
-        classNames="menu-secondary"
+        classNames="custom-menu-secondary"
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={backarrow}>
+        <div className="custom-menu">
+          <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
             <h2>KLIENTI A PAKETY</h2>
           </DropdownItem>
           <div
-            className="menu-item-div"
+            className="custom-menu-item-div"
             onClick={() => openModal(countOfQuizzes + 1)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(6)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(6)}>
             <DropdownItem leftIcon={question}>POSÍLÁNÍ DAT</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(7)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(7)}>
             <DropdownItem leftIcon={lightbulb}>PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(8)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(8)}>
             <DropdownItem leftIcon={question}>VYTVOŘ PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(9)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(9)}>
             <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(10)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(10)}>
             <DropdownItem leftIcon={question}>
               JAK VELKÁ BUDE ZPRÁVA
             </DropdownItem>
@@ -232,42 +233,42 @@ function DropdownMenu({ showLandingPage, setGame }) {
       <CSSTransition
         in={activeMenu === "typy-pripojeni"}
         timeout={500}
-        classNames="menu-secondary"
+        classNames="custom-menu-secondary"
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={backarrow}>
+        <div className="custom-menu">
+          <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
             <h2>TYPY PŘIPOJENÍ</h2>
           </DropdownItem>
           <div
-            className="menu-item-div"
+            className="custom-menu-item-div"
             onClick={() => openModal(countOfQuizzes + 2)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(11)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(11)}>
             <DropdownItem leftIcon={lightbulb}>KABELY</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(12)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(12)}>
             <DropdownItem leftIcon={lightbulb}>WIFI</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(13)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(13)}>
             <DropdownItem leftIcon={lightbulb}>MOBILNÍ DATA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(14)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(14)}>
             <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(15)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(15)}>
             <DropdownItem leftIcon={question}>CESTA KOLEM SVĚTA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(16)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(16)}>
             <DropdownItem leftIcon={question}>RYCHLOST</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(17)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(17)}>
             <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(18)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(18)}>
             <DropdownItem leftIcon={question}>JAK SE PŘIPOJIT</DropdownItem>
           </div>
         </div>
@@ -275,41 +276,41 @@ function DropdownMenu({ showLandingPage, setGame }) {
       <CSSTransition
         in={activeMenu === "servery-a-krizovatky"}
         timeout={500}
-        classNames="menu-secondary"
+        classNames="custom-menu-secondary"
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={backarrow}>
+        <div className="custom-menu">
+          <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
             <h2>SERVERY A KŘIŽOVATKY</h2>
           </DropdownItem>
           <div
-            className="menu-item-div"
+            className="custom-menu-item-div"
             onClick={() => openModal(countOfQuizzes + 3)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(17)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(19)}>
             <DropdownItem leftIcon={lightbulb}>IP ADRESA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(18)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(20)}>
             <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(19)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(21)}>
             <DropdownItem leftIcon={question}>NEZÁVISLÝ PAKET</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(20)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(22)}>
             <DropdownItem leftIcon={question}>KUDY TUDY CESTIČKA</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(21)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(23)}>
             <DropdownItem leftIcon={question}>
               VŠECHNY CESTY VEDOU DO ŘÍMA
             </DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(22)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(24)}>
             <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
           </div>
-          <div className="menu-item-div" onClick={() => openModal(23)}>
+          <div className="custom-menu-item-div" onClick={() => openModal(25)}>
             <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
           </div>
         </div>

@@ -1,5 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "../modalWindow.css";
+import "./quizzesStyles.css";
+import Button from "@mui/material/Button";
+
 function StartQuizz({ closeModal, setGame, setFlow }) {
   const HandleClick = (event) => {
     closeModal();
@@ -8,9 +12,7 @@ function StartQuizz({ closeModal, setGame, setFlow }) {
   return (
     <>
       <div className="start-quizz-button" onClick={HandleClick}>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
-          START
-        </motion.div>
+        <Button variant="outlined">START</Button>
       </div>
     </>
   );

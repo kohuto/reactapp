@@ -1,9 +1,6 @@
 /* sort file by size*/
 
-.sort-files-button a {
-    color: white;
-    text-decoration: none;
-}
+
   
  .container-sort .first-line {
   display: flex;
@@ -26,22 +23,10 @@
     flex-direction: column;
   }
 
-  .sort-files-button {
-    margin-bottom: 5%;
-    width: 10vw;
-    display: flex;
-    background-color:#8c8c8c;
-	border-radius:28px;
-	border:1px solid #525252;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:1.7rem;
-	padding:16px 31px;
-	text-decoration:none;
-  }
-
-
+.second-line button {
+  width: 10vw;
+  height: 7vh;
+}
 
 /* typing challenge */
 .form {
