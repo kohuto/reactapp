@@ -21,10 +21,7 @@ function Page() {
   const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();
-  const [openAlert, setOpenAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
-  const [endGameMessage, setEndGameMessage] = useState("");
-  const [informMessage, setInformMessage] = useState("");
   const [openInform, setOpenInform] = useState("");
   const [openEndGame, setOpenEndGame] = useState("");
 
@@ -35,6 +32,7 @@ function Page() {
   function handleOpenInform(newState) {
     setOpenInform(newState);
   }
+
   function handleOpenEndGame(newState) {
     setOpenInform(false);
     setOpenEndGame(newState);

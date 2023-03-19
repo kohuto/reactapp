@@ -85,7 +85,15 @@ function WhatIsServerComponent({
     if (touching14) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setAlertMessage("Správně! Weby se ukládají do web serverů");
+      // setAlertMessage("Správně! Weby se ukládají do web serverů");
+      setAlertMessage(
+        <>
+          <div>
+            <h1>naydarecek</h1>
+            <p>hojda ahojda</p>
+          </div>
+        </>
+      );
       setOpenInform(true);
     }
     if (touching24) {

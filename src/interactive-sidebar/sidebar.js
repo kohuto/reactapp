@@ -4,8 +4,6 @@ import klient from "../images/nodes/klient.jpg";
 import server from "../images/nodes/server.jpg";
 import gateway from "../images/nodes/gateway.jpg";
 import rightarrow from "../images/icons/right-arrow.png";
-import { infoData } from "../ModalWindow/dataInfo";
-import ModalWindowTemplate from "../ModalWindow/templateModalWindow";
 function openModal(i) {
   var modal = document.getElementById("modal-window" + i);
   modal.style.display = "block";
