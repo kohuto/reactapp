@@ -44,6 +44,16 @@
   right: 60vw;
 }
 
+
+/*  client serevr communication  */
+.client-server-communication-message {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: #1d1d1d;
+  color: white;
+}
+
 /* Plus/Minus Zoom Button Styles changing flow */
 .zoom-buttons-container{
   position: absolute;

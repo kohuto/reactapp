@@ -1,13 +1,13 @@
 export const stockData = [
   {
     chapterSummary:
-      "Přemýšlel jsi někdy nad tím, kde jsou uložená všechna data, která jsou na internetu? Kde jsou všechny ty webové stránky a videa? A jak je možné, že se dostanou k nám do počítače? V této kapitole si vysvětlíme, z jakých zařízení se skládá internet, ukážeme si, jak tato zařízení fungují a jak navzájem komunikují.",
-    prerequsities: ["Nepotřebuješ žádné předchozí znalosti"],
+      "Všichni ho známe, všichni ho používáme. Většina z nás ale neví, jak funguje. Řeč je samozřejmě o internetu.\n Důležité je hned na začátek říct, že internet není nic neviditelného. Internet je velké množství navzájem propojených zařízení, která spolu neustále komunikují. Máme zde zařízení, která něco chtějí - těm říkáme klienti. Poté jsou zde zařízení, tzv. servery, která nabízejí služby. Navíc potřebujeme cesty a křižovatky, aby spolu mohli klienti a servery komunikovat.\n V následujících úkolech se se s těmito zařízeními seznámíš blíže.",
+    prerequsities: ["Zatím nepotřebuješ vědět nic o fungování internetu"],
     learningOutcomes: [
       "Zjistíš, že internet, není nic neviditelného",
-      "Zjistíš, kde je uloženo vše, co najdeme na internetu",
-      "Zjistíš, jak fungují zařízení jako server, chytrá křižovatka",
-      "Zjistíš, jak spolu komunikuje server a klient",
+      "Zjistíš, kam se ukládá vše, co najdeme na internetu",
+      "Zjistíš, jak fungují zařízení jako server a chytrá křižovatka",
+      "Zjistíš, proč spolu server a klient potřebují komunikovat",
       "Zjistíš, kudy putují všechna data",
     ],
   },

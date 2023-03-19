@@ -3,7 +3,11 @@ import client from "../../images/nodes/klient.jpg";
 import server from "../../images/nodes/server.jpg";
 import web from "../../images/serverscontent/website-design.png";
 
-function ClientServerCommunication() {
+function ClientServerCommunication({
+  setAlertMessage,
+  setOpenInform,
+  setOpenEndGame,
+}) {
   const [showRequestMessage, setShowRequestMessage] = useState(false);
   const [showSendRequestComponent, setShowSendRequest] = useState(false);
   const [moveRight, setMoveRight] = useState(false);
@@ -19,27 +23,31 @@ function ClientServerCommunication() {
 
     const timeoutId2 = setTimeout(() => {
       setShowSendRequest(true);
-    }, 2000);
+    }, 4000);
     const timeoutId3 = setTimeout(() => {
       setMoveRight(true);
-    }, 2500);
+    }, 5500);
 
     const timeoutId4 = setTimeout(() => {
       setShowSendRequest(false);
       setShowAnswerMessage(true);
-    }, 4000);
+    }, 10000);
     const timeoutId5 = setTimeout(() => {
       setShowSendAnswer(true);
-    }, 5000);
+    }, 13000);
     const timeoutId6 = setTimeout(() => {
       setMoveLeft(true);
-    }, 5500);
+    }, 14500);
     const timeoutId7 = setTimeout(() => {
       setShowAnswerMessage(false);
       setShowRequestMessage(false);
       setShowSendAnswer(false);
       setShowHappyClient(true);
-    }, 7000);
+    }, 19000);
+    const timeoutId8 = setTimeout(() => {
+      setAlertMessage("a takto to probiha");
+      setOpenEndGame(true);
+    }, 22000);
 
     return () => {
       clearTimeout(timeoutId1);
@@ -49,68 +57,80 @@ function ClientServerCommunication() {
       clearTimeout(timeoutId5);
       clearTimeout(timeoutId6);
       clearTimeout(timeoutId7);
+      clearTimeout(timeoutId8);
     };
   }, []);
 
   const firstDivStyle = {
     opacity: showRequestMessage ? 1 : 0,
     transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
-    transitionDelay: moveRight ? "1s" : "0s",
     position: "absolute",
+    top: "37vh",
+    left: "32vw",
   };
 
   const secondDivStyle = {
     opacity: showSendRequestComponent ? 1 : 0,
-    transition: "opacity 0.5s ease-in-out, transform 2s ease-in-out",
-    transform: moveRight ? "translateX(500px)" : "translateX(0)",
-    transitionDelay: "1s",
+    transition: "opacity 0.5s ease-in-out, transform 4s ease-in-out",
+    transform: moveRight ? "translateX(40vw)" : "translateX(0)",
     position: "absolute",
-    top: "200px",
+    top: "50vh",
+    left: "35vw",
   };
   const thirdDivStyle = {
     opacity: showAnswerMessage ? 1 : 0,
     transition: "opacity 0.5s ease-in-out",
-    transitionDelay: "1s",
     position: "absolute",
-    left: "500px",
+    top: "37vh",
+    left: "73vw",
   };
   const fourthDivStyle = {
     opacity: showSendAnswer ? 1 : 0,
-    transition: "opacity 0.5s ease-in-out, transform 2s ease-in-out",
-    transform: moveLeft ? "translateX(-500px)" : "translateX(0)",
-    transitionDelay: "1s",
+    transition: "opacity 0.5s ease-in-out, transform 4s ease-in-out",
+    transform: moveLeft ? "translateX(-40vw)" : "translateX(0)",
     position: "absolute",
-    top: "200px",
-    left: "500px",
+    top: "50vh",
+    left: "75vw",
   };
+
   const fithDivStyle = {
     opacity: showHappyClient ? 1 : 0,
     transition: "opacity 0.5s ease-in-out",
-    transitionDelay: "1s",
     position: "absolute",
+    top: "37vh",
+    left: "32vw",
   };
 
   return (
-    <div style={{ position: "absolute", top: "50px", right: "800px" }}>
-      <div style={{ position: "absolute", top: "150px", left: "500px" }}>
+    <div>
+      <div style={{ position: "absolute", top: "50vh", left: "35vw" }}>
         <img src={client}></img>
       </div>
-      <div style={{ position: "absolute", top: "150px" }}>
+      <div style={{ position: "absolute", top: "50vh", left: "75vw" }}>
         <img src={server}></img>
       </div>
-      <div style={firstDivStyle}>
+      <div
+        className="client-server-communication-message"
+        style={firstDivStyle}
+      >
         <p>Chtěl bych se podívat na webovku</p>
       </div>
-      <div style={secondDivStyle}>
+      <div
+        className="client-server-communication-message"
+        style={secondDivStyle}
+      >
         <p>pošli mi webovku</p>
       </div>
-      <div style={thirdDivStyle}>
+      <div
+        className="client-server-communication-message"
+        style={thirdDivStyle}
+      >
         <p>ok, pošlu ti webovku</p>
       </div>
       <div style={fourthDivStyle}>
         <img src={web} style={{ width: "50px", height: "50px" }}></img>
       </div>
-      <div style={fithDivStyle}>
+      <div className="client-server-communication-message" style={fithDivStyle}>
         <p>juchů, to je moje webovka</p>
       </div>
     </div>

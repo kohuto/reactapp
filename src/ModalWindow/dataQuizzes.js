@@ -2,43 +2,43 @@ export const stockData = [
   {
     header: "Co je SERVER",
     content:
-      "Přemýšlel jsi\nněkdy, jak se dostane video na internet, abych si ho pak mohl přehrát ve svém mobilu či počítači?  Nejprve video někdo natočí a následně ho uploaduje (nahraje) na server. Servery jsou speciálně upravené počítače. Nemívají obrazovku, typicky běží nonstop. Kdokoliv může do internetu připojit vlastní server. Většinou jsou to ale drahé výkonné počítače v budovách firem. Server přijímá pakety od klientů. Server také posílá klientům zpět data, která má uložená u sebe na disku. Tato data mohou být třeba webovky (web server), historie chatu (chat server), stav hry (game server) nebo emaily (mail server). Například společnost Seznam má v budově server. Ten má na disku uloženou stránku www.seznam.cz. Pošle ji zpátky klientovi, který si ji vyžádal. Klikni nyní na tlačítko ZOBRAZIT SERVERY a podívej se, jak se objeví servery. Zároveň v pravém spodním rohu najdeš svůj první úkol.",
+      "Určitě už jsi někdy viděl video na YouTube, nebo jsi projížděl fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace?\nVšechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. Jsou to speciálně upravené počítače, které nemívají obrazovku a typicky běží nonstop. Kdokoliv může do internetu připojit vlastní server. Většinou jsou to ale drahé výkonné počítače v budovách firem. Například společnost Seznam má ve své budově server. Ten má na disku uloženou stránku www.seznam.cz. Nahrávání dat na server říkáme upload.\nKlikni na tlačítko START a podívej se, jak se objeví servery. V okně v pravém dolním rohu najdeš svůj první úkol.",
     type: "whatIsServer",
     question: "",
   },
   {
     header: "Co je KLIENT",
     content:
-      "Klient je zařízení (počítač, telefon, tablet), nebo spíše přesněji program (appka), které požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby, a návštěvník je klient, který požaduje služby (v tomto případě jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo si chce přehrát video. Klienti posílají pakety (balíčky dat) s požadavky na servery. Servery posílají zpátky odpovědi. Klienti pak zobrazují odpovědi, které jim od serveru přijdou. Když budeš chtít například otevřít webovou stránku, tak webový prohlížeč (klient) odešle požadavek na web server. Server pošle zpátky  webovou stránku klientovi a ten ji zobrazí na tvém počítači. Klikni nyní na tlačítko ZOBRAZIT KLIENTY a podívej se, jak se objeví klienti. Stejně jako u serverů nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
+      "Klient je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo může chtít poslat video, které si chce přehrát.\nKlikni na tlačítko START a podívej se, jak se objeví klienti. Stejně jako u serverů nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
     type: "whatIsClient",
     question: "",
   },
   {
     header: "Komunikace KLIENT-SERVER",
     content:
-      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku? \n Klient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Obecně tedy platí, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.",
+      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku?\nKlient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači.\nObecně tedy platí, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.",
     type: "client-server-communication",
     question: "",
   },
   {
     header: "Putování informací",
     content:
-      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru? \n Požadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.\nKlikni na tlačítko ZOBRAZIT KŘIŽOVATKY A CESTY. V tuto chvíli již máme hotovu internetovou síť.",
+      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru?\nPožadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.",
     type: "whatIsRoad",
     question: "",
   },
   {
     header: "Co je CESTA",
     content:
-      "Pakety (balíčky dat) většinou nelítají jen tak vzduchem kolem nás. Ve většině případů jezdí po cestách. Cesty jsou nejčastěji kabely zakopané pod zemí a pod mořem. Na kratší vzdálenosti se používají i bezdrátové technologie. Více se o cestách dozvíš v poslední kapitole Servery a křižovatky. Klikni nyní na tlačítko ZOBRAZIT CESTY. Všimni si, že už jsme vybudovali celou internetovou síť. Síť obsahuje servery, klienty, křižovatky a cesty pro informace. Nezapomeň se podívat, jak vypadá internetová síť z dálky.",
-    type: "whatIsRoad",
+      "Zmínili jsme, že data internetem putují po cestách, aby se dostala z jednoho zařízení do druhého. Cesty mohou být bezdrátové jako WiFi nebo satelity, většinou jsou ale cesty kabely (kovové nebo optické), které jsou nejčastěji zakopané pod zemí a pod mořem.",
+    type: "info",
     question: "",
   },
   {
     header: "Co je CHYTRÁ KŘIŽOVATKA",
     content:
-      "Křižovatky propojují cesty pro informace. Když po cestě přijede paket, křižovatka ho pošle směrem k jeho cíli. Paket míří buď do serveru, nebo do klienta. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Jsou dva hlavní typy křižovatek - ROUTER a SWITCH. Klikni nyní na tlačítko ZOBRAZIT KŘIŽOVATKY a podívej se, jak se křižovatky objeví. Nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
-    type: "whatIsGateway",
+      "Křižovatky propojují cesty pro informace. Když do křižovatky přijede po cestě balíček informací, tak ho křižovatka pošle směrem k jeho cíli. Balíček neurčí směr sám, směr určí opravdu křižovatka. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Nezapomeň, že cíl balíčku je vždy server nebo klient. Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíly mezi nimi ale pro nás nejsou příliš důležité.",
+    type: "info",
     question: "",
   },
   {

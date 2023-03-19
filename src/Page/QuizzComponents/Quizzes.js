@@ -42,7 +42,13 @@ function QuizzComponents({
         <WhatIsClientComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
       );
     case "client-server-communication":
-      return <ClientServerCommunication />;
+      return (
+        <ClientServerCommunication
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "whatIsGateway":
       return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
     case "whatIsRoad":
