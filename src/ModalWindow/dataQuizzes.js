@@ -24,7 +24,7 @@ export const stockData = [
     header: "Putování informací",
     content:
       "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru?\nPožadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.",
-    type: "whatIsRoad",
+    type: "whatIsCabel",
     question: "",
   },
   {
@@ -51,14 +51,14 @@ export const stockData = [
   {
     header: "PAKET",
     content:
-      "Už víme, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Paket se vždycky naplní, co nejvíce to jde, proto je pouze poslední paket kratší, než ty ostatní . Jak ale pakety vědí, kam mají dojet? A jak vědí kam se vrátit v případě nějakých problémů? Je to podobné, jako když posíláme dopis poštou. Na obálku napíšeme naši adresu a také adresu toho, komu má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP Adresa každého zařízení musí být unikátní. Viděli jsme, že pakety putují nezávisle na sobě. Aby bylo možné je v cíli správně seřadit, musíme do každého paketu napsat jeho pořadí. My jsme poslali pouze jednu zprávu. Po internetu se ale takových zpráv najednou posílá obrovské množství. Proto musíme zprávy (pakety) od sebe odlišit. Uložíme tedy do paketu nějaké číslo (ID). Všechny pakety, které tvoří jednu zprávu mají stejné ID.",
+      "Už víš, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Jak se ale pozná, kam má být paket doručen? Případně kam má být paket vrácen v případě nějakých problémů?\nJe to podobné, jako když posíláš dopis poštou. Na obálku napíšeš svou adresu a také adresu kamaráda, kterému má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP adresa každého zařízení musí být unikátní.\nPakety putují nezávisle na sobě. Aby je bylo možné v cíli správně seřadit, musíme do každého paketu uložit jeho pořadí.\nV každém momentě je pomocí internetu posláno obrovské množství zpráv (paketů).\nAbychom od sebe zprávy (pakety) odlišily, uložíme do paketu ještě identifikační číslo -  zkráceně ID. Pakety, které tvoří jednu zprávu, mají stejné ID.",
     type: "info",
     question: "",
   },
   {
     header: "VYTVOŘ PAKET",
     content:
-      "Už víme, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, abychom v cíli zvládli zprávu poskládat do původní podoby. Pojďme si nyní zkusit rozložit zprávu na pakety. Anička poslala Honzovi přes messenger zprávu: AHOJ HONZO, JAK SE MÁŠ? Po kliknutí na tlačítko Odeslat se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech tří paketů?",
+      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety.\nKlikni na tlačítko SOUBORY. Prozkoumej 4 soubory uložené ve složce, která se ti otevře. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
     type: "createPacket",
     question: "",
   },
@@ -66,7 +66,7 @@ export const stockData = [
     header: "NÁVŠTĚVA SERVERŮ",
     content:
       "Anička, Pepíček a Maruška zrovna brouzdají na internetu. Každý nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
-    type: "findPacket",
+    type: "findServer",
     question: "",
   },
   {

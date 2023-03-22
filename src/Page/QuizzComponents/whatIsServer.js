@@ -4,7 +4,7 @@ import Draggable from "react-draggable";
 import web from "../../images/serverscontent/website-design.png";
 import video from "../../images/serverscontent/multimedia.png";
 import picture from "../../images/serverscontent/picture.png";
-import server from "../../images/nodes/server.jpg";
+import server from "../../images/nodes/server-messenger.jpg";
 import serverig from "../../images/nodes/serverig.png";
 import serverweb from "../../images/nodes/serverwebhost.png";
 import serveryoutube from "../../images/nodes/serveryoutube.png";
@@ -26,7 +26,6 @@ function WhatIsServerComponent({
   const [touching14, setTouching14] = useState(false);
   const [touching24, setTouching24] = useState(false);
   const [touching34, setTouching34] = useState(false);
-  const [isWrong, setIsWrong] = useState(false);
   const [filledServer, setFilledServer] = useState(0);
 
   const checkTouching = useCallback(() => {

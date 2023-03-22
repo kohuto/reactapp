@@ -2,117 +2,132 @@ import React, { useState } from "react";
 import "./Components.css";
 import "react-slideshow-image/dist/styles.css";
 import CloseOpen from "./closeOpenWindow";
-import { serversZoom2Data } from "../../Flow/data/server/serverZoom2";
-const listOfServers = [
-  "server1",
-  "server2",
-  "server3",
-]; /* TODO: zde budou IP adresy serverů */
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
-function CreatePacketComponent({ setGame }) {
+function CreatePacketComponent({
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+}) {
+  const messengerServers = ["195.113.76.22", "192.168.1.1"];
+  const corerctId = ["1", "2", "3"];
+  const correctSenderIP = "2620:0:862:ed1a::1";
+  const firstPartMessage = "AHOJ XAV";
+  const secondPartMessage = "I, JAK S";
+  const thirdPartMessage = "E MÁŠ?";
+  const [id, setId] = useState([]);
+  const [recipientIP, setRecipientIP] = useState([]);
+  const [senderIP, setSenderIP] = useState([]);
+  const [content, setContent] = useState([]);
+
   const handleSubmit = () => {
+    const isAllItemsStringsWithLengthGreaterThanZero =
+      id.every((item) => typeof item === "string" && item.length > 0) &&
+      recipientIP.every(
+        (item) => typeof item === "string" && item.length > 0
+      ) &&
+      senderIP.every((item) => typeof item === "string" && item.length > 0) &&
+      content.every((item) => typeof item === "string" && item.length > 0);
     if (
-      id1 &&
-      id2 &&
-      id3 &&
-      start1 &&
-      start2 &&
-      start3 &&
-      content1 &&
-      content2 &&
-      content3 &&
-      end1 &&
-      end2 &&
-      end3
+      id.length === 3 &&
+      recipientIP.length === 3 &&
+      senderIP.length === 3 &&
+      content.length === 3 &&
+      isAllItemsStringsWithLengthGreaterThanZero
     ) {
-      if (start1 === start2 && start2 === start3 && start1 === "172.16.0.1") {
-        setGame();
+      if (
+        id.every((id) => corerctId.includes(id)) &&
+        id[0] != id[1] &&
+        id[1] != id[2] &&
+        id[0] != id[2]
+      ) {
         if (
-          end1 === end2 &&
-          end2 === end3 &&
-          serversZoom2Data.some((server) => server.id === end1)
+          senderIP.every((item) => item === senderIP[0]) &&
+          senderIP[0] === correctSenderIP
         ) {
           if (
-            (id1 === "1" && content1 === "AHOJ HON") ||
-            (id1 === "2" && content1 === "ZO, JAK ") ||
-            (id1 === "3" && content1 === "SE MÁŠ?")
+            recipientIP.every((item) => item === recipientIP[0]) &&
+            messengerServers.includes(recipientIP[0])
           ) {
             if (
-              (id2 === "1" && content2 === "AHOJ HON") ||
-              (id2 === "2" && content2 === "ZO, JAK ") ||
-              (id2 === "3" && content2 === "SE MÁŠ?")
+              (id[0] === "1" && content[0] === firstPartMessage) ||
+              (id[0] === "2" && content[0] === secondPartMessage) ||
+              (id[0] === "3" && content[0] === thirdPartMessage)
             ) {
               if (
-                (id3 === "1" && content3 === "AHOJ HON") ||
-                (id3 === "2" && content3 === "ZO, JAK ") ||
-                (id3 === "3" && content3 === "SE MÁŠ?")
+                (id[1] === "1" && content[1] === firstPartMessage) ||
+                (id[1] === "2" && content[1] === secondPartMessage) ||
+                (id[1] === "3" && content[1] === thirdPartMessage)
               ) {
+                if (
+                  (id[2] === "1" && content[2] === firstPartMessage) ||
+                  (id[2] === "2" && content[2] === secondPartMessage) ||
+                  (id[2] === "3" && content[2] === thirdPartMessage)
+                ) {
+                  setAlertMessage("správně vyplněno");
+                  setOpenEndGame(true);
+                } else {
+                  setAlertMessage("špatně obsah 3. paketu");
+                  setOpenInform(true);
+                }
+              } else {
+                setAlertMessage("špatně obsah 2. paketu");
+                setOpenInform(true);
               }
+            } else {
+              setAlertMessage("špatně obsah 1. paketu");
+              setOpenInform(true);
             }
+          } else {
+            setAlertMessage("příjemce musí být messenger server");
+            setOpenInform(true);
           }
+        } else {
+          setAlertMessage("špatně odesílatel");
+          setOpenInform(true);
         }
+      } else {
+        setAlertMessage("špatné id");
+        setOpenInform(true);
       }
+    } else {
+      console.log(id.length);
+      console.log(recipientIP.length);
+      console.log(senderIP.length);
+      console.log(content.length);
+      setAlertMessage("něco není vyplněné");
+      setOpenInform(true);
     }
   };
-  /* first form */
-  const [id1, setId1] = useState("");
-  const [start1, setStart1] = useState("");
-  const [end1, setEnd1] = useState("");
-  const [content1, setContent1] = useState("");
-  /* second form */
-  const [id2, setId2] = useState("");
-  const [start2, setStart2] = useState("");
-  const [end2, setEnd2] = useState("");
-  const [content2, setContent2] = useState("");
-
-  /* third form */
-  const [id3, setId3] = useState("");
-  const [start3, setStart3] = useState("");
-  const [end3, setEnd3] = useState("");
-  const [content3, setContent3] = useState("");
 
   return (
     <>
       <CloseOpen
         content={
-          <>
-            <div className="message-into-create-packet">
-              <p>Pošli zprávu: AHOJ HONZO, JAK SE MÁŠ?</p>
-            </div>
+          <div className="create-packets-form-container">
+            <p>Pošli zprávu: AHOJ HONZO, JAK SE MÁŠ?</p>
+
             <Slideshow
-              setEnd={setGame}
-              id1={id1}
-              id2={id2}
-              id3={id3}
-              setId1={setId1}
-              setId2={setId2}
-              setId3={setId3}
-              start1={start1}
-              start2={start2}
-              start3={start3}
-              setStart1={setStart1}
-              setStart2={setStart2}
-              setStart3={setStart3}
-              end1={end1}
-              end2={end2}
-              end3={end3}
-              setEnd1={setEnd1}
-              setEnd2={setEnd2}
-              setEnd3={setEnd3}
-              content1={content1}
-              content2={content2}
-              content3={content3}
-              setContent1={setContent1}
-              setContent2={setContent2}
-              setContent3={setContent3}
+              id={id}
+              setId={setId}
+              senderIP={senderIP}
+              setSenderIP={setSenderIP}
+              recipientIP={recipientIP}
+              setRecipientIP={setRecipientIP}
+              content={content}
+              setContent={setContent}
             />
-            <button
-              className="check-button close-open-window"
+
+            <Button
+              variant="outlined"
               onClick={handleSubmit}
+              className="check-button"
             >
-              Zkontrolovat
-            </button>
-          </>
+              ZKONTROLUJ
+            </Button>
+          </div>
         }
       />
     </>
@@ -122,39 +137,62 @@ function CreatePacketComponent({ setGame }) {
 function InsidePacket(props) {
   return (
     <>
-      <div className="create-packets-form-container">
-        <div className="create-packets-input-group">
-          <input
-            type="text"
-            placeholder="ID paketu"
-            value={props.id}
-            onChange={(e) => props.setId(e.target.value)}
-          />
-        </div>
-        <div className="create-packets-input-group">
-          <input
-            type="text"
-            placeholder="Odesílatel"
-            value={props.start}
-            onChange={(e) => props.setStart(e.target.value)}
-          />
-        </div>
-        <div className="create-packets-input-group">
-          <input
-            type="text"
-            placeholder="Příjemce"
-            value={props.end}
-            onChange={(e) => props.setEnd(e.target.value)}
-          />
-        </div>
-        <div className="create-packets-input-group">
-          <input
-            type="text"
-            placeholder="Obsah paketu"
-            value={props.content}
-            onChange={(e) => props.setContent(e.target.value)}
-          />
-        </div>
+      <div className="">
+        <TextField
+          id="standard-basic"
+          label="ID paketu"
+          variant="standard"
+          value={props.id[props.number]}
+          onChange={(e) =>
+            props.setId((prevId) => {
+              const newId = [...prevId];
+              newId[props.number] = e.target.value;
+              return newId;
+            })
+          }
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          label="Odesílatel"
+          variant="standard"
+          value={props.senderIP[props.number]}
+          onChange={(e) =>
+            props.setSenderIP((prevSenderIP) => {
+              const newSenderIP = [...prevSenderIP];
+              newSenderIP[props.number] = e.target.value;
+              return newSenderIP;
+            })
+          }
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          label="Příjemce"
+          variant="standard"
+          value={props.recipientIP[props.number]}
+          onChange={(e) =>
+            props.setRecipientIP((prevRecipientIP) => {
+              const newRecipientIP = [...prevRecipientIP];
+              newRecipientIP[props.number] = e.target.value;
+              return newRecipientIP;
+            })
+          }
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          label="Obsah paketu"
+          variant="standard"
+          value={props.content[props.content]}
+          onChange={(e) =>
+            props.setContent((prevContent) => {
+              const newContent = [...prevContent];
+              newContent[props.number] = e.target.value;
+              return newContent;
+            })
+          }
+        />
       </div>
     </>
   );
@@ -171,74 +209,73 @@ function Slideshow(props) {
       >
         <div className="create-packets-slide">
           <InsidePacket
-            id={props.id1}
-            start={props.start1}
-            end={props.end1}
-            content={props.content1}
-            setId={props.setId1}
-            setStart={props.setStart1}
-            setEnd={props.setEnd1}
-            setContent={props.setContent1}
+            number={0}
+            id={props.id}
+            setId={props.setId}
+            senderIP={props.senderIP}
+            setSenderIP={props.setSenderIP}
+            recipientIP={props.recipientIP}
+            setRecipientIP={props.setRecipientIP}
+            content={props.content}
+            setContent={props.setContent}
           />
         </div>
         <div className="create-packets-slide">
           <InsidePacket
-            id={props.id2}
-            start={props.start2}
-            end={props.end2}
-            content={props.content2}
-            setId={props.setId2}
-            setStart={props.setStart2}
-            setEnd={props.setEnd2}
-            setContent={props.setContent2}
+            number={1}
+            id={props.id}
+            setId={props.setId}
+            senderIP={props.senderIP}
+            setSenderIP={props.setSenderIP}
+            recipientIP={props.recipientIP}
+            setRecipientIP={props.setRecipientIP}
+            content={props.content}
+            setContent={props.setContent}
           />
         </div>
         <div className="create-packets-slide">
           <InsidePacket
-            id={props.id3}
-            start={props.start3}
-            end={props.end3}
-            content={props.content3}
-            setId={props.setId3}
-            setStart={props.setStart3}
-            setEnd={props.setEnd3}
-            setContent={props.setContent3}
+            number={2}
+            id={props.id}
+            setId={props.setId}
+            senderIP={props.senderIP}
+            setSenderIP={props.setSenderIP}
+            recipientIP={props.recipientIP}
+            setRecipientIP={props.setRecipientIP}
+            content={props.content}
+            setContent={props.setContent}
           />
         </div>
       </div>
 
-      <div className="create-packets-slideshowDots">
-        <div
-          className={`create-packets-slideshowDot${
-            index === 0 ? " active" : ""
-          }`}
+      <ButtonGroup
+        variant="outlined"
+        aria-label="outlined button group small"
+        className="create-packet-buttons"
+        size="small"
+      >
+        <Button
           onClick={() => {
             setIndex(0);
           }}
         >
-          Paket 1
-        </div>
-        <div
-          className={`create-packets-slideshowDot${
-            index === 1 ? " active" : ""
-          }`}
+          One
+        </Button>
+        <Button
           onClick={() => {
             setIndex(1);
           }}
         >
-          Paket 2
-        </div>
-        <div
-          className={`create-packets-slideshowDot${
-            index === 2 ? " active" : ""
-          }`}
+          Two
+        </Button>
+        <Button
           onClick={() => {
             setIndex(2);
           }}
         >
-          Paket 3
-        </div>
-      </div>
+          Three
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }

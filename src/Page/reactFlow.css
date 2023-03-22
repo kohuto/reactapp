@@ -5,7 +5,10 @@
   background-image: url("../images/nodes/klient.jpg");
   background-repeat: no-repeat;
   border: none;
-}
+}   
+
+
+
 .gateway, .gateway-build {
   width: 82px;
   height: 20px;
@@ -16,12 +19,15 @@
 .server, .server-build {
   width: 105px;
   height: 70px;
-  background-image: url("../images/nodes/server.jpg");
+  background-image: url("../images/nodes/server-messenger.jpg");
   background-repeat: no-repeat;
+  
   border: none;
 }
 
-
+.server-messenger {
+  background-image: url("../images/nodes/serverwebhost.png");
+}
 
 
 .wifi, .wifi-build {
@@ -82,7 +88,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .background1{
   background-image: url("../images/background/city.jpg");
   background-repeat: no-repeat;
-  background-size: 80vw 100vh;
+  /*background-size: 80vw 100vh;*/
 }
 
 .background2{
@@ -95,4 +101,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   background-image: url("../images/background/europe.jpg");
   background-repeat: no-repeat;
   background-size: 80vw 100vh;
+}
+
+#pattern-1 {
+  background-image: url("../images/background/europe.jpg");
 }

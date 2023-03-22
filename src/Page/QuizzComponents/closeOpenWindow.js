@@ -15,7 +15,7 @@ const show = {
 const hide = {
   opacity: 0,
   transitionEnd: {
-    display: "hidden",
+    display: "none",
   },
 };
 

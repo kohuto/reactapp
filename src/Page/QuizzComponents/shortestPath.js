@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Components.css";
 import CloseOpen from "./closeOpenWindow";
 import DefaultPackets from "../../Packet";
-import { findPacketsData } from "../../Packet/data/findPackets";
+import { findPacketsData } from "../../Packet/data/findServerPackets";
 import { edgesData } from "../../Flow/data/edges";
 import { gatewaysZoom2Data } from "../../Flow/data/gateway/gatewayZoom2";
 

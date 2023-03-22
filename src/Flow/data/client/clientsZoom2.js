@@ -4,7 +4,7 @@ export const clientsZoom2Data = [
     type: "default",
     position: { x: 555, y: 130 },
     className: "client",
-    data: { label: "2620:0:862:ed1a::1  Maruška" },
+    data: { label: "2620:0:862:ed1a::1  Karin" },
     dragHandle: "noDrag",
   },
   {
@@ -12,7 +12,7 @@ export const clientsZoom2Data = [
     type: "default",
     position: { x: 120, y: 70 },
     className: "client",
-    data: { label: "77.75.79.138 Anastázie" },
+    data: { label: "77.75.79.138 Bořek" },
     dragHandle: "noDrag",
   },
   {

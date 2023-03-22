@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import client from "../../images/nodes/klient.jpg";
-import server from "../../images/nodes/server.jpg";
+import server from "../../images/nodes/server-messenger.jpg";
 import web from "../../images/serverscontent/website-design.png";
 
 function ClientServerCommunication({

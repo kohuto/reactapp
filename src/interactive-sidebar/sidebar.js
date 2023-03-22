@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import klient from "../images/nodes/klient.jpg";
-import server from "../images/nodes/server.jpg";
+import server from "../images/nodes/server-messenger.jpg";
 import gateway from "../images/nodes/gateway.jpg";
 import rightarrow from "../images/icons/right-arrow.png";
 function openModal(i) {

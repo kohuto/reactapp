@@ -49,6 +49,10 @@ function QuizzComponents({
           setOpenEndGame={setOpenEndGame}
         />
       );
+    case "whatIsCabel":
+      return (
+        <WhatIsCabelComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
+      );
     case "whatIsGateway":
       return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
     case "whatIsRoad":
@@ -56,11 +60,21 @@ function QuizzComponents({
     case "dataIntoPackets":
       return <DataIntoPackets setGame={() => setGame("noGame")} />;
     case "createPacket":
-      return <CreatePacketComponent setGame={() => setGame("noGame")} />;
-    case "findPacket":
-      return <FindPacketComponent setGame={() => setGame("noGame")} />;
-    case "whatIsCabel":
-      return <WhatIsCabelComponent />;
+      return (
+        <CreatePacketComponent
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
+    case "findServer":
+      return (
+        <FindPacketComponent
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "whatIsWiFi":
       return <WhatIsWiFiComponent />;
     case "whatIsBTS":

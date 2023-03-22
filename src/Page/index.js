@@ -1,10 +1,10 @@
 import Sidebar from "../Sidebar/sidebar";
 import InteractiveSidebar from "../interactive-sidebar/sidebar";
 import QuizzComponents from "./QuizzComponents/Quizzes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
-import { findPacketsData } from "../Packet/data/findPackets";
+import { findPacketsData } from "../Packet/data/findServerPackets";
 import DefaultPackets from "../Packet";
 import { useNodesState } from "reactflow";
 
