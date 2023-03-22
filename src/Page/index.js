@@ -10,13 +10,15 @@ import { useNodesState } from "reactflow";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import "./QuizzComponents/Components.css";
+import "../ModalWindow/Quizzes/quizzesStyles.css";
+import "../ModalWindow/modalWindow.css";
 
 function Page() {
   const style = {
@@ -173,17 +175,7 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
     boxShadow: 24,
     p: 4,
   };
-  /*   <DialogContent>
-          <span className="close" onClick={handleClose}>
-            &times;
-          </span>
-          <DialogContentText id="alert-dialog-description">
-            {alertMessage}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>ZAVŘÍT</Button>
-        </DialogActions>*/
+
   return (
     <div>
       <Modal
