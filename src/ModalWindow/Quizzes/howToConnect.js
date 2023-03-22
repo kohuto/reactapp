@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import CheckboxGroup from "./multipleCheckbox";
 import { motion } from "framer-motion";
-function openModal(i) {
-  var modal = document.getElementById("modal-window32");
-  modal.style.display = "block";
-}
-function CheckBoxes() {
-  function isCheckboxChecked() {
+import Button from "@mui/material/Button";
+function CheckBoxes({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+  const handleSubmit = () => {
     if (
       checkboxes1.checkbox1 &&
       !checkboxes1.checkbox2 &&
@@ -16,10 +13,20 @@ function CheckBoxes() {
       checkboxes2.checkbox3 &&
       checkboxes3.checkbox1 &&
       checkboxes3.checkbox2 &&
+      !checkboxes3.checkbox3 &&
+      checkboxes4.checkbox1 &&
+      checkboxes4.checkbox2 &&
       !checkboxes4.checkbox3
-    )
-      openModal(4);
-  }
+    ) {
+      setAlertMessage(
+        "Výborně! Zvládl jsi to! Mobilní telefony se mohou připojit pomocí mobilních dat nebo wifi sítě. Máme je pořád u sebe a chodíme s nimi po celém bytě, proto by nebylo moc vhodné mít telefon připojen pomocí kabelu. Oproti tomu počítače doma nebo ve škole většinou leží na stole a mají v sobě přímo zásuvku pro zapojení kabelu. Proto v tomto případě není problém se pomocí kabelu připojit. Samozřejmě se můžeme připojit i pomocí WiFi signálu. Když ale budeme na procházce v přírodě, tak budeme WiFi signál nebo kabely hledat těžko, proto nám zde nezbývá nic jiného než využít datové připojení prostřednictvím mobilního operátora."
+      );
+      setOpenEndGame(true);
+    } else {
+      setAlertMessage("Něco není správně");
+      setOpenInform(true);
+    }
+  };
   const [checkboxes1, setCheckboxes1] = useState({
     checkbox1: false,
     checkbox2: false,
@@ -44,33 +51,33 @@ function CheckBoxes() {
   });
 
   const handleCheckboxChange1 = (event) => {
-    const { name } = event.target;
+    const { name, checked } = event.target;
     setCheckboxes1({
       ...checkboxes1,
-      [name]: !checkboxes1[name],
+      [name]: checked,
     });
   };
 
   const handleCheckboxChange2 = (event) => {
-    const { name } = event.target;
+    const { name, checked } = event.target;
     setCheckboxes2({
       ...checkboxes2,
-      [name]: !checkboxes2[name],
+      [name]: checked,
     });
   };
 
   const handleCheckboxChange3 = (event) => {
-    const { name } = event.target;
+    const { name, checked } = event.target;
     setCheckboxes3({
       ...checkboxes3,
-      [name]: !checkboxes3[name],
+      [name]: checked,
     });
   };
   const handleCheckboxChange4 = (event) => {
-    const { name } = event.target;
+    const { name, checked } = event.target;
     setCheckboxes4({
       ...checkboxes4,
-      [name]: !checkboxes4[name],
+      [name]: checked,
     });
   };
 
@@ -104,10 +111,10 @@ function CheckBoxes() {
           handleCheckboxChange={handleCheckboxChange4}
         />
       </div>
-      <div className="start-quizz-button" onClick={isCheckboxChecked}>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+      <div className="start-quizz-button">
+        <Button variant="outlined" onClick={handleSubmit}>
           ZKONTROLOVAT
-        </motion.div>
+        </Button>
       </div>
     </div>
   );

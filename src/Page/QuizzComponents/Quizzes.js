@@ -88,13 +88,37 @@ function QuizzComponents({
         <ConnectClientsWirelessComponent setGame={() => setGame("noGame")} />
       );
     case "setPathsOfPackets":
-      return <SetPaths />;
+      return (
+        <SetPaths
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "shortestPath":
-      return <ShortestPathComponent />;
+      return (
+        <ShortestPathComponent
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "countOfPaths":
-      return <CountPaths />;
+      return (
+        <CountPaths
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "problemWithPath":
-      return <ProblemWithPath />;
+      return (
+        <ProblemWithPath
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     default:
       return "";
   }

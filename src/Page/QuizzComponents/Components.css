@@ -180,12 +180,20 @@
   margin-left: 13%;
 }
 
-.create-packets-form-container, .find-server-container{
+.create-packets-form-container, .find-server-container, .shortest-path-container{
   width: 100%;
   height: 100%;
   margin-left: 15%;
   margin-top: 5vh;
 }
+
+.set-packet-path-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 5vh;
+}
+
+
 /* create packet input field */
 .create-packets-form-container .MuiTextField-root {
   margin-bottom: 0.5vh;
@@ -210,7 +218,7 @@
 }
 
 /* find servers */
-.find-server-container button, .create-packets-form-container button.check-button {
+.find-server-container button, .create-packets-form-container button.check-button, .shortest-path-container button.check-button {
  position: absolute;
  bottom: 4vh;
  left: 33%;

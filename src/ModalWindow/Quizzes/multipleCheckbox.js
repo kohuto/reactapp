@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
+import Checkbox from "@mui/material/Checkbox";
 function CheckBoxes({ handleCheckboxChange, checkboxes }) {
   return (
     <div>
       <label>
-        <input
-          type="checkbox"
+        <Checkbox
           name="checkbox1"
           checked={checkboxes.checkbox1}
           onChange={handleCheckboxChange}
@@ -14,8 +13,7 @@ function CheckBoxes({ handleCheckboxChange, checkboxes }) {
       </label>
       <br />
       <label>
-        <input
-          type="checkbox"
+        <Checkbox
           name="checkbox2"
           checked={checkboxes.checkbox2}
           onChange={handleCheckboxChange}
@@ -24,8 +22,7 @@ function CheckBoxes({ handleCheckboxChange, checkboxes }) {
       </label>
       <br />
       <label>
-        <input
-          type="checkbox"
+        <Checkbox
           name="checkbox3"
           checked={checkboxes.checkbox3}
           onChange={handleCheckboxChange}

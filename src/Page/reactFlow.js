@@ -21,11 +21,14 @@ import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
 import { satelitsData } from "../Flow/data/satelits";
 import { edgesData } from "../Flow/data/edges";
-import { edgesValueData } from "../Flow/data/edgesValue";
+import { shortestPathEdges } from "../Flow/data/edges/shortestPathEdges";
 import WhatIsWiFiComponent from "./QuizzComponents/wirelessDevice";
 import BuildNetwork from "./QuizzComponents/buildNetwork";
 import { clientsCreatePacket } from "../Flow/data/client/clientsCreatePacket";
 import { clientsFindServer } from "../Flow/data/client/clientsFindServer";
+import { shortestPathGateway } from "../Flow/data/gateway/shortestPathGateway";
+import { shortestPathClient } from "../Flow/data/client/shortestPathClient";
+import { shortestPathServer } from "../Flow/data/server/shortestPathServer";
 
 function ViewportLogger() {
   const { x, y, zoom } = useViewport();
@@ -116,7 +119,12 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         setNodes(whatIsSatelitNodes);
         break;
       case "shortestPath":
-        setEdges(edgesValueData);
+        setEdges(shortestPathEdges);
+        setNodes(
+          shortestPathGateway
+            .concat(shortestPathClient)
+            .concat(shortestPathServer)
+        );
         break;
       case "buildNetwork":
         setNodes([]);

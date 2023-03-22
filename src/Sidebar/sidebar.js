@@ -311,7 +311,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
             <DropdownItem leftIcon={question}>NEZÁVISLÝ PAKET</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(22)}>
-            <DropdownItem leftIcon={question}>KUDY TUDY CESTIČKA</DropdownItem>
+            <DropdownItem leftIcon={question}>NEJRYCHLEJŠÍ CESTA</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(23)}>
             <DropdownItem leftIcon={question}>

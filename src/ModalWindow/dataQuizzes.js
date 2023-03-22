@@ -153,16 +153,16 @@ export const stockData = [
     question: "",
   },
   {
-    header: "KUDY TUDY CESTIČKA",
+    header: "NEJRYCHLEJŠÍ CESTA",
     content:
-      "V předchozím úkolu jsme určili pro každý paket jeho trasu. Trasa se ve skutečnosti nevybírá úplně náhodně, spočítá se nejrychlejší cesta a po této cestě se paket vydá Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžete si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa. Klikni na START. V mapě se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Aničky do serveru Messengeru.",
+      "V předchozím úkolu jsme vybrali pro každý paket nějakou trasu. Ve skutečnosti tuto trasu určuje chytrá křižovatka, která vždy vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžete si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Klikni na START. V mapě se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Logana do serveru Messengeru.",
     type: "shortestPath",
     question: "",
   },
   {
     header: "VŠECHNY CESTY VEDOU DO ŘÍMA",
     content:
-      "Už umíme spočítat délku nejkratší cesty mezi dvěma místy, zkusme nyní spočítat, kolik různých cest mezi dvěma místy existuje. Klikni na tlačítko START a zkus spočítat, kolik různých cest vede od Aničky do Messenger serveru. Počet cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
+      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\nKlikni na tlačítko START a zkus spočítat, Po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Počet cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
     type: "countOfPaths",
     question: "",
   },
