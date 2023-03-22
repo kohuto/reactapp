@@ -58,7 +58,7 @@ export const stockData = [
   {
     header: "VYTVOŘ PAKET",
     content:
-      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety.\nKlikni na tlačítko SOUBORY. Prozkoumej 4 soubory uložené ve složce, která se ti otevře. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
+      "Už víš, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, aby mohla být zpráva v cíli poskládaná zpět do původní podoby.\nZkus nyní sám rozložit zprávu na pakety. Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Po odeslání se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech paketů.",
     type: "createPacket",
     question: "",
   },
@@ -72,7 +72,7 @@ export const stockData = [
   {
     header: "JAK VELKÁ BUDE ZPRÁVA",
     content:
-      "Už víme, že odeslaná data neputují vcelku, ale rozloží se na pakety. Klikni a tlačítko SOUBORY, otevře se ti složka s několika soubory. Poté zde v aplikaci seřaď soubory podle toho, na kolik paketů se rozloží, když je budeme chtít odeslat kamarádovi. Nahoře bude soubor který se rozloží na největší množství paketů, dole naopak soubor, který se rozloží na nejmenší množství paketů.",
+      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety.\nKlikni na tlačítko SOUBORY. Prozkoumej 4 soubory uložené ve složce, která se ti otevře. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
     type: "sortFileSize",
     question: "",
   },

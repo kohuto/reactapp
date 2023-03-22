@@ -8,10 +8,23 @@ import StartQuizz from "./Quizzes/startQuizz";
 import TypingChallenge from "./Quizzes/typingChallenge";
 import HowToConnect from "./Quizzes/howToConnect";
 
-function Quizz({ setGame, taskData, id, closeModal }) {
+function Quizz({
+  setGame,
+  taskData,
+  closeModal,
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+}) {
   switch (taskData.type) {
     case "howToConnect":
-      return <HowToConnect />;
+      return (
+        <HowToConnect
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "createPacket":
       return (
         <StartQuizz
@@ -48,7 +61,13 @@ function Quizz({ setGame, taskData, id, closeModal }) {
         />
       );
     case "typingChallenge":
-      return <TypingChallenge />;
+      return (
+        <TypingChallenge
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "whatIsSatelit":
       return (
         <StartQuizz
@@ -103,6 +122,9 @@ function Quizz({ setGame, taskData, id, closeModal }) {
         <SortIPAdresses
           setGame={() => setGame("sortIPAdresses")}
           closeModal={closeModal}
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
         />
       );
     case "connectClientsWireless":
@@ -113,7 +135,13 @@ function Quizz({ setGame, taskData, id, closeModal }) {
         />
       );
     case "IPadress":
-      return <IPadress />;
+      return (
+        <IPadress
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "findServer":
       return (
         <StartQuizz
@@ -158,7 +186,13 @@ function Quizz({ setGame, taskData, id, closeModal }) {
         />
       );
     case "sortFileSize":
-      return <SortFileSize question={taskData.question} />;
+      return (
+        <SortFileSize
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     case "chytraKrizovatka":
       return (
         <StartQuizz
@@ -175,10 +209,19 @@ function Quizz({ setGame, taskData, id, closeModal }) {
         <SortConnectionTypeSpeed
           setGame={() => setGame("sortConnectionTypeSpeed")}
           closeModal={closeModal}
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
         />
       );
     case "puzzle":
-      return <Puzzle />;
+      return (
+        <Puzzle
+          setAlertMessage={setAlertMessage}
+          setOpenInform={setOpenInform}
+          setOpenEndGame={setOpenEndGame}
+        />
+      );
     default:
       return null;
   }

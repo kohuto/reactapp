@@ -24,7 +24,13 @@ function openModal(i) {
   modal.style.display = "block";
 }
 
-function Sidebar({ setGame, showLandingPage }) {
+function Sidebar({
+  setGame,
+  showLandingPage,
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+}) {
   let quizzModalWindows = [];
   let summaryModalWindows = [];
   let correctAnswersModalWindows = [];
@@ -37,7 +43,14 @@ function Sidebar({ setGame, showLandingPage }) {
         setGame={setGame}
         ID={i}
         content={
-          <QuizzTemplate setGame={setGame} quizzID={i} modalWindowID={i} />
+          <QuizzTemplate
+            setGame={setGame}
+            quizzID={i}
+            modalWindowID={i}
+            setAlertMessage={setAlertMessage}
+            setOpenInform={setOpenInform}
+            setOpenEndGame={setOpenEndGame}
+          />
         }
       />
     );

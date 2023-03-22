@@ -8,7 +8,14 @@ function closeModal(i) {
   modal.style.display = "none";
 }
 
-function QuizzTemplate({ setGame, modalWindowID, quizzID }) {
+function QuizzTemplate({
+  setGame,
+  modalWindowID,
+  quizzID,
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+}) {
   const formatedContent = stockData[quizzID].content
     .split("\n")
     .map((str, index) => (
@@ -27,6 +34,9 @@ function QuizzTemplate({ setGame, modalWindowID, quizzID }) {
         closeModal={() => closeModal(modalWindowID)}
         taskData={stockData[quizzID]}
         id={quizzID}
+        setAlertMessage={setAlertMessage}
+        setOpenInform={setOpenInform}
+        setOpenEndGame={setOpenEndGame}
       />
     </>
   );

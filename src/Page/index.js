@@ -122,7 +122,13 @@ function Page() {
               />
             </div>
           )}
-          <Sidebar showLandingPage={setIsLandingPage} setGame={setGame} />
+          <Sidebar
+            showLandingPage={setIsLandingPage}
+            setGame={setGame}
+            setAlertMessage={handleAlertMessageChange}
+            setOpenInform={handleOpenInform}
+            setOpenEndGame={handleOpenEndGame}
+          />
         </div>
       </>
     );

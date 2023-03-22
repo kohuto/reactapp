@@ -2,27 +2,33 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 
-function SortFileSize() {
-  function CheckCorectness() {
-    const deviation = 100;
-    const count1 = 100;
-    const count2 = 100;
-    const count3 = 100;
-    const count4 = 100;
+function SortFileSize({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+  const handleSubmit = () => {
+    const deviationText = 10;
+    const deviationVideo = 500;
+    const deviationImg = 10;
+    const deviationMusic = 100;
+    const videoCount = 61400;
+    const textCount = 4;
+    const musicCount = 3000;
+    const imageCount = 31;
     if (
-      Math.abs(value1 - count1) < deviation &&
-      Math.abs(value2 - count2) < deviation &&
-      Math.abs(value3 - count3) < deviation &&
-      Math.abs(value4 - count4) < deviation
+      Math.abs(videoValue - videoCount) < deviationVideo &&
+      Math.abs(textValue - textCount) < deviationText &&
+      Math.abs(musicValue - musicCount) < deviationMusic &&
+      Math.abs(imageValue - imageCount) < deviationImg
     ) {
-      var modal = document.getElementById("modal-window32");
-      modal.style.display = "block";
+      setAlertMessage("správně spočítáno");
+      setOpenEndGame(true);
+    } else {
+      setAlertMessage("něco jsi nespočítal správně");
+      setOpenInform(true);
     }
-  }
-  const [value1, setValue1] = useState(500); // set the initial value of the slider to 500
-  const [value2, setValue2] = useState(500); // set the initial value of the slider to 500
-  const [value3, setValue3] = useState(500); // set the initial value of the slider to 500
-  const [value4, setValue4] = useState(500); // set the initial value of the slider to 500
+  };
+  const [videoValue, setValue1] = useState(0); // set the initial value of the slider to 500
+  const [textValue, setValue2] = useState(0); // set the initial value of the slider to 500
+  const [musicValue, setValue3] = useState(0); // set the initial value of the slider to 500
+  const [imageValue, setValue4] = useState(0); // set the initial value of the slider to 500
 
   function handleChange1(event) {
     setValue1(event.target.value);
@@ -50,23 +56,27 @@ function SortFileSize() {
         <div className="first-line">
           <RangeSlider
             heading="video"
-            value={value1}
+            value={videoValue}
             handleChange={handleChange1}
+            max="70000"
           />
           <RangeSlider
             heading="text"
-            value={value2}
+            value={textValue}
             handleChange={handleChange2}
+            max="500"
           />
           <RangeSlider
-            heading="fotka"
-            value={value3}
+            heading="hudba"
+            value={musicValue}
             handleChange={handleChange3}
+            max="10000"
           />
           <RangeSlider
             heading="obrázek"
-            value={value4}
+            value={imageValue}
             handleChange={handleChange4}
+            max="500"
           />
         </div>
 
@@ -75,7 +85,7 @@ function SortFileSize() {
             SOUBORY
           </Button>
 
-          <Button variant="outlined" onClick={() => CheckCorectness()}>
+          <Button variant="outlined" onClick={handleSubmit}>
             ZKONTROLUJ
           </Button>
         </div>
@@ -84,14 +94,14 @@ function SortFileSize() {
   );
 }
 
-function RangeSlider({ value, handleChange, heading }) {
+function RangeSlider({ value, handleChange, heading, max }) {
   return (
     <div className="sort-file-input">
       <h3>{heading}</h3>
       <input
         type="range"
         min="0"
-        max="1000"
+        max={max}
         value={value}
         onChange={handleChange}
       />
