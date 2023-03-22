@@ -29,6 +29,10 @@ import { clientsFindServer } from "../Flow/data/client/clientsFindServer";
 import { shortestPathGateway } from "../Flow/data/gateway/shortestPathGateway";
 import { shortestPathClient } from "../Flow/data/client/shortestPathClient";
 import { shortestPathServer } from "../Flow/data/server/shortestPathServer";
+import { countPathGateway } from "../Flow/data/gateway/countPathsGateway";
+import { countPathsEdges } from "../Flow/data/edges/countPathsEdges";
+import { countPathsClient } from "../Flow/data/client/countPathsClient";
+import { countPathsServer } from "../Flow/data/server/countPathsServer";
 
 function ViewportLogger() {
   const { x, y, zoom } = useViewport();
@@ -124,6 +128,12 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
           shortestPathGateway
             .concat(shortestPathClient)
             .concat(shortestPathServer)
+        );
+        break;
+      case "countOfPaths":
+        setEdges(countPathsEdges);
+        setNodes(
+          countPathGateway.concat(countPathsClient).concat(countPathsServer)
         );
         break;
       case "buildNetwork":

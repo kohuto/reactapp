@@ -1,43 +1,56 @@
 import { useState } from "react";
 import "./Components.css";
 import CloseOpen from "./closeOpenWindow";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
-function CountPaths({ setGame, game }) {
+function CountPaths({ setOpenEndGame, setOpenInform, setAlertMessage }) {
   return (
     <>
-      <CloseOpen content={<InputBox setGame={setGame} />} />
+      <CloseOpen
+        content={
+          <InputBox
+            setAlertMessage={setAlertMessage}
+            setOpenInform={setOpenInform}
+            setOpenEndGame={setOpenEndGame}
+          />
+        }
+      />
     </>
   );
 }
 
-function openModal(i) {
-  var modal = document.getElementById("modal-window" + i);
-  modal.style.display = "block";
-}
-
-function InputBox({ setGame }) {
+function InputBox({ setOpenEndGame, setOpenInform, setAlertMessage }) {
   const [count, setCount] = useState("");
 
   const handleSubmit = () => {
-    if (count === "6") {
-      openModal(29);
-      setGame();
+    if (count === "7") {
+      setAlertMessage("výborně");
+      setOpenEndGame(true);
     } else {
-      alert("Toto není nejkratší délka");
+      setAlertMessage("nope");
+      setOpenInform(true);
     }
   };
   return (
     <>
-      <div>
-        <label>Počet cest:</label>
-        <input
-          type="text"
+      <div className="shortest-path-container">
+        <label>Počet různých cest:</label>
+        <TextField
+          id="standard-basic"
+          label="počet"
+          variant="standard"
           value={count}
           onChange={(e) => setCount(e.target.value)}
         />
+        <Button
+          variant="outlined"
+          onClick={handleSubmit}
+          className="check-button"
+        >
+          ZKONTROLUJ
+        </Button>
       </div>
-
-      <button onClick={handleSubmit}>Zkontrolovat</button>
     </>
   );
 }

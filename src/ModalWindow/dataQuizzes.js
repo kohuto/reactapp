@@ -162,7 +162,7 @@ export const stockData = [
   {
     header: "VŠECHNY CESTY VEDOU DO ŘÍMA",
     content:
-      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\nKlikni na tlačítko START a zkus spočítat, Po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Počet cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
+      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\n Klikni na tlačítko START a zkus spočítat, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet vícekrát stejnou chytrou křižovatkou. Počet různých cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
     type: "countOfPaths",
     question: "",
   },
