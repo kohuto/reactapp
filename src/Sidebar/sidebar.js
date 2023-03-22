@@ -1,11 +1,9 @@
 import "reactflow/dist/style.css";
 import "./Sidebar.css";
 
-import ModalWindowTemplate from "../ModalWindow/templateModalWindow";
-import QuizzTemplate from "../ModalWindow/templateQuizz";
 import SummaryTemplate from "../ModalWindow/templateSummary";
 import { stockData } from "../ModalWindow/dataQuizzes";
-import { correctAnswers } from "../ModalWindow/dataCorrectAnswers";
+import { summaryText } from "../ModalWindow/dataSummary";
 import internet from "../images/icons/internet.png";
 import packet from "../images/icons/packet.png";
 import wifi from "../images/icons/wifi.png";
@@ -15,77 +13,29 @@ import backarrow from "../images/icons/left-arrow.png";
 import summary from "../images/icons/summary.png";
 import question from "../images/icons/question-mark.png";
 import lightbulb from "../images/icons/light-bulb.png";
-
+import Quizz from "../ModalWindow/Quizz";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-
-function openModal(i) {
-  var modal = document.getElementById("modal-window" + i);
-  modal.style.display = "block";
-}
 
 function Sidebar({
   setGame,
   showLandingPage,
-  setOpenEndGame,
-  setOpenInform,
   setAlertMessage,
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
 }) {
-  let quizzModalWindows = [];
-  let summaryModalWindows = [];
-  let correctAnswersModalWindows = [];
-  let countOfCorrectAnswers = correctAnswers.length;
-  let countOfQuizzes = stockData.length;
-  for (let i = 0; i < countOfQuizzes; i++) {
-    // create modal windows for quizzes
-    quizzModalWindows.push(
-      <ModalWindowTemplate
-        setGame={setGame}
-        ID={i}
-        content={
-          <QuizzTemplate
-            setGame={setGame}
-            quizzID={i}
-            modalWindowID={i}
-            setAlertMessage={setAlertMessage}
-            setOpenInform={setOpenInform}
-            setOpenEndGame={setOpenEndGame}
-          />
-        }
-      />
-    );
-  }
-  for (let i = 0; i < 4; i++) {
-    // create modal windows for summary texts
-    quizzModalWindows.push(
-      <ModalWindowTemplate
-        setGame={setGame}
-        ID={i + countOfQuizzes}
-        content={
-          <SummaryTemplate summaryID={i} modalWindowID={i + countOfQuizzes} />
-        }
-      />
-    );
-  }
-  for (let i = 0; i < countOfCorrectAnswers; i++) {
-    //create modal windows for answers
-    correctAnswersModalWindows.push(
-      <ModalWindowTemplate
-        setGame={setGame}
-        ID={i + countOfQuizzes + 4}
-        content={correctAnswers[i].content}
-      />
-    );
-  }
-
   return (
     <>
-      {quizzModalWindows}
-      {summaryModalWindows}
-      {correctAnswersModalWindows}
       <Navbar>
         <NavItem>
-          <DropdownMenu showLandingPage={showLandingPage} setGame={setGame} />
+          <DropdownMenu
+            showLandingPage={showLandingPage}
+            setGame={setGame}
+            setOpenModal={setOpenModal}
+            setGameAfterModalClose={setGameAfterModalClose}
+            setAlertMessage={setAlertMessage}
+          />
         </NavItem>
       </Navbar>
     </>
@@ -104,11 +54,45 @@ function NavItem(props) {
   return <li className="custom-nav-item">{props.children}</li>;
 }
 
-function DropdownMenu({ showLandingPage, setGame }) {
+function DropdownMenu({
+  showLandingPage,
+  setGame,
+  setOpenModal,
+  setGameAfterModalClose,
+  setAlertMessage,
+}) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
   let countOfQuizzes = stockData.length;
+
+  function openModal(instructionNumber) {
+    setGameAfterModalClose(stockData[instructionNumber].type);
+    setAlertMessage(<>{stockData[instructionNumber].content}</>);
+    setOpenModal(true);
+  }
+  function openSummaryModal(instructionNumber) {
+    setGameAfterModalClose("noGame");
+    setAlertMessage(<SummaryTemplate data={summaryText[instructionNumber]} />);
+    setOpenModal(true);
+  }
+
+  function openQuizzModal(instructionNumber) {
+    setGameAfterModalClose("noGame");
+    setAlertMessage(
+      <>
+        {stockData[instructionNumber].content}
+        <Quizz
+          taskType={stockData[instructionNumber].type}
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          setGameAfterModalClose={setGameAfterModalClose}
+        />
+      </>
+    );
+    setOpenModal(true);
+  }
+
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
   }, []);
@@ -178,7 +162,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openModal(countOfQuizzes)}
+            onClick={() => openSummaryModal(0)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
@@ -218,7 +202,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openModal(countOfQuizzes + 1)}
+            onClick={() => openSummaryModal(1)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
@@ -234,7 +218,10 @@ function DropdownMenu({ showLandingPage, setGame }) {
           <div className="custom-menu-item-div" onClick={() => openModal(9)}>
             <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(10)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(10)}
+          >
             <DropdownItem leftIcon={question}>
               JAK VELKÁ BUDE ZPRÁVA
             </DropdownItem>
@@ -254,7 +241,7 @@ function DropdownMenu({ showLandingPage, setGame }) {
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openModal(countOfQuizzes + 2)}
+            onClick={() => openSummaryModal(2)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
@@ -273,13 +260,19 @@ function DropdownMenu({ showLandingPage, setGame }) {
           <div className="custom-menu-item-div" onClick={() => openModal(15)}>
             <DropdownItem leftIcon={question}>CESTA KOLEM SVĚTA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(16)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(16)}
+          >
             <DropdownItem leftIcon={question}>RYCHLOST</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(17)}>
             <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(18)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(18)}
+          >
             <DropdownItem leftIcon={question}>JAK SE PŘIPOJIT</DropdownItem>
           </div>
         </div>
@@ -297,14 +290,20 @@ function DropdownMenu({ showLandingPage, setGame }) {
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openModal(countOfQuizzes + 3)}
+            onClick={() => openSummaryModal(3)}
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(19)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(19)}
+          >
             <DropdownItem leftIcon={lightbulb}>IP ADRESA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(20)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(20)}
+          >
             <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(21)}>
@@ -321,7 +320,10 @@ function DropdownMenu({ showLandingPage, setGame }) {
           <div className="custom-menu-item-div" onClick={() => openModal(24)}>
             <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(25)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openQuizzModal(25)}
+          >
             <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
           </div>
         </div>

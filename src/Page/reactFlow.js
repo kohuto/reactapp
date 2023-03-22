@@ -33,6 +33,10 @@ import { countPathGateway } from "../Flow/data/gateway/countPathsGateway";
 import { countPathsEdges } from "../Flow/data/edges/countPathsEdges";
 import { countPathsClient } from "../Flow/data/client/countPathsClient";
 import { countPathsServer } from "../Flow/data/server/countPathsServer";
+import { problemWithPathClient } from "../Flow/data/client/problemWithPathClient";
+import { problemWithPathEdges } from "../Flow/data/edges/problemWithPathEdges";
+import { problemWithPathGateway } from "../Flow/data/gateway/problemWithPathGateway";
+import { problemWithPathServer } from "../Flow/data/server/problemWithPathServer";
 
 function ViewportLogger() {
   const { x, y, zoom } = useViewport();
@@ -44,7 +48,6 @@ function ViewportLogger() {
   return null;
 }
 function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
-  const [variant, setVariant] = useState("cross");
   const defaultNodes = clientsZoom2Data
     .concat(serversZoom2Data)
     .concat(gatewaysZoom2Data);
@@ -58,9 +61,6 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
     window.innerWidth,
     window.innerHeight,
   ]);
-
-  // Add variables for original node positions
-  const [originalPositions, setOriginalPositions] = useState([]);
 
   /* useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -134,6 +134,14 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         setEdges(countPathsEdges);
         setNodes(
           countPathGateway.concat(countPathsClient).concat(countPathsServer)
+        );
+        break;
+      case "problemWithPath":
+        setEdges(problemWithPathEdges);
+        setNodes(
+          problemWithPathGateway
+            .concat(problemWithPathServer)
+            .concat(problemWithPathClient)
         );
         break;
       case "buildNetwork":

@@ -11,10 +11,11 @@ import serveryoutube from "../../images/nodes/serveryoutube.png";
 import CloseOpen from "./closeOpenWindow";
 
 function WhatIsServerComponent({
-  setOpenEndGame,
-
-  setOpenInform,
+  setOpenDialog,
+  // setGame,
   setAlertMessage,
+  game,
+  setGameAfterModalClose,
 }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
@@ -62,7 +63,8 @@ function WhatIsServerComponent({
   useEffect(() => {
     if (filledServer == 3) {
       setAlertMessage("jsi úplně boží");
-      setOpenEndGame(true);
+      setGameAfterModalClose("noGame");
+      setOpenDialog(true);
     }
   }, [filledServer]);
 
@@ -93,7 +95,8 @@ function WhatIsServerComponent({
           </div>
         </>
       );
-      setOpenInform(true);
+      setGameAfterModalClose(game);
+      setOpenDialog(true);
     }
     if (touching24) {
       imgRef.current.style.display = "none";
@@ -101,13 +104,15 @@ function WhatIsServerComponent({
       setAlertMessage(
         "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků"
       );
-      setOpenInform(true);
+      setGameAfterModalClose(game);
+      setOpenDialog(true);
     }
     if (touching34) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
       setAlertMessage("Správně! Na YouTube serveru bude uloženo spoustu videí");
-      setOpenInform(true);
+      setGameAfterModalClose(game);
+      setOpenDialog(true);
     }
   }, [touching14, touching24, touching34]);
   return (

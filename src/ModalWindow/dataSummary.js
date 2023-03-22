@@ -1,4 +1,4 @@
-export const stockData = [
+export const summaryText = [
   {
     chapterSummary:
       "Všichni ho známe, všichni ho používáme. Většina z nás ale neví, jak funguje. Řeč je samozřejmě o internetu.\n Důležité je hned na začátek říct, že internet není nic neviditelného. Internet je velké množství navzájem propojených zařízení, která spolu neustále komunikují. Máme zde zařízení, která něco chtějí - těm říkáme klienti. Poté jsou zde zařízení, tzv. servery, která nabízejí služby. Navíc potřebujeme cesty a křižovatky, aby spolu mohli klienti a servery komunikovat.\n V následujících úkolech se se s těmito zařízeními seznámíš blíže.",

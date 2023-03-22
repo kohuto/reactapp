@@ -8,6 +8,8 @@ function ShortestPathComponent({
   setOpenEndGame,
   setOpenInform,
   setAlertMessage,
+  game,
+  setGame,
 }) {
   return (
     <>
@@ -17,6 +19,8 @@ function ShortestPathComponent({
             setAlertMessage={setAlertMessage}
             setOpenInform={setOpenInform}
             setOpenEndGame={setOpenEndGame}
+            setGame={setGame}
+            game={game}
           />
         }
       />
@@ -24,7 +28,13 @@ function ShortestPathComponent({
   );
 }
 
-function InputBox({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+function InputBox({
+  setOpenEndGame,
+  setOpenInform,
+  setAlertMessage,
+  setGame,
+  game,
+}) {
   const [length, setLength] = useState("");
 
   const handleSubmit = () => {
@@ -33,6 +43,7 @@ function InputBox({ setOpenEndGame, setOpenInform, setAlertMessage }) {
       setOpenEndGame(true);
     } else {
       setAlertMessage("nope");
+      setGame("whatIsServer");
       setOpenInform(true);
     }
   };

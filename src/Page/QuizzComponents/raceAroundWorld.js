@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import globe from "../../images/Globe-Transparent-Background-PNG.png";
-import ModalWindowTemplate from "../../ModalWindow/templateModalWindow";
+
 function openModal(i) {
   var modal = document.getElementById("modal-window" + i);
   modal.style.display = "block";
@@ -56,13 +56,6 @@ function RaceAroundWorld({ setGame }) {
 
   return (
     <>
-      <ModalWindowTemplate
-        setGame={setGame}
-        ID={137}
-        content={
-          <Finished clickCount={clickCount} countCircles={circles.length} />
-        }
-      />
       <div className="race-around-world-click-count">
         Click Count: {clickCount}
       </div>

@@ -111,7 +111,7 @@ function CheckBoxes({ setOpenEndGame, setOpenInform, setAlertMessage }) {
           handleCheckboxChange={handleCheckboxChange4}
         />
       </div>
-      <div className="start-quizz-button">
+      <div className="tart-quizz-button">
         <Button variant="outlined" onClick={handleSubmit}>
           ZKONTROLOVAT
         </Button>

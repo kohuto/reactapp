@@ -24,17 +24,19 @@ function QuizzComponents({
   zoomIn,
   zoomOut,
   zoom,
-  setOpenEndGame,
-  setOpenInform,
+  setOpenDialog,
   setAlertMessage,
+  setGameAfterModalClose,
 }) {
   switch (game) {
     case "whatIsServer":
       return (
         <WhatIsServerComponent
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "whatIsClient":
@@ -45,8 +47,8 @@ function QuizzComponents({
       return (
         <ClientServerCommunication
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "whatIsCabel":
@@ -63,16 +65,16 @@ function QuizzComponents({
       return (
         <CreatePacketComponent
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "findServer":
       return (
         <FindPacketComponent
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "whatIsWiFi":
@@ -91,32 +93,32 @@ function QuizzComponents({
       return (
         <SetPaths
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "shortestPath":
       return (
         <ShortestPathComponent
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "countOfPaths":
       return (
         <CountPaths
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     case "problemWithPath":
       return (
         <ProblemWithPath
           setAlertMessage={setAlertMessage}
-          setOpenInform={setOpenInform}
-          setOpenEndGame={setOpenEndGame}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
         />
       );
     default:

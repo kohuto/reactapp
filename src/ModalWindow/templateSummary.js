@@ -1,8 +1,6 @@
-import { stockData } from "./dataSummary";
-
-function SummaryTemplate({ summaryID }) {
-  const learningOutcomes = stockData[summaryID].learningOutcomes;
-  const prerequisites = stockData[summaryID].prerequsities;
+function SummaryTemplate({ data }) {
+  const learningOutcomes = data.learningOutcomes;
+  const prerequisites = data.prerequsities;
   const List = ({ items }) => {
     return (
       <ul>
@@ -15,7 +13,7 @@ function SummaryTemplate({ summaryID }) {
   return (
     <>
       <div className="summary-content">
-        <p>{stockData[summaryID].chapterSummary}</p>
+        <p>{data.chapterSummary}</p>
         <div className="column">
           <h2>CO UŽ UMÍME</h2>
           <List items={prerequisites} />

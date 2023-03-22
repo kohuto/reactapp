@@ -7,6 +7,9 @@ import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
 import { findPacketsData } from "../Packet/data/findServerPackets";
 import DefaultPackets from "../Packet";
 import { useNodesState } from "reactflow";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -16,6 +19,18 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 function Page() {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
   const [isLandingPage, setIsLandingPage] =
     useState(false); /* zde změnit na true */
   const [game, setGame] = useState("noGame");
@@ -24,7 +39,8 @@ function Page() {
   const [alertMessage, setAlertMessage] = useState("");
   const [openInform, setOpenInform] = useState("");
   const [openEndGame, setOpenEndGame] = useState("");
-
+  const [openDialog, setOpenDialog] = useState(false);
+  const [gameAfterClose, setGameAfterModalClose] = useState("");
   function handleAlertMessageChange(newMessage) {
     setAlertMessage(newMessage);
   }
@@ -36,6 +52,10 @@ function Page() {
   function handleOpenEndGame(newState) {
     setOpenInform(false);
     setOpenEndGame(newState);
+  }
+
+  function handleOpenDialog(isOpen) {
+    setOpenDialog(isOpen);
   }
 
   const zoomIn = () => {
@@ -87,23 +107,17 @@ function Page() {
           zoomIn={zoomIn}
           zoomOut={zoomOut}
           zoom={zoom}
+          setGameAfterModalClose={setGameAfterModalClose}
           setAlertMessage={handleAlertMessageChange}
-          setOpenInform={handleOpenInform}
-          setOpenEndGame={handleOpenEndGame}
+          setOpenDialog={handleOpenDialog}
         />
 
         <AlertDialog
-          open={openEndGame}
-          setOpen={setOpenEndGame}
+          open={openDialog}
+          setOpen={setOpenDialog}
           alertMessage={alertMessage}
-          setGame={() => setGame("noGame")}
-        />
-
-        <AlertDialog
-          open={openInform}
-          setOpen={setOpenInform}
-          alertMessage={alertMessage}
-          setGame={() => setGame(game)}
+          setGame={setGame}
+          gameAfterClose={gameAfterClose}
         />
 
         <div>
@@ -128,6 +142,9 @@ function Page() {
             setAlertMessage={handleAlertMessageChange}
             setOpenInform={handleOpenInform}
             setOpenEndGame={handleOpenEndGame}
+            game={game}
+            setGameAfterModalClose={setGameAfterModalClose}
+            setOpenModal={handleOpenDialog}
           />
         </div>
       </>
@@ -135,29 +152,55 @@ function Page() {
   }
 }
 
-function AlertDialog({ open, setOpen, alertMessage, setGame }) {
+function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
   const handleClose = () => {
+    setGame(gameAfterClose);
     setOpen(false);
-    setGame();
   };
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    bgcolor: "background.paper",
 
-  return (
-    <div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogContent>
+    // minHeight: "75vh",
+    //minWidth: "75vw",
+    display: "inline-block",
+    width: "auto",
+    height: "auto",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+  /*   <DialogContent>
+          <span className="close" onClick={handleClose}>
+            &times;
+          </span>
           <DialogContentText id="alert-dialog-description">
             {alertMessage}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>ZAVŘÍT</Button>
-        </DialogActions>
-      </Dialog>
+        </DialogActions>*/
+  return (
+    <div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <Box sx={style}>
+          <span className="close" onClick={handleClose}>
+            &times;
+          </span>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {alertMessage}
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 }
