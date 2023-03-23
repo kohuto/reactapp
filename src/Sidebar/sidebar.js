@@ -24,6 +24,8 @@ function Sidebar({
   setOpenModal,
   game,
   setGameAfterModalClose,
+  setOpenOverlayModal,
+  setOverlayDialogMessage,
 }) {
   return (
     <>
@@ -35,6 +37,9 @@ function Sidebar({
             setOpenModal={setOpenModal}
             setGameAfterModalClose={setGameAfterModalClose}
             setAlertMessage={setAlertMessage}
+            game={game}
+            setOpenOverlayModal={setOpenOverlayModal}
+            setOverlayDialogMessage={setOverlayDialogMessage}
           />
         </NavItem>
       </Navbar>
@@ -60,11 +65,13 @@ function DropdownMenu({
   setOpenModal,
   setGameAfterModalClose,
   setAlertMessage,
+  game,
+  setOpenOverlayModal,
+  setOverlayDialogMessage,
 }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
-  let countOfQuizzes = stockData.length;
 
   function openModal(instructionNumber) {
     setGameAfterModalClose(stockData[instructionNumber].type);
@@ -87,6 +94,9 @@ function DropdownMenu({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       </>
     );
@@ -306,9 +316,7 @@ function DropdownMenu({
           >
             <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(21)}>
-            <DropdownItem leftIcon={question}>NEZÁVISLÝ PAKET</DropdownItem>
-          </div>
+
           <div className="custom-menu-item-div" onClick={() => openModal(22)}>
             <DropdownItem leftIcon={question}>NEJRYCHLEJŠÍ CESTA</DropdownItem>
           </div>

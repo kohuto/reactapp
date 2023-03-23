@@ -1,4 +1,4 @@
-export const problemWithPathEdges = [
+export const problemWithPathDestroyedPathEdges = [
   {
     id: "2.133.220.187-102.80.143.201",
     source: "2.133.220.187",

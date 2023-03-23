@@ -1,6 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from "react";
 import ReactFlow, {
-  useNodesState,
   useEdgesState,
   addEdge,
   Background,
@@ -37,6 +36,11 @@ import { problemWithPathClient } from "../Flow/data/client/problemWithPathClient
 import { problemWithPathEdges } from "../Flow/data/edges/problemWithPathEdges";
 import { problemWithPathGateway } from "../Flow/data/gateway/problemWithPathGateway";
 import { problemWithPathServer } from "../Flow/data/server/problemWithPathServer";
+import { setPathClient } from "../Flow/data/client/setPathClient";
+import { setPathEdges } from "../Flow/data/edges/setPathEdges";
+import { setPathGateway } from "../Flow/data/gateway/setPathGateway";
+import { setPathServer } from "../Flow/data/server/setPathServer";
+import { problemWithPathDestroyedPathEdges } from "../Flow/data/edges/problemWithPathBrokenPathEdges";
 
 function ViewportLogger() {
   const { x, y, zoom } = useViewport();
@@ -47,7 +51,17 @@ function ViewportLogger() {
 
   return null;
 }
-function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
+function Flow({
+  game,
+  zoom,
+  nodes,
+  setNodes,
+  onNodesChange,
+  isDestroyed,
+  /*edge,
+  setEdges,
+  onEdgesChange,*/
+}) {
   const defaultNodes = clientsZoom2Data
     .concat(serversZoom2Data)
     .concat(gatewaysZoom2Data);
@@ -122,6 +136,10 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
       case "whatIsSatelit":
         setNodes(whatIsSatelitNodes);
         break;
+      case "setPath":
+        setEdges(setPathEdges);
+        setNodes(setPathGateway.concat(setPathClient).concat(setPathServer));
+        break;
       case "shortestPath":
         setEdges(shortestPathEdges);
         setNodes(
@@ -137,7 +155,9 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         );
         break;
       case "problemWithPath":
-        setEdges(problemWithPathEdges);
+        setEdges(
+          isDestroyed ? problemWithPathDestroyedPathEdges : problemWithPathEdges
+        );
         setNodes(
           problemWithPathGateway
             .concat(problemWithPathServer)
@@ -151,7 +171,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange }) {
         setNodes(defaultNodes);
         setEdges(edgesData);
     }
-  }, [game, setNodes, zoom, setEdges]);
+  }, [game, setNodes, zoom, setEdges, isDestroyed]);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),

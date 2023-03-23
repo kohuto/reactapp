@@ -12,7 +12,6 @@ import CloseOpen from "./closeOpenWindow";
 
 function WhatIsServerComponent({
   setOpenDialog,
-  // setGame,
   setAlertMessage,
   game,
   setGameAfterModalClose,

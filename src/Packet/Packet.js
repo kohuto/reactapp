@@ -7,6 +7,7 @@ import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
 import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
 import { satelitsData } from "../Flow/data/satelits";
+import { problemWithPathGateway } from "../Flow/data/gateway/problemWithPathGateway";
 
 function getCoordinates(id) {
   const server = serversZoom2Data.find((s) => s.id === id);
@@ -35,6 +36,16 @@ function getCoordinates(id) {
   const satelit = satelitsData.find((g) => g.id === id);
   if (satelit) {
     return { x: satelit.position.x, y: satelit.position.y };
+  }
+
+  const gatewayProblemWithPath = problemWithPathGateway.find(
+    (g) => g.id === id
+  );
+  if (gatewayProblemWithPath) {
+    return {
+      x: gatewayProblemWithPath.position.x,
+      y: gatewayProblemWithPath.position.y,
+    };
   }
 
   return null;

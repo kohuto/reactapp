@@ -6,7 +6,7 @@ import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
 import { findPacketsData } from "../Packet/data/findServerPackets";
 import DefaultPackets from "../Packet";
-import { useNodesState } from "reactflow";
+import { useNodesState, useEdgesState } from "reactflow";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -38,26 +38,32 @@ function Page() {
   const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();
+  const [edge, setEdges, onEdgesChange] = useNodesState();
   const [alertMessage, setAlertMessage] = useState("");
-  const [openInform, setOpenInform] = useState("");
-  const [openEndGame, setOpenEndGame] = useState("");
+  const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
+  const [isDistroyedProblemWithPath, setIsDistroyedProblemWithPath] =
+    useState(false);
+  const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [gameAfterClose, setGameAfterModalClose] = useState("");
+
+  function handleOpenDialog(isOpen) {
+    setOpenDialog(isOpen);
+  }
+  function handleIsDistroyedProblemWithPath(isDestroyed) {
+    setIsDistroyedProblemWithPath(isDestroyed);
+  }
+
   function handleAlertMessageChange(newMessage) {
     setAlertMessage(newMessage);
   }
 
-  function handleOpenInform(newState) {
-    setOpenInform(newState);
+  function handleOverlayDialogMessageChange(newMessage) {
+    setOverlayDialogMessage(newMessage);
   }
 
-  function handleOpenEndGame(newState) {
-    setOpenInform(false);
-    setOpenEndGame(newState);
-  }
-
-  function handleOpenDialog(isOpen) {
-    setOpenDialog(isOpen);
+  function handleOpenOverlayDialog(isOpen) {
+    setOpenOverlayDialog(isOpen);
   }
 
   const zoomIn = () => {
@@ -111,7 +117,17 @@ function Page() {
           zoom={zoom}
           setGameAfterModalClose={setGameAfterModalClose}
           setAlertMessage={handleAlertMessageChange}
-          setOpenDialog={handleOpenDialog}
+          setOpenModal={handleOpenDialog}
+          setIsDistroyedProblemWithPath={handleIsDistroyedProblemWithPath}
+          isDestroyed={isDistroyedProblemWithPath}
+        />
+
+        <AlertDialog
+          open={openOverlayDialog}
+          setOpen={setOpenOverlayDialog}
+          alertMessage={overlayDialogMessage}
+          setGame={setGame}
+          gameAfterClose={gameAfterClose}
         />
 
         <AlertDialog
@@ -133,8 +149,12 @@ function Page() {
                 game={game}
                 zoom={zoom}
                 nodes={nodes}
+                edge={edge}
+                setEdges={setEdges}
+                onEdgesChange={onEdgesChange}
                 setNodes={setNodes}
                 onNodesChange={onNodesChange}
+                isDestroyed={isDistroyedProblemWithPath}
               />
             </div>
           )}
@@ -142,11 +162,11 @@ function Page() {
             showLandingPage={setIsLandingPage}
             setGame={setGame}
             setAlertMessage={handleAlertMessageChange}
-            setOpenInform={handleOpenInform}
-            setOpenEndGame={handleOpenEndGame}
             game={game}
             setGameAfterModalClose={setGameAfterModalClose}
             setOpenModal={handleOpenDialog}
+            setOpenOverlayModal={handleOpenOverlayDialog}
+            setOverlayDialogMessage={handleOverlayDialogMessageChange}
           />
         </div>
       </>
@@ -165,9 +185,6 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     bgcolor: "background.paper",
-
-    // minHeight: "75vh",
-    //minWidth: "75vw",
     display: "inline-block",
     width: "auto",
     height: "auto",
@@ -180,7 +197,6 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
     <div>
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

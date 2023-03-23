@@ -10,6 +10,9 @@ function Quizz({
   setAlertMessage,
   setOpenModal,
   setGameAfterModalClose,
+  game,
+  setOpenOverlayModal,
+  setOverlayDialogMessage,
 }) {
   switch (taskType) {
     case "sortFileSize":
@@ -18,6 +21,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     case "typingChallenge":
@@ -26,6 +32,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     case "howToConnect":
@@ -34,6 +43,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     case "IPadress":
@@ -42,6 +54,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     case "sortIPAdresses":
@@ -50,6 +65,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     case "puzzle":
@@ -58,6 +76,9 @@ function Quizz({
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
           setGameAfterModalClose={setGameAfterModalClose}
+          game={game}
+          setOpenOverlayModal={setOpenOverlayModal}
+          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       );
     default:

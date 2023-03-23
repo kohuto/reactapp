@@ -7,9 +7,10 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
 function CreatePacketComponent({
-  setOpenEndGame,
-  setOpenInform,
   setAlertMessage,
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
 }) {
   const messengerServers = ["195.113.76.22", "192.168.1.1"];
   const corerctId = ["1", "2", "3"];
@@ -23,6 +24,7 @@ function CreatePacketComponent({
   const [content, setContent] = useState([]);
 
   const handleSubmit = () => {
+    setGameAfterModalClose(game);
     const isAllItemsStringsWithLengthGreaterThanZero =
       id.every((item) => typeof item === "string" && item.length > 0) &&
       recipientIP.every(
@@ -67,30 +69,24 @@ function CreatePacketComponent({
                   (id[2] === "3" && content[2] === thirdPartMessage)
                 ) {
                   setAlertMessage("správně vyplněno");
-                  setOpenEndGame(true);
+                  setGameAfterModalClose("noGame");
                 } else {
                   setAlertMessage("špatně obsah 3. paketu");
-                  setOpenInform(true);
                 }
               } else {
                 setAlertMessage("špatně obsah 2. paketu");
-                setOpenInform(true);
               }
             } else {
               setAlertMessage("špatně obsah 1. paketu");
-              setOpenInform(true);
             }
           } else {
             setAlertMessage("příjemce musí být messenger server");
-            setOpenInform(true);
           }
         } else {
           setAlertMessage("špatně odesílatel");
-          setOpenInform(true);
         }
       } else {
         setAlertMessage("špatné id");
-        setOpenInform(true);
       }
     } else {
       console.log(id.length);
@@ -98,8 +94,8 @@ function CreatePacketComponent({
       console.log(senderIP.length);
       console.log(content.length);
       setAlertMessage("něco není vyplněné");
-      setOpenInform(true);
     }
+    setOpenModal(true);
   };
 
   return (

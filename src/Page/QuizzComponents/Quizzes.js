@@ -24,17 +24,18 @@ function QuizzComponents({
   zoomIn,
   zoomOut,
   zoom,
-  setOpenDialog,
+  setOpenModal,
   setAlertMessage,
   setGameAfterModalClose,
+  setIsDistroyedProblemWithPath,
+  isDestroyed,
 }) {
   switch (game) {
     case "whatIsServer":
       return (
         <WhatIsServerComponent
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
           game={game}
           setGameAfterModalClose={setGameAfterModalClose}
         />
@@ -47,7 +48,7 @@ function QuizzComponents({
       return (
         <ClientServerCommunication
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
+          setOpenModal={setOpenModal}
           setGame={setGame}
         />
       );
@@ -65,16 +66,18 @@ function QuizzComponents({
       return (
         <CreatePacketComponent
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "findServer":
       return (
         <FindPacketComponent
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "whatIsWiFi":
@@ -89,36 +92,42 @@ function QuizzComponents({
       return (
         <ConnectClientsWirelessComponent setGame={() => setGame("noGame")} />
       );
-    case "setPathsOfPackets":
+    case "setPath":
       return (
         <SetPaths
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "shortestPath":
       return (
         <ShortestPathComponent
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "countOfPaths":
       return (
         <CountPaths
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "problemWithPath":
       return (
         <ProblemWithPath
           setAlertMessage={setAlertMessage}
-          setOpenDialog={setOpenDialog}
-          setGame={setGame}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
+          setIsDistroyedProblemWithPath={setIsDistroyedProblemWithPath}
+          isDestroyed={isDestroyed}
         />
       );
     default:
