@@ -19,7 +19,7 @@ import { gatewaysZoom0Data } from "../Flow/data/gateway/gatewayZoom0";
 import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
 import { satelitsData } from "../Flow/data/satelits";
-import { edgesData } from "../Flow/data/edges";
+import { edgesData } from "../Flow/data/edges/edges";
 import { shortestPathEdges } from "../Flow/data/edges/shortestPathEdges";
 import WhatIsWiFiComponent from "./QuizzComponents/wirelessDevice";
 import BuildNetwork from "./QuizzComponents/buildNetwork";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Components.css";
 import CloseOpen from "./closeOpenWindow";
-import { edgesData } from "../../Flow/data/edges";
+import { edgesData } from "../../Flow/data/edges/edges";
 import Packet from "../../Packet/Packet";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";

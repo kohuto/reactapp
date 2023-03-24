@@ -6,7 +6,12 @@ import gallery from "../../images/icons/image-gallery.png";
 import plus from "../../images/icons/plusmess.png";
 import gif from "../../images/icons/gif.png";
 
-function DataIntoPackets({ setGame }) {
+function DataIntoPackets({
+  setAlertMessage,
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
+}) {
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
@@ -16,7 +21,8 @@ function DataIntoPackets({ setGame }) {
   ]);
   const [newMessage, setNewMessage] = useState("");
   const [showChat, setShowChat] = useState(true);
-  const [showPackets, setShowPackets] = useState(false);
+  const [showPackets1, setShowPackets1] = useState(false);
+  const [showPackets2, setShowPackets2] = useState(false);
   const [isSwapedSenders, setIsSwapedSenders] = useState(false);
   const [showPacketsCreatedMessageBox, setShowPacketsCreatedMessageBox] =
     useState(false);
@@ -25,56 +31,108 @@ function DataIntoPackets({ setGame }) {
   const [content1, setContent1] = useState("");
   const [content2, setContent2] = useState("");
   const [content3, setContent3] = useState("");
-  const [content4, setContent4] = useState("");
 
-  var packets = [
+  var packets1 = [
     {
       id: 180,
       path: [
-        "195.113.76.22",
+        "77.75.79.138",
+        "147.32.3.202",
+        "217.31.205.50",
+        "82.208.6.9",
+        "57.200.0.1",
+        "208.67.222.222",
         "2002:c0a8:101::1",
+        "195.113.76.22",
+      ],
+      content: content1,
+      from: "77.75.79.138",
+      to: "195.113.76.22",
+      speed: 40,
+    },
+    {
+      id: 181,
+      path: [
+        "77.75.79.138",
+        "147.32.3.202",
+        "91.198.174.192",
+        "82.208.6.9",
+        "208.67.222.222",
+        "222.173.190.239",
+        "2002:c0a8:101::1",
+        "195.113.76.22",
+      ],
+      content: content2,
+      from: "77.75.79.138",
+      to: "195.113.76.22",
+      speed: 40,
+    },
+    {
+      id: 182,
+      path: [
+        "77.75.79.138",
+        "147.32.3.202",
         "217.31.205.50",
         "193.85.9.76",
+        "82.208.6.9",
+        "57.200.0.1",
+        "2002:c0a8:101::1",
+        "195.113.76.22",
+      ],
+      content: content3,
+      from: "77.75.79.138",
+      to: "195.113.76.22",
+      speed: 40,
+    },
+  ];
+  var packets2 = [
+    {
+      id: 10,
+      path: [
+        "195.113.76.22",
+        "2002:c0a8:101::1",
+        "57.200.0.1",
+        "82.208.6.9",
+        "208.67.222.222",
+        "222.173.190.239",
         "195.113.27.221",
       ],
       content: content1,
       from: "195.113.76.22",
       to: "195.113.27.221",
-      speed: 50,
+      speed: 40,
     },
     {
-      id: 181,
+      id: 11,
       path: [
-        "172.16.0.1",
-        "2001:1488:0:3::2",
-        "2001:718:1202:240::201",
-        "57.200.0.1",
-        "193.85.9.76",
-        "82.208.6.9",
+        "195.113.76.22",
+        "2002:c0a8:101::1",
         "208.67.222.222",
-        "45.87.28.93",
-        "147.32.3.202",
-        "195.113.89.35",
+        "57.200.0.1",
+        "2002:c0a8:101::1",
+        "222.173.190.239",
+        "195.113.27.221",
       ],
       content: content2,
       from: "195.113.76.22",
       to: "195.113.27.221",
-      speed: 50,
+      speed: 40,
     },
     {
-      id: 182,
+      id: 12,
       path: [
-        "2620:0:862:ed1a::1",
-        "91.198.174.192",
+        "195.113.76.22",
+        "2002:c0a8:101::1",
+        "57.200.0.1",
         "208.67.222.222",
-        "45.87.28.93",
+        "2002:c0a8:101::1",
         "222.173.190.239",
-        "192.168.1.1",
+        "195.113.27.221",
       ],
       content: content3,
       from: "195.113.76.22",
       to: "195.113.27.221",
-      speed: 50,
+      speed: 40,
     },
   ];
 
@@ -95,41 +153,54 @@ function DataIntoPackets({ setGame }) {
 
   const endPackets1 = () => {
     setTimeout(() => {
-      setShowPackets(false);
+      setShowPackets1(false);
       setShowPacketsInServerMessageBox(true);
-    }, 5000);
+    }, 19000);
   };
 
   const endPackets2 = () => {
     setTimeout(() => {
-      setShowPackets(false);
+      setShowPackets2(false);
       setShowPacketsInServerMessageBox(true);
       swapSenders();
       setShowChat(true);
-    }, 5000);
+    }, 18000);
   };
 
   const handleSend = () => {
-    if (newMessage.length <= 32) {
+    if (newMessage.length <= 24 && newMessage.length > 0) {
       setMessages([...messages, { text: newMessage, sender: "user" }]);
       setNewMessage("");
       setShowChat(false);
       setShowPacketsCreatedMessageBox(true);
 
       setContent1(newMessage.substring(0, 8));
+      if (newMessage.length > 8) setContent2(newMessage.substring(8, 16));
+      if (newMessage.length > 16);
+      setContent3(newMessage.substring(16, 24));
+    } else {
+      setAlertMessage("napis zpravu, ktera ma max 24 znaku.");
+      setGameAfterModalClose(game);
+      setOpenModal(true);
     }
   };
 
   const hidePacketsCreatedMessageContainer = () => {
     setShowPacketsCreatedMessageBox(false);
-    setShowPackets(true);
+    setShowPackets1(true);
     endPackets1();
   };
   const hidePacketsInServerMessageContainer = () => {
     setShowPacketsInServerMessageBox(false);
-    setShowPackets(true);
+    setShowPackets2(true);
     endPackets2();
   };
+
+  function handleClose() {
+    setAlertMessage("a to je vse");
+    setGameAfterModalClose("noGame");
+    setOpenModal(true);
+  }
 
   if (showPacketsCreatedMessageBox) {
     return (
@@ -177,7 +248,7 @@ function DataIntoPackets({ setGame }) {
     return (
       <div className={`chat-container ${showChat ? "" : "hidden"}`}>
         <div className="chat-header">
-          <span className="close data-into-packet" onClick={setGame}>
+          <span className="close data-into-packet" onClick={handleClose}>
             &times;
           </span>
           <img
@@ -216,8 +287,16 @@ function DataIntoPackets({ setGame }) {
         </div>
       </div>
     );
-  } else if (showPackets) {
-    return <DefaultPackets packetsData={packets} />;
+  } else if (showPackets1) {
+    return content3.length > 0 ? (
+      <DefaultPackets packetsData={packets1} />
+    ) : content2.length > 0 ? (
+      <DefaultPackets packetsData={packets1.slice(0, 2)} />
+    ) : (
+      <DefaultPackets packetsData={packets1.slice(0, 1)} />
+    );
+  } else if (showPackets2) {
+    return <DefaultPackets packetsData={packets2} />;
   } else if (showPacketsInServerMessageBox) {
     return (
       <>

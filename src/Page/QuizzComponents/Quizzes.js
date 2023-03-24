@@ -49,7 +49,8 @@ function QuizzComponents({
         <ClientServerCommunication
           setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
-          setGame={setGame}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "whatIsCabel":
@@ -61,7 +62,14 @@ function QuizzComponents({
     case "whatIsRoad":
       return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
     case "dataIntoPackets":
-      return <DataIntoPackets setGame={() => setGame("noGame")} />;
+      return (
+        <DataIntoPackets
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
+        />
+      );
     case "createPacket":
       return (
         <CreatePacketComponent

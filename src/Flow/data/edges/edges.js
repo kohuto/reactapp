@@ -24,9 +24,9 @@ export const edgesData = [
     type: "straight",
   },
   {
-    id: "91.198.174.192-193.85.9.76",
-    source: "91.198.174.192",
-    target: "193.85.9.76",
+    id: "82.208.6.9-217.31.205.50",
+    source: "217.31.205.50",
+    target: "82.208.6.9",
     type: "straight",
   },
   {
@@ -48,9 +48,9 @@ export const edgesData = [
     type: "straight",
   },
   {
-    id: "",
-    source: "",
-    target: "",
+    id: "147.32.3.202-217.31.205.50",
+    source: "147.32.3.202",
+    target: "217.31.205.50",
     type: "straight",
   },
   {
