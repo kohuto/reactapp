@@ -26,10 +26,6 @@
 }
 
 /* typing challenge */
-.form {
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
 
 .typing-challenge-text {
     width: 100%;
@@ -45,25 +41,7 @@
               -6px -6px 12px #ffffff;
 }
 
-#typing-challenge-input {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 0.4rem;
-    vertical-align: middle;
-    box-shadow: 0 0 0.5em rgb(71, 71, 71);
-}
 
-#typing-challenge-input.shake {
-    animation: shake 0.2s ease-in-out 0s 2;
-    box-shadow: 0 0 0.5em red;
-}
-
-@keyframes shake {
-    0% { margin-left: 0rem; }
-    25% { margin-left: 0.5rem; }
-    75% { margin-left: -0.5rem; }
-    100% { margin-left: 0rem; }
-}
 
 /*  how to connect  */
 .how-to-connect-column {
@@ -89,12 +67,12 @@
 
 /* find your ip */
 
-.ip-adress-container{
+.ip-adress-container, .typing-challenge-container{
   margin-left: 35%;
   margin-top: 2vh;
 }
 
-.ip-adress-container button.submit-button {
+.ip-adress-container button.submit-button, .typing-challenge-container button.start-button {
   margin-left: 6%;
   margin-top: 3vh;
 }

@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
-function TypingChallenge() {
-  const [text, setText] = useState("toto je ukázkový text");
+function TypingChallenge({
+  setOpenModal,
+  setGameAfterModalClose,
+  setAlertMessage,
+}) {
+  const text = "toto je ukázkový text";
   const [userInput, setUserInput] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
+  const [showError, setShowError] = useState(false);
+  /* show error input box for 1 second */
+  useEffect(() => {
+    if (showError) {
+      const timer = setTimeout(() => {
+        setShowError(false);
+      }, 500);
 
+      return () => clearTimeout(timer);
+    }
+  }, [showError]);
+
+  // stopwatch
   useEffect(() => {
     let intervalId;
 
@@ -17,38 +35,38 @@ function TypingChallenge() {
     }
 
     return () => clearInterval(intervalId);
-  }, [isStarted, userInput, text.length]);
+  }, [isStarted, userInput]);
 
-  const handleInputChange = (event) => {
-    if (!isStarted) {
-      return;
+  //checker if text is finished
+  useEffect(() => {
+    if (userInput.length === text.length) {
+      setAlertMessage(
+        <p>
+          Perfektní! Právě jsi zvládl správně přepsat {text.length} znaků za{" "}
+          {formattedTime(timeElapsed)}. To znamená, že jsi psal rychlostí{" "}
+          {Math.round(text.length / (timeElapsed / 1000))} Mb/s. Kdybys psal
+          touto rychlostí, tak bys například zvládl přepsat celou knihu medvídka
+          Pú za Y sekund nebo celou bibli za Z sekund. Je dobré ale zmínit, že
+          průměrná rychlost internetu je až 240 Mb/s (30 MB/s). Z toho vyplývá,
+          že bys musel psát{" "}
+          {Math.round(
+            30000000 / Math.round(text.length / (timeElapsed / 1000))
+          )}
+          x rychleji, abys zvládl přenášet data stejně rychle, jako jsou
+          přenášena po internetu.
+        </p>
+      );
+      setGameAfterModalClose("noGame");
+      setOpenModal(true);
     }
+  }, [userInput]);
 
+  /* check if input is valid */
+  const handleInputChange = (event) => {
     const inputText = event.target.value;
 
-    // Porovnání každého znaku v textu s odpovídajícím znakem v userInputu
-    // a pokud se liší, nic se nenahrazuje
-    let newText = "";
-    let hasError = false;
-    for (let i = 0; i < inputText.length; i++) {
-      if (inputText[i] === text[i]) {
-        newText += inputText[i];
-      } else {
-        newText += userInput[i] || ""; // Pokud je v userInputu méně znaků než v textu, použije se prázdný řetězec
-        hasError = true;
-      }
-    }
-
-    setUserInput(newText);
-
-    // Pokud uživatel napíše špatné písmeno, ohraničení input boxu se zčervená a input box se zatřese
-    if (hasError) {
-      const inputBox = document.getElementById("typing-challenge-input");
-      inputBox.classList.add("shake");
-      setTimeout(() => {
-        inputBox.classList.remove("shake");
-      }, 500);
-    }
+    if (inputText != text.substring(0, inputText.length)) setShowError(true);
+    else setUserInput(inputText);
   };
 
   const handleStartClick = () => {
@@ -61,56 +79,35 @@ function TypingChallenge() {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  const timeInSeconds = (time) => {
-    const seconds = Math.round(time / 1000);
-    return `${seconds < 10 ? "0" : ""}${seconds}`;
-  };
-
-  const isCompleted = userInput.length === text.length;
-
   return (
-    <div className="form">
-      {!isCompleted && (
-        <>
-          <div className="typing-challenge-text">
-            <p>{text}</p>
-          </div>
-
-          <input
-            id="typing-challenge-input"
-            type="text"
+    <>
+      <div className="typing-challenge-text">
+        <p>{text}</p>
+      </div>
+      <div className="typing-challenge-container">
+        <div>
+          <TextField
+            id="standard-basic"
+            label="Text"
+            variant="standard"
             value={userInput}
             onChange={handleInputChange}
-            disabled={!isStarted}
+            error={showError}
+            helperText={showError && "Incorrect entry."}
+            disabled={showError || !isStarted}
           />
-        </>
-      )}
-      {!isCompleted && !isStarted && (
-        <div className="start-quizz-button" onClick={handleStartClick}>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
-            START
-          </motion.div>
         </div>
-      )}
-      {isCompleted && (
-        <div>
-          <p>
-            Perfektní! Právě jsi zvládl správně přepsat {text.length} znaků za{" "}
-            {formattedTime(timeElapsed)} vteřin. To znamená, že jsi psal
-            rychlostí {Math.round(text.length / (timeElapsed / 1000))} Mb/s.
-            Kdybys psal touto rychlostí, tak bys například zvládl přepsat celou
-            knihu medvídka Pú za Y sekund nebo celou bibli za Z sekund. Je dobré
-            ale zmínit, že průměrná rychlost internetu je až 240 Mb/s (30 MB/s).
-            Z toho vyplývá, že bys musel psát{" "}
-            {Math.round(
-              30000000 / Math.round(text.length / (timeElapsed / 1000))
-            )}
-            x rychleji, abys zvládl přenášet data stejně rychle, jako jsou
-            přenášena po internetu.
-          </p>
-        </div>
-      )}
-    </div>
+        {!isStarted && (
+          <Button
+            variant="outlined"
+            onClick={handleStartClick}
+            className="start-button"
+          >
+            Start
+          </Button>
+        )}
+      </div>
+    </>
   );
 }
 
