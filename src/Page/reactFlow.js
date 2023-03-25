@@ -20,7 +20,6 @@ import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
 import { gatewaysZoom0Data } from "../Flow/data/gateway/gatewayZoom0";
 import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
-import { satelitsData } from "../Flow/data/satelits";
 import { edgesData } from "../Flow/data/edges/edges";
 import { shortestPathEdges } from "../Flow/data/edges/shortestPathEdges";
 import WhatIsWiFiComponent from "./QuizzComponents/wirelessDevice";
@@ -43,8 +42,12 @@ import { setPathEdges } from "../Flow/data/edges/setPathEdges";
 import { setPathGateway } from "../Flow/data/gateway/setPathGateway";
 import { setPathServer } from "../Flow/data/server/setPathServer";
 import { problemWithPathDestroyedPathEdges } from "../Flow/data/edges/problemWithPathBrokenPathEdges";
-
-const zoomSelector = (s) => s.transform[2];
+import { whatIsCabelClient } from "../Flow/data/client/whatIsCabelClient";
+import { whatIsCabelEdges } from "../Flow/data/edges/whatIsCabelEdges";
+import { whatIsCabelGateway } from "../Flow/data/gateway/whatIsCabelGateway";
+import { whatIsCabelServer } from "../Flow/data/server/whatIsCabelServer";
+import { whatIsSatelitNodes } from "../Flow/data/whatIsSatelit";
+import { whatIsSatelitEdges } from "../Flow/data/edges/whatIsSatelitEdges";
 
 function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
   const defaultNodes = clientsZoom2Data
@@ -53,7 +56,6 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
 
   const whatIsWifiNodes = defaultNodes.concat(wifiData);
   const whatIsBTSNodes = defaultNodes.concat(btsData);
-  const whatIsSatelitNodes = defaultNodes.concat(satelitsData);
   const [edges, setEdges, onEdgesChange] = useEdgesState(edgesData);
 
   useEffect(() => {
@@ -73,7 +75,10 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
         );
         break;
       case "whatIsCabel":
-        setNodes();
+        setNodes(
+          whatIsCabelClient.concat(whatIsCabelGateway).concat(whatIsCabelServer)
+        );
+        setEdges(whatIsCabelEdges);
         break;
       case "whatIsWiFi":
         setNodes(whatIsWifiNodes);
@@ -83,6 +88,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
         break;
       case "whatIsSatelit":
         setNodes(whatIsSatelitNodes);
+        setEdges(whatIsSatelitEdges);
         break;
       case "setPath":
         setEdges(setPathEdges);

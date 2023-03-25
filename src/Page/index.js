@@ -6,7 +6,7 @@ import Flow from "./reactFlow";
 import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
 import { findPacketsData } from "../Packet/data/findServerPackets";
 import DefaultPackets from "../Packet";
-import { useNodesState, useEdgesState } from "reactflow";
+import { useNodesState, useEdgesState, Background } from "reactflow";
 import AlertDialog from "./modalWindow";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -156,7 +156,7 @@ function Page() {
                 setNodes={setNodes}
                 onNodesChange={onNodesChange}
                 isDestroyed={isDistroyedProblemWithPath}
-              />
+              ></Flow>
             </div>
           )}
           <Sidebar

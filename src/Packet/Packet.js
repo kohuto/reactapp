@@ -6,9 +6,11 @@ import { clientsZoom2Data } from "../Flow/data/client/clientsZoom2";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
 import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
-import { satelitsData } from "../Flow/data/satelits";
 import { problemWithPathGateway } from "../Flow/data/gateway/problemWithPathGateway";
-
+import { whatIsCabelClient } from "../Flow/data/client/whatIsCabelClient";
+import { whatIsCabelGateway } from "../Flow/data/gateway/whatIsCabelGateway";
+import { whatIsCabelServer } from "../Flow/data/server/whatIsCabelServer";
+import { whatIsSatelitNodes } from "../Flow/data/whatIsSatelit";
 function getCoordinates(id) {
   const server = serversZoom2Data.find((s) => s.id === id);
   if (server) {
@@ -33,9 +35,21 @@ function getCoordinates(id) {
   if (wifi) {
     return { x: wifi.position.x, y: wifi.position.y };
   }
-  const satelit = satelitsData.find((g) => g.id === id);
+  const satelit = whatIsSatelitNodes.find((g) => g.id === id);
   if (satelit) {
     return { x: satelit.position.x, y: satelit.position.y };
+  }
+  const clientWhatIsC = whatIsCabelClient.find((g) => g.id === id);
+  if (clientWhatIsC) {
+    return { x: clientWhatIsC.position.x, y: clientWhatIsC.position.y };
+  }
+  const gatewayWhatIsG = whatIsCabelGateway.find((g) => g.id === id);
+  if (gatewayWhatIsG) {
+    return { x: gatewayWhatIsG.position.x, y: gatewayWhatIsG.position.y };
+  }
+  const serverWhatIsS = whatIsCabelServer.find((g) => g.id === id);
+  if (serverWhatIsS) {
+    return { x: serverWhatIsS.position.x, y: serverWhatIsS.position.y };
   }
 
   const gatewayProblemWithPath = problemWithPathGateway.find(
