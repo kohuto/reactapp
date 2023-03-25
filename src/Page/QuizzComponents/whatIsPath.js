@@ -1,53 +1,37 @@
-import { interactiveModePacketsData } from "../../Packet/data/inteactiveModeData";
-import DefaultPackets from "../../Packet";
-import ZoomButtons from "./zoomButtons";
-import { useNodesState } from "reactflow";
-import { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  Handle,
+  Position,
+  Controls,
+} from "reactflow";
+import { whatIsPathNodes } from "../../Flow/data/whatIsPath";
+import { whatIsPathEdges } from "../../Flow/data/edges/whatIsPath";
 
-function WhatIsPath({ zoomIn, zoomOut, zoom }) {
-  const [oldWindowSize, setOldWindowSize] = useState([0, 0]);
-  const [newWindowSize, setNewWindowSize] = useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
-  /*const [deltaX, setDeltaX] = useState(0);*/
-
-  const [finalX, setFinalX] = useState(500 + window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      console.log(oldWindowSize[0]);
-      console.log(newWindowSize[0]);
-      console.log(newWindowSize[0] - oldWindowSize[0]);
-      setFinalX(finalX + newWindowSize[0] - oldWindowSize[0]);
-      /*setDeltaX(newWindowSize[0] - oldWindowSize[0]);*/
-      console.log(finalX + newWindowSize[0] - oldWindowSize[0]);
-      setOldWindowSize([newWindowSize[0], newWindowSize[1]]);
-      setNewWindowSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [newWindowSize]);
-
+function WhatIsPathComponent() {
   return (
     <>
       <div
-        style={{ position: "absolute", top: "50vh", right: "50vw", zIndex: 4 }}
+        style={{
+          height: "95vh",
+          width: "80%",
+          marginLeft: "20%",
+        }}
       >
-        <h3>{finalX}</h3>
-        <h1>old window size</h1>
-        <h2>Width: {oldWindowSize[0]}</h2>
-        <h2>Height: {oldWindowSize[1]}</h2>
-        <h1>new window size</h1>
-        <h2>Width: {newWindowSize[0]}</h2>
-        <h2>Height: {newWindowSize[1]}</h2>
+        <ReactFlow
+          nodes={whatIsPathNodes}
+          edges={whatIsPathEdges}
+          selectNodesOnDrag={false}
+          attributionPosition="top-right"
+          className="mojeuzasna"
+        >
+          <Controls />
+        </ReactFlow>
       </div>
-      {zoom == 1 && <DefaultPackets packetsData={interactiveModePacketsData} />}
-      <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} />
     </>
   );
 }
 
-export default WhatIsPath;
+export default WhatIsPathComponent;

@@ -143,6 +143,7 @@ function Page() {
           {![
             "client-server-communication",
             "whatIsServer",
+            "whatIsPath",
             "raceAroundWorld",
             "whatIsWiFi",
           ].includes(game) && (

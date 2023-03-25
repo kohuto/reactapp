@@ -17,6 +17,7 @@ import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./raceAroundWorld";
 import WirelessDevices from "./wirelessDevice";
 import ClientServerCommunication from "./clientServerComunication";
+import WhatIsPathComponent from "./whatIsPath";
 
 function QuizzComponents({
   setGame,
@@ -57,10 +58,9 @@ function QuizzComponents({
       return (
         <WhatIsCabelComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
       );
-    case "whatIsGateway":
-      return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
-    case "whatIsRoad":
-      return <ZoomButtons zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />;
+
+    case "whatIsPath":
+      return <WhatIsPathComponent />;
     case "dataIntoPackets":
       return (
         <DataIntoPackets

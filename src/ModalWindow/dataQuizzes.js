@@ -10,7 +10,7 @@ export const stockData = [
     header: "Co je KLIENT",
     content:
       "Klient je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo může chtít poslat video, které si chce přehrát.\nKlikni na tlačítko START a podívej se, jak se objeví klienti. Stejně jako u serverů nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
-    type: "whatIsClient",
+    type: "info",
     question: "",
   },
   {
@@ -24,7 +24,7 @@ export const stockData = [
     header: "Putování informací",
     content:
       "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru?\nPožadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.",
-    type: "whatIsCabel",
+    type: "whatIsPath",
     question: "",
   },
   {
