@@ -144,6 +144,7 @@ function Page() {
             "client-server-communication",
             "whatIsServer",
             "raceAroundWorld",
+            "whatIsWiFi",
           ].includes(game) && (
             <div
               style={{ height: "95vh", width: "80%", marginLeft: "20%" }}

@@ -91,7 +91,14 @@ function QuizzComponents({
     case "whatIsCabelTypeOfConnection":
       return <WhatIsWiFiComponent />;
     case "whatIsWiFi":
-      return <WhatIsWiFiComponent />;
+      return (
+        <WhatIsWiFiComponent
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
+        />
+      );
     case "whatIsBTS":
       return <WhatIsBTSComponent />;
     case "whatIsSatelit":
