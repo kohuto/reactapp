@@ -69,14 +69,14 @@ function Page() {
 
   const zoomIn = () => {
     if (zoom > 0) {
-      setZoom(zoom - 1);
+      setZoom(zoom - 0.1);
     }
   };
 
   const zoomOut = () => {
     console.log(zoom);
     if (zoom < 2) {
-      setZoom(zoom + 1);
+      setZoom(zoom + 0.1);
     }
   };
 
@@ -140,7 +140,11 @@ function Page() {
         />
 
         <div>
-          {!["client-server-communication", "whatIsServer"].includes(game) && (
+          {![
+            "client-server-communication",
+            "whatIsServer",
+            "raceAroundWorld",
+          ].includes(game) && (
             <div style={{ height: "95vh", width: "80%", marginLeft: "20%" }}>
               <Flow
                 game={game}

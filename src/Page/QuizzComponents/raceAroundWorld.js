@@ -1,91 +1,91 @@
 import React, { useState, useEffect } from "react";
 import globe from "../../images/Globe-Transparent-Background-PNG.png";
+import ReactFlow from "reactflow";
 
-function openModal(i) {
-  var modal = document.getElementById("modal-window" + i);
-  modal.style.display = "block";
-}
+import { jitterClient } from "../../Flow/data/client/jitterClient";
+import { jitterEdges } from "../../Flow/data/edges/jitterEdges";
+import { jitterGateway } from "../../Flow/data/gateway/jitterGateway";
+import { jitterServer } from "../../Flow/data/server/jitterServer";
 
-function SmallCircle(props) {
-  const { x, y, onClick, hidden } = props;
+function RaceAroundWorld({
+  setOpenModal,
+  setGameAfterModalClose,
+  setAlertMessage,
+  game,
+}) {
+  const nodes = jitterClient.concat(jitterGateway).concat(jitterServer);
+  /* jitter game */
+  const jitterPath = [
+    "2620:0:862:ed1a::1",
+    "147.32.3.202",
+    "126.134.35.41",
+    "71dd::ad48:7474:3412",
+    "224.109.172.5",
+    "81.119.95.47",
+    "2bb6::ae76:435a::1246",
+    "195.113.89.35",
+  ];
 
-  return (
-    <div
-      className="race-around-world-small-circle"
-      style={{
-        top: y + "%",
-        left: x + "%",
-        visibility: hidden ? "hidden" : "visible",
-      }}
-      onClick={onClick}
-    ></div>
-  );
-}
-function RaceAroundWorld({ setGame }) {
-  const [circles, setCircles] = useState([
-    { x: 56, y: 16 },
-    { x: 70, y: 44 },
-    { x: 56, y: 74 },
-    { x: 43, y: 44 },
-  ]);
-  const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
-  const [disableClick, setDisableClick] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(20);
-
-  useEffect(() => {
-    let intervalId;
-
-    if (timeLeft > 0) {
-      intervalId = setInterval(() => {
-        setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
-      }, 1000);
+  const [countClickedJitter, setCountClickedJitter] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const onNodeClick = (event, node) => {
+    if (countClickedJitter < jitterPath.length) {
+      if (node.id === jitterPath[countClickedJitter]) {
+        setCountClickedJitter(countClickedJitter + 1);
+        const clickedNode = event.target;
+        clickedNode.style.backgroundColor = "red";
+        if (countClickedJitter === 0) {
+          setStartTime(Date.now());
+        }
+      } else {
+        setAlertMessage("nepřeskakuj křižovatky");
+        setGameAfterModalClose(game);
+        setOpenModal(true);
+      }
     } else {
-      setDisableClick(true);
-    }
-
-    return () => clearInterval(intervalId);
-  }, [timeLeft]);
-
-  const handleCircleClick = (index) => {
-    if (!disableClick) {
-      setClickCount((prevCount) => prevCount + 1);
-      setCurrentCircleIndex((prevIndex) => (prevIndex + 1) % circles.length);
+      if (
+        node.id ===
+        jitterPath[
+          jitterPath.length - (countClickedJitter % jitterPath.length) - 1
+        ]
+      ) {
+        setCountClickedJitter(countClickedJitter + 1);
+        const clickedNode = event.target;
+        clickedNode.style.backgroundColor = "green";
+      } else {
+        setAlertMessage("nepřeskakuj křižovatky");
+        setGameAfterModalClose(game);
+        setOpenModal(true);
+      }
     }
   };
 
+  useEffect(() => {
+    if (countClickedJitter === 2 * jitterPath.length) {
+      const endTime = Date.now();
+      const elapsedTime = (endTime - startTime) / 1000;
+      setAlertMessage(`Elapsed time: ${elapsedTime} seconds`);
+      setGameAfterModalClose("noGame");
+      setOpenModal(true);
+    }
+  }, [countClickedJitter]);
+
   return (
     <>
-      <div className="race-around-world-click-count">
-        Click Count: {clickCount}
-      </div>
-      <div className="race-around-world-globe">
-        <img src={globe} alt="" />
-      </div>
-      <div className="race-around-world-time-left">
-        {!disableClick ? `Time Left: ${timeLeft}` : "Time's Up!"}
-      </div>
-      {circles.map((circle, index) => (
-        <SmallCircle
-          key={index}
-          x={circle.x}
-          y={circle.y}
-          color={circle.color}
-          hidden={index !== currentCircleIndex}
-          onClick={() => handleCircleClick(index)}
+      <div style={{ height: "95vh", width: "80%", marginLeft: "20%" }}>
+        <ReactFlow
+          nodes={nodes}
+          edges={jitterEdges}
+          zoomOnScroll={false}
+          panOnDrag={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
+          defaultViewport={{ x: 0, y: 0, zoom: 1 }}
+          attributionPosition="top-right"
+          onNodeClick={onNodeClick}
         />
-      ))}
-      {disableClick && openModal(137)}
+      </div>
     </>
-  );
-}
-
-function Finished({ clickCount, countCircles }) {
-  return (
-    <p>
-      Perfektní! zvládl jsi za 20 sekund {clickCount / 4}x oběhnout zeměkouli!
-      Ovšem internet je daleko rychlejší, internet by to zvládl 100x.
-    </p>
   );
 }
 export default RaceAroundWorld;

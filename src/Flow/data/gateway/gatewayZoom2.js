@@ -1,5 +1,13 @@
 export const gatewaysZoom2Data = [
   {
+    id: "1.32.3.202",
+    type: "default",
+    position: { x: 1875, y: 1000 },
+    className: "gateway",
+    data: { label: "147.32.3.202" },
+    dragHandle: "noDrag",
+  },
+  {
     id: "147.32.3.202",
     type: "default",
     position: { x: 175, y: 190 },

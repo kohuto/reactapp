@@ -5,6 +5,8 @@ import ReactFlow, {
   Background,
   Panel,
   useViewport,
+  Controls,
+  useStore,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import "./reactFlow.css";
@@ -42,26 +44,9 @@ import { setPathGateway } from "../Flow/data/gateway/setPathGateway";
 import { setPathServer } from "../Flow/data/server/setPathServer";
 import { problemWithPathDestroyedPathEdges } from "../Flow/data/edges/problemWithPathBrokenPathEdges";
 
-function ViewportLogger() {
-  const { x, y, zoom } = useViewport();
+const zoomSelector = (s) => s.transform[2];
 
-  useEffect(() => {
-    console.log(x, y, zoom);
-  }, [x, y, zoom]);
-
-  return null;
-}
-function Flow({
-  game,
-  zoom,
-  nodes,
-  setNodes,
-  onNodesChange,
-  isDestroyed,
-  /*edge,
-  setEdges,
-  onEdgesChange,*/
-}) {
+function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
   const defaultNodes = clientsZoom2Data
     .concat(serversZoom2Data)
     .concat(gatewaysZoom2Data);
@@ -71,51 +56,11 @@ function Flow({
   const whatIsSatelitNodes = defaultNodes.concat(satelitsData);
   const [edges, setEdges, onEdgesChange] = useEdgesState(edgesData);
 
-  const [windowSize, setWindowSize] = useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
-
-  /* useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-    function handleResize() {
-    setWindowSize([window.innerWidth, window.innerHeight]);
-    setNodes((prevNodes) => {
-      return prevNodes.map((node) => ({
-        ...node,
-        position: {
-          x: node.position.x + 100,
-          y: node.position.y + 100,
-        },
-      }));
-    });
-  }*/
-
   useEffect(() => {
     // update nodes when the game prop changes
     switch (game) {
       case "whatIsClient":
         setNodes(clientsZoom2Data.concat(serversZoom2Data));
-        break;
-      case "whatIsCabel":
-        setNodes(
-          zoom === 0
-            ? clientsZoom0Data.concat(gatewaysZoom0Data)
-            : zoom === 1
-            ? clientsZoom1Data
-                .concat(serversZoom1Data)
-                .concat(gatewaysZoom1Data)
-            : clientsZoom2Data
-                .concat(serversZoom2Data)
-                .concat(gatewaysZoom2Data)
-        );
-        setEdges([]);
         break;
       case "createPacket":
         setNodes(
@@ -126,6 +71,9 @@ function Flow({
         setNodes(
           clientsFindServer.concat(serversZoom2Data).concat(gatewaysZoom2Data)
         );
+        break;
+      case "whatIsCabel":
+        setNodes();
         break;
       case "whatIsWiFi":
         setNodes(whatIsWifiNodes);
@@ -178,7 +126,7 @@ function Flow({
     []
   );
 
-  const zoomGames = ["whatIsClient", "whatIsCabel"];
+  const zoomGames = ["whatIsClient", "whatIsPath"];
   return (
     <>
       {game === "wirelessDevices" && (
@@ -196,19 +144,13 @@ function Flow({
         zoomOnPinch={false}
         zoomOnDoubleClick={false}
         onNodesChange={onNodesChange}
-        className={`${
-          !zoomGames.includes(game)
-            ? ""
-            : zoom === 0
-            ? "background1"
-            : zoom === 1
-            ? "background2"
-            : zoom === 2
-            ? "background3"
-            : ""
-        }`}
+        className={`${zoomGames.includes(game) && "mojeuzasna"}`}
         onConnect={onConnect}
-      ></ReactFlow>
+        defaultViewport={{ x: 0, y: 0, zoom: 1 }}
+        attributionPosition="top-right"
+      >
+        {game == "whatIsClient" && <Controls />}
+      </ReactFlow>
     </>
   );
 }

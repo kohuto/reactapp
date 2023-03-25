@@ -7,6 +7,22 @@
   border: none;
 }   
 
+.rf-canvas {
+  background-image: url('../images/nodes/server-messenger.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.mojeuzasna .react-flow__container svg{
+  background-image: url("../images/Globe-Transparent-Background-PNG.png");
+  background-repeat: no-repeat;
+  width: 2000px;
+  height: 1500px;
+}
+
+
+
 
 
 .gateway, .gateway-build {

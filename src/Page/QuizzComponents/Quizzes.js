@@ -88,6 +88,8 @@ function QuizzComponents({
           setGameAfterModalClose={setGameAfterModalClose}
         />
       );
+    case "whatIsCabelTypeOfConnection":
+      return <WhatIsWiFiComponent />;
     case "whatIsWiFi":
       return <WhatIsWiFiComponent />;
     case "whatIsBTS":
@@ -95,7 +97,14 @@ function QuizzComponents({
     case "whatIsSatelit":
       return <WhatIsSatelitComponent />;
     case "raceAroundWorld":
-      return <RaceAroundWorld setGame={() => setGame("noGame")} />;
+      return (
+        <RaceAroundWorld
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
+        />
+      );
     case "connectClientsWireless":
       return (
         <ConnectClientsWirelessComponent setGame={() => setGame("noGame")} />
