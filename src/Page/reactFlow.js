@@ -18,7 +18,7 @@ import { serversZoom2Data } from "../Flow/data/server/serverZoom2";
 import { gatewaysZoom1Data } from "../Flow/data/gateway/gatewayZoom1";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
 import { gatewaysZoom0Data } from "../Flow/data/gateway/gatewayZoom0";
-import { btsData } from "../Flow/data/bts";
+import { btsData } from "../Flow/data/whatIsBTS";
 import { wifiData } from "../Flow/data/wifi";
 import { edgesData } from "../Flow/data/edges/edges";
 import { shortestPathEdges } from "../Flow/data/edges/shortestPathEdges";
@@ -48,6 +48,8 @@ import { whatIsCabelGateway } from "../Flow/data/gateway/whatIsCabelGateway";
 import { whatIsCabelServer } from "../Flow/data/server/whatIsCabelServer";
 import { whatIsSatelitNodes } from "../Flow/data/whatIsSatelit";
 import { whatIsSatelitEdges } from "../Flow/data/edges/whatIsSatelitEdges";
+import { whatIsBTSNodes } from "../Flow/data/whatIsBTS";
+import { whatIsBTSEdges } from "../Flow/data/edges/whatIsBTSEdges";
 
 function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
   const defaultNodes = clientsZoom2Data
@@ -55,7 +57,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
     .concat(gatewaysZoom2Data);
 
   const whatIsWifiNodes = defaultNodes.concat(wifiData);
-  const whatIsBTSNodes = defaultNodes.concat(btsData);
+
   const [edges, setEdges, onEdgesChange] = useEdgesState(edgesData);
 
   useEffect(() => {
@@ -85,6 +87,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
         break;
       case "whatIsBTS":
         setNodes(whatIsBTSNodes);
+        setEdges(whatIsBTSEdges);
         break;
       case "whatIsSatelit":
         setNodes(whatIsSatelitNodes);

@@ -268,13 +268,13 @@ function DropdownMenu({
             <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(15)}>
-            <DropdownItem leftIcon={question}>CESTA KOLEM SVĚTA</DropdownItem>
+            <DropdownItem leftIcon={question}>RYCHLOST ODEZVY</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
             onClick={() => openQuizzModal(16)}
           >
-            <DropdownItem leftIcon={question}>RYCHLOST</DropdownItem>
+            <DropdownItem leftIcon={question}>ŠÍŘKA PÁSMA</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(17)}>
             <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>

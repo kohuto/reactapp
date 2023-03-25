@@ -145,7 +145,10 @@ function Page() {
             "whatIsServer",
             "raceAroundWorld",
           ].includes(game) && (
-            <div style={{ height: "95vh", width: "80%", marginLeft: "20%" }}>
+            <div
+              style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
+              className={`${game}-bg`}
+            >
               <Flow
                 game={game}
                 zoom={zoom}

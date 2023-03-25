@@ -1,0 +1,42 @@
+export const whatIsBTSNodes = [
+  {
+    id: "186.1.43.90",
+    type: "custom",
+    position: { x: 70, y: 0 },
+    className: "bts",
+    data: { label: "186.1.43.90" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "69.131.176.185",
+    type: "custom",
+    position: { x: 305, y: 350 },
+    className: "client",
+    data: { label: "69.131.176.185" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "94.113.91.4",
+    type: "gateway",
+    position: { x: 85, y: 640 },
+    className: "gateway",
+    data: { label: "94.113.91.4" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "86.108.103.180",
+    type: "gateway",
+    position: { x: 685, y: 640 },
+    className: "gateway",
+    data: { label: "86.108.103.180" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "43.27.66.183",
+    type: "custom",
+    position: { x: 685, y: 450 },
+    className: "server",
+    data: { label: "43.27.66.183" },
+    dragHandle: "noDrag",
+  },
+];

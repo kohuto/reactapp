@@ -4,13 +4,14 @@ import React from "react";
 import { serversZoom2Data } from "../Flow/data/server/serverZoom2";
 import { clientsZoom2Data } from "../Flow/data/client/clientsZoom2";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
-import { btsData } from "../Flow/data/bts";
 import { wifiData } from "../Flow/data/wifi";
 import { problemWithPathGateway } from "../Flow/data/gateway/problemWithPathGateway";
 import { whatIsCabelClient } from "../Flow/data/client/whatIsCabelClient";
 import { whatIsCabelGateway } from "../Flow/data/gateway/whatIsCabelGateway";
 import { whatIsCabelServer } from "../Flow/data/server/whatIsCabelServer";
 import { whatIsSatelitNodes } from "../Flow/data/whatIsSatelit";
+import { whatIsBTSNodes } from "../Flow/data/whatIsBTS";
+
 function getCoordinates(id) {
   const server = serversZoom2Data.find((s) => s.id === id);
   if (server) {
@@ -27,7 +28,7 @@ function getCoordinates(id) {
     return { x: gateway.position.x, y: gateway.position.y };
   }
 
-  const bts = btsData.find((g) => g.id === id);
+  const bts = whatIsBTSNodes.find((g) => g.id === id);
   if (bts) {
     return { x: bts.position.x, y: bts.position.y };
   }

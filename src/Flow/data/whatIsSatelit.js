@@ -1,12 +1,5 @@
 export const whatIsSatelitNodes = [
   {
-    id: "0.0.0.0",
-    type: "custom",
-    position: { x: 300, y: 300 },
-    className: "globe",
-    dragHandle: "noDrag",
-  },
-  {
     id: "75.110.246.238",
     type: "custom",
     position: { x: 385, y: 280 },
