@@ -148,9 +148,6 @@
   visibility: hidden;
 }
 
-.react-flow__node.server, .react-flow__node.client {
-}
-
 .react-flow__node.gateway{
   padding-top: 20px;
 }
