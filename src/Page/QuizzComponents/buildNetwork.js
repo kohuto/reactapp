@@ -105,56 +105,24 @@ function FlowWithProvider({
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const handleAddNode = useCallback(
     (device) => {
+      const deviceNodes = nodes.filter((node) => node.className === device);
+      const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
-      let newNode = {};
-      switch (device) {
-        case "server":
-          newNode = {
-            id: `${ipv4Address}`,
-            type: "default",
-            position: { x: 300, y: 300 },
-            className: "server-build",
-            data: { label: `${ipv4Address}` },
-          };
-          break;
-        case "gateway":
-          newNode = {
-            id: `${ipv4Address}`,
-            type: "default",
-            position: { x: 300, y: 300 },
-            className: "gateway-build",
-            data: { label: `${ipv4Address}` },
-          };
-          break;
-        case "client":
-          newNode = {
-            id: `${ipv4Address}`,
-            type: "default",
-            position: { x: 300, y: 300 },
-            className: "client-build",
-            data: { label: `${ipv4Address}` },
-          };
-          break;
-        case "bts":
-          newNode = {
-            id: `${ipv4Address}`,
-            type: "default",
-            position: { x: 300, y: 300 },
-            className: "bts-build",
-            data: { label: `${ipv4Address}` },
-          };
-          break;
-        case "wifi":
-          newNode = {
-            id: `${ipv4Address}`,
-            type: "default",
-            position: { x: 300, y: 300 },
-            className: "wifi-build",
-            data: { label: `${ipv4Address}` },
-          };
-          break;
+      if (nodeCount >= 7) {
+        setAlertMessage("vice uz jich nepridavej. Uz jich mas az moc");
+        setGameAfterModalClose(game);
+        setOpenModal(true);
+      } else {
+        let newNode = {};
+        newNode = {
+          id: `${ipv4Address}`,
+          type: "default",
+          position: { x: 300, y: 300 },
+          className: `${device}`,
+          data: { label: `${ipv4Address}` },
+        };
+        setNodes((prevNodes) => [...prevNodes, newNode]);
       }
-      setNodes((prevNodes) => [...prevNodes, newNode]);
     },
     [nodes, setNodes]
   );
@@ -169,8 +137,14 @@ function FlowWithProvider({
         if (!hasClientServerEdge(nodes, edges)) {
           if (isWifiAndBTSConnected(nodes, edges)) {
             if (checkLeafNodes(nodes, edges)) {
-              //setGameAfterModalClose("noGame");
-              setAlertMessage("good job");
+              if (checkClientDistance(nodes, edges)) {
+                //setGameAfterModalClose("noGame");
+                setAlertMessage("good job");
+              } else {
+                setAlertMessage(
+                  "klienti musi byt v blizkosti wifi nebo bts veze"
+                );
+              }
             } else {
               setAlertMessage("musi byt list");
             }
@@ -192,11 +166,7 @@ function FlowWithProvider({
   }
   return (
     <>
-      <Buttons
-        handleAddNode={handleAddNode}
-        setNodes={setNodes}
-        onNodesChange={onNodesChange}
-      />
+      <Buttons handleAddNode={handleAddNode} />
 
       <button
         onClick={checkValidty}
@@ -222,6 +192,65 @@ function FlowWithProvider({
       </ReactFlowProvider>
     </>
   );
+}
+
+function checkClientDistance(nodes, edges) {
+  const clientNodes = new Set();
+  const wifiNodes = new Set();
+  const BTSNodes = new Set();
+  const maxDistanceWifi = 150;
+  const maxDistanceBTS = 250;
+
+  // Store nodes with class "client-build", "wifi-build", and "bts-build"
+  for (const node of nodes) {
+    if (node.className === "client-build") {
+      clientNodes.add(node.id);
+    } else if (node.className === "wifi-build") {
+      wifiNodes.add(node.id);
+    } else if (node.className === "bts-build") {
+      BTSNodes.add(node.id);
+    }
+  }
+
+  // Check that all client nodes are within distance of at least one BTS or WiFi node
+  for (const clientNode of clientNodes) {
+    const clientPos = nodes.find((node) => node.id === clientNode).position;
+    let isWithinDistance = false;
+
+    // Check wifi nodes
+    for (const wifiNode of wifiNodes) {
+      const wifiPos = nodes.find((node) => node.id === wifiNode).position;
+      const distance = Math.sqrt(
+        (clientPos.x - wifiPos.x) ** 2 + (clientPos.y - wifiPos.y) ** 2
+      );
+      if (distance < maxDistanceWifi) {
+        isWithinDistance = true;
+        break;
+      }
+    }
+
+    if (isWithinDistance) {
+      continue;
+    }
+
+    // Check BTS nodes
+    for (const BTSNode of BTSNodes) {
+      const BTSPos = nodes.find((node) => node.id === BTSNode).position;
+      const distance = Math.sqrt(
+        (clientPos.x - BTSPos.x) ** 2 + (clientPos.y - BTSPos.y) ** 2
+      );
+      if (distance < maxDistanceBTS) {
+        isWithinDistance = true;
+        break;
+      }
+    }
+
+    if (!isWithinDistance) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function isConnected(nodes, edges) {
@@ -250,7 +279,7 @@ function isConnected(nodes, edges) {
 
   // Check if every node was visited
   for (const node of nodes) {
-    if (!visited[node.id]) {
+    if (node.className !== "client-build" && !visited[node.id]) {
       return false;
     }
   }
@@ -391,24 +420,7 @@ function isWifiAndBTSConnected(nodes, edges) {
 
 function checkLeafNodes(nodes, edges) {
   const leafNodes = new Set();
-  const wifiNodes = new Set();
-  const serverNodes = new Set();
-  const clientNodes = new Set();
-  const BTSNodes = new Set();
   const adjList = new Map();
-
-  // Store nodes with class "wifi-build", "server-build", "client-build", and "bts-build"
-  for (const node of nodes) {
-    if (node.className === "wifi-build") {
-      wifiNodes.add(node.id);
-    } else if (node.className === "server-build") {
-      serverNodes.add(node.id);
-    } else if (node.className === "client-build") {
-      clientNodes.add(node.id);
-    } else if (node.className === "bts-build") {
-      BTSNodes.add(node.id);
-    }
-  }
 
   // Build adjacency list
   for (const edge of edges) {
@@ -421,34 +433,24 @@ function checkLeafNodes(nodes, edges) {
   }
 
   // Find leaf nodes for each type of node
-  for (const wifiNode of wifiNodes) {
-    if (adjList.get(wifiNode).length === 1) {
-      leafNodes.add(wifiNode);
-    }
-  }
-  for (const serverNode of serverNodes) {
-    if (adjList.get(serverNode).length === 1) {
-      leafNodes.add(serverNode);
-    }
-  }
-  for (const clientNode of clientNodes) {
-    if (adjList.get(clientNode).length === 1) {
-      leafNodes.add(clientNode);
-    }
-  }
-  for (const BTSNode of BTSNodes) {
-    if (adjList.get(BTSNode).length === 1) {
-      leafNodes.add(BTSNode);
+  for (const node of nodes) {
+    if (
+      node.className === "server-build" ||
+      node.className === "bts-build" ||
+      node.className === "wifi-build"
+    ) {
+      if (adjList.get(node.id).length === 1) {
+        leafNodes.add(node.id);
+      }
     }
   }
 
-  // Check if all nodes with class "wifi-build", "server-build", "client-build", and "bts-build" are leaf nodes
+  // Check if all nodes with class "server-build", "bts-build", or "wifi-build" are leaf nodes
   for (const node of nodes) {
     if (
-      (node.className === "wifi-build" ||
-        node.className === "server-build" ||
-        node.className === "client-build" ||
-        node.className === "bts-build") &&
+      (node.className === "server-build" ||
+        node.className === "bts-build" ||
+        node.className === "wifi-build") &&
       !leafNodes.has(node.id)
     ) {
       return false;
@@ -473,7 +475,7 @@ function Buttons({ handleAddNode }) {
   return (
     <>
       <button
-        onClick={() => handleAddNode("server")}
+        onClick={() => handleAddNode("server-build")}
         style={{
           position: "absolute",
           top: "90vh",
@@ -485,7 +487,7 @@ function Buttons({ handleAddNode }) {
         Add Server
       </button>
       <button
-        onClick={() => handleAddNode("gateway")}
+        onClick={() => handleAddNode("gateway-build")}
         style={{
           position: "absolute",
           top: "90vh",
@@ -497,7 +499,7 @@ function Buttons({ handleAddNode }) {
         Add gateway
       </button>
       <button
-        onClick={() => handleAddNode("client")}
+        onClick={() => handleAddNode("client-build")}
         style={{
           position: "absolute",
           top: "90vh",
@@ -509,7 +511,7 @@ function Buttons({ handleAddNode }) {
         Add client
       </button>
       <button
-        onClick={() => handleAddNode("wifi")}
+        onClick={() => handleAddNode("wifi-build")}
         style={{
           position: "absolute",
           top: "90vh",
@@ -521,7 +523,7 @@ function Buttons({ handleAddNode }) {
         Add wifi
       </button>
       <button
-        onClick={() => handleAddNode("bts")}
+        onClick={() => handleAddNode("bts-build")}
         style={{
           position: "absolute",
           top: "90vh",

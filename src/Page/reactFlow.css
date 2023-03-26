@@ -104,8 +104,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
-  height: 100px;
-  width: 120px;
+  height: 70px;
+  width: 80px;
   
 }
 .bts, .bts-build {
@@ -144,6 +144,12 @@
 }
 
 .server .react-flow__handle-top, .gateway .react-flow__handle-top, .client .react-flow__handle-top, .wifi .react-flow__handle-top {
+  top: 5px;
+  visibility: hidden;
+}
+
+
+ .client-build .react-flow__handle-top, .client-build .react-flow__handle-bottom {
   top: 5px;
   visibility: hidden;
 }
