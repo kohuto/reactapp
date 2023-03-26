@@ -182,19 +182,22 @@ export const stockData = [
   },
   {
     header: "ÚKOL 1",
-    content: "",
+    content:
+      "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
     type: "build-network-1",
     question: "Poskladej obrázek",
   },
   {
     header: "ÚKOL 2",
-    content: "",
+    content:
+      "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
     type: "build-network-2",
     question: "Poskladej obrázek",
   },
   {
     header: "ÚKOL 3",
-    content: "",
+    content:
+      "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
     type: "build-network-3",
     question: "Poskladej obrázek",
   },

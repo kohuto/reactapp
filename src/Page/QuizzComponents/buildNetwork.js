@@ -100,7 +100,7 @@ function Flow({
           //  onConnect={onConnect}
           selectNodesOnDrag={true}
           //  nodeTypes={nodeTypes}
-          attributionPosition="top-right"
+          attributionPosition="bottom-right"
           onConnect={onConnect}
         >
           {" "}
@@ -159,8 +159,52 @@ function FlowWithProvider({
             if (isWifiAndBTSConnected(nodes, edges)) {
               if (checkLeafNodes(nodes, edges)) {
                 if (checkClientDistance(nodes, edges)) {
-                  //setGameAfterModalClose("noGame");
-                  setAlertMessage("good job");
+                  switch (game) {
+                    case "build-network-1":
+                      if (
+                        countNodesByType(nodes, "client-build") > 0 &&
+                        countNodesByType(nodes, "server-build") > 0
+                      ) {
+                        setGameAfterModalClose("noGame");
+                        setAlertMessage("good job");
+                      } else {
+                        setAlertMessage(
+                          "potřebuješ aspoň jeden server a jednoho klienta"
+                        );
+                      }
+                      break;
+                    case "build-network-2":
+                      if (
+                        countNodesByType(nodes, "client-build") > 0 &&
+                        countNodesByType(nodes, "server-build") > 0 &&
+                        countNodesByType(nodes, "bts-build") > 0
+                      ) {
+                        setGameAfterModalClose("noGame");
+                        setAlertMessage("good job");
+                      } else {
+                        setAlertMessage(
+                          "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž"
+                        );
+                      }
+                      break;
+                    case "build-network-3":
+                      if (
+                        countNodesByType(nodes, "client-build") > 2 &&
+                        countNodesByType(nodes, "server-build") > 2
+                      ) {
+                        setGameAfterModalClose("noGame");
+                        setAlertMessage("good job");
+                      } else {
+                        setAlertMessage(
+                          "potřebuješ aspoň tři servery a tři klienty"
+                        );
+                      }
+                      break;
+                    case "build-network-4":
+                      setGameAfterModalClose("noGame");
+                      setAlertMessage("good job");
+                      break;
+                  }
                 } else {
                   setAlertMessage(
                     "klienti musi byt v blizkosti wifi nebo bts veze"
@@ -274,6 +318,7 @@ function isConnected(nodes, edges) {
   for (const node of nodes) {
     adjList[node.id] = [];
   }
+  if (Object.keys(adjList).length < 2) return true;
   for (const edge of edges) {
     adjList[edge.source].push(edge.target);
     adjList[edge.target].push(edge.source);
@@ -324,7 +369,7 @@ function hasGatewayBridge(nodes, edges) {
     adjList.get(source).push(target);
     adjList.get(target).push(source);
   }
-
+  if (Object.keys(adjList).length < 2) return false;
   // DFS algorithm
   function dfs(node, parent) {
     visited.add(node);
