@@ -150,9 +150,9 @@ function DropdownMenu({
           <DropdownItem leftIcon={gateway} goToMenu="servery-a-krizovatky">
             SERVERY A KŘIŽOVATKY
           </DropdownItem>
-          <div onClick={() => setGame("buildNetwork")}>
-            <DropdownItem leftIcon={builder}>POSTAV SÍŤ</DropdownItem>
-          </div>
+          <DropdownItem leftIcon={builder} goToMenu="build-network">
+            POSTAV SÍŤ
+          </DropdownItem>
           <div id="downitem" onClick={() => showLandingPage(false)}>
             <DropdownItem leftIcon={backarrow}>INTERAKTIVNÍ MÓD</DropdownItem>
           </div>
@@ -333,6 +333,38 @@ function DropdownMenu({
             onClick={() => openQuizzModal(25)}
           >
             <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
+          </div>
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={activeMenu === "build-network"}
+        timeout={500}
+        classNames="custom-menu-secondary"
+        unmountOnExit
+        onEnter={calcHeight}
+      >
+        <div className="custom-menu">
+          <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
+            <h2>POSTAV SÍŤ</h2>
+          </DropdownItem>
+          <div
+            className="custom-menu-item-div"
+            onClick={() => openSummaryModal(4)}
+          >
+            <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
+          </div>
+          <div className="custom-menu-item-div" onClick={() => openModal(26)}>
+            <DropdownItem leftIcon={question}>ÚKOL 1</DropdownItem>
+          </div>
+          <div className="custom-menu-item-div" onClick={() => openModal(27)}>
+            <DropdownItem leftIcon={question}>ÚKOL 2</DropdownItem>
+          </div>
+
+          <div className="custom-menu-item-div" onClick={() => openModal(28)}>
+            <DropdownItem leftIcon={question}>ÚKOL 3</DropdownItem>
+          </div>
+          <div className="custom-menu-item-div" onClick={() => openModal(29)}>
+            <DropdownItem leftIcon={question}>ÚKOL 4</DropdownItem>
           </div>
         </div>
       </CSSTransition>

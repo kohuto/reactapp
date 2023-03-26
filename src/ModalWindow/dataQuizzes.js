@@ -180,4 +180,28 @@ export const stockData = [
     type: "puzzle",
     question: "Poskladej obrázek",
   },
+  {
+    header: "ÚKOL 1",
+    content: "",
+    type: "build-network-1",
+    question: "Poskladej obrázek",
+  },
+  {
+    header: "ÚKOL 2",
+    content: "",
+    type: "build-network-2",
+    question: "Poskladej obrázek",
+  },
+  {
+    header: "ÚKOL 3",
+    content: "",
+    type: "build-network-3",
+    question: "Poskladej obrázek",
+  },
+  {
+    header: "ÚKOL 4",
+    content: "",
+    type: "build-network-4",
+    question: "Poskladej obrázek",
+  },
 ];

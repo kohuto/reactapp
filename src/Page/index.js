@@ -147,6 +147,10 @@ function Page() {
             "raceAroundWorld",
             "whatIsWiFi",
             "buildNetwork",
+            "build-network-1",
+            "build-network-2",
+            "build-network-3",
+            "build-network-4",
           ].includes(game) && (
             <div
               style={{ height: "95vh", width: "80%", marginLeft: "20%" }}

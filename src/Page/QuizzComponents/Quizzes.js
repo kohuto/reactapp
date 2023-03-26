@@ -155,7 +155,10 @@ function QuizzComponents({
           isDestroyed={isDestroyed}
         />
       );
-    case "buildNetwork":
+    case "build-network-1":
+    case "build-network-2":
+    case "build-network-3":
+    case "build-network-4":
       return (
         <BuildNetwork
           setAlertMessage={setAlertMessage}

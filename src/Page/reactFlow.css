@@ -178,3 +178,16 @@
   background-size: 300px 300px;
   background-position: 500px 250px;
 }
+
+.build-network-button-container {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  align-items: center; 
+  justify-content: center; 
+  background-color: rgb(192, 192, 192);
+  border-radius: 5px;
+}

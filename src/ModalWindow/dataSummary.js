@@ -53,4 +53,12 @@ export const summaryText = [
       "Zjistíme, proč je dobré, aby pakety putovaly nezávisle na sobě",
     ],
   },
+  {
+    chapterSummary: "umíme vše",
+    prerequsities: ["všechno"],
+    learningOutcomes: [
+      "ověříš si, jestli jsi všemu porozuměl",
+      "ověříš si, jestli jsi schopen nabyté znalosti propojit",
+    ],
+  },
 ];

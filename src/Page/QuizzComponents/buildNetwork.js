@@ -13,6 +13,19 @@ import ReactFlow, {
   updateEdge,
 } from "reactflow";
 import { Provider } from "zustand";
+import Avatar from "@mui/material/Avatar";
+import Badge from "@mui/material/Badge";
+import MailIcon from "@mui/icons-material/Mail";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import server from "../../images/nodes/server.png";
+import bts from "../../images/nodes/btsvez.jpg";
+import client from "../../images/nodes/klient.jpg";
+import wifi from "../../images/nodes/wifi.jpg";
+import gateway from "../../images/nodes/gateway.jpg";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
+import RuleIcon from "@mui/icons-material/Rule";
 
 function Flow({
   nodes,
@@ -89,7 +102,14 @@ function Flow({
           //  nodeTypes={nodeTypes}
           attributionPosition="top-right"
           onConnect={onConnect}
-        />
+        >
+          {" "}
+          <Controls
+            showFitView={false}
+            showInteractive={false}
+            position="bottom-right"
+          />
+        </ReactFlow>
       </div>
     </>
   );
@@ -134,52 +154,47 @@ function FlowWithProvider({
 
     if (isConnected(nodes, edges)) {
       if (!hasGatewayBridge(nodes, edges)) {
-        if (!hasClientServerEdge(nodes, edges)) {
-          if (isWifiAndBTSConnected(nodes, edges)) {
-            if (checkLeafNodes(nodes, edges)) {
-              if (checkClientDistance(nodes, edges)) {
-                //setGameAfterModalClose("noGame");
-                setAlertMessage("good job");
+        if (!hasArticulationGateway(nodes, edges)) {
+          if (!hasClientServerEdge(nodes, edges)) {
+            if (isWifiAndBTSConnected(nodes, edges)) {
+              if (checkLeafNodes(nodes, edges)) {
+                if (checkClientDistance(nodes, edges)) {
+                  //setGameAfterModalClose("noGame");
+                  setAlertMessage("good job");
+                } else {
+                  setAlertMessage(
+                    "klienti musi byt v blizkosti wifi nebo bts veze"
+                  );
+                }
               } else {
-                setAlertMessage(
-                  "klienti musi byt v blizkosti wifi nebo bts veze"
-                );
+                setAlertMessage("musi byt list");
               }
             } else {
-              setAlertMessage("musi byt list");
+              setAlertMessage("wifi musi byt pripojena k jedne krizovatce");
             }
           } else {
-            setAlertMessage("wifi musi byt pripojena k jedne krizovatce");
+            setAlertMessage(
+              "server nemůže být přímo porpojený s klientem. Cesta do serveru vede přes nějakou chytrou křižovatku"
+            );
           }
         } else {
-          setAlertMessage(
-            "server nemůže být přímo porpojený s klientem. Cesta do serveru vede přes nějakou chytrou křižovatku"
-          );
+          setAlertMessage("nesmi obsahovat artikulace");
         }
       } else {
         setAlertMessage("nesmi obsahovat mosty mezi krizovatkami");
       }
     } else {
-      setAlertMessage("neni spojity");
+      setAlertMessage("musi byt spojity");
     }
     setOpenModal(true);
   }
   return (
     <>
-      <Buttons handleAddNode={handleAddNode} />
-
-      <button
-        onClick={checkValidty}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "21vw",
-          zIndex: "25",
-          width: "50px",
-        }}
-      >
-        Check validity
-      </button>
+      <Buttons
+        handleAddNode={handleAddNode}
+        checkValidty={checkValidty}
+        nodes={nodes}
+      />
 
       <ReactFlowProvider>
         <Flow
@@ -460,6 +475,73 @@ function checkLeafNodes(nodes, edges) {
   return true;
 }
 
+function hasArticulationGateway(nodes, edges) {
+  const gatewayNodes = new Set();
+  const gatewayEdges = [];
+
+  // Store nodes with class "gateway-build" and edges between them
+  for (const node of nodes) {
+    if (node.className === "gateway-build") {
+      gatewayNodes.add(node.id);
+    }
+  }
+  for (const edge of edges) {
+    if (gatewayNodes.has(edge.source) && gatewayNodes.has(edge.target)) {
+      gatewayEdges.push(edge);
+    }
+  }
+
+  // Use DFS to check for articulation points in the subgraph
+  const adjList = {};
+  for (const node of gatewayNodes) {
+    adjList[node] = [];
+  }
+  for (const edge of gatewayEdges) {
+    adjList[edge.source].push(edge.target);
+    adjList[edge.target].push(edge.source);
+  }
+
+  const visited = {};
+  const parent = {};
+  const low = {};
+  const disc = {};
+  const ap = new Set();
+  let time = 0;
+
+  function dfs(node) {
+    visited[node] = true;
+    disc[node] = low[node] = ++time;
+    let children = 0;
+
+    for (const neighbor of adjList[node]) {
+      if (!visited[neighbor]) {
+        children++;
+        parent[neighbor] = node;
+        dfs(neighbor);
+
+        low[node] = Math.min(low[node], low[neighbor]);
+
+        if (parent[node] === undefined && children > 1) {
+          ap.add(node);
+        }
+        if (parent[node] !== undefined && low[neighbor] >= disc[node]) {
+          ap.add(node);
+        }
+      } else if (neighbor !== parent[node]) {
+        low[node] = Math.min(low[node], disc[neighbor]);
+      }
+    }
+  }
+
+  for (const node of gatewayNodes) {
+    if (!visited[node]) {
+      dfs(node);
+    }
+  }
+
+  return ap.size > 0;
+}
+
 function generateIpv4Address() {
   let ipv4Address = "";
   for (let i = 0; i < 4; i++) {
@@ -471,70 +553,92 @@ function generateIpv4Address() {
   return ipv4Address;
 }
 
-function Buttons({ handleAddNode }) {
+function countNodesByType(nodes, type) {
+  let count = 0;
+
+  for (const node of nodes) {
+    if (node.className === type) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function Buttons({ handleAddNode, checkValidty, nodes }) {
+  const serversLeft = 7 - countNodesByType(nodes, "server-build");
+  const gatewayLeft = 7 - countNodesByType(nodes, "gateway-build");
+  const clientLeft = 7 - countNodesByType(nodes, "client-build");
+  const wifiLeft = 7 - countNodesByType(nodes, "wifi-build");
+  const btsLeft = 7 - countNodesByType(nodes, "bts-build");
+
   return (
-    <>
-      <button
-        onClick={() => handleAddNode("server-build")}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "1vw",
-          zIndex: "25",
-          width: "50px",
-        }}
+    <div className="build-network-button-container">
+      <Tooltip title="SERVER" placement="left">
+        <IconButton>
+          <Badge badgeContent={serversLeft} color="primary">
+            <img
+              src={server}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("server-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip
+        title="CHYTRÁ KŘIŽOVATKA"
+        placement="left"
+        style={{ marginTop: "1vh", marginBottom: "1vh" }}
       >
-        Add Server
-      </button>
-      <button
-        onClick={() => handleAddNode("gateway-build")}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "5vw",
-          zIndex: "25",
-          width: "50px",
-        }}
-      >
-        Add gateway
-      </button>
-      <button
-        onClick={() => handleAddNode("client-build")}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "9vw",
-          zIndex: "25",
-          width: "50px",
-        }}
-      >
-        Add client
-      </button>
-      <button
-        onClick={() => handleAddNode("wifi-build")}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "13vw",
-          zIndex: "25",
-          width: "50px",
-        }}
-      >
-        Add wifi
-      </button>
-      <button
-        onClick={() => handleAddNode("bts-build")}
-        style={{
-          position: "absolute",
-          top: "90vh",
-          right: "17vw",
-          zIndex: "25",
-          width: "50px",
-        }}
-      >
-        Add bts
-      </button>
-    </>
+        <IconButton>
+          <Badge badgeContent={gatewayLeft} color="primary">
+            <img
+              src={gateway}
+              style={{ width: "60px", height: "20px" }}
+              onClick={() => handleAddNode("gateway-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="KLIENT" placement="left">
+        <IconButton>
+          <Badge badgeContent={clientLeft} color="primary">
+            <img
+              src={client}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("client-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="WIFI" placement="left">
+        <IconButton>
+          <Badge badgeContent={wifiLeft} color="primary">
+            <img
+              src={wifi}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("wifi-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="BTS VĚŽ" placement="left">
+        <IconButton>
+          <Badge badgeContent={btsLeft} color="primary">
+            <img
+              src={bts}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("bts-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="ZKONTROLOVAT" placement="left">
+        <IconButton onClick={checkValidty}>
+          <RuleIcon />
+        </IconButton>
+      </Tooltip>
+    </div>
   );
 }
 
