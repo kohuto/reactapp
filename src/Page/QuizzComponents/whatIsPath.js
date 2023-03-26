@@ -27,7 +27,11 @@ function WhatIsPathComponent() {
           attributionPosition="top-right"
           className="mojeuzasna"
         >
-          <Controls />
+          <Controls
+            showFitView={false}
+            showInteractive={false}
+            position="bottom-right"
+          />
         </ReactFlow>
       </div>
     </>

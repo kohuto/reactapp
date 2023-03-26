@@ -18,6 +18,7 @@ import RaceAroundWorld from "./raceAroundWorld";
 import WirelessDevices from "./wirelessDevice";
 import ClientServerCommunication from "./clientServerComunication";
 import WhatIsPathComponent from "./whatIsPath";
+import BuildNetwork from "./buildNetwork";
 
 function QuizzComponents({
   setGame,
@@ -152,6 +153,15 @@ function QuizzComponents({
           setGameAfterModalClose={setGameAfterModalClose}
           setIsDistroyedProblemWithPath={setIsDistroyedProblemWithPath}
           isDestroyed={isDestroyed}
+        />
+      );
+    case "buildNetwork":
+      return (
+        <BuildNetwork
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     default:
