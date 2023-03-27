@@ -1,0 +1,51 @@
+.lp-add-nodes-buttons-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(204, 204, 204);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    z-index: 4;
+}
+
+.lp-service-buttons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+   bottom: 2vh;
+    right: 2vw;
+    z-index: 4;
+}
+
+.go-to-task-buttons{
+    display: flex;
+    justify-content: space-around;
+    background-image: url("../images/morfeus.jpg");
+    background-position: -150px 0px;
+    height: 60vh;
+}
+
+.go-to-task-buttons button {
+    position: relative;
+    top: 35vh;
+    height: 10vh;
+    background-color: rgba(1,1, 1, 0.7);
+    color: aliceblue;
+    z-index: 4;
+}
+
+.go-to-task-buttons button:hover{
+    color: black;
+}
+
+.client-plugged {
+    width: 85px;
+  height: 70px;
+  background-image: url("../images/nodes/client-plugged.jpg");
+  background-repeat: no-repeat;
+  border: none;
+  background-size: contain;
+}

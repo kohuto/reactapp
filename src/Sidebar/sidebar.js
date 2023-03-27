@@ -153,8 +153,8 @@ function DropdownMenu({
           <DropdownItem leftIcon={builder} goToMenu="build-network">
             POSTAV SÍŤ
           </DropdownItem>
-          <div id="downitem" onClick={() => showLandingPage(false)}>
-            <DropdownItem leftIcon={backarrow}>INTERAKTIVNÍ MÓD</DropdownItem>
+          <div id="downitem" onClick={() => showLandingPage(true)}>
+            <DropdownItem leftIcon={backarrow}>ÚVODNÍ STRÁNKA</DropdownItem>
           </div>
         </div>
       </CSSTransition>

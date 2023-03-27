@@ -12,22 +12,30 @@ import ReactFlow, {
   Controls,
   updateEdge,
 } from "reactflow";
-import { Provider } from "zustand";
-import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import server from "../../images/nodes/server.png";
-import bts from "../../images/nodes/btsvez.jpg";
-import client from "../../images/nodes/klient.jpg";
-import wifi from "../../images/nodes/wifi.jpg";
-import gateway from "../../images/nodes/gateway.jpg";
+import server from "../images/nodes/server.png";
+import bts from "../images/nodes/btsvez.jpg";
+import client from "../images/nodes/klient.jpg";
+import wifi from "../images/nodes/wifi.jpg";
+import gateway from "../images/nodes/gateway.jpg";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import RuleIcon from "@mui/icons-material/Rule";
+import "./landingPage.css";
+import Button from "@mui/material/Button";
+import { landingPageNodes } from "../Flow/data/landingPage";
+import { landingPageEdges } from "../Flow/data/edges/landingPage";
 
-function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
+function Flow({
+  nodes,
+  edges,
+  setNodes,
+  setEdges,
+  game,
+  onNodesChange,
+  onEdgesChange,
+}) {
   const reactFlowInstance = useReactFlow();
 
   useEffect(() => {
@@ -41,7 +49,6 @@ function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
   }, [reactFlowInstance]);
 
   const edgeUpdateSuccessful = useRef(true);
-
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
     []
@@ -66,10 +73,7 @@ function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
 
   return (
     <>
-      <div
-        style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
-        className={`${game}-bg`}
-      >
+      <div style={{ height: "100vh", width: "100vw" }} className={`${game}-bg`}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -80,28 +84,63 @@ function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
           onEdgeUpdateStart={onEdgeUpdateStart}
           onEdgeUpdateEnd={onEdgeUpdateEnd}
           selectNodesOnDrag={true}
+          panOnDrag={false}
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
           attributionPosition="bottom-right"
           onConnect={onConnect}
-        >
-          <Controls
-            showFitView={false}
-            showInteractive={false}
-            position="bottom-right"
-          />
-        </ReactFlow>
+        ></ReactFlow>
       </div>
     </>
   );
 }
 
-function FlowWithProvider({
+function LandingPage({
   setAlertMessage,
   setOpenModal,
   game,
   setGameAfterModalClose,
+  setIsLandingPage,
 }) {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(landingPageNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const clientInfoNodes = nodes.filter(
+        (node) => node.className === "client-plugged"
+      );
+      const clientBuildNodes = nodes.filter(
+        (node) => node.className === "client-build"
+      );
+
+      const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
+      tempClientNodes.forEach((node) => {
+        if (isNodeInRange(node.id, nodes)) {
+          node.className = "client-plugged";
+        } else {
+          node.className = "client-build";
+        }
+      });
+
+      // iterate through each node in tempClientNodes
+      tempClientNodes.forEach((tempNode) => {
+        // check if the node already exists in nodes
+        const index = nodes.findIndex((node) => node.id === tempNode.id);
+        if (index !== -1) {
+          // remove the existing node from nodes
+          nodes.splice(index, 1);
+        }
+        // add the new node to nodes
+        nodes.push(tempNode);
+      });
+    }, 10);
+
+    // Clear the interval when the component unmounts or when the nodes state changes
+    return () => clearInterval(intervalId);
+  }, [nodes]);
+
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) => node.className === device);
@@ -213,10 +252,17 @@ function FlowWithProvider({
   }
   return (
     <>
+      <ServiceBox
+        setAlertMessage={setAlertMessage}
+        setIsLandingPage={setIsLandingPage}
+        setOpenModal={setOpenModal}
+        setGameAfterModalClose={setGameAfterModalClose}
+      />
       <Buttons
         handleAddNode={handleAddNode}
         checkValidty={checkValidty}
         nodes={nodes}
+        setIsLandingPage={setIsLandingPage}
       />
 
       <ReactFlowProvider>
@@ -230,6 +276,38 @@ function FlowWithProvider({
       </ReactFlowProvider>
     </>
   );
+}
+
+function isNodeInRange(nodeId, nodes) {
+  const node = nodes.find((node) => node.id === nodeId);
+  const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
+  const btsNodes = nodes.filter((node) => node.className === "bts-build");
+
+  // Check if node is at most 100 away from some wifi nodes
+  for (let i = 0; i < wifiNodes.length; i++) {
+    const wifiNode = wifiNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - wifiNode.position.x, 2) +
+        Math.pow(node.position.y - wifiNode.position.y, 2)
+    );
+    if (distance <= 100) {
+      return true;
+    }
+  }
+
+  // Check if node is at most 200 away from some bts nodes
+  for (let i = 0; i < btsNodes.length; i++) {
+    const btsNode = btsNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - btsNode.position.x, 2) +
+        Math.pow(node.position.y - btsNode.position.y, 2)
+    );
+    if (distance <= 100) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function checkClientDistance(nodes, edges) {
@@ -589,15 +667,97 @@ function countNodesByType(nodes, type) {
   return count;
 }
 
-function Buttons({ handleAddNode, checkValidty, nodes }) {
-  const serversLeft = 7 - countNodesByType(nodes, "server-build");
-  const gatewayLeft = 7 - countNodesByType(nodes, "gateway-build");
-  const clientLeft = 7 - countNodesByType(nodes, "client-build");
-  const wifiLeft = 7 - countNodesByType(nodes, "wifi-build");
-  const btsLeft = 7 - countNodesByType(nodes, "bts-build");
+function GoToTasks({
+  setOpenModal,
+  setIsLandingPage,
+  setGameAfterModalClose,
+  setAlertMessage,
+}) {
+  function handleGoToTasks() {
+    setAlertMessage(
+      "vitej v naprosto dokonalém vzdělávacím módu. Tady končí veškerá zábava a začíná pořádné vzdělání. Vlevo máš menu. V něm je spousta úkolů. Úkoly se postupně proklikej. Když budeš dávat pozor, tak na konci budeš machr na internet."
+    );
+    setOpenModal(true);
+    setGameAfterModalClose("noGame");
+    setIsLandingPage();
+  }
+  return (
+    <div>
+      <p>
+        chystáš se přejít na úkoly a učit se novým vědomostem o internetu. Jsi
+        na to připraven můj padawane?
+      </p>
+      <div className="go-to-task-buttons">
+        <Button variant="outlined" onClick={() => setOpenModal(false)}>
+          ZPĚT
+        </Button>
+        <Button variant="outlined" onClick={() => handleGoToTasks()}>
+          STUDIUM
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function ServiceBox({
+  setIsLandingPage,
+  setAlertMessage,
+  setGameAfterModalClose,
+  setOpenModal,
+}) {
+  const [isHintClicked, setIsHintClicked] = useState(false);
+  const [isTasksClicked, setIsTasksClicked] = useState(false);
+
+  function handleShowHint() {
+    setIsHintClicked(true);
+    setAlertMessage("hint");
+    setGameAfterModalClose("noGame");
+    setOpenModal(true);
+  }
+
+  function handleShowTasks() {
+    setAlertMessage(
+      <GoToTasks
+        setIsLandingPage={setIsLandingPage}
+        setOpenModal={setOpenModal}
+        setGameAfterModalClose={setGameAfterModalClose}
+        setAlertMessage={setAlertMessage}
+      />
+    );
+    setGameAfterModalClose("noGame");
+    setOpenModal(true);
+    setIsTasksClicked(true);
+  }
 
   return (
-    <div className="build-network-button-container">
+    <div className="lp-service-buttons-container">
+      <Tooltip title="NÁPOVĚDA" placement="top">
+        <IconButton onClick={() => handleShowHint()}>
+          <Badge badgeContent="!" color="primary" invisible={isHintClicked}>
+            <QuestionMarkIcon />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="PŘEJDI NA ÚKOLY" placement="top">
+        <IconButton onClick={() => handleShowTasks()}>
+          <Badge badgeContent="!" color="primary" invisible={isTasksClicked}>
+            <RuleIcon />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+    </div>
+  );
+}
+
+function Buttons({ handleAddNode, checkValidty, nodes, setIsLandingPage }) {
+  const serversLeft = 8 - countNodesByType(nodes, "server-build");
+  const gatewayLeft = 15 - countNodesByType(nodes, "gateway-build");
+  const clientLeft = 9 - countNodesByType(nodes, "client-build");
+  const wifiLeft = 8 - countNodesByType(nodes, "wifi-build");
+  const btsLeft = 8 - countNodesByType(nodes, "bts-build");
+
+  return (
+    <div className="lp-add-nodes-buttons-container">
       <Tooltip title="SERVER" placement="left">
         <IconButton>
           <Badge badgeContent={serversLeft} color="primary">
@@ -657,13 +817,8 @@ function Buttons({ handleAddNode, checkValidty, nodes }) {
           </Badge>
         </IconButton>
       </Tooltip>
-      <Tooltip title="ZKONTROLOVAT" placement="left">
-        <IconButton onClick={checkValidty}>
-          <RuleIcon />
-        </IconButton>
-      </Tooltip>
     </div>
   );
 }
 
-export default FlowWithProvider;
+export default LandingPage;

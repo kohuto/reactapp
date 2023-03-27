@@ -1,52 +1,30 @@
 import Sidebar from "../Sidebar/sidebar";
-import InteractiveSidebar from "../interactive-sidebar/sidebar";
 import QuizzComponents from "./QuizzComponents/Quizzes";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Flow from "./reactFlow";
-import { interactiveModePacketsData } from "../Packet/data/inteactiveModeData";
-import { findPacketsData } from "../Packet/data/findServerPackets";
-import DefaultPackets from "../Packet";
-import { useNodesState, useEdgesState, Background } from "reactflow";
+import { useNodesState } from "reactflow";
 import AlertDialog from "./modalWindow";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
+import LandingPage from "./landingPage";
 
 function Page() {
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
-
   const [isLandingPage, setIsLandingPage] =
-    useState(false); /* zde změnit na true */
+    useState(true); /* zde změnit na true */
   const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();
   const [edge, setEdges, onEdgesChange] = useNodesState();
-  const [alertMessage, setAlertMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState(
+    "Vítej v naší úžasné aplikaci. kecy prdy. zavři toto akno a jdi se dozvědět něco o internetu"
+  );
   const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
   const [isDistroyedProblemWithPath, setIsDistroyedProblemWithPath] =
     useState(false);
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [gameAfterClose, setGameAfterModalClose] = useState("");
+  const [gameAfterClose, setGameAfterModalClose] = useState("noGame");
 
   function handleOpenDialog(isOpen) {
     setOpenDialog(isOpen);
@@ -80,109 +58,100 @@ function Page() {
     }
   };
 
-  if (isLandingPage) {
-    return (
-      <div className="page">
-        <DefaultPackets
-          packetsData={interactiveModePacketsData}
-          game={game === "noGame"}
-        />
-        <div style={{ display: "flex", height: "100vh" }}>
-          <InteractiveSidebar
-            setIsLandingPage={() => setIsLandingPage(false)}
+  return (
+    <>
+      <AlertDialog
+        open={openDialog}
+        setOpen={setOpenDialog}
+        alertMessage={alertMessage}
+        setGame={setGame}
+        gameAfterClose={gameAfterClose}
+      />
+      {isLandingPage ? (
+        <>
+          <AlertDialog
+            open={openDialog}
+            setOpen={setOpenDialog}
+            alertMessage={alertMessage}
             setGame={setGame}
-            nodes={nodes}
-            setNodes={setNodes}
-            onNodesChange={onNodesChange}
+            gameAfterClose={gameAfterClose}
           />
-          <div style={{ flex: 1 }}>
-            <Flow
+          <LandingPage
+            setGameAfterModalClose={setGameAfterModalClose}
+            setAlertMessage={handleAlertMessageChange}
+            setOpenModal={handleOpenDialog}
+            game={game}
+            setIsLandingPage={() => setIsLandingPage(false)}
+          />
+        </>
+      ) : (
+        <>
+          <QuizzComponents
+            game={game}
+            setGame={setGame}
+            zoomIn={zoomIn}
+            zoomOut={zoomOut}
+            zoom={zoom}
+            setGameAfterModalClose={setGameAfterModalClose}
+            setAlertMessage={handleAlertMessageChange}
+            setOpenModal={handleOpenDialog}
+            setIsDistroyedProblemWithPath={handleIsDistroyedProblemWithPath}
+            isDestroyed={isDistroyedProblemWithPath}
+          />
+
+          <AlertDialog
+            open={openOverlayDialog}
+            setOpen={setOpenOverlayDialog}
+            alertMessage={overlayDialogMessage}
+            setGame={setGame}
+            gameAfterClose={gameAfterClose}
+          />
+
+          <div>
+            {![
+              "client-server-communication",
+              "whatIsServer",
+              "whatIsPath",
+              "raceAroundWorld",
+              "whatIsWiFi",
+              "buildNetwork",
+              "build-network-1",
+              "build-network-2",
+              "build-network-3",
+              "build-network-4",
+            ].includes(game) && (
+              <div
+                style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
+                className={`${game}-bg`}
+              >
+                <Flow
+                  game={game}
+                  zoom={zoom}
+                  nodes={nodes}
+                  edge={edge}
+                  setEdges={setEdges}
+                  onEdgesChange={onEdgesChange}
+                  setNodes={setNodes}
+                  onNodesChange={onNodesChange}
+                  isDestroyed={isDistroyedProblemWithPath}
+                ></Flow>
+              </div>
+            )}
+            <Sidebar
+              showLandingPage={setIsLandingPage}
+              setGame={setGame}
+              setAlertMessage={handleAlertMessageChange}
               game={game}
-              zoom={zoom}
-              nodes={nodes}
-              setNodes={setNodes}
-              onNodesChange={onNodesChange}
+              setGameAfterModalClose={setGameAfterModalClose}
+              setOpenModal={handleOpenDialog}
+              setOpenOverlayModal={handleOpenOverlayDialog}
+              setOverlayDialogMessage={handleOverlayDialogMessageChange}
             />
           </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <>
-        <QuizzComponents
-          game={game}
-          setGame={setGame}
-          zoomIn={zoomIn}
-          zoomOut={zoomOut}
-          zoom={zoom}
-          setGameAfterModalClose={setGameAfterModalClose}
-          setAlertMessage={handleAlertMessageChange}
-          setOpenModal={handleOpenDialog}
-          setIsDistroyedProblemWithPath={handleIsDistroyedProblemWithPath}
-          isDestroyed={isDistroyedProblemWithPath}
-        />
-
-        <AlertDialog
-          open={openOverlayDialog}
-          setOpen={setOpenOverlayDialog}
-          alertMessage={overlayDialogMessage}
-          setGame={setGame}
-          gameAfterClose={gameAfterClose}
-        />
-
-        <AlertDialog
-          open={openDialog}
-          setOpen={setOpenDialog}
-          alertMessage={alertMessage}
-          setGame={setGame}
-          gameAfterClose={gameAfterClose}
-        />
-
-        <div>
-          {![
-            "client-server-communication",
-            "whatIsServer",
-            "whatIsPath",
-            "raceAroundWorld",
-            "whatIsWiFi",
-            "buildNetwork",
-            "build-network-1",
-            "build-network-2",
-            "build-network-3",
-            "build-network-4",
-          ].includes(game) && (
-            <div
-              style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
-              className={`${game}-bg`}
-            >
-              <Flow
-                game={game}
-                zoom={zoom}
-                nodes={nodes}
-                edge={edge}
-                setEdges={setEdges}
-                onEdgesChange={onEdgesChange}
-                setNodes={setNodes}
-                onNodesChange={onNodesChange}
-                isDestroyed={isDistroyedProblemWithPath}
-              ></Flow>
-            </div>
-          )}
-          <Sidebar
-            showLandingPage={setIsLandingPage}
-            setGame={setGame}
-            setAlertMessage={handleAlertMessageChange}
-            game={game}
-            setGameAfterModalClose={setGameAfterModalClose}
-            setOpenModal={handleOpenDialog}
-            setOpenOverlayModal={handleOpenOverlayDialog}
-            setOverlayDialogMessage={handleOverlayDialogMessageChange}
-          />
-        </div>
-      </>
-    );
-  }
+        </>
+      )}
+    </>
+  );
 }
 
 export default Page;
