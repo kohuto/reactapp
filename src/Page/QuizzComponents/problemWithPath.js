@@ -20,7 +20,7 @@ function ProblemWithPath({
 
     const timerId2 = setTimeout(() => {
       setAlertMessage(
-        "Jeden z kabelů na cestě se poškodil. Internetová síť se nám kvůli tomu rozpadla na dvě části. Mezi těmito částmi už nevede žádná další cesta, proto se paket nemůže do messenger serveru dostat. Je to stejné, jako když městem protéká řeka a z jedné části města do druhé vede pouze jeden most. Kdyby se tento most rozbil, tak bychom se nemohli z jedné části města do druhé dostat. Naše internetová síť je právě takové město a poškozený kabel je ten “most”. Takových “mostů” je ale v naší cvičné internetové síti více. Podívej se na síť a spočítej, kolik bychom museli do sítě přidat nových cest, aby v síti nebyl žádný “most”. "
+        "Jeden z kabelů na cestě se poškodil a internetová síť se rozpadla na dvě části. Mezi částmi teď nevede žádná další cesta, proto se paket nemůže do messenger serveru dostat. \n Je to stejné, jako když městem protéká řeka a z jedné části města do druhé vede pouze jeden most. Kdyby se tento most rozbil, tak bychom se nemohli z jedné části města do druhé dostat. \n Síť, která se rozpadla na dvě části je právě takové rozdělené město a poškozený kabel je rozbitý “most”. Když se podíváš na síť, tak zjistíš, že takových “mostů” je tam více. Napiš do textového pole, kolik bychom museli do sítě přidat nových cest, aby v síti nebyl žádný “most”."
       );
       setGameAfterModalClose(game);
       setOpenModal(true);
@@ -37,11 +37,14 @@ function ProblemWithPath({
         <Packet
           key="packet4789546"
           content="ahoj"
-          from="194.200.5.136"
-          to="51.247.206.27"
+          from="102.80.143.201"
+          to="71.20.12.201"
           path={["102.80.143.201", "10.5.112.134", "71.20.12.201"]}
           color="#666666"
           speed={11}
+          repeat={0}
+          marginleft={20}
+          nodes={[]}
         ></Packet>
       )}
       {isDestroyed && (
@@ -70,10 +73,14 @@ function InputBox({
 
   const handleSubmit = () => {
     if (count === "3") {
-      setAlertMessage("výborně");
+      setAlertMessage(
+        "Perfektní. Je potřeba, aby v síti nebyly žádné kabely, které by byly “mostem”. Jak jsem viděli. Když se takový kabel poškodí, tak by se nešlo například dostat do některých serveru. Dokonce by se mohlo stát, že by třeba poškození takového kabelu mohlo odříznout od internetu celé město nebo stát."
+      );
       setGameAfterModalClose("noGame");
     } else {
-      setAlertMessage("nope");
+      setAlertMessage(
+        "Toto není správná odpověď. Potřebuješ spočítat počet cest, které je nutné přidat, aby v síti nebyly žádné mosty."
+      );
       setGameAfterModalClose(game);
     }
     setOpenModal(true);

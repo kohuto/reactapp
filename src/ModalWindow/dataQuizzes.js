@@ -120,7 +120,7 @@ export const stockData = [
   },
   {
     content:
-      "Klikni na tlačítko START. Objeví se okno chatu. Napiš zprávu a odešli ji. Už víme, že pakety zamíří do messenger serveru. Sleduj ale, co se po cestě stane.",
+      "V předchozím úkolu bylo zmíněno, že je dobré, aby mezi dvěma místy vedlo více různých cest. Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam ale vede pouze jedna cesta.",
     type: "problemWithPath",
   },
   {
