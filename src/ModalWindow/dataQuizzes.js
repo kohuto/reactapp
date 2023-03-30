@@ -115,7 +115,7 @@ export const stockData = [
   },
   {
     content:
-      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\n Klikni na tlačítko START a zkus spočítat, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet vícekrát stejnou chytrou křižovatkou. Počet různých cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
+      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\n Zavři okno spočítej, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet vícekrát stejnou chytrou křižovatkou. Počet různých cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více? Pokud tě nic nenapadá, počkej na další úkol.",
     type: "countOfPaths",
   },
   {

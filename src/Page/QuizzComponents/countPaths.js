@@ -4,15 +4,21 @@ import CloseOpen from "./closeOpenWindow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-function CountPaths({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+function CountPaths({
+  setAlertMessage,
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
+}) {
   return (
     <>
       <CloseOpen
         content={
           <InputBox
             setAlertMessage={setAlertMessage}
-            setOpenInform={setOpenInform}
-            setOpenEndGame={setOpenEndGame}
+            setOpenModal={setOpenModal}
+            setGameAfterModalClose={setGameAfterModalClose}
+            game={game}
           />
         }
       />
@@ -20,17 +26,25 @@ function CountPaths({ setOpenEndGame, setOpenInform, setAlertMessage }) {
   );
 }
 
-function InputBox({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+function InputBox({
+  setAlertMessage,
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
+}) {
   const [count, setCount] = useState("");
 
   const handleSubmit = () => {
     if (count === "7") {
-      setAlertMessage("výborně");
-      setOpenEndGame(true);
+      setAlertMessage(
+        "Perfektní! Je dobré, aby mezi dvěma místy vedlo velké množství různých cest. Proč je to výhodné se dozvíš v dalším úkolu."
+      );
+      setGameAfterModalClose("noGame");
     } else {
-      setAlertMessage("nope");
-      setOpenInform(true);
+      setAlertMessage("Toto není správný počet různých cest.");
+      setGameAfterModalClose(game);
     }
+    setOpenModal(true);
   };
   return (
     <>
