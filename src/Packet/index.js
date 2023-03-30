@@ -1,6 +1,6 @@
 import Packet from "./Packet";
 
-function DefaultPackets({ packetsData, game }) {
+function DefaultPackets({ packetsData, repeat, marginleft, nodes }) {
   const Packets = ({ packetsData }) => (
     <>
       {packetsData.map((packet) => (
@@ -12,6 +12,9 @@ function DefaultPackets({ packetsData, game }) {
           path={packet.path}
           color="#666666"
           speed={packet.speed}
+          repeat={repeat}
+          marginleft={marginleft}
+          nodes={nodes}
         ></Packet>
       ))}
     </>

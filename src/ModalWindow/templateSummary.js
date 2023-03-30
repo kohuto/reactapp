@@ -14,13 +14,15 @@ function SummaryTemplate({ data }) {
     <>
       <div className="summary-content">
         <p>{data.chapterSummary}</p>
-        <div className="column">
-          <h2>CO UŽ UMÍME</h2>
-          <List items={prerequisites} />
-        </div>
-        <div className="column">
-          <h2>CO SE NAUČÍME</h2>
-          <List items={learningOutcomes} />
+        <div className="summary-prerequisities">
+          <div className="column">
+            <h2>CO UŽ UMÍME</h2>
+            <List items={prerequisites} />
+          </div>
+          <div className="column">
+            <h2>CO SE NAUČÍME</h2>
+            <List items={learningOutcomes} />
+          </div>
         </div>
       </div>
     </>

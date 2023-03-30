@@ -26,6 +26,17 @@ import "./landingPage.css";
 import Button from "@mui/material/Button";
 import { landingPageNodes } from "../Flow/data/landingPage";
 import { landingPageEdges } from "../Flow/data/edges/landingPage";
+import DefaultPackets from "../Packet";
+import profileImageMan from "../images/profile/man.png";
+import profileImageWoman from "../images/profile/woman.png";
+import gallery from "../images/icons/image-gallery.png";
+import plus from "../images/icons/plusmess.png";
+import gif from "../images/icons/gif.png";
+import { landingPagePacketsData } from "../Packet/data/landingPage";
+import SendIcon from "@mui/icons-material/Send";
+import Snackbar from "@mui/material/Snackbar";
+import CloseIcon from "@mui/icons-material/Close";
+import TextField from "@mui/material/TextField";
 
 function Flow({
   nodes,
@@ -35,6 +46,9 @@ function Flow({
   game,
   onNodesChange,
   onEdgesChange,
+  setAlertMessage,
+  setGameAfterModalClose,
+  setOpenModal,
 }) {
   const reactFlowInstance = useReactFlow();
 
@@ -71,6 +85,16 @@ function Flow({
     edgeUpdateSuccessful.current = true;
   }, []);
 
+  const onNodeClick = (event, node) => {
+    if (node.className === "client-plugged") {
+      console.log("klik na plugged");
+      setAlertMessage("fuck");
+      setGameAfterModalClose("noGame");
+      setOpenModal(true);
+      //setIsChatVisible(true);
+    }
+  };
+
   return (
     <>
       <div style={{ height: "100vh", width: "100vw" }} className={`${game}-bg`}>
@@ -90,6 +114,7 @@ function Flow({
           zoomOnDoubleClick={false}
           attributionPosition="bottom-right"
           onConnect={onConnect}
+          onNodeClick={onNodeClick}
         ></ReactFlow>
       </div>
     </>
@@ -105,6 +130,7 @@ function LandingPage({
 }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(landingPageNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
+  const [isSnackBarOpen, setIsSnackBarOpen] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -146,7 +172,7 @@ function LandingPage({
       const deviceNodes = nodes.filter((node) => node.className === device);
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
-      if (nodeCount >= 7) {
+      if (nodeCount >= 15) {
         setAlertMessage("vice uz jich nepridavej. Uz jich mas az moc");
         setGameAfterModalClose(game);
         setOpenModal(true);
@@ -165,93 +191,45 @@ function LandingPage({
     [nodes, setNodes]
   );
 
-  function checkValidty() {
-    console.log(nodes.length);
-    console.log(edges.length);
-    setGameAfterModalClose(game);
+  const [userPacketPath, setUserPacketPath] = useState([]);
 
-    if (isConnected(nodes, edges)) {
-      if (!hasGatewayBridge(nodes, edges)) {
-        if (!hasArticulationGateway(nodes, edges)) {
-          if (!hasClientServerEdge(nodes, edges)) {
-            if (isWifiAndBTSConnected(nodes, edges)) {
-              if (checkLeafNodes(nodes, edges)) {
-                if (checkClientDistance(nodes, edges)) {
-                  switch (game) {
-                    case "build-network-1":
-                      if (
-                        countNodesByType(nodes, "client-build") > 0 &&
-                        countNodesByType(nodes, "server-build") > 0
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň jeden server a jednoho klienta"
-                        );
-                      }
-                      break;
-                    case "build-network-2":
-                      if (
-                        countNodesByType(nodes, "client-build") > 0 &&
-                        countNodesByType(nodes, "server-build") > 0 &&
-                        countNodesByType(nodes, "bts-build") > 0
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž"
-                        );
-                      }
-                      break;
-                    case "build-network-3":
-                      if (
-                        countNodesByType(nodes, "client-build") > 2 &&
-                        countNodesByType(nodes, "server-build") > 2
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň tři servery a tři klienty"
-                        );
-                      }
-                      break;
-                    case "build-network-4":
-                      setGameAfterModalClose("noGame");
-                      setAlertMessage("good job");
-                      break;
-                  }
-                } else {
-                  setAlertMessage(
-                    "klienti musi byt v blizkosti wifi nebo bts veze"
-                  );
-                }
-              } else {
-                setAlertMessage("musi byt list");
-              }
-            } else {
-              setAlertMessage("wifi musi byt pripojena k jedne krizovatce");
-            }
-          } else {
-            setAlertMessage(
-              "server nemůže být přímo porpojený s klientem. Cesta do serveru vede přes nějakou chytrou křižovatku"
-            );
-          }
-        } else {
-          setAlertMessage("nesmi obsahovat artikulace");
-        }
-      } else {
-        setAlertMessage("nesmi obsahovat mosty mezi krizovatkami");
-      }
-    } else {
-      setAlertMessage("musi byt spojity");
-    }
-    setOpenModal(true);
+  /* <DefaultPackets
+    packetsData={landingPagePacketsData}
+    repeat={Infinity}
+    marginleft={0}
+  />*/
+
+  function handleSetUserPacketPath(path) {
+    setUserPacketPath(path);
   }
+  const userPacketData = [
+    {
+      id: "user-packet-7848975",
+      path: userPacketPath,
+      content: "01010101",
+      from: "135.127.3.223",
+      to: "29.52.143.155",
+      speed: 10,
+    },
+  ];
   return (
     <>
+      {userPacketPath.length > 0 && (
+        <DefaultPackets
+          packetsData={userPacketData}
+          repeat={0}
+          marginleft={0}
+          nodes={nodes}
+        />
+      )}
+      <SendPacketBox
+        nodes={nodes}
+        edges={edges}
+        setAlertMessage={setAlertMessage}
+        setGameAfterModalClose={setGameAfterModalClose}
+        setOpenModal={setOpenModal}
+        setPath={handleSetUserPacketPath}
+      />
       <ServiceBox
         setAlertMessage={setAlertMessage}
         setIsLandingPage={setIsLandingPage}
@@ -260,7 +238,6 @@ function LandingPage({
       />
       <Buttons
         handleAddNode={handleAddNode}
-        checkValidty={checkValidty}
         nodes={nodes}
         setIsLandingPage={setIsLandingPage}
       />
@@ -272,9 +249,179 @@ function LandingPage({
           nodes={nodes}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          setGameAfterModalClose={setGameAfterModalClose}
         />
       </ReactFlowProvider>
     </>
+  );
+}
+
+function hasNodeClass(nodes, nodeId, classname) {
+  // find the node with the given ID in the nodes array
+  const node = nodes.find((node) => node.id === nodeId);
+  console.log(node);
+  // check if the node has the className property set to "client-build"
+  if (node && node.className === classname) {
+    return true;
+  }
+
+  // if the node is not found or doesn't have the className property, return false
+  return false;
+}
+
+function getIpOfWirelessDevice(nodes, nodeId) {
+  // find the node with the given ID in the nodes array
+  const node = nodes.find((node) => node.id === nodeId);
+
+  // find the first node that matches the specified criteria
+  let result = null;
+  if (node && node.className === "client-plugged") {
+    const matchingNode = nodes.find((otherNode) => {
+      const distance = Math.sqrt(
+        Math.pow(node.position.x - otherNode.position.x, 2) +
+          Math.pow(node.position.y - otherNode.position.y, 2)
+      );
+      return (
+        (otherNode.className === "bts-build" && distance <= 100) ||
+        (otherNode.className === "wifi-build" && distance <= 100)
+      );
+    });
+
+    // if a matching node was found, return its IP address
+    if (matchingNode) {
+      result = matchingNode.id;
+    }
+  }
+
+  return result;
+}
+
+function findPath(edges, id1, id2) {
+  // create a map of nodes to their neighbors
+  const neighbors = new Map();
+  edges.forEach((edge) => {
+    if (!neighbors.has(edge.source)) {
+      neighbors.set(edge.source, []);
+    }
+    if (!neighbors.has(edge.target)) {
+      neighbors.set(edge.target, []);
+    }
+    neighbors.get(edge.source).push(edge.target);
+    neighbors.get(edge.target).push(edge.source);
+  });
+
+  // perform a breadth-first search starting from id1
+  const queue = [{ id: id1, path: [id1] }];
+  const visited = new Set([id1]);
+  while (queue.length > 0) {
+    const { id, path } = queue.shift();
+    if (id === id2) {
+      return path; // found the target node, return the path
+    }
+    for (const neighbor of neighbors.get(id) || []) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push({ id: neighbor, path: [...path, neighbor] });
+      }
+    }
+  }
+
+  return null; // id2 is not reachable from id1
+}
+
+function SendPacketBox({
+  nodes,
+  edges,
+  setAlertMessage,
+  setGameAfterModalClose,
+  setOpenModal,
+  setPath,
+}) {
+  const [ipAdressRecipient, setIpAdressRecipient] = useState("");
+  const [ipAdressReciver, setIpAdressReciver] = useState("");
+  function handleSend() {
+    if (ipAdressRecipient.length > 0 && ipAdressReciver.length > 0) {
+      if (
+        hasNodeClass(nodes, ipAdressRecipient, "client-build") ||
+        hasNodeClass(nodes, ipAdressRecipient, "client-plugged")
+      ) {
+        if (hasNodeClass(nodes, ipAdressRecipient, "client-plugged")) {
+          if (hasNodeClass(nodes, ipAdressReciver, "server-build")) {
+            if (
+              hasPath(
+                edges,
+                getIpOfWirelessDevice(nodes, ipAdressRecipient),
+                ipAdressReciver
+              )
+            ) {
+              setPath(
+                findPath(
+                  edges,
+                  getIpOfWirelessDevice(nodes, ipAdressRecipient),
+                  ipAdressReciver
+                )
+              );
+              return;
+            } else {
+              setAlertMessage(
+                "nelze doručit. Mezi odesílatelem a příjemcem není cesta"
+              );
+            }
+          } else {
+            setAlertMessage("příjemce musí být server");
+          }
+        } else {
+          setAlertMessage(
+            "klient musí být v blízkosti wifi, nebo bts věže. Poznáš to tak, že má nad hlavou wifi ikonu"
+          );
+        }
+      } else {
+        console.log(hasNodeClass(nodes, ipAdressRecipient, "client-build"));
+        setAlertMessage("odesílatel musí být klient");
+      }
+    } else {
+      setAlertMessage(
+        "první vyplň ip adresu odesílatele a příjemce. Ip adresa je číslo pod obrázkem."
+      );
+    }
+    setIpAdressRecipient("");
+    setIpAdressReciver("");
+    setGameAfterModalClose("noGame");
+    setOpenModal(true);
+  }
+
+  return (
+    <div className="lp-send-packet-container">
+      <div className="lp-send-packet-first-column">
+        <div>
+          <TextField
+            id="standard-basic"
+            label="IP Adresa odesílatele"
+            variant="standard"
+            value={ipAdressRecipient}
+            onChange={(e) => setIpAdressRecipient(e.target.value)}
+          />
+        </div>
+        <div>
+          <TextField
+            id="standard-basic"
+            label="IP Adresa příjemce"
+            variant="standard"
+            value={ipAdressReciver}
+            onChange={(e) => setIpAdressReciver(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="lp-send-packet-second-column">
+        <Tooltip title="POŠLI PAKET" placement="top">
+          <IconButton onClick={() => handleSend()}>
+            <SendIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
+    </div>
   );
 }
 
@@ -310,338 +457,40 @@ function isNodeInRange(nodeId, nodes) {
   return false;
 }
 
-function checkClientDistance(nodes, edges) {
-  const clientNodes = new Set();
-  const wifiNodes = new Set();
-  const BTSNodes = new Set();
-  const maxDistanceWifi = 150;
-  const maxDistanceBTS = 250;
-
-  // Store nodes with class "client-build", "wifi-build", and "bts-build"
-  for (const node of nodes) {
-    if (node.className === "client-build") {
-      clientNodes.add(node.id);
-    } else if (node.className === "wifi-build") {
-      wifiNodes.add(node.id);
-    } else if (node.className === "bts-build") {
-      BTSNodes.add(node.id);
-    }
-  }
-
-  // Check that all client nodes are within distance of at least one BTS or WiFi node
-  for (const clientNode of clientNodes) {
-    const clientPos = nodes.find((node) => node.id === clientNode).position;
-    let isWithinDistance = false;
-
-    // Check wifi nodes
-    for (const wifiNode of wifiNodes) {
-      const wifiPos = nodes.find((node) => node.id === wifiNode).position;
-      const distance = Math.sqrt(
-        (clientPos.x - wifiPos.x) ** 2 + (clientPos.y - wifiPos.y) ** 2
-      );
-      if (distance < maxDistanceWifi) {
-        isWithinDistance = true;
-        break;
-      }
-    }
-
-    if (isWithinDistance) {
-      continue;
-    }
-
-    // Check BTS nodes
-    for (const BTSNode of BTSNodes) {
-      const BTSPos = nodes.find((node) => node.id === BTSNode).position;
-      const distance = Math.sqrt(
-        (clientPos.x - BTSPos.x) ** 2 + (clientPos.y - BTSPos.y) ** 2
-      );
-      if (distance < maxDistanceBTS) {
-        isWithinDistance = true;
-        break;
-      }
-    }
-
-    if (!isWithinDistance) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function isConnected(nodes, edges) {
-  // Create an adjacency list to represent the graph
-  const adjList = {};
-  for (const node of nodes) {
-    adjList[node.id] = [];
-  }
-  if (Object.keys(adjList).length < 2) return true;
-  for (const edge of edges) {
-    adjList[edge.source].push(edge.target);
-    adjList[edge.target].push(edge.source);
-  }
-
-  // Perform BFS starting from the first node
-  const visited = {};
-  const queue = [nodes[0].id];
-  while (queue.length > 0) {
-    const nodeId = queue.shift();
-    if (!visited[nodeId]) {
-      visited[nodeId] = true;
-      for (const neighbor of adjList[nodeId]) {
-        queue.push(neighbor);
-      }
-    }
-  }
-
-  // Check if every node was visited
-  for (const node of nodes) {
-    if (node.className !== "client-build" && !visited[node.id]) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function hasGatewayBridge(nodes, edges) {
-  const adjList = new Map();
+function hasPath(edges, startNodeId, endNodeId) {
+  // create a set of visited node IDs and a queue of nodes to visit
   const visited = new Set();
-  const low = new Map();
-  const ids = new Map();
-  let id = 0;
-  let bridges = false;
-  const gatewayNodes = new Set();
+  const queue = [startNodeId];
 
-  // Build adjacency list and store gateway nodes
-  for (const node of nodes) {
-    if (node.className === "gateway-build") {
-      gatewayNodes.add(node.id);
+  // loop through the queue until it is empty
+  while (queue.length > 0) {
+    // get the next node to visit from the queue
+    const nodeId = queue.shift();
+
+    // mark the node as visited
+    visited.add(nodeId);
+
+    // check if the node is the end node
+    if (nodeId === endNodeId) {
+      return true;
     }
-  }
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (!adjList.has(source)) adjList.set(source, []);
-    if (!adjList.has(target)) adjList.set(target, []);
-    adjList.get(source).push(target);
-    adjList.get(target).push(source);
-  }
-  if (Object.keys(adjList).length < 2) return false;
-  // DFS algorithm
-  function dfs(node, parent) {
-    visited.add(node);
-    ids.set(node, id);
-    low.set(node, id);
-    id++;
-    for (const neighbor of adjList.get(node)) {
-      if (neighbor === parent) continue;
-      if (!visited.has(neighbor)) {
-        dfs(neighbor, node);
-        low.set(node, Math.min(low.get(node), low.get(neighbor)));
-        if (
-          ids.get(node) < low.get(neighbor) &&
-          gatewayNodes.has(node) &&
-          gatewayNodes.has(neighbor)
-        ) {
-          bridges = true;
-          return;
-        }
-      } else {
-        low.set(node, Math.min(low.get(node), ids.get(neighbor)));
+
+    // get the edges that connect to the current node
+    const edgesFromNode = edges.filter(
+      (edge) => edge.source === nodeId || edge.target === nodeId
+    );
+
+    // loop through the edges and add the neighboring nodes to the queue
+    for (const edge of edgesFromNode) {
+      const neighborId = edge.source === nodeId ? edge.target : edge.source;
+      if (!visited.has(neighborId)) {
+        queue.push(neighborId);
       }
     }
   }
 
-  // Start DFS from each unvisited gateway node
-  for (const gatewayNode of gatewayNodes) {
-    if (!visited.has(gatewayNode)) dfs(gatewayNode, null);
-  }
-
-  return bridges;
-}
-
-function hasClientServerEdge(nodes, edges) {
-  const clientNodes = new Set();
-  const serverNodes = new Set();
-
-  // Store nodes with class "client-build" and "server-build"
-  for (const node of nodes) {
-    if (node.className === "client-build") {
-      clientNodes.add(node.id);
-    } else if (node.className === "server-build") {
-      serverNodes.add(node.id);
-    }
-  }
-
-  // Check if any edges connect a client node and a server node
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (clientNodes.has(source) && serverNodes.has(target)) {
-      return true;
-    } else if (clientNodes.has(target) && serverNodes.has(source)) {
-      return true;
-    }
-  }
-
+  // if the end node was not found, there is no path
   return false;
-}
-
-function isWifiAndBTSConnected(nodes, edges) {
-  const wifiNodes = new Set();
-  const BTSNodes = new Set();
-  const gatewayNodes = new Set();
-  const connectedNodes = new Set();
-
-  // Store nodes with class "wifi-build", "bts-build", and "gateway-build"
-  for (const node of nodes) {
-    if (node.className === "wifi-build") {
-      wifiNodes.add(node.id);
-    } else if (node.className === "bts-build") {
-      BTSNodes.add(node.id);
-    } else if (node.className === "gateway-build") {
-      gatewayNodes.add(node.id);
-    }
-  }
-
-  // Check if each wifi node or BTS node has at least one edge connected to a gateway node
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (wifiNodes.has(source) || BTSNodes.has(source)) {
-      if (gatewayNodes.has(target)) {
-        connectedNodes.add(source);
-      }
-    }
-    if (wifiNodes.has(target) || BTSNodes.has(target)) {
-      if (gatewayNodes.has(source)) {
-        connectedNodes.add(target);
-      }
-    }
-  }
-
-  // Check if all wifi nodes and BTS nodes have at least one connected edge to a gateway node
-  for (const wifiNode of wifiNodes) {
-    if (!connectedNodes.has(wifiNode)) {
-      return false;
-    }
-  }
-  for (const BTSNode of BTSNodes) {
-    if (!connectedNodes.has(BTSNode)) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function checkLeafNodes(nodes, edges) {
-  const leafNodes = new Set();
-  const adjList = new Map();
-
-  // Build adjacency list
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (!adjList.has(source)) adjList.set(source, []);
-    if (!adjList.has(target)) adjList.set(target, []);
-    adjList.get(source).push(target);
-    adjList.get(target).push(source);
-  }
-
-  // Find leaf nodes for each type of node
-  for (const node of nodes) {
-    if (
-      node.className === "server-build" ||
-      node.className === "bts-build" ||
-      node.className === "wifi-build"
-    ) {
-      if (adjList.get(node.id).length === 1) {
-        leafNodes.add(node.id);
-      }
-    }
-  }
-
-  // Check if all nodes with class "server-build", "bts-build", or "wifi-build" are leaf nodes
-  for (const node of nodes) {
-    if (
-      (node.className === "server-build" ||
-        node.className === "bts-build" ||
-        node.className === "wifi-build") &&
-      !leafNodes.has(node.id)
-    ) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function hasArticulationGateway(nodes, edges) {
-  const gatewayNodes = new Set();
-  const gatewayEdges = [];
-
-  // Store nodes with class "gateway-build" and edges between them
-  for (const node of nodes) {
-    if (node.className === "gateway-build") {
-      gatewayNodes.add(node.id);
-    }
-  }
-  for (const edge of edges) {
-    if (gatewayNodes.has(edge.source) && gatewayNodes.has(edge.target)) {
-      gatewayEdges.push(edge);
-    }
-  }
-
-  // Use DFS to check for articulation points in the subgraph
-  const adjList = {};
-  for (const node of gatewayNodes) {
-    adjList[node] = [];
-  }
-  for (const edge of gatewayEdges) {
-    adjList[edge.source].push(edge.target);
-    adjList[edge.target].push(edge.source);
-  }
-
-  const visited = {};
-  const parent = {};
-  const low = {};
-  const disc = {};
-  const ap = new Set();
-  let time = 0;
-
-  function dfs(node) {
-    visited[node] = true;
-    disc[node] = low[node] = ++time;
-    let children = 0;
-
-    for (const neighbor of adjList[node]) {
-      if (!visited[neighbor]) {
-        children++;
-        parent[neighbor] = node;
-        dfs(neighbor);
-
-        low[node] = Math.min(low[node], low[neighbor]);
-
-        if (parent[node] === undefined && children > 1) {
-          ap.add(node);
-        }
-        if (parent[node] !== undefined && low[neighbor] >= disc[node]) {
-          ap.add(node);
-        }
-      } else if (neighbor !== parent[node]) {
-        low[node] = Math.min(low[node], disc[neighbor]);
-      }
-    }
-  }
-
-  for (const node of gatewayNodes) {
-    if (!visited[node]) {
-      dfs(node);
-    }
-  }
-
-  return ap.size > 0;
 }
 
 function generateIpv4Address() {
@@ -675,7 +524,7 @@ function GoToTasks({
 }) {
   function handleGoToTasks() {
     setAlertMessage(
-      "vitej v naprosto dokonalém vzdělávacím módu. Tady končí veškerá zábava a začíná pořádné vzdělání. Vlevo máš menu. V něm je spousta úkolů. Úkoly se postupně proklikej. Když budeš dávat pozor, tak na konci budeš machr na internet."
+      "Vítej v hlavní části aplikace. V levé části obrazovky vidíš menu, ve kterém najdeš velké množství úkolů, díky který se dozvíš, jak funguje internet. Úkoly jsou rozděleny do 5 kategorií a je doporučeno je procházet postupně. Pokud se chceš vrátit zpátky na úvodní stránku aplikace, klikni v menu na tlačítko ÚVODNÍ STRÁNKA. Nyní zavři toto okno a můžeš začít postupně procházet jednotlivé úkoly."
     );
     setOpenModal(true);
     setGameAfterModalClose("noGame");
@@ -684,15 +533,14 @@ function GoToTasks({
   return (
     <div>
       <p>
-        chystáš se přejít na úkoly a učit se novým vědomostem o internetu. Jsi
-        na to připraven můj padawane?
+        Jestli chceš opravdu přejít na část s úkoly, zmáčkni tlačítko ÚKOLY.
       </p>
       <div className="go-to-task-buttons">
         <Button variant="outlined" onClick={() => setOpenModal(false)}>
           ZPĚT
         </Button>
         <Button variant="outlined" onClick={() => handleGoToTasks()}>
-          STUDIUM
+          ÚKOLY
         </Button>
       </div>
     </div>
@@ -710,7 +558,9 @@ function ServiceBox({
 
   function handleShowHint() {
     setIsHintClicked(true);
-    setAlertMessage("hint");
+    setAlertMessage(
+      "Toto je interaktivní mód, ve kterém je skoro vše dovoleno. Vpravo nahoře můžeš přidat různé prvky do sítě. Přidání provedeš tak, že na daný prvek klikneš, on se poté objeví v mapě. S přidanými prvky můžeš hýbat a umisťovat je na libovolnou pozici. Také můžeš přidávat nové cesty tak, že klikneš na jeden z černých puntíků u prvku a poté kllikneš na černý puntík u jiného prvku, se kterým ho chceš propojit. Vlevo dole můžeš poslat paket. Paket pošleš tak, že napíšeš IP adresu odesílatele (klient, který je připojený k internetu) a IP adresu příjemce (server). Vpravo dole je tlačítko, které tě přemístí do hlavní části aplikace, ve které je připraveno velké množství úkolů."
+    );
     setGameAfterModalClose("noGame");
     setOpenModal(true);
   }

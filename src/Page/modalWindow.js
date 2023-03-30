@@ -20,7 +20,15 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
     boxShadow: 24,
     p: 4,
   };
-
+  let messageLines = alertMessage;
+  console.log(typeof alertMessage);
+  if (typeof alertMessage === "string") {
+    messageLines = alertMessage.split("\n").map((line, index) => (
+      <Typography key={index} id="modal-modal-description" sx={{ mt: 2 }}>
+        {line}
+      </Typography>
+    ));
+  }
   return (
     <div>
       <Modal
@@ -33,7 +41,7 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
             &times;
           </span>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {alertMessage}
+            {messageLines}
           </Typography>
         </Box>
       </Modal>

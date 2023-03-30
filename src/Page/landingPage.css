@@ -8,6 +8,7 @@
     top: 2vh;
     right: 2vw;
     z-index: 4;
+    border-radius: 10px;
 }
 
 .lp-service-buttons-container{
@@ -23,23 +24,14 @@
 .go-to-task-buttons{
     display: flex;
     justify-content: space-around;
-    background-image: url("../images/morfeus.jpg");
-    background-position: -150px 0px;
-    height: 60vh;
+   
 }
 
 .go-to-task-buttons button {
-    position: relative;
-    top: 35vh;
-    height: 10vh;
-    background-color: rgba(1,1, 1, 0.7);
-    color: aliceblue;
     z-index: 4;
 }
 
-.go-to-task-buttons button:hover{
-    color: black;
-}
+
 
 .client-plugged {
     width: 85px;
@@ -48,4 +40,30 @@
   background-repeat: no-repeat;
   border: none;
   background-size: contain;
+}
+
+.lp-send-packet-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 2vh;
+    left: 2vw;
+    z-index: 4;
+    background-color: rgb(224, 224, 224);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lp-send-packet-first-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lp-send-packet-second-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

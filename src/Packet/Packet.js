@@ -11,8 +11,18 @@ import { whatIsCabelServer } from "../Flow/data/server/whatIsCabelServer";
 import { whatIsSatelitNodes } from "../Flow/data/whatIsSatelit";
 import { whatIsBTSNodes } from "../Flow/data/whatIsBTS";
 import { whatIsWifiNodes } from "../Flow/data/whatIsWifi";
+import { landingPageNodes } from "../Flow/data/landingPage";
 
-function getCoordinates(id) {
+function getCoordinates(id, nodes) {
+  const nodeInNodes = nodes.find((s) => s.id === id);
+  if (nodeInNodes) {
+    return { x: nodeInNodes.position.x, y: nodeInNodes.position.y };
+  }
+
+  const nodesLandingPage = landingPageNodes.find((s) => s.id === id);
+  if (nodesLandingPage) {
+    return { x: nodesLandingPage.position.x, y: nodesLandingPage.position.y };
+  }
   const server = serversZoom2Data.find((s) => s.id === id);
   if (server) {
     return { x: server.position.x, y: server.position.y };
@@ -66,32 +76,36 @@ function getCoordinates(id) {
   return null;
 }
 
-function computeX(x) {
+function computeX(x, marginleft, nodes) {
   //x is array of ip adresses of nodes
-  const twentyPercentOfViewportWidth = window.innerWidth * 0.2;
+  const twentyPercentOfViewportWidth = (window.innerWidth * marginleft) / 100;
   const xarray = [];
   const polomerServer = 10;
   for (let i = 0; i < x.length; i++) {
     xarray.push(
-      getCoordinates(x[i]).x - polomerServer + twentyPercentOfViewportWidth
+      getCoordinates(x[i], nodes).x -
+        polomerServer +
+        twentyPercentOfViewportWidth
     );
   }
   for (let i = x.length - 2; i >= 0; i--) {
     xarray.push(
-      getCoordinates(x[i]).x - polomerServer + twentyPercentOfViewportWidth
+      getCoordinates(x[i], nodes).x -
+        polomerServer +
+        twentyPercentOfViewportWidth
     );
   }
   return xarray;
 }
 
-function computeY(y) {
+function computeY(y, nodes) {
   const polomerServer = 10;
   const yarray = [];
   for (let i = 0; i < y.length; i++) {
-    yarray.push(getCoordinates(y[i]).y + polomerServer);
+    yarray.push(getCoordinates(y[i], nodes).y + polomerServer);
   }
   for (let i = y.length - 2; i >= 0; i--) {
-    yarray.push(getCoordinates(y[i]).y + polomerServer);
+    yarray.push(getCoordinates(y[i], nodes).y + polomerServer);
   }
   return yarray;
 }
@@ -115,12 +129,26 @@ function computeTimes(length) {
   return times;
 }
 
-function Packet({ content, from, to, path, color, speed }) {
+function Packet({
+  content,
+  from,
+  to,
+  path,
+  color,
+  speed,
+  repeat,
+  marginleft,
+  nodes,
+}) {
   const [showResults, setShowResults] = React.useState(false);
-  const xCoordinates = computeX(path);
-  const yCoordinates = computeY(path);
+  const xCoordinates = computeX(path, marginleft, nodes);
+  const yCoordinates = computeY(path, nodes);
   const onClick = () => setShowResults(!showResults);
   const pole = computeTimes(xCoordinates.length);
+  const [animationCompleted, setAnimationCompleted] = React.useState(false);
+  const onAnimationComplete = () => {
+    setAnimationCompleted(true);
+  };
   return (
     <>
       <div>
@@ -133,11 +161,12 @@ function Packet({ content, from, to, path, color, speed }) {
             y: yCoordinates,
           }}
           transition={{
-            repeat: Infinity,
+            repeat: repeat,
             duration: speed,
             times: pole,
           }}
           style={{ backgroundColor: color }}
+          onAnimationComplete={onAnimationComplete}
         >
           {showResults ? (
             <Results content={content} from={from} to={to} />

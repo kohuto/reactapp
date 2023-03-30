@@ -75,7 +75,7 @@ function DropdownMenu({
 
   function openModal(instructionNumber) {
     setGameAfterModalClose(stockData[instructionNumber].type);
-    setAlertMessage(<>{stockData[instructionNumber].content}</>);
+    setAlertMessage(stockData[instructionNumber].content);
     setOpenModal(true);
   }
   function openSummaryModal(instructionNumber) {

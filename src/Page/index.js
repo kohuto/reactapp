@@ -8,6 +8,8 @@ import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
 import LandingPage from "./landingPage";
+import DefaultPackets from "../Packet";
+import { landingPagePacketsData } from "../Packet/data/landingPage";
 
 function Page() {
   const [isLandingPage, setIsLandingPage] =
@@ -17,13 +19,13 @@ function Page() {
   const [nodes, setNodes, onNodesChange] = useNodesState();
   const [edge, setEdges, onEdgesChange] = useNodesState();
   const [alertMessage, setAlertMessage] = useState(
-    "Vítej v naší úžasné aplikaci. kecy prdy. zavři toto akno a jdi se dozvědět něco o internetu"
+    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. V případě, že nebudeš vědět, co dál, klikni vpravo dole na otazník a otevře se ti nápověda. Nyní zavři toto okno a můžeš začít zkoumat."
   );
   const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
   const [isDistroyedProblemWithPath, setIsDistroyedProblemWithPath] =
     useState(false);
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = useState(true);
   const [gameAfterClose, setGameAfterModalClose] = useState("noGame");
 
   function handleOpenDialog(isOpen) {
@@ -69,6 +71,12 @@ function Page() {
       />
       {isLandingPage ? (
         <>
+          <DefaultPackets
+            packetsData={landingPagePacketsData}
+            repeat={Infinity}
+            marginleft={0}
+            nodes={landingPagePacketsData}
+          />
           <AlertDialog
             open={openDialog}
             setOpen={setOpenDialog}
