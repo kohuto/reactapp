@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 
-import "./puzzle.css";
 import { JigsawPuzzle } from "react-jigsaw-puzzle/lib";
 import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
 import img from "../../images/nodes/klient.jpg";
 
-function Puzzle() {
-  const [text, setText] = useState();
-
+function Puzzle({
+  setOpenModal,
+  game,
+  setGameAfterModalClose,
+  setAlertMessage,
+}) {
   const set = () => {
-    {
-      var modal = document.getElementById("modal-window35");
-      modal.style.display = "block";
-    }
+    setAlertMessage("perfetkní!");
+    setGameAfterModalClose("noGame");
+    setOpenModal(true);
   };
 
   return (
     <>
-      <h2 className="tag">{text}</h2>
       <JigsawPuzzle
         imageSrc={img}
-        rows={3}
-        columns={3}
+        rows={5}
+        columns={5}
         onSolved={set}
         className="jigsaw-puzzle"
       />

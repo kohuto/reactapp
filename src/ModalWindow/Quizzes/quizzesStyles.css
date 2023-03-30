@@ -77,3 +77,13 @@
   margin-left: 6%;
   margin-top: 3vh;
 }
+
+/* for the jigsaw puzzle container */
+.jigsaw-puzzle {
+  width: 38%;
+  height: 38%;
+  border: 2px solid black;
+  margin: auto;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
+  z-index: 15;
+}
