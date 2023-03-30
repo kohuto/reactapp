@@ -361,3 +361,12 @@ cursor: pointer;
   right: 20px;
   top: 10px;
 }
+
+.connect-client-wireless-button-container {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}

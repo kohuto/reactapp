@@ -2,11 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import "./Components.css";
 
-function openModal(i) {
-  var modal = document.getElementById("modal-window" + i);
-  modal.style.display = "block";
-}
-
 const show = {
   opacity: 1,
   display: "block",

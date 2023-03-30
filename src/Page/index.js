@@ -122,6 +122,7 @@ function Page() {
               "raceAroundWorld",
               "whatIsWiFi",
               "buildNetwork",
+              "connectClientsWireless",
               "build-network-1",
               "build-network-2",
               "build-network-3",
