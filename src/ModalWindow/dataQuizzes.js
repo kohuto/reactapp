@@ -76,12 +76,12 @@ export const stockData = [
   },
   {
     content:
-      "Pravděpodobně už sis někdy řekl: “Proč je ten internet takový pomalý?”. Pojďme si nyní říct, co vlastně znamená, když je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - tzv. rychlost odezvy a šířku pásma. V tomto úkolu se dozvíš, co znamená rychlost odezvy. \n Rychlost odezvy je doba, za jakou paket dorazí od odesílatele k příjemci. Rychlost odezvy může být ovlivněna mnoha faktory. Např. některé chytré křižovatky mohou být zrovna přetížené, pakety mohou být odeslány přes satelit atd. \n Když je rychlost odezvy malá, tak to znamená, že trvá velice krátkou dobu, než jsou data doručená. Malou rychlost odezvy potřebuješ třeba ve chvíli kdy hraješ hry nebo voláš přes internet přes internet. \n Pokud hraješ online hru a tvoje data mají velkou rychlost odezvy, může to způsobit, že hra bude kousat a nebude se plynule hrát. U hovoru potřebuješ, aby člověk na druhém konci slyšel to, co říkáš, skoro okamžitě, abys nemusel dlouho čekat na jeho odpověď.",
+      "Pravděpodobně už sis někdy řekl: “Proč je ten internet takový pomalý?”. Pojďme si nyní říct, co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - dobu odezvy a šířku pásma. Doba odezvy nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím vyšší je doba odezvy, tím déle trvá, než je paket doručen do cíle. Doba může být ovlivněna třeba tím, že některé chytré křižovatky jsou zrovna přetížené, nebo že jsou pakety odeslány přes satelit. \n Malou dobu odezvy potřebuješ např. při hraní her, nebo při online hovoru. Pokud hraješ online hru a doba odezvy je velká, může to způsobit, že se hra bude zasekávat. U hovoru velká doba odezvy způsobí, že tě člověk na druhém konci slyší až s několika sekundovým zpožděním. \n Zavři okno a vyzkoušej si, s jakou odezvou zvládneš posílat data. naklikej cestu od klienta až po server a pak zase zpátky ke klientovi za co nejkratší čas.",
     type: "raceAroundWorld",
   },
   {
     content:
-      "Už víme, že různé typy připojení mají různou rychlost přenosu dat. Rychlost se měří v Mb/s. Co si ale pod touto jednotkou máme představit? Pojďme si zahrát na posílání dat po internetu. Ty budeš zařízení, které má za úkol přeposlat text, který vidíš níže. Přepiš tento text co nejrychleji do vstupního pole. Samozřejmě při přepisování nesmíš udělat chybu, přece bychom nechtěli aby třeba WiFi poslala jinou zprávu, než jakou jsme napsali.",
+      "Pojďme se zaměřit na druhý aspekt  rychlosti internetu - tzv. šířku pásma. \n Představ si posílání dat po internetu jako vodu, která teče potrubím. Doba odezvy by v takovém případě znamenala, jak rychle voda potrubím protéká (za jak dlouho se voda potrubím dostane na jiné místo). \n Šířka pásma ale určuje šířku potrubí. Čím širší je potrubí (čím větší je šířka pásma), tím více vody může najednou potrubím protékat (tím více dat můžeme najednou posílat). \n Velkou šířku pásma potřebuješ např. při stahování videa, protože je potřeba přenést velké množství dat. \n Šířka pásma se měří v Mb/s, tedy kolik Mb dat můžeš po cestě přenést za jednu sekundu. \n Pojď si to nyní vyzkoušet. Klikni na START a začni přepisovat text níže. Kolik Mb textu zvládneš za 10 sekund přepsat?",
     type: "typingChallenge",
   },
   {
@@ -91,7 +91,7 @@ export const stockData = [
   },
   {
     content:
-      "Pojďme se ještě nyní zamyslet nad tím, jestli máme vždy možnost využít libovolný typ připojení k internetu. Níže vidíme čtyři situace z běžného života. Přetáhni do každého sloupečku, typ připojení, který by byl pro danou situaci vhodný. V jednom sloupečku může být i více možností.",
+      "Pojďme se ještě nyní zamyslet nad tím, jestli máme vždy možnost využít libovolný typ připojení k internetu. Níže vidíme čtyři situace z běžného života. Zaškrtni v každém sloupečku typ připojení, který je v dané situaci vhodný. V jednom sloupečku může být i více možností.",
     type: "howToConnect",
   },
   {

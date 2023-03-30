@@ -28,43 +28,29 @@ function RaceAroundWorld({
 
   const [countClickedJitter, setCountClickedJitter] = useState(0);
   const [startTime, setStartTime] = useState(null);
+
   const onNodeClick = (event, node) => {
-    if (countClickedJitter < jitterPath.length) {
-      if (node.id === jitterPath[countClickedJitter]) {
-        setCountClickedJitter(countClickedJitter + 1);
-        const clickedNode = event.target;
-        clickedNode.style.backgroundColor = "red";
-        if (countClickedJitter === 0) {
-          setStartTime(Date.now());
-        }
-      } else {
-        setAlertMessage("nepřeskakuj křižovatky");
-        setGameAfterModalClose(game);
-        setOpenModal(true);
+    if (node.id === jitterPath[countClickedJitter]) {
+      setCountClickedJitter(countClickedJitter + 1);
+      const clickedNode = event.target;
+      clickedNode.style.backgroundColor = "red";
+      if (countClickedJitter === 0) {
+        setStartTime(Date.now());
       }
     } else {
-      if (
-        node.id ===
-        jitterPath[
-          jitterPath.length - (countClickedJitter % jitterPath.length) - 1
-        ]
-      ) {
-        setCountClickedJitter(countClickedJitter + 1);
-        const clickedNode = event.target;
-        clickedNode.style.backgroundColor = "green";
-      } else {
-        setAlertMessage("nepřeskakuj křižovatky");
-        setGameAfterModalClose(game);
-        setOpenModal(true);
-      }
+      setAlertMessage("začni v klientovi a nepřeskakuj křižovatky");
+      setGameAfterModalClose(game);
+      setOpenModal(true);
     }
   };
 
   useEffect(() => {
-    if (countClickedJitter === 2 * jitterPath.length) {
+    if (countClickedJitter === jitterPath.length) {
       const endTime = Date.now();
       const elapsedTime = (endTime - startTime) / 1000;
-      setAlertMessage(`Elapsed time: ${elapsedTime} seconds`);
+      setAlertMessage(
+        `Perfektní! Tvá doba odezvy je ${elapsedTime} sekund \n Tvá doba odezvy je skutečně malá, ovšem oproti ideální době odezvy 30-40 ms v roce 2023 je to stále ještě pomalé. \n V dalším úkolu se blíže podíváme na druhý aspekt rychlosti internetu - tzv. šířku pásma.`
+      );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
     }

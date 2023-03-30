@@ -14,7 +14,7 @@ import CountPaths from "./countPaths";
 import SetPaths from "./setPaths";
 import ZoomButtons from "./zoomButtons";
 import WhatIsWiFiComponent from "./whatIsWifi";
-import RaceAroundWorld from "./raceAroundWorld";
+import RaceAroundWorld from "./latency";
 import WirelessDevices from "./wirelessDevice";
 import ClientServerCommunication from "./clientServerComunication";
 import WhatIsPathComponent from "./whatIsPath";

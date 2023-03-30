@@ -70,7 +70,6 @@ function DropdownMenu({
   setOverlayDialogMessage,
 }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
-  const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
 
   function openModal(instructionNumber) {
@@ -103,15 +102,6 @@ function DropdownMenu({
     setOpenModal(true);
   }
 
-  useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-  }, []);
-
-  function calcHeight(el) {
-    const height = el.offsetHeight;
-    setMenuHeight(height);
-  }
-
   function DropdownItem(props) {
     return (
       <a
@@ -134,7 +124,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-primary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem leftIcon={internet} goToMenu="internet-z-dalky">
@@ -164,7 +153,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
@@ -204,7 +192,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
@@ -243,7 +230,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
@@ -268,7 +254,7 @@ function DropdownMenu({
             <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(15)}>
-            <DropdownItem leftIcon={question}>RYCHLOST ODEZVY</DropdownItem>
+            <DropdownItem leftIcon={question}>DOBA ODEZVY</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
@@ -292,7 +278,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
@@ -341,7 +326,6 @@ function DropdownMenu({
         timeout={500}
         classNames="custom-menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}
       >
         <div className="custom-menu">
           <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>

@@ -7,13 +7,17 @@ function TypingChallenge({
   setOpenModal,
   setGameAfterModalClose,
   setAlertMessage,
+  setOpenOverlayModal,
+  setOverlayDialogMessage,
+  game,
 }) {
   const text = "toto je ukázkový text";
   const [userInput, setUserInput] = useState("");
   const [isStarted, setIsStarted] = useState(false);
-  const [timeElapsed, setTimeElapsed] = useState(0);
   const [showError, setShowError] = useState(false);
-  /* show error input box for 1 second */
+  const [timer, setTimer] = useState(0);
+
+  /* show error input box for 0.5 second */
   useEffect(() => {
     if (showError) {
       const timer = setTimeout(() => {
@@ -24,42 +28,22 @@ function TypingChallenge({
     }
   }, [showError]);
 
-  // stopwatch
-  useEffect(() => {
-    let intervalId;
-
-    if (isStarted && userInput.length < text.length) {
-      intervalId = setInterval(() => {
-        setTimeElapsed((prevTime) => prevTime + 10);
-      }, 10);
-    }
-
-    return () => clearInterval(intervalId);
-  }, [isStarted, userInput]);
-
-  //checker if text is finished
-  useEffect(() => {
-    if (userInput.length === text.length) {
+  const handleStartClick = () => {
+    // Start the timer
+    setTimer(0);
+    setIsStarted(true);
+    setTimeout(() => {
       setAlertMessage(
-        <p>
-          Perfektní! Právě jsi zvládl správně přepsat {text.length} znaků za{" "}
-          {formattedTime(timeElapsed)}. To znamená, že jsi psal rychlostí{" "}
-          {Math.round(text.length / (timeElapsed / 1000))} Mb/s. Kdybys psal
-          touto rychlostí, tak bys například zvládl přepsat celou knihu medvídka
-          Pú za Y sekund nebo celou bibli za Z sekund. Je dobré ale zmínit, že
-          průměrná rychlost internetu je až 240 Mb/s (30 MB/s). Z toho vyplývá,
-          že bys musel psát{" "}
-          {Math.round(
-            30000000 / Math.round(text.length / (timeElapsed / 1000))
-          )}
-          x rychleji, abys zvládl přenášet data stejně rychle, jako jsou
-          přenášena po internetu.
-        </p>
+        `Perfektní! Zvládl jsi přepsat ${
+          userInput.length
+        } znaků za 10 sekund. To znamená, že jsi psal rychlostí ${Math.round(
+          userInput.length / (10 / 1000)
+        )} Mb/s. Je dobré ale zmínit, že ideální rychlost přenosu v roce 2023 je až 240 Mb/s. Z toho vyplývá, že bys musel psát x rychleji, abys zvládl přenášet data stejně rychle, jako jsou přenášena po internetu.`
       );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
-    }
-  }, [userInput]);
+    }, 5000);
+  };
 
   /* check if input is valid */
   const handleInputChange = (event) => {
@@ -67,16 +51,6 @@ function TypingChallenge({
 
     if (inputText != text.substring(0, inputText.length)) setShowError(true);
     else setUserInput(inputText);
-  };
-
-  const handleStartClick = () => {
-    setIsStarted(true);
-  };
-
-  const formattedTime = (time) => {
-    const minutes = Math.floor(time / 60000);
-    const seconds = ((time % 60000) / 1000).toFixed(2);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
   return (
@@ -93,7 +67,7 @@ function TypingChallenge({
             value={userInput}
             onChange={handleInputChange}
             error={showError}
-            helperText={showError && "Incorrect entry."}
+            helperText={showError && "Špatné písmeno"}
             disabled={showError || !isStarted}
           />
         </div>

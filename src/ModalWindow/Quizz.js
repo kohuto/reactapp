@@ -2,7 +2,7 @@ import SortFileSize from "./Quizzes/sortFileSize";
 import Puzzle from "./Quizzes/puzzle";
 import IPadress from "./Quizzes/IPadress";
 import SortIPAdresses from "./Quizzes/sortIPAdresses";
-import TypingChallenge from "./Quizzes/typingChallenge";
+import TypingChallenge from "./Quizzes/bandWidth";
 import HowToConnect from "./Quizzes/howToConnect";
 
 function Quizz({
