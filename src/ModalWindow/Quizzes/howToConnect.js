@@ -25,7 +25,7 @@ function HowToConnect({
       !checkboxes4.checkbox3
     ) {
       setAlertMessage(
-        "Perfetkní! Mobilní telefony se mohou připojit pomocí mobilních dat nebo wifi sítě. Máme je pořád u sebe a chodíme s nimi po celém bytě, proto by nebylo moc vhodné mít telefon připojen pomocí kabelu. \n Oproti tomu počítače doma nebo ve škole většinou leží na stole a mají v sobě přímo zásuvku pro zapojení kabelu. Proto v tomto případě není problém se pomocí kabelu připojit. Samozřejmě se můžeme připojit i pomocí WiFi signálu. \n Když ale budeme na procházce v přírodě, tak budeme WiFi signál nebo kabely hledat těžko, proto nám zde nezbývá nic jiného než využít datové připojení prostřednictvím mobilního operátora."
+        "Perfektní! Mobilní telefony se mohou připojit pomocí mobilních dat nebo wifi sítě. Máme je pořád u sebe a chodíme s nimi po celém bytě, proto by nebylo moc vhodné mít telefon připojen pomocí kabelu. \n Oproti tomu počítače doma nebo ve škole většinou leží na stole a mají v sobě přímo zásuvku pro zapojení kabelu. Proto v tomto případě není problém se pomocí kabelu připojit. Samozřejmě se můžeme připojit i pomocí WiFi signálu. \n Když ale budeme na procházce v přírodě, tak budeme WiFi signál nebo kabely hledat těžko, proto nám zde nezbývá nic jiného než využít datové připojení prostřednictvím mobilního operátora."
       );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
