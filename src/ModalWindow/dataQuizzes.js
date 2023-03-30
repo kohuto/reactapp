@@ -30,170 +30,122 @@ export const stockData = [
     type: "info",
   },
   {
-    header: "Hezky po částech",
     content:
       "Už víš, že Internet je síť složená ze zařízení, která si mezi sebou posílají balíčky dat (požadavky, soubory, informace...). Pojďme se nyní zaměřit právě na tyto balíčky dat. \n Každá tvoje zpráva, video či fotka, co se po internetu posílá, je před odesláním rozdělena na části. Těmto částem se říká pakety. Pakety jsou tedy malé balíčky dat obsahující část původní zprávy. Pakety jsou doručeny po cestách z klientů do serverů nebo ze serverů zpátky do klientů. Poté, co je zpráva rozložena na pakety, pakety putují do cílé nezávisle na sobě. \n Pojď se nyní podívat, jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi na jeho zprávu. Poté, co zavřeš okno, se objeví okno messengeru. Napiš nějakou zprávu a odešli ji.",
     type: "dataIntoPackets",
-    question: "",
   },
   {
-    header: "PAKET",
     content:
       "Už víš, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Jak se ale pozná, kam má být paket doručen? Případně kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako když posíláš dopis poštou. Na obálku napíšeš svou adresu a také adresu kamaráda, kterému má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP adresa každého zařízení musí být unikátní. \n Viděl jsi, že pakety putují každý po jiné trase a do cíle proto mohou dorazit v jiném pořadí. Aby je bylo možné v cíli správně seřadit, musíme do každého paketu uložit jeho pořadí. \n V každém momentě je po internetu posláno obrovské množství zpráv (paketů). Abychom od sebe zprávy (pakety) odlišily, uložíme do paketu ještě identifikační číslo -  zkráceně ID. Pakety, které tvoří jednu zprávu, mají stejné ID.",
     type: "info",
-    question: "",
   },
   {
-    header: "VYTVOŘ PAKET",
     content:
       "Už víš, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, aby mohla být zpráva v cíli poskládaná zpět do původní podoby.\n Zkus nyní sám rozložit zprávu na pakety. Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Po odeslání se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech paketů.",
     type: "createPacket",
-    question: "",
   },
   {
-    header: "NÁVŠTĚVA SERVERŮ",
     content:
       "Kiara, Annika a Eustác brouzdají na internetu. Každý z nich nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
     type: "findServer",
-    question: "",
   },
   {
-    header: "JAK VELKÁ BUDE ZPRÁVA",
     content:
       "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety. \n Klikni na tlačítko SOUBORY. Otevře se ti složka se 4 soubory, které prozkoumej. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
     type: "sortFileSize",
-    question: "",
   },
   {
-    header: "KABELY",
     content:
       "Největší množství cest v internetu je tvořeno právě kabely. Máme dva hlavní druhy kabelů - metalické (kovové) a optické. Data v metalických kabelech jsou přenášena pomocí elektrických signálů, zatímco v optických kabelech jsou data přenášena pomocí světelných signálů. \n V roce 2019 se poslalo za jedinou hodinu skoro stejné množství dat, jako za celý rok 2000. Řešením tohoto obrovského nárůstu jsou právě optické kabely, které přenáší data až 10000x větší rychlostí na daleko větší vzdálenosti. \n Zavři okno a koukni se, jak je rozdíl v rychlosti přenosu dat pomocí kovových kabelů a pomocí optických kabelů.",
     type: "whatIsCabel",
-    question: "",
   },
   {
-    header: "WIFI",
     content:
       "Už víš, že pakety mohou putovat do jiných zařízení skrz kabely. Určitě ale víš, že data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WiFi. Jako WiFi označujeme signál, který vysílá tzv. WiFi router. Router je krabička, kterou máš pravděpodobně doma. Z routeru vede kabel, kterým je router připojen k chytré křižovatce. Router vysílá WiFi signál k zařízením (počítač, tablet, telefon), která jsou v jeho blízkosti a zařízení posílají data pomocí WiFi signálu zpět k routeru. Router data zpracuje a pošle je kabelem do chytré křižovatky, ke které je tímto kabelem připojen. \n Zavři okno a vyzkoušej si, jak se doma zapojuje wifi router.",
     type: "whatIsWiFi",
-    question: "",
   },
   {
-    header: "MOBILNÍ DATA",
     content:
       "Dalším bezdrátovým způsobem připojení je mobilní signál. Tento signál vysílají tzv. BTS věže. Princip je tedy podobný jako u WiFi signálu a WiFi routeru, nejedná se však o stejné signály. \n BTS věže jsou většinou na kopcích nebo na vyšších domech a vede z nich kabel, kterým jsou BTS věže připojeny k chytré křižovatce. Signál, který BTS věže vysílají, může využít pro přenos dat (dokonce i telefonních hovorů) zařízení se SIM kartou (většiou jsou to naše chytré telefony). \n Zařízení se SIM kartou se tedy připojí k BTS věži a začne směrem k BTS věži posílat data. BTS věž data, která k ní díky mobilnímu signálu dorazí, pošle kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient pomocí mobilních dat poslat požadavek na server.",
     type: "whatIsBTS",
-    question: "",
   },
   {
-    header: "SATELIT",
     content:
       "Satelity jsou zařízení vyrobená lidmi, která jsou umístěna na oběžné dráze kolem Země. \n Satelitní připojení je nejméně používané, používá se na obtížně přístupných místech. Satelit jenom přeposílá data zpátky na zem - když někdo pošle signál ze Země k satelitu, antény na satelitu přijmou tento signál a přenesou ho zpět na Zemi. \n Satelity komunikují z oběžné dráhy. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
     type: "whatIsSatelit",
-    question: "",
   },
   {
-    header: "CESTA KOLEM SVĚTA",
     content:
-      "Každý typ připojení má různou rychlost přenosu dat. Zvládneš přenášet data stejně rychle jako ony? Klikni na tlačítko START. Objeví se zeměkoule, okolo které se budou objevovat postupně kolečka. Tvým úkolem je na kolečka co nejrychleji klikat. Máš 20 sekund na to, abys kliknul na co největší množství koleček. Kolikrát tímto způsobem zvládneš oběhnout zeměkouli?",
+      "Pravděpodobně už sis někdy řekl: “Proč je ten internet takový pomalý?”. Pojďme si nyní říct, co vlastně znamená, když je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - tzv. rychlost odezvy a šířku pásma. V tomto úkolu se dozvíš, co znamená rychlost odezvy. \n Rychlost odezvy je doba, za jakou paket dorazí od odesílatele k příjemci. Rychlost odezvy může být ovlivněna mnoha faktory. Např. některé chytré křižovatky mohou být zrovna přetížené, pakety mohou být odeslány přes satelit atd. \n Když je rychlost odezvy malá, tak to znamená, že trvá velice krátkou dobu, než jsou data doručená. Malou rychlost odezvy potřebuješ třeba ve chvíli kdy hraješ hry nebo voláš přes internet přes internet. \n Pokud hraješ online hru a tvoje data mají velkou rychlost odezvy, může to způsobit, že hra bude kousat a nebude se plynule hrát. U hovoru potřebuješ, aby člověk na druhém konci slyšel to, co říkáš, skoro okamžitě, abys nemusel dlouho čekat na jeho odpověď.",
     type: "raceAroundWorld",
-    question: "",
   },
   {
-    header: "JAK VELKÁ JE TO RYCHLOST?",
     content:
       "Už víme, že různé typy připojení mají různou rychlost přenosu dat. Rychlost se měří v Mb/s. Co si ale pod touto jednotkou máme představit? Pojďme si zahrát na posílání dat po internetu. Ty budeš zařízení, které má za úkol přeposlat text, který vidíš níže. Přepiš tento text co nejrychleji do vstupního pole. Samozřejmě při přepisování nesmíš udělat chybu, přece bychom nechtěli aby třeba WiFi poslala jinou zprávu, než jakou jsme napsali.",
     type: "typingChallenge",
-    question: "",
   },
   {
-    header: "OMEZENÁ VZDÁLENOST",
     content:
       "Je potřeba připojit všechny klienty v mapě k internetu. K dispozici máš 3 WiFi routery, 2 BTS věže. Vyber vždy jedno zařízení kliknutím na jeho ikonu vpravo dole. Kliknutím do mapy dané zařízení umístíš. Cílem je, aby po umístění posledního zařízení byl každý klient v dosahu alespoň jednoho zařízení. Dosah každého zařízení znázorňuje průhledné kolečko okolo daného zařízení. Zařízení tedy musíš umístit tak, aby všichni klienti byli v dosahu alespoň jednoho zařízení.",
     type: "connectClientsWireless",
-    question: "",
   },
   {
-    header: "JAK SE PŘIPOJIT",
     content:
       "Pojďme se ještě nyní zamyslet nad tím, jestli máme vždy možnost využít libovolný typ připojení k internetu. Níže vidíme čtyři situace z běžného života. Přetáhni do každého sloupečku, typ připojení, který by byl pro danou situaci vhodný. V jednom sloupečku může být i více možností.",
     type: "howToConnect",
-    question: "",
   },
   {
-    header: "IP ADRESA",
     content:
       "Před tím, než vyšleme paket na cestu, musíme mu říct, kam má dojet. Je to stejné, jako když posíláte dopis a musíte na něj napsat adresu, aby byl správně doručen. IP adresa jedinečná adresa pro každý počítač připojený k internetu. To znamená, že pokud chcete navštívit nějakou webovou stránku, váš počítač potřebuje znát IP adresu serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. Tato čísla by se nám samozřejmě špatně pamatovala, proto se IP adresa překládá na lépe zapamatovatelné jméno. Existují dvě hlavní verze IP adres - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel oddělených tečkami (př. 192.168.0.1.). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Dokázal bys vymyslet, proč potřebujeme novější verzi IPv6? Pokud tě nic nenapadá, tak počkej na další úkol. Zkus nyní zjistit, jakou IP adresu má tvůj počítač, tuto IP adresu napiš do textového pole níže.",
     type: "IPadress",
-    question: "",
   },
   {
-    header: "IPv4, IPv6",
     content:
       "V předchozím úkolu jsme zmínili, že existují dvě verze IP adres. Proč ale potřebujeme novější verzi IPv6? Odpověď je jednoduchá. V dnešní době máme již tolik počítačů, že je IPv4 adres prostě málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více unikátních adres. Dokonce jich je tolik, že se nemusíme bát, že by IPv6 adresy v budoucnosti došly. Máme totiž 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost adres na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Níže vidíš 3 sloupečky, v nich se nám pomíchaly IP adresy, zkus adresy roztřídit do správných sloupečků.",
     type: "sortIPAdresses",
-    question: "",
   },
   {
-    header: "NEZÁVISLÝ PAKET",
     content:
       "Pakety už znají cílovou adresu, teď je potřeba vyřešit, kudy se do cíle dostanou. Již víme, že jedna zpráva se rozloží na více paketů. Pakety ale nejedou do cíle všechny po stejné cestě, většinou putují nezávisle na sobě. V reálném světě to má řadu výhod, které si ukážeme v dalších úkolech. Nyní klikni na START. Vlevo dole máš tři pakety, které poslal klient (je na tobě, kterého si vybereš). Popiš cestu pro každý paket.",
     type: "setPath",
-    question: "",
   },
   {
-    header: "NEJRYCHLEJŠÍ CESTA",
     content:
       "V předchozím úkolu jsme vybrali pro každý paket nějakou trasu. Ve skutečnosti tuto trasu určuje chytrá křižovatka, která vždy vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžete si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Klikni na START. V mapě se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Logana do serveru Messengeru.",
     type: "shortestPath",
-    question: "",
   },
   {
-    header: "VŠECHNY CESTY VEDOU DO ŘÍMA",
     content:
       "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\n Klikni na tlačítko START a zkus spočítat, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet vícekrát stejnou chytrou křižovatkou. Počet různých cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více?",
     type: "countOfPaths",
-    question: "",
   },
   {
-    header: "PROBLÉM NA CESTĚ",
     content:
       "Klikni na tlačítko START. Objeví se okno chatu. Napiš zprávu a odešli ji. Už víme, že pakety zamíří do messenger serveru. Sleduj ale, co se po cestě stane.",
     type: "problemWithPath",
-    question: "",
   },
   {
-    header: "POSKLÁDÁNÍ ZPRÁVY",
     content:
       "Konečně jsme na konci naší cesty. Všechny pakety úspěšně dorazili až k příjemci. Pakety ovšem dorazili do cíle nezávisle na sobě, proto je potřeba je nyní setřídit. Poslali jsme kamarádovi fotku, fotka dorazila do cíle přeházená. Zkus nyní fotku poskládat zpět do původní podoby.",
     type: "puzzle",
-    question: "Poskladej obrázek",
   },
   {
-    header: "ÚKOL 1",
     content:
       "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
     type: "build-network-1",
-    question: "Poskladej obrázek",
   },
   {
-    header: "ÚKOL 2",
     content:
       "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
     type: "build-network-2",
-    question: "Poskladej obrázek",
   },
   {
-    header: "ÚKOL 3",
     content:
       "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
     type: "build-network-3",
-    question: "Poskladej obrázek",
   },
   {
-    header: "ÚKOL 4",
     content: "",
     type: "build-network-4",
-    question: "Poskladej obrázek",
   },
 ];
