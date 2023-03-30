@@ -21,11 +21,13 @@ function IPadress({
       /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$/;
 
     if (IPv4.test(ipAdress) || IPv6.test(ipAdress)) {
-      setAlertMessage("výborně");
+      setAlertMessage(
+        "Perfektní! Toto je IP adresa. Nezapomeň, že díky IP adrese přesně víme, kam poslat paket."
+      );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
     } else {
-      setOverlayDialogMessage("nope");
+      setOverlayDialogMessage("Toto není IP adresa");
       setGameAfterModalClose(game);
       setOpenOverlayModal(true);
     }
@@ -52,10 +54,6 @@ function IPadress({
       </Button>
     </div>
   );
-}
-
-function InputBox({ setOpenEndGame, setOpenInform, setAlertMessage }) {
-  return <></>;
 }
 
 export default IPadress;

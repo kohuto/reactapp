@@ -32,11 +32,13 @@ function SortIPAdresses({
 
   function handleSubmit() {
     if (values.every((value, index) => value === correctValues[index])) {
-      setAlertMessage("výborně");
+      setAlertMessage(
+        "Perfektní! Teď už víš, že díky IPv6 adresám se ještě hodně dlouho nemusíme bát, že by nám IP adresy došly."
+      );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
     } else {
-      setOverlayDialogMessage("nope");
+      setOverlayDialogMessage("Toto není správně.");
       setGameAfterModalClose(game);
       setOpenOverlayModal(true);
     }

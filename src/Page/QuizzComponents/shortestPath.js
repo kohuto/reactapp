@@ -5,11 +5,10 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 function ShortestPathComponent({
-  setOpenEndGame,
-  setOpenInform,
   setAlertMessage,
+  setOpenModal,
   game,
-  setGame,
+  setGameAfterModalClose,
 }) {
   return (
     <>
@@ -17,9 +16,8 @@ function ShortestPathComponent({
         content={
           <InputBox
             setAlertMessage={setAlertMessage}
-            setOpenInform={setOpenInform}
-            setOpenEndGame={setOpenEndGame}
-            setGame={setGame}
+            setOpenModal={setOpenModal}
+            setGameAfterModalClose={setGameAfterModalClose}
             game={game}
           />
         }
@@ -29,23 +27,24 @@ function ShortestPathComponent({
 }
 
 function InputBox({
-  setOpenEndGame,
-  setOpenInform,
   setAlertMessage,
-  setGame,
+  setOpenModal,
   game,
+  setGameAfterModalClose,
 }) {
   const [length, setLength] = useState("");
 
   const handleSubmit = () => {
     if (length === "9") {
-      setAlertMessage("výborně");
-      setOpenEndGame(true);
+      setAlertMessage(
+        "Perfektní! Nezapomeň, že vždy když paket dojede do chytré křižovatky, tak křižovatka křižovatka pošle paket po nejrychlejší cestě. Nejrychlejší cesta není ale vždy ta nejkratší."
+      );
+      setGameAfterModalClose("noGame");
     } else {
-      setAlertMessage("nope");
-      setGame("whatIsServer");
-      setOpenInform(true);
+      setAlertMessage("Toto není délka nejkratší cesty");
+      setGameAfterModalClose(game);
     }
+    setOpenModal(true);
   };
   return (
     <>

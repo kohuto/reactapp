@@ -96,22 +96,21 @@ export const stockData = [
   },
   {
     content:
-      "Před tím, než vyšleme paket na cestu, musíme mu říct, kam má dojet. Je to stejné, jako když posíláte dopis a musíte na něj napsat adresu, aby byl správně doručen. IP adresa jedinečná adresa pro každý počítač připojený k internetu. To znamená, že pokud chcete navštívit nějakou webovou stránku, váš počítač potřebuje znát IP adresu serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. Tato čísla by se nám samozřejmě špatně pamatovala, proto se IP adresa překládá na lépe zapamatovatelné jméno. Existují dvě hlavní verze IP adres - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel oddělených tečkami (př. 192.168.0.1.). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Dokázal bys vymyslet, proč potřebujeme novější verzi IPv6? Pokud tě nic nenapadá, tak počkej na další úkol. Zkus nyní zjistit, jakou IP adresu má tvůj počítač, tuto IP adresu napiš do textového pole níže.",
+      "Před tím, než vyšleme paket na cestu, musíme mu říct, kam má dojet. Je to stejné, jako když posíláte dopis a musíte na něj napsat adresu, kam má být doručen. Takovým adresám říkáme v internetové komunikaci IP adresy. \n Pokud např. chcete otevřít webovou stránku, váš počítač potřebuje znát IP adresu serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP adres - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel oddělených tečkami (př. 192.168.0.1.). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Dokázal bys vymyslet, proč potřebujeme novější verzi IPv6? Pokud tě nic nenapadá, tak počkej na další úkol. Nyní zkus zjistit, jakou IP adresu má tvůj počítač a napiš ji do textového pole níže.",
     type: "IPadress",
   },
   {
     content:
-      "V předchozím úkolu jsme zmínili, že existují dvě verze IP adres. Proč ale potřebujeme novější verzi IPv6? Odpověď je jednoduchá. V dnešní době máme již tolik počítačů, že je IPv4 adres prostě málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více unikátních adres. Dokonce jich je tolik, že se nemusíme bát, že by IPv6 adresy v budoucnosti došly. Máme totiž 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost adres na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Níže vidíš 3 sloupečky, v nich se nám pomíchaly IP adresy, zkus adresy roztřídit do správných sloupečků.",
+      "V předchozím úkolu jsme zmínili, že existují dvě verze IP adres. Proč ale potřebujeme novější verzi IPv6? Odpověď je jednoduchá. V dnešní době máme již tolik počítačů, že je IPv4 adres prostě málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více unikátních adres. Dokonce jich je tolik, že se nemusíme bát, že by IPv6 adresy v budoucnosti došly. Máme totiž 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost adres na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Zkus nyní níže pro každou IP adresu určit, jestli se jedná o IPv4, IPv6 nebo jestli se vůbec nejedná o IP adresu.",
     type: "sortIPAdresses",
   },
   {
-    content:
-      "Pakety už znají cílovou adresu, teď je potřeba vyřešit, kudy se do cíle dostanou. Již víme, že jedna zpráva se rozloží na více paketů. Pakety ale nejedou do cíle všechny po stejné cestě, většinou putují nezávisle na sobě. V reálném světě to má řadu výhod, které si ukážeme v dalších úkolech. Nyní klikni na START. Vlevo dole máš tři pakety, které poslal klient (je na tobě, kterého si vybereš). Popiš cestu pro každý paket.",
+    content: "",
     type: "setPath",
   },
   {
     content:
-      "V předchozím úkolu jsme vybrali pro každý paket nějakou trasu. Ve skutečnosti tuto trasu určuje chytrá křižovatka, která vždy vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžete si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Klikni na START. V mapě se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Logana do serveru Messengeru.",
+      "Už víš, že paket putuje po cestách od odesílatele k příjemci po cestách. Cestu si ale paket nevybírá sám. Ve skutečnosti tuto trasu určuje chytrá křižovatka, která vždy vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžeš si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Když zavřeš okno, tak se v mapě u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Logana do serveru Messengeru.",
     type: "shortestPath",
   },
   {
