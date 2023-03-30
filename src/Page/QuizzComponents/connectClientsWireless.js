@@ -107,13 +107,56 @@ function ConnectClientsWirelessComponent({
   const [edges, setEdges, onEdgesChange] = useEdgesState(
     connectClientWirelessEdges
   );
+
+  useEffect(() => {
+    if (countNodesByType(nodes, "client-plugged") == 7) {
+      setAlertMessage("Perfektní");
+      setGameAfterModalClose("noGame");
+      setOpenModal(true);
+    }
+    const intervalId = setInterval(() => {
+      const clientInfoNodes = nodes.filter(
+        (node) => node.className === "client-plugged"
+      );
+
+      const clientBuildNodes = nodes.filter(
+        (node) => node.className === "client-build"
+      );
+
+      const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
+
+      tempClientNodes.forEach((node) => {
+        if (isNodeInRange(node.id, nodes)) {
+          node.className = "client-plugged";
+        } else {
+          node.className = "client-build";
+        }
+      });
+
+      // iterate through each node in tempClientNodes
+      tempClientNodes.forEach((tempNode) => {
+        // check if the node already exists in nodes
+        const index = nodes.findIndex((node) => node.id === tempNode.id);
+        if (index !== -1) {
+          // remove the existing node from nodes
+          nodes.splice(index, 1);
+        }
+        // add the new node to nodes
+        nodes.push(tempNode);
+      });
+    }, 10);
+
+    // Clear the interval when the component unmounts or when the nodes state changes
+    return () => clearInterval(intervalId);
+  }, [nodes]);
+
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) => node.className === device);
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 2) {
-        setAlertMessage("vice uz jich nepridavej. Uz jich mas az moc");
+        setAlertMessage("více už ne");
         setGameAfterModalClose(game);
         setOpenModal(true);
       } else {
@@ -134,32 +177,7 @@ function ConnectClientsWirelessComponent({
   return (
     <>
       <CloseOpen
-        content={
-          <div className="connect-client-wireless-button-container">
-            <Tooltip title="WIFI" placement="left">
-              <IconButton>
-                <Badge badgeContent={2} color="primary">
-                  <img
-                    src={wifi}
-                    style={{ width: "60px", height: "40px" }}
-                    onClick={() => handleAddNode("wifi-build")}
-                  />
-                </Badge>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="BTS VĚŽ" placement="left">
-              <IconButton>
-                <Badge badgeContent={2} color="primary">
-                  <img
-                    src={bts}
-                    style={{ width: "60px", height: "40px" }}
-                    onClick={() => handleAddNode("bts-build")}
-                  />
-                </Badge>
-              </IconButton>
-            </Tooltip>
-          </div>
-        }
+        content={<AddNodeButtons handleAddNode={handleAddNode} nodes={nodes} />}
       />
       <ReactFlowProvider>
         <Flow
@@ -174,6 +192,52 @@ function ConnectClientsWirelessComponent({
   );
 }
 
+function isNodeInRange(nodeId, nodes) {
+  const node = nodes.find((node) => node.id === nodeId);
+  const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
+  const btsNodes = nodes.filter((node) => node.className === "bts-build");
+  const wifiRange = 100;
+  const btsRange = 250;
+
+  // Check if node is at most 100 away from some wifi nodes
+  for (let i = 0; i < wifiNodes.length; i++) {
+    const wifiNode = wifiNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - wifiNode.position.x, 2) +
+        Math.pow(node.position.y - wifiNode.position.y, 2)
+    );
+    if (distance <= wifiRange) {
+      return true;
+    }
+  }
+
+  // Check if node is at most 200 away from some bts nodes
+  for (let i = 0; i < btsNodes.length; i++) {
+    const btsNode = btsNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - btsNode.position.x, 2) +
+        Math.pow(node.position.y - btsNode.position.y, 2)
+    );
+    if (distance <= btsRange) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function countNodesByType(nodes, type) {
+  let count = 0;
+
+  for (const node of nodes) {
+    if (node.className === type) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
 function generateIpv4Address() {
   let ipv4Address = "";
   for (let i = 0; i < 4; i++) {
@@ -183,6 +247,38 @@ function generateIpv4Address() {
     }
   }
   return ipv4Address;
+}
+
+function AddNodeButtons({ handleAddNode, nodes }) {
+  const wifiLeft = 2 - countNodesByType(nodes, "wifi-build");
+  const btsLeft = 2 - countNodesByType(nodes, "bts-build");
+
+  return (
+    <div className="connect-client-wireless-button-container">
+      <Tooltip title="WIFI" placement="left">
+        <IconButton>
+          <Badge badgeContent={wifiLeft} color="primary">
+            <img
+              src={wifi}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("wifi-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="BTS VĚŽ" placement="left">
+        <IconButton>
+          <Badge badgeContent={btsLeft} color="primary">
+            <img
+              src={bts}
+              style={{ width: "60px", height: "40px" }}
+              onClick={() => handleAddNode("bts-build")}
+            />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+    </div>
+  );
 }
 
 export default ConnectClientsWirelessComponent;

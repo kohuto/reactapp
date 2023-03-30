@@ -108,7 +108,12 @@ function QuizzComponents({
       );
     case "connectClientsWireless":
       return (
-        <ConnectClientsWirelessComponent setGame={() => setGame("noGame")} />
+        <ConnectClientsWirelessComponent
+          setAlertMessage={setAlertMessage}
+          setOpenModal={setOpenModal}
+          game={game}
+          setGameAfterModalClose={setGameAfterModalClose}
+        />
       );
     case "setPath":
       return (

@@ -261,7 +261,7 @@ function LandingPage({
 function hasNodeClass(nodes, nodeId, classname) {
   // find the node with the given ID in the nodes array
   const node = nodes.find((node) => node.id === nodeId);
-  console.log(node);
+
   // check if the node has the className property set to "client-build"
   if (node && node.className === classname) {
     return true;
