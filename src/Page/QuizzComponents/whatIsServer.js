@@ -1,4 +1,3 @@
-import ZoomButtons from "./zoomButtons";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Draggable from "react-draggable";
 import web from "../../images/serverscontent/website-design.png";

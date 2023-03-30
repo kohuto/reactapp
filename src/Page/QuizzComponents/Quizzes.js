@@ -1,6 +1,5 @@
 import "./Components.css";
 import WhatIsServerComponent from "./whatIsServer";
-import WhatIsClientComponent from "./whatIsClient";
 import FindPacketComponent from "./findServers";
 import CreatePacketComponent from "./createPacket";
 import ConnectClientsWirelessComponent from "./connectClientsWireless";
@@ -12,10 +11,8 @@ import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
 import SetPaths from "./setPaths";
-import ZoomButtons from "./zoomButtons";
 import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./latency";
-import WirelessDevices from "./wirelessDevice";
 import ClientServerCommunication from "./clientServerComunication";
 import WhatIsPathComponent from "./whatIsPath";
 import BuildNetwork from "./buildNetwork";

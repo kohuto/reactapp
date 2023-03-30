@@ -1,26 +1,12 @@
 import { useEffect, useCallback, useRef, useState } from "react";
-import ReactFlow, {
-  useEdgesState,
-  addEdge,
-  Background,
-  Panel,
-  useViewport,
-  Controls,
-  useStore,
-} from "reactflow";
+import ReactFlow, { useEdgesState, addEdge, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import "./reactFlow.css";
-import { clientsZoom1Data } from "../Flow/data/client/clientsZoom1";
 import { clientsZoom2Data } from "../Flow/data/client/clientsZoom2";
-import { clientsZoom0Data } from "../Flow/data/client/clientsZoom0";
-import { serversZoom1Data } from "../Flow/data/server/serverZoom1";
 import { serversZoom2Data } from "../Flow/data/server/serverZoom2";
-import { gatewaysZoom1Data } from "../Flow/data/gateway/gatewayZoom1";
 import { gatewaysZoom2Data } from "../Flow/data/gateway/gatewayZoom2";
-import { gatewaysZoom0Data } from "../Flow/data/gateway/gatewayZoom0";
 import { edgesData } from "../Flow/data/edges/edges";
 import { shortestPathEdges } from "../Flow/data/edges/shortestPathEdges";
-import WhatIsWiFiComponent from "./QuizzComponents/wirelessDevice";
 import BuildNetwork from "./QuizzComponents/buildNetwork";
 import { clientsCreatePacket } from "../Flow/data/client/clientsCreatePacket";
 import { clientsFindServer } from "../Flow/data/client/clientsFindServer";
@@ -135,9 +121,6 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
   const zoomGames = ["whatIsClient", "whatIsPath"];
   return (
     <>
-      {game === "wirelessDevices" && (
-        <WhatIsWiFiComponent game={game} setNodes={setNodes} nodes={nodes} />
-      )}
       {game === "buildNetwork" && (
         <BuildNetwork game={game} setNodes={setNodes} nodes={nodes} />
       )}
