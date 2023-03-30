@@ -11,7 +11,7 @@ import serveryoutube from "../../images/nodes/serveryoutube.png";
 import CloseOpen from "./closeOpenWindow";
 
 function WhatIsServerComponent({
-  setOpenDialog,
+  setOpenModal,
   setAlertMessage,
   game,
   setGameAfterModalClose,
@@ -61,9 +61,11 @@ function WhatIsServerComponent({
 
   useEffect(() => {
     if (filledServer == 3) {
-      setAlertMessage("jsi úplně boží");
+      setAlertMessage(
+        "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat."
+      );
       setGameAfterModalClose("noGame");
-      setOpenDialog(true);
+      setOpenModal(true);
     }
   }, [filledServer]);
 
@@ -85,17 +87,11 @@ function WhatIsServerComponent({
     if (touching14) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      // setAlertMessage("Správně! Weby se ukládají do web serverů");
       setAlertMessage(
-        <>
-          <div>
-            <h1>naydarecek</h1>
-            <p>hojda ahojda</p>
-          </div>
-        </>
+        "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů."
       );
       setGameAfterModalClose(game);
-      setOpenDialog(true);
+      setOpenModal(true);
     }
     if (touching24) {
       imgRef.current.style.display = "none";
@@ -104,14 +100,14 @@ function WhatIsServerComponent({
         "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků"
       );
       setGameAfterModalClose(game);
-      setOpenDialog(true);
+      setOpenModal(true);
     }
     if (touching34) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
       setAlertMessage("Správně! Na YouTube serveru bude uloženo spoustu videí");
       setGameAfterModalClose(game);
-      setOpenDialog(true);
+      setOpenModal(true);
     }
   }, [touching14, touching24, touching34]);
   return (

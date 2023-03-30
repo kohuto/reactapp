@@ -75,7 +75,6 @@ function Page() {
             packetsData={landingPagePacketsData}
             repeat={Infinity}
             marginleft={0}
-            nodes={landingPagePacketsData}
           />
           <AlertDialog
             open={openDialog}

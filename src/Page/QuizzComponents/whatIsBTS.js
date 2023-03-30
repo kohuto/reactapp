@@ -13,14 +13,14 @@ function WhatIsBTSComponent() {
         "43.27.66.183",
       ],
       content: "to satelit",
-      from: "77.75.79.138",
-      to: "195.113.76.22",
+      from: "69.131.176.185",
+      to: "43.27.66.183",
       speed: 20,
     },
   ];
   return (
     <>
-      <DefaultPackets packetsData={packets} />
+      <DefaultPackets packetsData={packets} repeat={Infinity} marginleft={20} />
     </>
   );
 }

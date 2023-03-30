@@ -1,6 +1,6 @@
 import Packet from "./Packet";
 
-function DefaultPackets({ packetsData, repeat, marginleft, nodes }) {
+function DefaultPackets({ packetsData, repeat, marginleft, nodes = [] }) {
   const Packets = ({ packetsData }) => (
     <>
       {packetsData.map((packet) => (

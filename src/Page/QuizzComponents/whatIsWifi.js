@@ -37,7 +37,9 @@ function WhatIsWiFiComponent({
           edge.source === "242.47.214.213" || edge.target === "242.47.214.213"
       )
     ) {
-      setAlertMessage("výborně");
+      setAlertMessage(
+        "Perfektní! Podařilo se ti zapojit wifi router a nyní se pomocí wifi signálu můžeš připojit k internetu."
+      );
       setGameAfterModalClose("no game");
       setOpenModal(true);
     }
@@ -51,7 +53,7 @@ function WhatIsWiFiComponent({
     }
     if (isSwitchedOn) {
       setAlertMessage(
-        "nyní je ještě potřeba wifi zapojit do sítě. V tuto chvíli je sice wifi detekovaná počítačem, ale stále nemá přístup k internetu"
+        "Nyní musíš wifi router zapojit do sítě. Na počítači sice vidíme wifi router jako dostupný, není ale připojen k chytré křižovatce, proto se nemůžeme připojit k internetu."
       );
       setGameAfterModalClose(game);
       setOpenModal(true);
@@ -100,7 +102,9 @@ function WhatIsWiFiComponent({
   function toggleSwitch() {
     if (isWifiPlugged) setIsSwitchedOn((prevSwitch) => !prevSwitch);
     else {
-      setAlertMessage("wifi neni v zasuvce");
+      setAlertMessage(
+        "Prvni zapoj wifi router do zásuvky. Zapojení provedeš tak, že klikneš na černý puntík na routeru a řetáhneš čáru na černý puntík na zásuvce."
+      );
       setGameAfterModalClose(game);
       setOpenModal(true);
     }

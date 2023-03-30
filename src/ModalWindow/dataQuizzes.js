@@ -1,105 +1,94 @@
 export const stockData = [
   {
-    header: "Co je SERVER",
     content:
-      "Určitě už jsi někdy viděl video na YouTube, nebo jsi projížděl fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. Jsou to speciálně upravené počítače, které nemívají obrazovku a typicky běží nonstop. Kdokoliv může do internetu připojit vlastní server. Většinou jsou to ale drahé výkonné počítače v budovách firem. Například společnost Seznam má ve své budově server. Ten má na disku uloženou stránku www.seznam.cz. Nahrávání dat na server říkáme upload.\nKlikni na tlačítko START a podívej se, jak se objeví servery. V okně v pravém dolním rohu najdeš svůj první úkol.",
+      "Určitě už jsi někdy viděl video na YouTube, nebo jsi projížděl fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. Jsou to speciálně upravené počítače, které nemívají obrazovku a typicky běží nonstop. Kdokoliv může do internetu připojit vlastní server. Většinou jsou to ale drahé výkonné počítače v budovách firem. Například společnost Seznam má ve své budově server. Ten má na disku uloženou stránku www.seznam.cz. Nahrávání dat na server říkáme upload.\n Zavři okno a podívej se, jak se objeví servery. V pravém dolním rohu najdeš svůj první úkol.",
     type: "whatIsServer",
-    question: "",
   },
   {
-    header: "Co je KLIENT",
     content:
-      "Klient je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo může chtít poslat video, které si chce přehrát.\nKlikni na tlačítko START a podívej se, jak se objeví klienti. Stejně jako u serverů nezapomeň použít tlačítko plus a mínus, abys viděl, jak vypadá síť z větší dálky.",
+      "Klient je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo může chtít poslat video, které si chce přehrát.\n Zavři okno a přejdi na další úkol, kde si o klientovi řekneme více",
     type: "info",
-    question: "",
   },
   {
-    header: "Komunikace KLIENT-SERVER",
     content:
-      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku?\nKlient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači.",
+      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. \n Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku? \n Klient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak by mohla komunikace vypadat.",
     type: "client-server-communication",
-    question: "",
   },
   {
-    header: "Putování informací",
     content:
-      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Jak vypadá putování požadavku do serveru?\nPožadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech.",
+      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Kudy se ale balíček dat dostane na server? \n Požadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech. \n Nyní zavři okno a podívej se, jak by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je jich ale daleko více! V mapě se můžeš pohybovat a můžeš si ji přibližovat a oddalovat.",
     type: "whatIsPath",
-    question: "",
   },
   {
-    header: "Co je CESTA",
     content:
       "Zmínili jsme, že data internetem putují po cestách, aby se dostala z jednoho zařízení do druhého. Cesty mohou být bezdrátové jako WiFi nebo satelity, většinou jsou ale cesty kabely (kovové nebo optické), které jsou nejčastěji zakopané pod zemí a pod mořem.",
     type: "info",
-    question: "",
   },
   {
-    header: "Co je CHYTRÁ KŘIŽOVATKA",
     content:
-      "Křižovatky propojují cesty pro informace. Když do křižovatky přijede po cestě balíček informací, tak ho křižovatka pošle směrem k jeho cíli. Balíček neurčí směr sám, směr určí opravdu křižovatka. Pokud nějaká cesta nefunguje, chytrá křižovatka umí najít objížďku. Nezapomeň, že cíl balíčku je vždy server nebo klient. Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíly mezi nimi ale pro nás nejsou příliš důležité.",
+      "Křižovatky propojují cesty pro informace. Když do křižovatky přijede po cestě balíček informací, tak ho křižovatka pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, tento směr je určen chytrou křižovatkou. Pokud nějaká cesta zrovna nefunguje, chytrá křižovatka umí najít objížďku. \n Nezapomeň, že cíl balíčku je vždy server nebo klient. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíly mezi nimi ale pro nás nejsou příliš důležité.",
     type: "info",
-    question: "",
   },
   {
     header: "Hezky po částech",
     content:
-      "Už víme, že Internet je síť složená z routerů, serverů a nás klientů, kteří si mezi sebou posílají data (požadavky, soubory, informace...). Nyní si pojďme říct, v jaké formě se tato data přenášejí. Každá naše zpráva, fotka, či video, co se po internetu posílá, jsou před odesláním rozděleny na části. Těmto částem se říká pakety. Pakety jsou tedy malé balíčky dat obsahující část původní zprávy. Klienti posílají pakety do serverů a servery zpátky do klientů. Pakety jezdí po cestách pro informace. Poté, co je zpráva rozložena na pakety, pakety putují do cílé nezávisle na sobě. Pojďme si nyní ukázat, jak to vypadá, když bychom Aničce chtěli poslat zprávu na messenger. Klikni na tlačítko START, objeví se okno messengeru. Napiš nějakou zprávu a klikni na tlačítko odeslat.",
+      "Už víš, že Internet je síť složená ze zařízení, která si mezi sebou posílají balíčky dat (požadavky, soubory, informace...). Pojďme se nyní zaměřit právě na tyto balíčky dat. \n Každá tvoje zpráva, video či fotka, co se po internetu posílá, je před odesláním rozdělena na části. Těmto částem se říká pakety. Pakety jsou tedy malé balíčky dat obsahující část původní zprávy. Pakety jsou doručeny po cestách z klientů do serverů nebo ze serverů zpátky do klientů. Poté, co je zpráva rozložena na pakety, pakety putují do cílé nezávisle na sobě. \n Pojď se nyní podívat, jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi na jeho zprávu. Poté, co zavřeš okno, se objeví okno messengeru. Napiš nějakou zprávu a odešli ji.",
     type: "dataIntoPackets",
     question: "",
   },
   {
     header: "PAKET",
     content:
-      "Už víš, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Jak se ale pozná, kam má být paket doručen? Případně kam má být paket vrácen v případě nějakých problémů?\nJe to podobné, jako když posíláš dopis poštou. Na obálku napíšeš svou adresu a také adresu kamaráda, kterému má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP adresa každého zařízení musí být unikátní.\nPakety putují nezávisle na sobě. Aby je bylo možné v cíli správně seřadit, musíme do každého paketu uložit jeho pořadí.\nV každém momentě je pomocí internetu posláno obrovské množství zpráv (paketů).\nAbychom od sebe zprávy (pakety) odlišily, uložíme do paketu ještě identifikační číslo -  zkráceně ID. Pakety, které tvoří jednu zprávu, mají stejné ID.",
+      "Už víš, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Jak se ale pozná, kam má být paket doručen? Případně kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako když posíláš dopis poštou. Na obálku napíšeš svou adresu a také adresu kamaráda, kterému má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP adresa každého zařízení musí být unikátní. \n Viděl jsi, že pakety putují každý po jiné trase a do cíle proto mohou dorazit v jiném pořadí. Aby je bylo možné v cíli správně seřadit, musíme do každého paketu uložit jeho pořadí. \n V každém momentě je po internetu posláno obrovské množství zpráv (paketů). Abychom od sebe zprávy (pakety) odlišily, uložíme do paketu ještě identifikační číslo -  zkráceně ID. Pakety, které tvoří jednu zprávu, mají stejné ID.",
     type: "info",
     question: "",
   },
   {
     header: "VYTVOŘ PAKET",
     content:
-      "Už víš, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, aby mohla být zpráva v cíli poskládaná zpět do původní podoby.\nZkus nyní sám rozložit zprávu na pakety. Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Po odeslání se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech paketů.",
+      "Už víš, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, aby mohla být zpráva v cíli poskládaná zpět do původní podoby.\n Zkus nyní sám rozložit zprávu na pakety. Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Po odeslání se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech paketů.",
     type: "createPacket",
     question: "",
   },
   {
     header: "NÁVŠTĚVA SERVERŮ",
     content:
-      "Anička, Pepíček a Maruška zrovna brouzdají na internetu. Každý nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
+      "Kiara, Annika a Eustác brouzdají na internetu. Každý z nich nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
     type: "findServer",
     question: "",
   },
   {
     header: "JAK VELKÁ BUDE ZPRÁVA",
     content:
-      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety.\nKlikni na tlačítko SOUBORY. Prozkoumej 4 soubory uložené ve složce, která se ti otevře. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
+      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety. \n Klikni na tlačítko SOUBORY. Otevře se ti složka se 4 soubory, které prozkoumej. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
     type: "sortFileSize",
     question: "",
   },
   {
     header: "KABELY",
-    content: "toto jsou kabely",
+    content:
+      "Největší množství cest v internetu je tvořeno právě kabely. Máme dva hlavní druhy kabelů - metalické (kovové) a optické. Data v metalických kabelech jsou přenášena pomocí elektrických signálů, zatímco v optických kabelech jsou data přenášena pomocí světelných signálů. \n V roce 2019 se poslalo za jedinou hodinu skoro stejné množství dat, jako za celý rok 2000. Řešením tohoto obrovského nárůstu jsou právě optické kabely, které přenáší data až 10000x větší rychlostí na daleko větší vzdálenosti. \n Zavři okno a koukni se, jak je rozdíl v rychlosti přenosu dat pomocí kovových kabelů a pomocí optických kabelů.",
     type: "whatIsCabel",
     question: "",
   },
   {
     header: "WIFI",
     content:
-      "WiFi signál je běžný bezdrátový způsob přenosu dat, tedy způsob bez použití kabelu. WiFi je velmi užitečná pro zařízení jako jsou telefony a tablety, se kterými pořád chodíme sem a tam, a které proto nemohou být připojeny k internetu pomocí kabelu. Můžeme se proto připojit k internetu kdekoliv v dosahu wifi signálu. Domácí WiFi je obvykle napojena na kabel. Klikni nyní na tlačítko ZOBRAZIT WIFI.",
+      "Už víš, že pakety mohou putovat do jiných zařízení skrz kabely. Určitě ale víš, že data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WiFi. Jako WiFi označujeme signál, který vysílá tzv. WiFi router. Router je krabička, kterou máš pravděpodobně doma. Z routeru vede kabel, kterým je router připojen k chytré křižovatce. Router vysílá WiFi signál k zařízením (počítač, tablet, telefon), která jsou v jeho blízkosti a zařízení posílají data pomocí WiFi signálu zpět k routeru. Router data zpracuje a pošle je kabelem do chytré křižovatky, ke které je tímto kabelem připojen. \n Zavři okno a vyzkoušej si, jak se doma zapojuje wifi router.",
     type: "whatIsWiFi",
     question: "",
   },
   {
     header: "MOBILNÍ DATA",
     content:
-      "Telefonní BTS věže jsou na kopcích a větších domech. Zařízení se SIM kartou se k nim můžou připojit. Rozlišujeme věže typu 4G a 5G, jejichž vlastnosti se liší jak v dosahu tak v rychlosti přenosu dat.",
+      "Dalším bezdrátovým způsobem připojení je mobilní signál. Tento signál vysílají tzv. BTS věže. Princip je tedy podobný jako u WiFi signálu a WiFi routeru, nejedná se však o stejné signály. \n BTS věže jsou většinou na kopcích nebo na vyšších domech a vede z nich kabel, kterým jsou BTS věže připojeny k chytré křižovatce. Signál, který BTS věže vysílají, může využít pro přenos dat (dokonce i telefonních hovorů) zařízení se SIM kartou (většiou jsou to naše chytré telefony). \n Zařízení se SIM kartou se tedy připojí k BTS věži a začne směrem k BTS věži posílat data. BTS věž data, která k ní díky mobilnímu signálu dorazí, pošle kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient pomocí mobilních dat poslat požadavek na server.",
     type: "whatIsBTS",
     question: "",
   },
   {
     header: "SATELIT",
     content:
-      "Satelity jsou zařízení vyrobená lidmi, která jsou umístěna na oběžné dráze kolem Země. Satelitní připojení je nejméně používané, používá se na obtížně přístupných místech. Satelit jenom přeposílá data zpátky na zem - když někdo pošle signál ze Země k satelitu, antény na satelitu přijmou tento signál a přenesou ho zpět na Zemi. Satelity komunikují z oběžné dráhy.",
+      "Satelity jsou zařízení vyrobená lidmi, která jsou umístěna na oběžné dráze kolem Země. \n Satelitní připojení je nejméně používané, používá se na obtížně přístupných místech. Satelit jenom přeposílá data zpátky na zem - když někdo pošle signál ze Země k satelitu, antény na satelitu přijmou tento signál a přenesou ho zpět na Zemi. \n Satelity komunikují z oběžné dráhy. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
     type: "whatIsSatelit",
     question: "",
   },

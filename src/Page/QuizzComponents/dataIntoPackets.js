@@ -197,7 +197,9 @@ function DataIntoPackets({
   };
 
   function handleClose() {
-    setAlertMessage("a to je vse");
+    setAlertMessage(
+      "Perfektní! Právě jsi viděl, že se zpráva před odesláním rozloží na malé části, kterým říkáme pakety. Každá informace (fotka, webová stránka, video), je před odesláním rozložená a posílá se po částech."
+    );
     setGameAfterModalClose("noGame");
     setOpenModal(true);
   }
@@ -289,14 +291,36 @@ function DataIntoPackets({
     );
   } else if (showPackets1) {
     return content3.length > 0 ? (
-      <DefaultPackets packetsData={packets1} />
+      <DefaultPackets packetsData={packets1} repeat={0} marginleft={20} />
     ) : content2.length > 0 ? (
-      <DefaultPackets packetsData={packets1.slice(0, 2)} />
+      <DefaultPackets
+        packetsData={packets1.slice(0, 2)}
+        repeat={0}
+        marginleft={20}
+      />
     ) : (
-      <DefaultPackets packetsData={packets1.slice(0, 1)} />
+      <DefaultPackets
+        packetsData={packets1.slice(0, 1)}
+        repeat={0}
+        marginleft={20}
+      />
     );
   } else if (showPackets2) {
-    return <DefaultPackets packetsData={packets2} />;
+    return content3.length > 0 ? (
+      <DefaultPackets packetsData={packets2} repeat={0} marginleft={20} />
+    ) : content2.length > 0 ? (
+      <DefaultPackets
+        packetsData={packets2.slice(0, 2)}
+        repeat={0}
+        marginleft={20}
+      />
+    ) : (
+      <DefaultPackets
+        packetsData={packets2.slice(0, 1)}
+        repeat={0}
+        marginleft={20}
+      />
+    );
   } else if (showPacketsInServerMessageBox) {
     return (
       <>

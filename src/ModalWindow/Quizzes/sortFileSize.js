@@ -2,7 +2,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 
-function SortFileSize({ setOpenEndGame, setOpenInform, setAlertMessage }) {
+function SortFileSize({
+  setAlertMessage,
+  setOpenModal,
+  setGameAfterModalClose,
+  game,
+  setOpenOverlayModal,
+  setOverlayDialogMessage,
+}) {
   const handleSubmit = () => {
     const deviationText = 10;
     const deviationVideo = 500;
@@ -18,11 +25,15 @@ function SortFileSize({ setOpenEndGame, setOpenInform, setAlertMessage }) {
       Math.abs(musicValue - musicCount) < deviationMusic &&
       Math.abs(imageValue - imageCount) < deviationImg
     ) {
-      setAlertMessage("správně spočítáno");
-      setOpenEndGame(true);
+      setAlertMessage(
+        "Perfektní! Čím větší zpráva, tím více paketů bude potřeba na její odeslání."
+      );
+      setGameAfterModalClose("noGame");
+      setOpenModal(true);
     } else {
-      setAlertMessage("něco jsi nespočítal správně");
-      setOpenInform(true);
+      setOverlayDialogMessage("Něco jsi nespočítal správně");
+      setGameAfterModalClose(game);
+      setOpenOverlayModal(true);
     }
   };
   const [videoValue, setValue1] = useState(0); // set the initial value of the slider to 500

@@ -9,13 +9,14 @@ import Button from "@mui/material/Button";
 function FindPacketComponent(props) {
   return (
     <>
-      <DefaultPackets packetsData={findServerData} />
+      <DefaultPackets packetsData={findServerData} repeat={0} marginleft={20} />
       <CloseOpen
         content={
           <InputBox
             setAlertMessage={props.setAlertMessage}
-            setOpenInform={props.setOpenInform}
-            setOpenEndGame={props.setOpenEndGame}
+            setOpenModal={props.setOpenModal}
+            game={props.game}
+            setGameAfterModalClose={props.setGameAfterModalClose}
           />
         }
       />
@@ -34,12 +35,15 @@ function InputBox(props) {
       client3 === "192.168.1.1" &&
       client1 === "195.113.76.22"
     ) {
-      props.setAlertMessage("spravně jsi vyplnil všechny servery");
-      props.setOpenEndGame(true);
+      props.setAlertMessage(
+        "Perfektní! Nezpomeň, že v každém paketu najdeš informaci o tom, kdo paket poslal a komu má být paket doručen."
+      );
+      props.setGameAfterModalClose("noGame");
     } else {
       props.setAlertMessage("nějaký server je špatně");
-      props.setOpenInform(true);
+      props.setGameAfterModalClose(props.game);
     }
+    props.setOpenModal(true);
   };
   return (
     <>

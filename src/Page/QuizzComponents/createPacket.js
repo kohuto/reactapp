@@ -68,7 +68,9 @@ function CreatePacketComponent({
                   (id[2] === "2" && content[2] === secondPartMessage) ||
                   (id[2] === "3" && content[2] === thirdPartMessage)
                 ) {
-                  setAlertMessage("správně vyplněno");
+                  setAlertMessage(
+                    "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele a také ID a pořadí, aby mohla být zpráva v cíli zpětně sestavená."
+                  );
                   setGameAfterModalClose("noGame");
                 } else {
                   setAlertMessage("špatně obsah 3. paketu");
@@ -103,7 +105,7 @@ function CreatePacketComponent({
       <CloseOpen
         content={
           <div className="create-packets-form-container">
-            <p>Pošli zprávu: AHOJ HONZO, JAK SE MÁŠ?</p>
+            <p>Pošli zprávu: AHOJ XAVI, JAK SE MÁŠ?</p>
 
             <Slideshow
               id={id}

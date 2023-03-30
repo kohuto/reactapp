@@ -42,10 +42,6 @@ function QuizzComponents({
           setGameAfterModalClose={setGameAfterModalClose}
         />
       );
-    case "whatIsClient":
-      return (
-        <WhatIsClientComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
-      );
     case "client-server-communication":
       return (
         <ClientServerCommunication

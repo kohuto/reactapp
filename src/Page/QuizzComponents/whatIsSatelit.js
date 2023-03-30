@@ -21,7 +21,7 @@ function WhatIsSatelitComponent() {
   ];
   return (
     <>
-      <DefaultPackets packetsData={packets} />
+      <DefaultPackets packetsData={packets} repeat={Infinity} marginleft={20} />
     </>
   );
 }

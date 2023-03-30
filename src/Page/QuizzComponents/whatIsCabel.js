@@ -41,7 +41,9 @@ function WhatIsCabelComponent({
     },
   ];
 
-  return <DefaultPackets packetsData={packets} />;
+  return (
+    <DefaultPackets packetsData={packets} repeat={Infinity} marginleft={20} />
+  );
 }
 
 export default WhatIsCabelComponent;
