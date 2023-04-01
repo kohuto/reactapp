@@ -55,65 +55,11 @@
   color: white;
 }
 
-/* Plus/Minus Zoom Button Styles changing flow */
-.zoom-buttons-container{
-  position: absolute;
-  bottom: 4vh;
-  z-index: 1;
-  right: 2vw ;
-  height: 10vh;
-  width: 2.5vw;
-  border-radius: 0.5em;
-  background: #e8e8e8;
-  border: 1px solid #e8e8e8;
-  box-shadow: 3px 3px 6px #c5c5c5,
-              -6px -6px 12px #ffffff;
-}
-
-.zoom-in, .zoom-out {
-  border-radius: 0.5em;
-  height: 5vh;
-  cursor: pointer;
-  width: 2.5vw;
-  background: #e8e8e8;
-  border: 1px solid #e8e8e8;
-
-}
-.zoom-in {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.zoom-out {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  top: 5vh;
-}
-
-.zoom-out::before {
-  content: "";
-  display: block;
-  width: 80%;
-  border-bottom: 1px solid #696666;
-  position: absolute;
-  top: 5vh;
-  left: 10%;
-}
-
-.zoom-button img {
-  width: 0.8vw;
-  height: auto;
-  transition: transform 0.2s ease-out;
-}
-
-.zoom-button:hover img{
-  transform: scale(1.3);
-}
-
 /* close/open window - template */
 
 .close-open-content {
   width: 20vw;
-  height: 60vh;
+  height: 65vh;
   position: absolute;
   bottom: 7vh;
   right: 3vw;
@@ -172,14 +118,8 @@
 /* check-validity-button close open window */
 .submit-button-open-close{
   position: absolute;
-
 }
 
-.create-packet-buttons{
-  position: absolute;
-  bottom: 15vh;
-  margin-left: 13%;
-}
 
 .create-packets-form-container, .set-path-container, .find-server-container, .shortest-path-container, .problem-with-path-container{
   width: 100%;
@@ -194,6 +134,11 @@
   width: 70%;
 }
 
+.create-packet-buttons{
+  position: absolute;
+  bottom: 9vh;
+  margin-left: 13%;
+}
 /* Slideshow */
 .create-packets-slideshow {
   overflow: hidden;
@@ -206,15 +151,15 @@
 
 .create-packets-slide {
   display: inline-block;
-  height: 34vh;
+  height: 36vh;
   width: 20vw;
   border-radius: 40px;
 }
 
 /* find servers */
 .find-server-container button, .set-path-container button.check-button,.create-packets-form-container button.check-button, .shortest-path-container button.check-button, .problem-with-path-container button.check-button {
- position: absolute;
- bottom: 4vh;
+  position: absolute;
+ bottom: 2vh;
  left: 33%;
 }
 

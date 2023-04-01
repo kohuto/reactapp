@@ -13,12 +13,13 @@ function CreatePacketComponent({
   setGameAfterModalClose,
 }) {
   const messengerServers = ["195.113.76.22", "192.168.1.1"];
-  const corerctId = ["1", "2", "3"];
+  const corerctOrder = ["1", "2", "3"];
   const correctSenderIP = "2620:0:862:ed1a::1";
   const firstPartMessage = "AHOJ XAV";
   const secondPartMessage = "I, JAK S";
   const thirdPartMessage = "E MÁŠ?";
   const [id, setId] = useState([]);
+  const [order, setOrder] = useState([]);
   const [recipientIP, setRecipientIP] = useState([]);
   const [senderIP, setSenderIP] = useState([]);
   const [content, setContent] = useState([]);
@@ -34,67 +35,72 @@ function CreatePacketComponent({
       content.every((item) => typeof item === "string" && item.length > 0);
     if (
       id.length === 3 &&
+      order.length === 3 &&
       recipientIP.length === 3 &&
       senderIP.length === 3 &&
       content.length === 3 &&
       isAllItemsStringsWithLengthGreaterThanZero
     ) {
-      if (
-        id.every((id) => corerctId.includes(id)) &&
-        id[0] != id[1] &&
-        id[1] != id[2] &&
-        id[0] != id[2]
-      ) {
+      if (id[0] === id[1] && id[1] === id[2]) {
         if (
-          senderIP.every((item) => item === senderIP[0]) &&
-          senderIP[0] === correctSenderIP
+          order.every((order) => corerctOrder.includes(order)) &&
+          order[0] != order[1] &&
+          order[1] != order[2] &&
+          order[0] != order[2]
         ) {
           if (
-            recipientIP.every((item) => item === recipientIP[0]) &&
-            messengerServers.includes(recipientIP[0])
+            senderIP.every((item) => item === senderIP[0]) &&
+            senderIP[0] === correctSenderIP
           ) {
             if (
-              (id[0] === "1" && content[0] === firstPartMessage) ||
-              (id[0] === "2" && content[0] === secondPartMessage) ||
-              (id[0] === "3" && content[0] === thirdPartMessage)
+              recipientIP.every((item) => item === recipientIP[0]) &&
+              messengerServers.includes(recipientIP[0])
             ) {
               if (
-                (id[1] === "1" && content[1] === firstPartMessage) ||
-                (id[1] === "2" && content[1] === secondPartMessage) ||
-                (id[1] === "3" && content[1] === thirdPartMessage)
+                (id[0] === "1" && content[0] === firstPartMessage) ||
+                (id[0] === "2" && content[0] === secondPartMessage) ||
+                (id[0] === "3" && content[0] === thirdPartMessage)
               ) {
                 if (
-                  (id[2] === "1" && content[2] === firstPartMessage) ||
-                  (id[2] === "2" && content[2] === secondPartMessage) ||
-                  (id[2] === "3" && content[2] === thirdPartMessage)
+                  (id[1] === "1" && content[1] === firstPartMessage) ||
+                  (id[1] === "2" && content[1] === secondPartMessage) ||
+                  (id[1] === "3" && content[1] === thirdPartMessage)
                 ) {
-                  setAlertMessage(
-                    "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele a také ID a pořadí, aby mohla být zpráva v cíli zpětně sestavená."
-                  );
-                  setGameAfterModalClose("noGame");
+                  if (
+                    (id[2] === "1" && content[2] === firstPartMessage) ||
+                    (id[2] === "2" && content[2] === secondPartMessage) ||
+                    (id[2] === "3" && content[2] === thirdPartMessage)
+                  ) {
+                    setAlertMessage(
+                      "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele a také ID a pořadí, aby mohla být zpráva v cíli zpětně sestavená."
+                    );
+                    setGameAfterModalClose("noGame");
+                  } else {
+                    setAlertMessage("špatně obsah 3. paketu");
+                  }
                 } else {
-                  setAlertMessage("špatně obsah 3. paketu");
+                  setAlertMessage("špatně obsah 2. paketu");
                 }
               } else {
-                setAlertMessage("špatně obsah 2. paketu");
+                setAlertMessage("špatně obsah 1. paketu");
               }
             } else {
-              setAlertMessage("špatně obsah 1. paketu");
+              setAlertMessage("příjemce musí být messenger server");
             }
           } else {
-            setAlertMessage("příjemce musí být messenger server");
+            setAlertMessage("špatně odesílatel");
           }
         } else {
-          setAlertMessage("špatně odesílatel");
+          setAlertMessage(
+            "Špatně vyplněné pořadí. Máš tři pakety, takže čísla v pořadí musí být 1, 2 a 3"
+          );
         }
       } else {
-        setAlertMessage("špatné id");
+        setAlertMessage(
+          "Špatné vyplněné ID. Pakety patří jedné zprávě, proto musí být ID všude stejné."
+        );
       }
     } else {
-      console.log(id.length);
-      console.log(recipientIP.length);
-      console.log(senderIP.length);
-      console.log(content.length);
       setAlertMessage("něco není vyplněné");
     }
     setOpenModal(true);
@@ -110,6 +116,8 @@ function CreatePacketComponent({
             <Slideshow
               id={id}
               setId={setId}
+              order={order}
+              setOrder={setOrder}
               senderIP={senderIP}
               setSenderIP={setSenderIP}
               recipientIP={recipientIP}
@@ -146,6 +154,20 @@ function InsidePacket(props) {
               const newId = [...prevId];
               newId[props.number] = e.target.value;
               return newId;
+            })
+          }
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          label="Pořadí"
+          variant="standard"
+          value={props.order[props.number]}
+          onChange={(e) =>
+            props.setOrder((prevOrder) => {
+              const newOrder = [...prevOrder];
+              newOrder[props.number] = e.target.value;
+              return newOrder;
             })
           }
         />
@@ -210,6 +232,8 @@ function Slideshow(props) {
             number={0}
             id={props.id}
             setId={props.setId}
+            order={props.order}
+            setOrder={props.setOrder}
             senderIP={props.senderIP}
             setSenderIP={props.setSenderIP}
             recipientIP={props.recipientIP}
@@ -223,6 +247,8 @@ function Slideshow(props) {
             number={1}
             id={props.id}
             setId={props.setId}
+            order={props.order}
+            setOrder={props.setOrder}
             senderIP={props.senderIP}
             setSenderIP={props.setSenderIP}
             recipientIP={props.recipientIP}
@@ -236,6 +262,8 @@ function Slideshow(props) {
             number={2}
             id={props.id}
             setId={props.setId}
+            order={props.order}
+            setOrder={props.setOrder}
             senderIP={props.senderIP}
             setSenderIP={props.setSenderIP}
             recipientIP={props.recipientIP}

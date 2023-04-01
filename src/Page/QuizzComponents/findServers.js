@@ -9,7 +9,11 @@ import Button from "@mui/material/Button";
 function FindPacketComponent(props) {
   return (
     <>
-      <DefaultPackets packetsData={findServerData} repeat={0} marginleft={20} />
+      <DefaultPackets
+        packetsData={findServerData}
+        repeat={Infinity}
+        marginleft={20}
+      />
       <CloseOpen
         content={
           <InputBox

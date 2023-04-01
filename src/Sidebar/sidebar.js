@@ -306,9 +306,7 @@ function DropdownMenu({
             <DropdownItem leftIcon={question}>NEJRYCHLEJŠÍ CESTA</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(23)}>
-            <DropdownItem leftIcon={question}>
-              VŠECHNY CESTY VEDOU DO ŘÍMA
-            </DropdownItem>
+            <DropdownItem leftIcon={question}>POČET CEST</DropdownItem>
           </div>
           <div className="custom-menu-item-div" onClick={() => openModal(24)}>
             <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>

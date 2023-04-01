@@ -19,6 +19,7 @@
 
 .summary-prerequisities {
   display: flex;
+ 
 }
 
 .summary-content {
@@ -28,7 +29,7 @@
 }
 
 .column {
-  margin: 2%;
+  margin: 0 10px;
   width: 50%;
   padding: 2%;
   border-radius: 0.5em;

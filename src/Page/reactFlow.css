@@ -54,31 +54,47 @@
 
 .server-small {
   width: 45px;
-  height: 30px;
+  height: 50px;
+  padding-top: 27px;
   background-image: url("../images/nodes/server-messenger.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
+  background-color: transparent;
 }
 
 .server-small .react-flow__handle-bottom, .server-small .react-flow__handle-top{
-  
   visibility: hidden;
+}
+
+.server-small .react-flow__handle-bottom{
+  bottom: 30px;
+}
+.server-small .react-flow__handle-top{
+  top: 20px;
 }
 
 .gateway-small {
   width: 40px;
-  height: 20px;
+  height: 10px;
+  margin-top: -10px;
   background-image: url("../images/nodes/gateway.jpg");
   background-repeat: no-repeat;
   background-size: contain;
+ /* background-position: 10px 40px;*/
   border: none;
+  background-color: transparent;
 }
 
 .gateway-small .react-flow__handle-bottom, .gateway-small .react-flow__handle-top{
   
   visibility: hidden;
 }
+
+.gateway-small .react-flow__handle-bottom{
+  bottom: 20px;
+}
+
 .client-small {
   width: 40px;
   height: 25px;
@@ -86,10 +102,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
+  background-color: transparent;
+  padding-top: 21px;
 }
 
 .client-small .react-flow__handle-bottom, .client-small .react-flow__handle-top{
-  
   visibility: hidden;
 }
 
