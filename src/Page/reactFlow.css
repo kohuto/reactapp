@@ -5,7 +5,18 @@
   background-image: url("../images/nodes/klient.jpg");
   background-repeat: no-repeat;
   border: none;
+  background-color: transparent;
+  padding-top: 70px;
 }   
+
+.client .react-flow__handle-bottom{
+  bottom: 40px;
+}
+
+.client .react-flow__handle-top {
+  top: 50px;
+}
+
 .boat{
   width: 120px;
   height: 40px;
@@ -50,6 +61,7 @@
   background-size: contain;
   border: none;
   padding-top: 70px;  /* toto by tu nemelo byt */
+  background-color: transparent;
 }
 
 .server-small {
@@ -156,18 +168,18 @@
 
 
 .server .react-flow__handle-bottom, .client .react-flow__handle-bottom, .gateway .react-flow__handle-bottom, .electric-socket .react-flow__handle-bottom{
-  bottom: 5px;
+  bottom: 20px;
   visibility: hidden;
 }
 
 .server .react-flow__handle-top, .gateway .react-flow__handle-top, .client .react-flow__handle-top, .wifi .react-flow__handle-top {
-  top: 5px;
+  top: 20px;
   visibility: hidden;
 }
 
 
  .client-build .react-flow__handle-top, .client-build .react-flow__handle-bottom {
-  top: 5px;
+  top: 20px;
   visibility: hidden;
 }
 

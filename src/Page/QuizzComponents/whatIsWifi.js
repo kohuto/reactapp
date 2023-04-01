@@ -103,7 +103,7 @@ function WhatIsWiFiComponent({
     if (isWifiPlugged) setIsSwitchedOn((prevSwitch) => !prevSwitch);
     else {
       setAlertMessage(
-        "Prvni zapoj wifi router do zásuvky. Zapojení provedeš tak, že klikneš na černý puntík na routeru a řetáhneš čáru na černý puntík na zásuvce."
+        "Prvni zapoj wifi router do zásuvky. Zapojení provedeš tak, že klikneš na černý puntík na routeru a přetáhneš čáru na černý puntík na zásuvce."
       );
       setGameAfterModalClose(game);
       setOpenModal(true);
