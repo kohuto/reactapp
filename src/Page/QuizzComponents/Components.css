@@ -128,11 +128,16 @@
   margin-top: 5vh;
 }
 
+.create-packets-form-container p {
+  max-width: 15vw;
+}
+
 /* create packet input field */
 .create-packets-form-container .MuiTextField-root {
   margin-bottom: 0.5vh;
   width: 70%;
 }
+
 
 .create-packet-buttons{
   position: absolute;
