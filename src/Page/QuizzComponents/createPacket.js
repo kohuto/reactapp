@@ -57,19 +57,19 @@ function CreatePacketComponent({
               messengerServers.includes(recipientIP[0])
             ) {
               if (
-                (id[0] === "1" && content[0] === firstPartMessage) ||
-                (id[0] === "2" && content[0] === secondPartMessage) ||
-                (id[0] === "3" && content[0] === thirdPartMessage)
+                (order[0] === "1" && content[0] === firstPartMessage) ||
+                (order[0] === "2" && content[0] === secondPartMessage) ||
+                (order[0] === "3" && content[0] === thirdPartMessage)
               ) {
                 if (
-                  (id[1] === "1" && content[1] === firstPartMessage) ||
-                  (id[1] === "2" && content[1] === secondPartMessage) ||
-                  (id[1] === "3" && content[1] === thirdPartMessage)
+                  (order[1] === "1" && content[1] === firstPartMessage) ||
+                  (order[1] === "2" && content[1] === secondPartMessage) ||
+                  (order[1] === "3" && content[1] === thirdPartMessage)
                 ) {
                   if (
-                    (id[2] === "1" && content[2] === firstPartMessage) ||
-                    (id[2] === "2" && content[2] === secondPartMessage) ||
-                    (id[2] === "3" && content[2] === thirdPartMessage)
+                    (order[2] === "1" && content[2] === firstPartMessage) ||
+                    (order[2] === "2" && content[2] === secondPartMessage) ||
+                    (order[2] === "3" && content[2] === thirdPartMessage)
                   ) {
                     setAlertMessage(
                       "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele a také ID a pořadí, aby mohla být zpráva v cíli zpětně sestavená."
