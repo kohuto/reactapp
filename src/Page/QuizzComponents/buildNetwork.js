@@ -28,18 +28,6 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import RuleIcon from "@mui/icons-material/Rule";
 
 function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
-  const reactFlowInstance = useReactFlow();
-
-  useEffect(() => {
-    const nodes = reactFlowInstance.getNodes();
-    console.log(nodes);
-  }, []);
-
-  useEffect(() => {
-    const edges = reactFlowInstance.getEdges();
-    console.log(edges);
-  }, [reactFlowInstance]);
-
   const edgeUpdateSuccessful = useRef(true);
 
   const onConnect = useCallback(
@@ -102,6 +90,45 @@ function FlowWithProvider({
 }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  // check if clients are plugged
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const clientInfoNodes = nodes.filter(
+        (node) => node.className === "client-plugged"
+      );
+
+      const clientBuildNodes = nodes.filter(
+        (node) => node.className === "client-build"
+      );
+
+      const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
+
+      tempClientNodes.forEach((node) => {
+        if (isNodeInRange(node.id, nodes, edges)) {
+          node.className = "client-plugged";
+        } else {
+          node.className = "client-build";
+        }
+      });
+
+      // iterate through each node in tempClientNodes
+      tempClientNodes.forEach((tempNode) => {
+        // check if the node already exists in nodes
+        const index = nodes.findIndex((node) => node.id === tempNode.id);
+        if (index !== -1) {
+          // remove the existing node from nodes
+          nodes.splice(index, 1);
+        }
+        // add the new node to nodes
+        nodes.push(tempNode);
+      });
+    }, 10);
+
+    // Clear the interval when the component unmounts or when the nodes state changes
+    return () => clearInterval(intervalId);
+  }, [nodes]);
+
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) => node.className === device);
@@ -127,77 +154,66 @@ function FlowWithProvider({
   );
 
   function checkValidty() {
-    console.log(nodes.length);
-    console.log(edges.length);
     setGameAfterModalClose(game);
-
     if (isConnected(nodes, edges)) {
       if (!hasGatewayBridge(nodes, edges)) {
         if (!hasArticulationGateway(nodes, edges)) {
-          if (!hasClientServerEdge(nodes, edges)) {
-            if (isWifiAndBTSConnected(nodes, edges)) {
-              if (checkLeafNodes(nodes, edges)) {
-                if (checkClientDistance(nodes, edges)) {
-                  switch (game) {
-                    case "build-network-1":
-                      if (
-                        countNodesByType(nodes, "client-build") > 0 &&
-                        countNodesByType(nodes, "server-build") > 0
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň jeden server a jednoho klienta"
-                        );
-                      }
-                      break;
-                    case "build-network-2":
-                      if (
-                        countNodesByType(nodes, "client-build") > 0 &&
-                        countNodesByType(nodes, "server-build") > 0 &&
-                        countNodesByType(nodes, "bts-build") > 0
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž"
-                        );
-                      }
-                      break;
-                    case "build-network-3":
-                      if (
-                        countNodesByType(nodes, "client-build") > 2 &&
-                        countNodesByType(nodes, "server-build") > 2
-                      ) {
-                        setGameAfterModalClose("noGame");
-                        setAlertMessage("good job");
-                      } else {
-                        setAlertMessage(
-                          "potřebuješ aspoň tři servery a tři klienty"
-                        );
-                      }
-                      break;
-                    case "build-network-4":
-                      setGameAfterModalClose("noGame");
-                      setAlertMessage("good job");
-                      break;
+          if (hasCorrectEdge(nodes, edges)) {
+            if (countNodesByType(nodes, "client-build") === 0) {
+              switch (game) {
+                case "build-network-1":
+                  if (
+                    countNodesByType(nodes, "client-plugged") > 0 &&
+                    countNodesByType(nodes, "server-build") > 0
+                  ) {
+                    setGameAfterModalClose("noGame");
+                    setAlertMessage("good job");
+                  } else {
+                    setAlertMessage(
+                      "potřebuješ aspoň jeden server a jednoho klienta"
+                    );
                   }
-                } else {
-                  setAlertMessage(
-                    "klienti musi byt v blizkosti wifi nebo bts veze"
-                  );
-                }
-              } else {
-                setAlertMessage("musi byt list");
+                  break;
+                case "build-network-2":
+                  if (
+                    countNodesByType(nodes, "client-plugged") > 0 &&
+                    countNodesByType(nodes, "server-build") > 0 &&
+                    countNodesByType(nodes, "bts-build") > 0
+                  ) {
+                    setGameAfterModalClose("noGame");
+                    setAlertMessage("good job");
+                  } else {
+                    setAlertMessage(
+                      "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž"
+                    );
+                  }
+                  break;
+                case "build-network-3":
+                  if (
+                    countNodesByType(nodes, "client-plugged") > 2 &&
+                    countNodesByType(nodes, "server-build") > 2
+                  ) {
+                    setGameAfterModalClose("noGame");
+                    setAlertMessage("good job");
+                  } else {
+                    setAlertMessage(
+                      "potřebuješ aspoň tři servery a tři klienty"
+                    );
+                  }
+                  break;
+                case "build-network-4":
+                  setGameAfterModalClose("noGame");
+                  setAlertMessage("good job");
+                  break;
               }
             } else {
-              setAlertMessage("wifi musi byt pripojena k jedne krizovatce");
+              setAlertMessage(
+                "všichni klienti musí být připojení. Proto musí být v dosahu nějaké BTS věže nebo wifi routeru. Kdžy je klient v dosahu zobrazí se mu nad hlavou ikona wifi"
+              );
             }
           } else {
             setAlertMessage(
-              "server nemůže být přímo porpojený s klientem. Cesta do serveru vede přes nějakou chytrou křižovatku"
+              "Hrany mohou vést pouze mezi dvěma křižovatkami, mezi křižovatkou a BTS/serverem/wifi"
             );
           }
         } else {
@@ -207,7 +223,9 @@ function FlowWithProvider({
         setAlertMessage("nesmi obsahovat mosty mezi krizovatkami");
       }
     } else {
-      setAlertMessage("musi byt spojity");
+      setAlertMessage(
+        "Všechna zařízení musí být navzájem propojeny kabelem (pouze klient bude připojen bezdrátově)."
+      );
     }
     setOpenModal(true);
   }
@@ -232,63 +250,63 @@ function FlowWithProvider({
   );
 }
 
-function checkClientDistance(nodes, edges) {
-  const clientNodes = new Set();
-  const wifiNodes = new Set();
-  const BTSNodes = new Set();
-  const maxDistanceWifi = 150;
-  const maxDistanceBTS = 250;
+function isNodeInRange(nodeId, nodes, edges) {
+  const node = nodes.find((node) => node.id === nodeId);
+  const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
+  const btsNodes = nodes.filter((node) => node.className === "bts-build");
+  const gatewayNodes = nodes.filter(
+    (node) => node.className === "gateway-build"
+  );
+  const wifiRange = 100;
+  const btsRange = 250;
 
-  // Store nodes with class "client-build", "wifi-build", and "bts-build"
-  for (const node of nodes) {
-    if (node.className === "client-build") {
-      clientNodes.add(node.id);
-    } else if (node.className === "wifi-build") {
-      wifiNodes.add(node.id);
-    } else if (node.className === "bts-build") {
-      BTSNodes.add(node.id);
+  // Check if node is at most 100 away from some wifi nodes
+  for (let i = 0; i < wifiNodes.length; i++) {
+    const wifiNode = wifiNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - wifiNode.position.x, 2) +
+        Math.pow(node.position.y - wifiNode.position.y, 2)
+    );
+    if (distance <= wifiRange) {
+      // Check if there is an edge between the wifi node and some gateway node
+      const connectedGateway = gatewayNodes.some((gatewayNode) => {
+        return edges.some((edge) => {
+          return (
+            (edge.source === gatewayNode.id && edge.target === wifiNode.id) ||
+            (edge.target === gatewayNode.id && edge.source === wifiNode.id)
+          );
+        });
+      });
+      if (connectedGateway) {
+        return true;
+      }
     }
   }
 
-  // Check that all client nodes are within distance of at least one BTS or WiFi node
-  for (const clientNode of clientNodes) {
-    const clientPos = nodes.find((node) => node.id === clientNode).position;
-    let isWithinDistance = false;
-
-    // Check wifi nodes
-    for (const wifiNode of wifiNodes) {
-      const wifiPos = nodes.find((node) => node.id === wifiNode).position;
-      const distance = Math.sqrt(
-        (clientPos.x - wifiPos.x) ** 2 + (clientPos.y - wifiPos.y) ** 2
-      );
-      if (distance < maxDistanceWifi) {
-        isWithinDistance = true;
-        break;
+  // Check if node is at most 250 away from some bts nodes
+  for (let i = 0; i < btsNodes.length; i++) {
+    const btsNode = btsNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - btsNode.position.x, 2) +
+        Math.pow(node.position.y - btsNode.position.y, 2)
+    );
+    if (distance <= btsRange) {
+      // Check if there is an edge between the bts node and some gateway node
+      const connectedGateway = gatewayNodes.some((gatewayNode) => {
+        return edges.some((edge) => {
+          return (
+            (edge.source === gatewayNode.id && edge.target === btsNode.id) ||
+            (edge.target === gatewayNode.id && edge.source === btsNode.id)
+          );
+        });
+      });
+      if (connectedGateway) {
+        return true;
       }
-    }
-
-    if (isWithinDistance) {
-      continue;
-    }
-
-    // Check BTS nodes
-    for (const BTSNode of BTSNodes) {
-      const BTSPos = nodes.find((node) => node.id === BTSNode).position;
-      const distance = Math.sqrt(
-        (clientPos.x - BTSPos.x) ** 2 + (clientPos.y - BTSPos.y) ** 2
-      );
-      if (distance < maxDistanceBTS) {
-        isWithinDistance = true;
-        break;
-      }
-    }
-
-    if (!isWithinDistance) {
-      return false;
     }
   }
 
-  return true;
+  return false;
 }
 
 function isConnected(nodes, edges) {
@@ -318,7 +336,11 @@ function isConnected(nodes, edges) {
 
   // Check if every node was visited
   for (const node of nodes) {
-    if (node.className !== "client-build" && !visited[node.id]) {
+    if (
+      node.className !== "client-build" &&
+      node.className !== "client-plugged" &&
+      !visited[node.id]
+    ) {
       return false;
     }
   }
@@ -382,115 +404,39 @@ function hasGatewayBridge(nodes, edges) {
   return bridges;
 }
 
-function hasClientServerEdge(nodes, edges) {
-  const clientNodes = new Set();
+function hasCorrectEdge(nodes, edges) {
   const serverNodes = new Set();
-
-  // Store nodes with class "client-build" and "server-build"
-  for (const node of nodes) {
-    if (node.className === "client-build") {
-      clientNodes.add(node.id);
-    } else if (node.className === "server-build") {
-      serverNodes.add(node.id);
-    }
-  }
-
-  // Check if any edges connect a client node and a server node
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (clientNodes.has(source) && serverNodes.has(target)) {
-      return true;
-    } else if (clientNodes.has(target) && serverNodes.has(source)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function isWifiAndBTSConnected(nodes, edges) {
-  const wifiNodes = new Set();
-  const BTSNodes = new Set();
   const gatewayNodes = new Set();
-  const connectedNodes = new Set();
+  const wifiNodes = new Set();
+  const btsNodes = new Set();
 
-  // Store nodes with class "wifi-build", "bts-build", and "gateway-build"
+  // Store nodes with class "client-build", "server-build", "gateway-build", "wifi-build", and "bts-build"
   for (const node of nodes) {
-    if (node.className === "wifi-build") {
-      wifiNodes.add(node.id);
-    } else if (node.className === "bts-build") {
-      BTSNodes.add(node.id);
+    if (node.className === "server-build") {
+      serverNodes.add(node.id);
     } else if (node.className === "gateway-build") {
       gatewayNodes.add(node.id);
+    } else if (node.className === "wifi-build") {
+      wifiNodes.add(node.id);
+    } else if (node.className === "bts-build") {
+      btsNodes.add(node.id);
     }
   }
 
-  // Check if each wifi node or BTS node has at least one edge connected to a gateway node
+  // Check if any edges connect a client node and a server node, following the allowed edge types
   for (const edge of edges) {
     const source = edge.source;
     const target = edge.target;
-    if (wifiNodes.has(source) || BTSNodes.has(source)) {
-      if (gatewayNodes.has(target)) {
-        connectedNodes.add(source);
-      }
-    }
-    if (wifiNodes.has(target) || BTSNodes.has(target)) {
-      if (gatewayNodes.has(source)) {
-        connectedNodes.add(target);
-      }
-    }
-  }
-
-  // Check if all wifi nodes and BTS nodes have at least one connected edge to a gateway node
-  for (const wifiNode of wifiNodes) {
-    if (!connectedNodes.has(wifiNode)) {
-      return false;
-    }
-  }
-  for (const BTSNode of BTSNodes) {
-    if (!connectedNodes.has(BTSNode)) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function checkLeafNodes(nodes, edges) {
-  const leafNodes = new Set();
-  const adjList = new Map();
-
-  // Build adjacency list
-  for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (!adjList.has(source)) adjList.set(source, []);
-    if (!adjList.has(target)) adjList.set(target, []);
-    adjList.get(source).push(target);
-    adjList.get(target).push(source);
-  }
-
-  // Find leaf nodes for each type of node
-  for (const node of nodes) {
     if (
-      node.className === "server-build" ||
-      node.className === "bts-build" ||
-      node.className === "wifi-build"
-    ) {
-      if (adjList.get(node.id).length === 1) {
-        leafNodes.add(node.id);
-      }
-    }
-  }
-
-  // Check if all nodes with class "server-build", "bts-build", or "wifi-build" are leaf nodes
-  for (const node of nodes) {
-    if (
-      (node.className === "server-build" ||
-        node.className === "bts-build" ||
-        node.className === "wifi-build") &&
-      !leafNodes.has(node.id)
+      !(
+        (gatewayNodes.has(source) && gatewayNodes.has(target)) ||
+        (gatewayNodes.has(source) && wifiNodes.has(target)) ||
+        (gatewayNodes.has(source) && btsNodes.has(target)) ||
+        (gatewayNodes.has(source) && serverNodes.has(target)) ||
+        (gatewayNodes.has(target) && wifiNodes.has(source)) ||
+        (gatewayNodes.has(target) && btsNodes.has(source)) ||
+        (gatewayNodes.has(target) && serverNodes.has(source))
+      )
     ) {
       return false;
     }
