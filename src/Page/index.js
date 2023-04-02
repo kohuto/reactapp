@@ -13,8 +13,8 @@ import { landingPagePacketsData } from "../Packet/data/landingPage";
 
 function Page() {
   const [isLandingPage, setIsLandingPage] =
-    useState(false); /* zde změnit na true */
-  const [game, setGame] = useState("connectClientsWireless");
+    useState(true); /* zde změnit na true */
+  const [game, setGame] = useState("noGame");
   const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();
   const [edge, setEdges, onEdgesChange] = useNodesState();
@@ -25,7 +25,7 @@ function Page() {
   const [isDistroyedProblemWithPath, setIsDistroyedProblemWithPath] =
     useState(false);
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = useState(true);
   const [gameAfterClose, setGameAfterModalClose] = useState("noGame");
 
   function handleOpenDialog(isOpen) {

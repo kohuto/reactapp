@@ -107,9 +107,10 @@ function ConnectClientsWirelessComponent({
   const [edges, setEdges, onEdgesChange] = useEdgesState(
     connectClientWirelessEdges
   );
+  const finalCountPluggedClient = 10;
 
   useEffect(() => {
-    if (countNodesByType(nodes, "client-plugged") == 10) {
+    if (countNodesByType(nodes, "client-plugged") == finalCountPluggedClient) {
       setAlertMessage("Perfektní");
       setGameAfterModalClose("noGame");
       setOpenModal(true);
