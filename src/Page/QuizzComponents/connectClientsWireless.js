@@ -109,7 +109,7 @@ function ConnectClientsWirelessComponent({
   );
 
   useEffect(() => {
-    if (countNodesByType(nodes, "client-plugged") == 7) {
+    if (countNodesByType(nodes, "client-plugged") == 10) {
       setAlertMessage("Perfektní");
       setGameAfterModalClose("noGame");
       setOpenModal(true);
@@ -197,7 +197,7 @@ function isNodeInRange(nodeId, nodes) {
   const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
   const btsNodes = nodes.filter((node) => node.className === "bts-build");
   const wifiRange = 100;
-  const btsRange = 250;
+  const btsRange = 200;
 
   // Check if node is at most 100 away from some wifi nodes
   for (let i = 0; i < wifiNodes.length; i++) {
