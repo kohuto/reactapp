@@ -111,7 +111,9 @@ function ConnectClientsWirelessComponent({
 
   useEffect(() => {
     if (countNodesByType(nodes, "client-plugged") == finalCountPluggedClient) {
-      setAlertMessage("Perfektní");
+      setAlertMessage(
+        "Perfektní! Zvládl jsi umístit všechna zařízení tak, aby se mohli všichni připojit k internetu. Při umisťování jsi viděl, že každé zařízení má jiný dosah. Pojďme si nyní říct. Jaký dosah ve skutečnosti tato zařízení mají. Doma používáme WiFi router, který může WiFi signál vysílat do vzdálenosti 50–100 metrů, ale může být i menší, pokud máte tlusté zdi. Dosah signálu vysílaného BTS věží je až 5 km. Na těžko dostupných místech využíváme satelity, které komunikují z oběžné dráhy v různé výšce. Ty nejnižší jsou ve výšce 200 km. Ty nejvyšší jsou až 36 000 km nad zemí. Pro přenos dat na větší vzdálenosti používáme kabely."
+      );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
     }
