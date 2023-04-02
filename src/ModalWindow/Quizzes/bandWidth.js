@@ -11,7 +11,8 @@ function TypingChallenge({
   setOverlayDialogMessage,
   game,
 }) {
-  const text = "toto je ukázkový text";
+  const text =
+    "Toto je ukázkový text, který je potřeba přepsat do textového pole, níže. Text je schválně takto dlouhý, aby bylo vysoce nepravděpodobné, že ho zvládneš přepsat celý za 10  sekund.";
   const [userInput, setUserInput] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -42,7 +43,7 @@ function TypingChallenge({
       );
       setGameAfterModalClose("noGame");
       setOpenModal(true);
-    }, 5000);
+    }, 10000);
   };
 
   /* check if input is valid */
