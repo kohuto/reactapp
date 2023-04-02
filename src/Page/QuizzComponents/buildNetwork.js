@@ -164,13 +164,14 @@ function FlowWithProvider({
                 case "build-network-1":
                   if (
                     countNodesByType(nodes, "client-plugged") > 0 &&
-                    countNodesByType(nodes, "server-build") > 0
+                    countNodesByType(nodes, "server-build") > 0 &&
+                    countNodesByType(nodes, "gatewaz-build") > 2
                   ) {
                     setGameAfterModalClose("noGame");
                     setAlertMessage("good job");
                   } else {
                     setAlertMessage(
-                      "potřebuješ aspoň jeden server a jednoho klienta"
+                      "Potřebuješ aspoň jeden server, jednoho klienta a tři chytré křižovatky."
                     );
                   }
                   break;
