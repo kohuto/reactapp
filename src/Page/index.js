@@ -106,9 +106,9 @@ function Page() {
         gameAfterClose={gameAfterDialogClose}
       />
 
-      {/* Creative mode */}
       {isCreativeMode ? (
         <>
+          {/* Creative mode */}
           <DefaultPackets
             packetsData={landingPagePacketsData}
             repeat={Infinity}
