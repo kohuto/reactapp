@@ -1,15 +1,10 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import ReactFlow, {
-  useNodes,
-  useEdges,
   addEdge,
-  Handle,
-  Position,
   useNodesState,
   useEdgesState,
   useReactFlow,
   ReactFlowProvider,
-  Controls,
   updateEdge,
 } from "reactflow";
 import Badge from "@mui/material/Badge";
@@ -27,21 +22,12 @@ import Button from "@mui/material/Button";
 import { landingPageNodes } from "../Flow/data/landingPage";
 import { landingPageEdges } from "../Flow/data/edges/landingPage";
 import DefaultPackets from "../Packet";
-import profileImageMan from "../images/profile/man.png";
-import profileImageWoman from "../images/profile/woman.png";
-import gallery from "../images/icons/image-gallery.png";
-import plus from "../images/icons/plusmess.png";
-import gif from "../images/icons/gif.png";
-import { landingPagePacketsData } from "../Packet/data/landingPage";
 import SendIcon from "@mui/icons-material/Send";
-import Snackbar from "@mui/material/Snackbar";
-import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 
 function Flow({
   nodes,
   edges,
-  setNodes,
   setEdges,
   game,
   onNodesChange,
@@ -121,7 +107,7 @@ function Flow({
   );
 }
 
-function LandingPage({
+function CreativeMode({
   setAlertMessage,
   setOpenModal,
   game,
@@ -671,4 +657,4 @@ function Buttons({ handleAddNode, checkValidty, nodes, setIsLandingPage }) {
   );
 }
 
-export default LandingPage;
+export default CreativeMode;

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
+function Dialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
   const handleClose = () => {
     setGame(gameAfterClose);
     setOpen(false);
@@ -49,4 +49,4 @@ function AlertDialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
   );
 }
 
-export default AlertDialog;
+export default Dialog;

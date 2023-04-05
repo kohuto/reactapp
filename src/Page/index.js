@@ -3,137 +3,170 @@ import QuizzComponents from "./QuizzComponents/Quizzes";
 import { useState } from "react";
 import Flow from "./reactFlow";
 import { useNodesState } from "reactflow";
-import AlertDialog from "./modalWindow";
+import Dialog from "./modalWindow";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
-import LandingPage from "./landingPage";
+import CreativeMode from "./creativeMode";
 import DefaultPackets from "../Packet";
 import { landingPagePacketsData } from "../Packet/data/landingPage";
 
+/**
+ * This is the main component of the application.
+ * It includes the educational mode and the creative mode.
+ * @returns {JSX.Element} The main component of the application.
+ */
+
 function Page() {
-  const [isLandingPage, setIsLandingPage] =
-    useState(true); /* zde změnit na true */
+  // Welcome message
+  const welcomeMessage =
+    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. V případě, že nebudeš vědět, co dál, klikni vpravo dole na otazník a otevře se ti nápověda. Nyní zavři toto okno a můžeš začít zkoumat.";
+
+  // State initialization
+  const [isCreativeMode, setIsCreativeMode] = useState(true);
   const [game, setGame] = useState("noGame");
   const [nodes, setNodes, onNodesChange] = useNodesState();
-  const [edge, setEdges, onEdgesChange] = useNodesState();
-  const [alertMessage, setAlertMessage] = useState(
-    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. V případě, že nebudeš vědět, co dál, klikni vpravo dole na otazník a otevře se ti nápověda. Nyní zavři toto okno a můžeš začít zkoumat."
-  );
+  const [dialogMessage, setDialogMessage] = useState(welcomeMessage);
   const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
-  const [isDistroyedProblemWithPath, setIsDistroyedProblemWithPath] =
+  const [isDestroyedProblemWithPath, setIsDestroyedProblemWithPath] =
     useState(false);
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
   const [openDialog, setOpenDialog] = useState(true);
-  const [gameAfterClose, setGameAfterModalClose] = useState("noGame");
+  const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
 
+  // Special game flows
+  const specialFlowGame = [
+    "client-server-communication",
+    "whatIsServer",
+    "whatIsPath",
+    "raceAroundWorld",
+    "whatIsWiFi",
+    "buildNetwork",
+    "connectClientsWireless",
+    "build-network-1",
+    "build-network-2",
+    "build-network-3",
+    "build-network-4",
+  ];
+
+  /**
+   * Handles the open state of the main dialog box.
+   * @param {boolean} isOpen - The new state of the dialog box.
+   */
   function handleOpenDialog(isOpen) {
     setOpenDialog(isOpen);
   }
-  function handleIsDistroyedProblemWithPath(isDestroyed) {
-    setIsDistroyedProblemWithPath(isDestroyed);
-  }
 
-  function handleAlertMessageChange(newMessage) {
-    setAlertMessage(newMessage);
-  }
-
-  function handleOverlayDialogMessageChange(newMessage) {
-    setOverlayDialogMessage(newMessage);
-  }
-
+  /**
+   * Handles the open state of the overlay dialog box.
+   * @param {boolean} isOpen - The new state of the overlay dialog box.
+   */
   function handleOpenOverlayDialog(isOpen) {
     setOpenOverlayDialog(isOpen);
   }
 
+  /**
+   * Handles the change of the message displayed in the main dialog box.
+   * @param {string} newMessage - The new message to be displayed in the main dialog box.
+   */
+  function handleDialogMessageChange(newMessage) {
+    setDialogMessage(newMessage);
+  }
+
+  /**
+   * Handles the change of the message displayed in the overlay dialog box.
+   * @param {string} newMessage - The new message to be displayed in the overlay dialog box.
+   */
+  function handleOverlayDialogMessageChange(newMessage) {
+    setOverlayDialogMessage(newMessage);
+  }
+
+  /**
+   * Handles the change of the game state after the main dialog box is closed.
+   * @param {string} newGame - The new game state.
+   */
+  function handleGameAfterDialogCloseChange(newGame) {
+    setGameAfterDialogClose(newGame);
+  }
+
+  /**
+   * Handles the change of the state of the problem that needs to be destroyed.
+   * @param {boolean} isDestroyed - The new state of the problem that needs to be destroyed.
+   */
+  function handleIsDestroyedProblemWithPath(isDestroyed) {
+    setIsDestroyedProblemWithPath(isDestroyed);
+  }
+
   return (
     <>
-      <AlertDialog
+      <Dialog
         open={openDialog}
         setOpen={setOpenDialog}
-        alertMessage={alertMessage}
+        alertMessage={dialogMessage}
         setGame={setGame}
-        gameAfterClose={gameAfterClose}
+        gameAfterClose={gameAfterDialogClose}
       />
-      {isLandingPage ? (
+
+      {/* Creative mode */}
+      {isCreativeMode && (
         <>
           <DefaultPackets
             packetsData={landingPagePacketsData}
             repeat={Infinity}
             marginleft={0}
           />
-          <AlertDialog
-            open={openDialog}
-            setOpen={setOpenDialog}
-            alertMessage={alertMessage}
-            setGame={setGame}
-            gameAfterClose={gameAfterClose}
-          />
-          <LandingPage
-            setGameAfterModalClose={setGameAfterModalClose}
-            setAlertMessage={handleAlertMessageChange}
+          <CreativeMode
+            setGameAfterModalClose={handleGameAfterDialogCloseChange}
+            setAlertMessage={handleDialogMessageChange}
             setOpenModal={handleOpenDialog}
             game={game}
-            setIsLandingPage={() => setIsLandingPage(false)}
+            setIsLandingPage={() => setIsCreativeMode(false)}
           />
         </>
-      ) : (
+      )}
+
+      {/* educational mode */}
+      {!isCreativeMode && (
         <>
           <QuizzComponents
             game={game}
             setGame={setGame}
-            setGameAfterModalClose={setGameAfterModalClose}
-            setAlertMessage={handleAlertMessageChange}
+            setGameAfterClose={handleGameAfterDialogCloseChange}
+            setAlertMessage={handleDialogMessageChange}
             setOpenModal={handleOpenDialog}
-            setIsDistroyedProblemWithPath={handleIsDistroyedProblemWithPath}
-            isDestroyed={isDistroyedProblemWithPath}
+            setIsDistroyedProblemWithPath={handleIsDestroyedProblemWithPath}
+            isDestroyed={isDestroyedProblemWithPath}
           />
 
-          <AlertDialog
+          {/* Overlay dialog */}
+          <Dialog
             open={openOverlayDialog}
             setOpen={setOpenOverlayDialog}
             alertMessage={overlayDialogMessage}
             setGame={setGame}
-            gameAfterClose={gameAfterClose}
+            gameAfterClose={gameAfterDialogClose}
           />
 
+          {/* Main content */}
           <div>
-            {![
-              "client-server-communication",
-              "whatIsServer",
-              "whatIsPath",
-              "raceAroundWorld",
-              "whatIsWiFi",
-              "buildNetwork",
-              "connectClientsWireless",
-              "build-network-1",
-              "build-network-2",
-              "build-network-3",
-              "build-network-4",
-            ].includes(game) && (
-              <div
-                style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
-                className={`${game}-bg`}
-              >
+            {!specialFlowGame.includes(game) && (
+              <div className="main-flow-container">
                 <Flow
                   game={game}
-                  zoom={0}
                   nodes={nodes}
-                  edge={edge}
-                  setEdges={setEdges}
-                  onEdgesChange={onEdgesChange}
                   setNodes={setNodes}
                   onNodesChange={onNodesChange}
-                  isDestroyed={isDistroyedProblemWithPath}
-                ></Flow>
+                  isDestroyed={isDestroyedProblemWithPath}
+                />
               </div>
             )}
+
             <Sidebar
-              showLandingPage={setIsLandingPage}
+              showLandingPage={setIsCreativeMode}
               setGame={setGame}
-              setAlertMessage={handleAlertMessageChange}
+              setAlertMessage={handleDialogMessageChange}
               game={game}
-              setGameAfterModalClose={setGameAfterModalClose}
+              setGameAfterClose={handleGameAfterDialogCloseChange}
               setOpenModal={handleOpenDialog}
               setOpenOverlayModal={handleOpenOverlayDialog}
               setOverlayDialogMessage={handleOverlayDialogMessageChange}

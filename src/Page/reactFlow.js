@@ -36,7 +36,7 @@ import { whatIsBTSNodes } from "../Flow/data/whatIsBTS";
 import { whatIsBTSEdges } from "../Flow/data/edges/whatIsBTSEdges";
 import { whatIsWifiNodes } from "../Flow/data/whatIsWifi";
 
-function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
+function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
   const defaultNodes = clientsZoom2Data
     .concat(serversZoom2Data)
     .concat(gatewaysZoom2Data);
@@ -111,7 +111,7 @@ function Flow({ game, zoom, nodes, setNodes, onNodesChange, isDestroyed }) {
         setNodes(defaultNodes);
         setEdges(edgesData);
     }
-  }, [game, setNodes, zoom, setEdges, isDestroyed]);
+  }, [game, setNodes, setEdges, isDestroyed]);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
