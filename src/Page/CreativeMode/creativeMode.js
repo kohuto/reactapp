@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
 import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
-import "../landingPage.css";
+import "./creativeMode.css";
 import { landingPageNodes } from "../../Flow/data/landingPage";
 import { landingPageEdges } from "../../Flow/data/edges/landingPage";
 import DefaultPackets from "../../Packet";
@@ -12,21 +12,12 @@ import CreativeModeFlow from "./creativeModeFlow";
 /**
  * Represents the Creative Mode component.
  * @param {Object} props - The component props.
- * @param {Function} props.setAlertMessage - A function to set an alert message.
  * @param {Function} props.setOpenModal - A function to set the open modal state.
- * @param {Object} props.game - The game state object.
- * @param {Function} props.setGameAfterModalClose - A function to set the game state after modal is closed.
- * @param {Function} props.setIsLandingPage - A function to set the landing page state.
+ * @param {Function} props.setIsCreativeMode - A function to set the creative mode state.
  * @returns {JSX.Element} - The rendered component.
  */
 
-function CreativeMode({
-  setAlertMessage,
-  setOpenModal,
-  game,
-  setGameAfterModalClose,
-  setIsLandingPage,
-}) {
+function CreativeMode({ setOpenModal, setIsCreativeMode }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(landingPageNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
 
@@ -78,9 +69,7 @@ function CreativeMode({
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 15) {
-        setAlertMessage("vice uz jich nepridavej. Uz jich mas az moc");
-        setGameAfterModalClose(game);
-        setOpenModal(true);
+        setOpenModal(true, "vice uz jich nepridavej. Uz jich mas az moc");
       } else {
         const newNode = {
           id: `${ipv4Address}`,
@@ -125,16 +114,12 @@ function CreativeMode({
       <SendPacketBox
         nodes={nodes}
         edges={edges}
-        setAlertMessage={setAlertMessage}
-        setGameAfterModalClose={setGameAfterModalClose}
         setOpenModal={setOpenModal}
         setPath={handleSetUserPacketPath}
       />
       <ServiceButtons
-        setAlertMessage={setAlertMessage}
-        setIsLandingPage={setIsLandingPage}
+        setIsCreativeMode={setIsCreativeMode}
         setOpenModal={setOpenModal}
-        setGameAfterModalClose={setGameAfterModalClose}
       />
       <AddDeviceButtons handleAddNode={handleAddNode} nodes={nodes} />
 

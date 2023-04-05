@@ -1,24 +1,22 @@
 import "reactflow/dist/style.css";
 import "./Sidebar.css";
-
-import SummaryTemplate from "../ModalWindow/templateSummary";
-import { stockData } from "../ModalWindow/dataQuizzes";
-import { summaryText } from "../ModalWindow/dataSummary";
-import internet from "../images/icons/internet.png";
-import packet from "../images/icons/packet.png";
-import wifi from "../images/icons/wifi.png";
-import builder from "../images/icons/builder.png";
-import gateway from "../images/icons/gateway.png";
-import backarrow from "../images/icons/left-arrow.png";
-import summary from "../images/icons/summary.png";
-import question from "../images/icons/question-mark.png";
-import lightbulb from "../images/icons/light-bulb.png";
-import Quizz from "../ModalWindow/Quizz";
-import React, { useState, useEffect, useRef } from "react";
+import SummaryTemplate from "../../../ModalWindow/templateSummary";
+import { stockData } from "../../../ModalWindow/dataQuizzes";
+import { summaryText } from "../../../ModalWindow/dataSummary";
+import internet from "../../../images/icons/internet.png";
+import packet from "../../../images/icons/packet.png";
+import wifi from "../../../images/icons/wifi.png";
+import builder from "../../../images/icons/builder.png";
+import gateway from "../../../images/icons/gateway.png";
+import backarrow from "../../../images/icons/left-arrow.png";
+import summary from "../../../images/icons/summary.png";
+import question from "../../../images/icons/question-mark.png";
+import lightbulb from "../../../images/icons/light-bulb.png";
+import Quizz from "../../../ModalWindow/Quizz";
+import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 function Sidebar({
-  setGame,
   showLandingPage,
   setAlertMessage,
   setOpenModal,
@@ -33,7 +31,6 @@ function Sidebar({
         <NavItem>
           <DropdownMenu
             showLandingPage={showLandingPage}
-            setGame={setGame}
             setOpenModal={setOpenModal}
             setGameAfterModalClose={setGameAfterModalClose}
             setAlertMessage={setAlertMessage}
@@ -61,7 +58,6 @@ function NavItem(props) {
 
 function DropdownMenu({
   showLandingPage,
-  setGame,
   setOpenModal,
   setGameAfterModalClose,
   setAlertMessage,

@@ -10,18 +10,11 @@ import RuleIcon from "@mui/icons-material/Rule";
  * This component renders two service buttons for the Creative mode page: a help button and a go to tasks button.
  * The help button displays an interactive mode dialog when clicked, while the go to tasks button opens a modal
  * with buttons that reffer to Edu mode page.
- * @param {Function} setIsLandingPage - A function to set the value of the isLandingPage state in the parent component.
- * @param {Function} setAlertMessage - A function to set the value of the alertMessage state in the parent component.
- * @param {Function} setGameAfterModalClose - A function to set the value of the gameAfterModalClose state in the parent component.
+ * @param {Function} setIsCreativeMode - A function to set the value of the isCreativeMode state in the parent component.
  * @param {Function} setOpenModal - A function to set the value of the openModal state in the parent component.
  * @returns {JSX.Element} - Returns JSX that renders two IconButton components wrapped in a Tooltip component.
  */
-function ServiceButtons({
-  setIsLandingPage,
-  setAlertMessage,
-  setGameAfterModalClose,
-  setOpenModal,
-}) {
+function ServiceButtons({ setIsCreativeMode, setOpenModal }) {
   /**
    * A state hook that stores whether the help button has been clicked or not.
    */
@@ -38,25 +31,21 @@ function ServiceButtons({
    */
   function handleShowHintClick() {
     setIsHintClicked(true);
-    setAlertMessage(hintMessage);
-    setGameAfterModalClose("noGame");
-    setOpenModal(true);
+    setOpenModal(true, hintMessage, "noGame");
   }
 
   /**
    * Handles the click event of the go to tasks button. Sets the value of isTasksClicked to true.
    */
   function handleGoToEduModeClick() {
-    setAlertMessage(
+    setOpenModal(
+      true,
       <GoToEduModeDialog
-        setIsLandingPage={setIsLandingPage}
+        setIsCreativeMode={setIsCreativeMode}
         setOpenModal={setOpenModal}
-        setGameAfterModalClose={setGameAfterModalClose}
-        setAlertMessage={setAlertMessage}
-      />
+      />,
+      "noGame"
     );
-    setGameAfterModalClose("noGame");
-    setOpenModal(true);
     setIsTasksClicked(true);
   }
 

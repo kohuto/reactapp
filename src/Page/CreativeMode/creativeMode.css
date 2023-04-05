@@ -48,7 +48,7 @@
 .client-plugged {
     width: 85px;
   height: 70px;
-  background-image: url("../images/nodes/client-plugged.jpg");
+  background-image: url("../../images/nodes/client-plugged.jpg");
   background-repeat: no-repeat;
   border: none;
   background-size: contain;

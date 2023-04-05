@@ -1,4 +1,4 @@
-import Sidebar from "../../Sidebar/sidebar";
+import Sidebar from "./Sidebar/sidebar";
 import QuizzComponents from "../QuizzComponents/Quizzes";
 import Flow from "../reactFlow";
 import Dialog from "../DialogWIndow/dialogWindow";
@@ -82,7 +82,6 @@ function EducationalMode({
 
       <Sidebar
         showLandingPage={setIsCreativeMode}
-        setGame={setGame}
         setAlertMessage={setDialogMessage}
         game={game}
         setGameAfterClose={setGameAfterDialogClose}

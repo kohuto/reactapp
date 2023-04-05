@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useRef, useState } from "react";
+import { useEffect, useCallback } from "react";
 import ReactFlow, { useEdgesState, addEdge, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import "./reactFlow.css";
@@ -111,7 +111,7 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
         setNodes(defaultNodes);
         setEdges(edgesData);
     }
-  }, [game, setNodes, setEdges, isDestroyed]);
+  }, [game, setNodes, setEdges, isDestroyed, defaultNodes]);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
@@ -138,7 +138,7 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
         defaultViewport={{ x: 0, y: 0, zoom: 1 }}
         attributionPosition="top-right"
       >
-        {game == "whatIsClient" && <Controls />}
+        {game === "whatIsClient" && <Controls />}
       </ReactFlow>
     </>
   );

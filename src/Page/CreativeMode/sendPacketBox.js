@@ -14,19 +14,10 @@ const WIFI_CLASSNAME = "wifi-build";
  * Component for sending packets between nodes in a network simulation.
  * @param {Object[]} nodes - The list of nodes in the network.
  * @param {Object[]} edges - The list of edges connecting the nodes in the network.
- * @param {function} setAlertMessage - A function for setting an alert message.
- * @param {function} setGameAfterModalClose - A function for setting the game state after closing a modal.
  * @param {function} setOpenModal - A function for opening/closing a modal.
  * @param {function} setPath - A function for setting the path between the sender and recipient nodes.
  */
-function SendPacketBox({
-  nodes,
-  edges,
-  setAlertMessage,
-  setGameAfterModalClose,
-  setOpenModal,
-  setPath,
-}) {
+function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
   const [recipientIpAddress, setRecipientIpAddress] = useState("");
   const [senderIpAddress, setSenderIpAddress] = useState("");
   const invalidIPMessage = "Zadejte platnou IP adresu odesílatele a příjemce.";
@@ -66,21 +57,19 @@ function SendPacketBox({
             );
             return;
           } else {
-            setAlertMessage(noPathMessage);
+            setOpenModal(true, noPathMessage);
           }
         } else {
-          setAlertMessage(unplugedClientMessage);
+          setOpenModal(true, unplugedClientMessage);
         }
       } else {
-        setAlertMessage(invalidSenderRecipientMessage);
+        setOpenModal(true, invalidSenderRecipientMessage);
       }
     } else {
-      setAlertMessage(invalidIPMessage);
+      setOpenModal(true, invalidIPMessage);
     }
     setSenderIpAddress("");
     setRecipientIpAddress("");
-    setGameAfterModalClose("noGame");
-    setOpenModal(true);
   }
 
   /**

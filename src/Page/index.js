@@ -50,8 +50,12 @@ function Page() {
   /**
    * Handles the open state of the main dialog box.
    * @param {boolean} isOpen - The new state of the dialog box.
+   * @param {object} content - The contnet of the dialog box.
+   * @param {string} gameAfterClose - The game thate will be set after close dialog box.
    */
-  function handleOpenDialog(isOpen) {
+  function handleOpenDialog(isOpen, content, gameAfterClose = game) {
+    setDialogMessage(content);
+    setGameAfterDialogClose(gameAfterClose);
     setOpenDialog(isOpen);
   }
 
@@ -115,11 +119,8 @@ function Page() {
             marginleft={0}
           />
           <CreativeMode
-            setGameAfterModalClose={handleGameAfterDialogCloseChange}
-            setAlertMessage={handleDialogMessageChange}
             setOpenModal={handleOpenDialog}
-            game={game}
-            setIsLandingPage={() => setIsCreativeMode(false)}
+            setIsCreativeMode={() => setIsCreativeMode(false)}
           />
         </>
       ) : (
