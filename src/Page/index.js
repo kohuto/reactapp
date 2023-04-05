@@ -32,7 +32,7 @@ function Page() {
   const [openDialog, setOpenDialog] = useState(true);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
 
-  // Special game flows
+  // games that needs special flows
   const specialFlowGame = [
     "client-server-communication",
     "whatIsServer",
