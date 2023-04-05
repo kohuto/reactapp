@@ -8,8 +8,8 @@ import './index.css';
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
- 
-       <Page />
- 
+       <StrictMode>
+              <Page />
+       </StrictMode>
 );
 

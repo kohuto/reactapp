@@ -1,27 +1,29 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import "./dialogWindowStyle.css";
 
+/**
+ * Renders a modal dialog box that displays a message to the user.
+ * @param {Object} props - The component props.
+ * @param {boolean} props.open - Whether the dialog is open or not.
+ * @param {function} props.setOpen - Function to set the state of `open`.
+ * @param {string} props.alertMessage - The message to display in the dialog.
+ * @param {function} props.setGame - Function to set the state of the game.
+ * @param {object} props.gameAfterClose - The game state to set after the dialog is closed.
+ * @returns {JSX.Element} - The JSX for the modal dialog box.
+ */
 function Dialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
+  /**
+   * Handles closing the dialog box and setting the game state.
+   */
   const handleClose = () => {
     setGame(gameAfterClose);
     setOpen(false);
   };
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    display: "inline-block",
-    width: "auto",
-    height: "auto",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
+
+  // Split the message into lines by backslash n if it is a string.
   let messageLines = alertMessage;
-  console.log(typeof alertMessage);
   if (typeof alertMessage === "string") {
     messageLines = alertMessage.split("\n").map((line, index) => (
       <Typography key={index} id="modal-modal-description" sx={{ mt: 2 }}>
@@ -36,7 +38,7 @@ function Dialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <Box sx={style}>
+        <Box className="dialog-window-container">
           <span className="close" onClick={handleClose}>
             &times;
           </span>

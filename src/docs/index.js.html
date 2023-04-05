@@ -26,18 +26,16 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import Sidebar from "../Sidebar/sidebar";
-import QuizzComponents from "./QuizzComponents/Quizzes";
-import { useState } from "react";
-import Flow from "./reactFlow";
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
 import { useNodesState } from "reactflow";
-import Dialog from "./modalWindow";
+import Dialog from "./DialogWIndow/dialogWindow";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "../Packet";
 import { landingPagePacketsData } from "../Packet/data/landingPage";
+import EducationalMode from "./educationalMode/eduMode";
 
 /**
  * This is the main component of the application.
@@ -62,7 +60,7 @@ function Page() {
   const [openDialog, setOpenDialog] = useState(true);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
 
-  // Special game flows
+  // games that needs special flows
   const specialFlowGame = [
     "client-server-communication",
     "whatIsServer",
@@ -127,6 +125,7 @@ function Page() {
 
   return (
     &lt;>
+      {/* Main dialog */}
       &lt;Dialog
         open={openDialog}
         setOpen={setOpenDialog}
@@ -135,9 +134,9 @@ function Page() {
         gameAfterClose={gameAfterDialogClose}
       />
 
-      {/* Creative mode */}
-      {isCreativeMode &amp;&amp; (
+      {isCreativeMode ? (
         &lt;>
+          {/* Creative mode */}
           &lt;DefaultPackets
             packetsData={landingPagePacketsData}
             repeat={Infinity}
@@ -151,55 +150,29 @@ function Page() {
             setIsLandingPage={() => setIsCreativeMode(false)}
           />
         &lt;/>
-      )}
-
-      {/* educational mode */}
-      {!isCreativeMode &amp;&amp; (
+      ) : (
         &lt;>
-          &lt;QuizzComponents
+          {/* Educational mode */}
+          &lt;EducationalMode
             game={game}
             setGame={setGame}
-            setGameAfterClose={handleGameAfterDialogCloseChange}
-            setAlertMessage={handleDialogMessageChange}
-            setOpenModal={handleOpenDialog}
+            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
+            setDialogMessage={handleDialogMessageChange}
+            setOpenDialog={handleOpenDialog}
             setIsDistroyedProblemWithPath={handleIsDestroyedProblemWithPath}
-            isDestroyed={isDestroyedProblemWithPath}
+            isDestroyedProblemWithPath={isDestroyedProblemWithPath}
+            openOverlayDialog={openOverlayDialog}
+            overlayDialogMessage={overlayDialogMessage}
+            gameAfterDialogClose={gameAfterDialogClose}
+            nodes={nodes}
+            setNodes={setNodes}
+            onNodesChange={onNodesChange}
+            setIsCreativeMode={setIsCreativeMode}
+            setOpenOverlayDialog={handleOpenOverlayDialog}
+            setOverlayDialogMessage={handleOverlayDialogMessageChange}
+            specialFlowGame={specialFlowGame}
+            isCreativeMode={isCreativeMode}
           />
-
-          {/* Overlay dialog */}
-          &lt;Dialog
-            open={openOverlayDialog}
-            setOpen={setOpenOverlayDialog}
-            alertMessage={overlayDialogMessage}
-            setGame={setGame}
-            gameAfterClose={gameAfterDialogClose}
-          />
-
-          {/* Main content */}
-          &lt;div>
-            {!specialFlowGame.includes(game) &amp;&amp; (
-              &lt;div className="main-flow-container">
-                &lt;Flow
-                  game={game}
-                  nodes={nodes}
-                  setNodes={setNodes}
-                  onNodesChange={onNodesChange}
-                  isDestroyed={isDestroyedProblemWithPath}
-                />
-              &lt;/div>
-            )}
-
-            &lt;Sidebar
-              showLandingPage={setIsCreativeMode}
-              setGame={setGame}
-              setAlertMessage={handleDialogMessageChange}
-              game={game}
-              setGameAfterClose={handleGameAfterDialogCloseChange}
-              setOpenModal={handleOpenDialog}
-              setOpenOverlayModal={handleOpenOverlayDialog}
-              setOverlayDialogMessage={handleOverlayDialogMessageChange}
-            />
-          &lt;/div>
         &lt;/>
       )}
     &lt;/>
@@ -217,13 +190,13 @@ export default Page;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#Dialog">Dialog</a></li><li><a href="global.html#EducationalMode">EducationalMode</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 05 2023 18:25:42 GMT+0200 (Středoevropský letní čas)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 05 2023 21:02:18 GMT+0200 (Středoevropský letní čas)
 </footer>
 
 <script> prettyPrint(); </script>

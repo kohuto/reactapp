@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNodesState } from "reactflow";
-import Dialog from "./modalWindow";
+import Dialog from "./DialogWIndow/dialogWindow";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
