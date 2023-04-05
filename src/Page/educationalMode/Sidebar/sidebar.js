@@ -16,27 +16,15 @@ import Quizz from "../../../ModalWindow/Quizz";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
-function Sidebar({
-  showLandingPage,
-  setAlertMessage,
-  setOpenModal,
-  game,
-  setGameAfterModalClose,
-  setOpenOverlayModal,
-  setOverlayDialogMessage,
-}) {
+function Sidebar({ setIsCreativeMode, setOpenDialog, setOpenOverlayDialog }) {
   return (
     <>
       <Navbar>
         <NavItem>
           <DropdownMenu
-            showLandingPage={showLandingPage}
-            setOpenModal={setOpenModal}
-            setGameAfterModalClose={setGameAfterModalClose}
-            setAlertMessage={setAlertMessage}
-            game={game}
-            setOpenOverlayModal={setOpenOverlayModal}
-            setOverlayDialogMessage={setOverlayDialogMessage}
+            setIsCreativeMode={setIsCreativeMode}
+            setOpenDialog={setOpenDialog}
+            setOpenOverlayDialog={setOpenOverlayDialog}
           />
         </NavItem>
       </Navbar>
@@ -57,28 +45,14 @@ function NavItem(props) {
 }
 
 function DropdownMenu({
-  showLandingPage,
-  setOpenModal,
-  setGameAfterModalClose,
-  setAlertMessage,
-  game,
-  setOpenOverlayModal,
-  setOverlayDialogMessage,
+  setIsCreativeMode,
+  setOpenDialog,
+  setOpenOverlayDialog,
 }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const dropdownRef = useRef(null);
 
-  function openModal(instructionNumber) {
-    setGameAfterModalClose(stockData[instructionNumber].type);
-    setAlertMessage(stockData[instructionNumber].content);
-    setOpenModal(true);
-  }
-  function openSummaryModal(instructionNumber) {
-    setGameAfterModalClose("noGame");
-    setAlertMessage(<SummaryTemplate data={summaryText[instructionNumber]} />);
-    setOpenModal(true);
-  }
-
+  /*
   function openQuizzModal(instructionNumber) {
     setGameAfterModalClose("noGame");
     setAlertMessage(
@@ -86,17 +60,15 @@ function DropdownMenu({
         {stockData[instructionNumber].content}
         <Quizz
           taskType={stockData[instructionNumber].type}
-          setAlertMessage={setAlertMessage}
           setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
           setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
         />
       </>
     );
     setOpenModal(true);
-  }
+  }*/
+  //openQuizzModal
+  //setOpenDialog(true,  <>{stockData[instructionNumber].content} <QuizztaskType={stockData[instructionNumber].type} setOpenModal={setOpenModal} setOpenOverlayModal={setOpenOverlayModal} /> </>, "noGame")
 
   function DropdownItem(props) {
     return (
@@ -138,7 +110,7 @@ function DropdownMenu({
           <DropdownItem leftIcon={builder} goToMenu="build-network">
             POSTAV SÍŤ
           </DropdownItem>
-          <div id="downitem" onClick={() => showLandingPage(true)}>
+          <div id="downitem" onClick={() => setIsCreativeMode(true)}>
             <DropdownItem leftIcon={backarrow}>KREATIVNÍ MÓD</DropdownItem>
           </div>
         </div>
@@ -156,28 +128,64 @@ function DropdownMenu({
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openSummaryModal(0)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <SummaryTemplate data={summaryText[0]} />,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(0)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[0].content, stockData[0].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>SERVER</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(1)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[1].content, stockData[1].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>KLIENT</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(2)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[2].content, stockData[2].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>
               KOMUNIKACE <br /> KLIENT-SERVER
             </DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(3)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[3].content, stockData[3].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>PUTOVÁNÍ INFORMACÍ</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(4)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[4].content, stockData[4].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(5)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[5].content, stockData[5].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>CHYTRÁ KŘIŽOVATKA</DropdownItem>
           </div>
         </div>
@@ -195,25 +203,64 @@ function DropdownMenu({
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openSummaryModal(1)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <SummaryTemplate data={summaryText[1]} />,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(6)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[6].content, stockData[6].type)
+            }
+          >
             <DropdownItem leftIcon={question}>POSÍLÁNÍ DAT</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(7)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[7].content, stockData[7].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>PAKET</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(8)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[8].content, stockData[8].type)
+            }
+          >
             <DropdownItem leftIcon={question}>VYTVOŘ PAKET</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(9)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[9].content, stockData[9].type)
+            }
+          >
             <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(10)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[10].content}
+                  <Quizz
+                    taskType={stockData[10].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={question}>
               JAK VELKÁ BUDE ZPRÁVA
@@ -233,37 +280,99 @@ function DropdownMenu({
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openSummaryModal(2)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <SummaryTemplate data={summaryText[2]} />,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(11)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[11].content, stockData[11].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>KABELY</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(12)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[12].content, stockData[12].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>WIFI</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(13)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[13].content, stockData[13].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>MOBILNÍ DATA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(14)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[14].content, stockData[14].type)
+            }
+          >
             <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(15)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[15].content, stockData[15].type)
+            }
+          >
             <DropdownItem leftIcon={question}>DOBA ODEZVY</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(16)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[16].content}
+                  <Quizz
+                    taskType={stockData[16].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={question}>ŠÍŘKA PÁSMA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(17)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[17].content, stockData[17].type)
+            }
+          >
             <DropdownItem leftIcon={question}>OMEZENÁ VZDÁLENOST</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(18)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[18].content}
+                  <Quizz
+                    taskType={stockData[18].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={question}>JAK SE PŘIPOJIT</DropdownItem>
           </div>
@@ -281,35 +390,95 @@ function DropdownMenu({
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openSummaryModal(3)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <SummaryTemplate data={summaryText[3]} />,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(19)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[19].content}
+                  <Quizz
+                    taskType={stockData[19].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={lightbulb}>IP ADRESA</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(20)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[20].content}
+                  <Quizz
+                    taskType={stockData[20].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
           </div>
 
-          <div className="custom-menu-item-div" onClick={() => openModal(22)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[22].content, stockData[22].type)
+            }
+          >
             <DropdownItem leftIcon={question}>NEJRYCHLEJŠÍ CESTA</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(23)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[23].content, stockData[23].type)
+            }
+          >
             <DropdownItem leftIcon={question}>POČET CEST</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(24)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[24].content, stockData[24].type)
+            }
+          >
             <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
           </div>
           <div
             className="custom-menu-item-div"
-            onClick={() => openQuizzModal(25)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <>
+                  {stockData[25].content}
+                  <Quizz
+                    taskType={stockData[25].type}
+                    setOpenDialog={setOpenDialog}
+                    setOpenOverlayDialog={setOpenOverlayDialog}
+                  />
+                </>,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
           </div>
@@ -327,21 +496,47 @@ function DropdownMenu({
           </DropdownItem>
           <div
             className="custom-menu-item-div"
-            onClick={() => openSummaryModal(4)}
+            onClick={() =>
+              setOpenDialog(
+                true,
+                <SummaryTemplate data={summaryText[4]} />,
+                "noGame"
+              )
+            }
           >
             <DropdownItem leftIcon={summary}>ÚVOD</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(26)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[26].content, stockData[26].type)
+            }
+          >
             <DropdownItem leftIcon={question}>ÚKOL 1</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(27)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[27].content, stockData[27].type)
+            }
+          >
             <DropdownItem leftIcon={question}>ÚKOL 2</DropdownItem>
           </div>
 
-          <div className="custom-menu-item-div" onClick={() => openModal(28)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[28].content, stockData[28].type)
+            }
+          >
             <DropdownItem leftIcon={question}>ÚKOL 3</DropdownItem>
           </div>
-          <div className="custom-menu-item-div" onClick={() => openModal(29)}>
+          <div
+            className="custom-menu-item-div"
+            onClick={() =>
+              setOpenDialog(true, stockData[29].content, stockData[29].type)
+            }
+          >
             <DropdownItem leftIcon={question}>ÚKOL 4</DropdownItem>
           </div>
         </div>

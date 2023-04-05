@@ -61,6 +61,7 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
 
   /**
    * A callback function to add a node to the nodes state.
+   * @callback
    * @param {string} device - The type of device to add.
    */
   const handleAddNode = useCallback(

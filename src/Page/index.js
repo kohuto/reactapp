@@ -25,10 +25,8 @@ function Page() {
   const [game, setGame] = useState("noGame");
   const [nodes, setNodes, onNodesChange] = useNodesState();
   const [dialogMessage, setDialogMessage] = useState(welcomeMessage);
-  const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
   const [isDestroyedProblemWithPath, setIsDestroyedProblemWithPath] =
     useState(false);
-  const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
   const [openDialog, setOpenDialog] = useState(true);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
 
@@ -60,43 +58,11 @@ function Page() {
   }
 
   /**
-   * Handles the open state of the overlay dialog box.
-   * @param {boolean} isOpen - The new state of the overlay dialog box.
+   * Handles the set of game after dialog window is closed.
+   * @param {string} game - The game that will be set after close.
    */
-  function handleOpenOverlayDialog(isOpen) {
-    setOpenOverlayDialog(isOpen);
-  }
-
-  /**
-   * Handles the change of the message displayed in the main dialog box.
-   * @param {string} newMessage - The new message to be displayed in the main dialog box.
-   */
-  function handleDialogMessageChange(newMessage) {
-    setDialogMessage(newMessage);
-  }
-
-  /**
-   * Handles the change of the message displayed in the overlay dialog box.
-   * @param {string} newMessage - The new message to be displayed in the overlay dialog box.
-   */
-  function handleOverlayDialogMessageChange(newMessage) {
-    setOverlayDialogMessage(newMessage);
-  }
-
-  /**
-   * Handles the change of the game state after the main dialog box is closed.
-   * @param {string} newGame - The new game state.
-   */
-  function handleGameAfterDialogCloseChange(newGame) {
-    setGameAfterDialogClose(newGame);
-  }
-
-  /**
-   * Handles the change of the state of the problem that needs to be destroyed.
-   * @param {boolean} isDestroyed - The new state of the problem that needs to be destroyed.
-   */
-  function handleIsDestroyedProblemWithPath(isDestroyed) {
-    setIsDestroyedProblemWithPath(isDestroyed);
+  function handleGameAfterDialogCloseChange(game) {
+    setGameAfterDialogClose(game);
   }
 
   return (
@@ -129,20 +95,14 @@ function Page() {
           <EducationalMode
             game={game}
             setGame={setGame}
-            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
-            setDialogMessage={handleDialogMessageChange}
             setOpenDialog={handleOpenDialog}
-            setIsDistroyedProblemWithPath={handleIsDestroyedProblemWithPath}
+            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
             isDestroyedProblemWithPath={isDestroyedProblemWithPath}
-            openOverlayDialog={openOverlayDialog}
-            overlayDialogMessage={overlayDialogMessage}
             gameAfterDialogClose={gameAfterDialogClose}
             nodes={nodes}
             setNodes={setNodes}
             onNodesChange={onNodesChange}
             setIsCreativeMode={setIsCreativeMode}
-            setOpenOverlayDialog={handleOpenOverlayDialog}
-            setOverlayDialogMessage={handleOverlayDialogMessageChange}
             specialFlowGame={specialFlowGame}
             isCreativeMode={isCreativeMode}
           />
