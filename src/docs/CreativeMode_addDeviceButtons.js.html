@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CreativeMode/addDeviceButtons.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CreativeMode/addDeviceButtons.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import serverImage from "../../images/nodes/server.png";
+import btsImage from "../../images/nodes/btsvez.jpg";
+import clientImage from "../../images/nodes/klient.jpg";
+import wifiImage from "../../images/nodes/wifi.jpg";
+import gatewayImage from "../../images/nodes/gateway.jpg";
+
+/**
+ * Counts the number of nodes of a specific type in the given array of nodes.
+ *
+ * @param {Object[]} nodes - An array of nodes.
+ * @param {string} type - The type of node to count.
+ * @returns {number} The number of nodes of the specified type.
+ */
+function countNodesByType(nodes, type) {
+  let count = 0;
+  for (const node of nodes) {
+    if (node.className === type) {
+      count++;
+    }
+  }
+  return count;
+}
+
+/**
+ * Renders a set of buttons for adding different types of nodes to a network.
+ *
+ * @param {Object} props - The component props.
+ * @param {function} props.handleAddNode - The function to call when a node is added.
+ * @param {Object[]} props.nodes - An array of nodes already in the network.
+ * @returns {JSX.Element} The rendered component.
+ */
+function AddDeviceButtons({ handleAddNode, nodes }) {
+  const serversLeft = 8 - countNodesByType(nodes, "server-build");
+  const gatewaysLeft = 15 - countNodesByType(nodes, "gateway-build");
+  const clientsLeft = 9 - countNodesByType(nodes, "client-build");
+  const wifiLeft = 8 - countNodesByType(nodes, "wifi-build");
+  const btsLeft = 8 - countNodesByType(nodes, "bts-build");
+
+  return (
+    &lt;div className="lp-add-nodes-buttons-container">
+      &lt;Tooltip title="SERVER" placement="left">
+        &lt;IconButton>
+          &lt;Badge badgeContent={serversLeft} color="primary">
+            &lt;img
+              src={serverImage}
+              style={{ width: "60px", height: "40px" }}
+              alt="Server button"
+              onClick={() => handleAddNode("server-build")}
+            />
+          &lt;/Badge>
+        &lt;/IconButton>
+      &lt;/Tooltip>
+      &lt;Tooltip
+        title="CHYTRÁ KŘIŽOVATKA"
+        placement="left"
+        style={{ marginTop: "1vh", marginBottom: "1vh" }}
+      >
+        &lt;IconButton>
+          &lt;Badge badgeContent={gatewaysLeft} color="primary">
+            &lt;img
+              src={gatewayImage}
+              style={{ width: "60px", height: "20px" }}
+              alt="Gateway button"
+              onClick={() => handleAddNode("gateway-build")}
+            />
+          &lt;/Badge>
+        &lt;/IconButton>
+      &lt;/Tooltip>
+      &lt;Tooltip title="KLIENT" placement="left">
+        &lt;IconButton>
+          &lt;Badge badgeContent={clientsLeft} color="primary">
+            &lt;img
+              src={clientImage}
+              style={{ width: "60px", height: "40px" }}
+              alt="Client button"
+              onClick={() => handleAddNode("client-build")}
+            />
+          &lt;/Badge>
+        &lt;/IconButton>
+      &lt;/Tooltip>
+      &lt;Tooltip title="WIFI" placement="left">
+        &lt;IconButton>
+          &lt;Badge badgeContent={wifiLeft} color="primary">
+            &lt;img
+              src={wifiImage}
+              style={{ width: "60px", height: "40px" }}
+              alt="WiFi button"
+              onClick={() => handleAddNode("wifi-build")}
+            />
+          &lt;/Badge>
+        &lt;/IconButton>
+      &lt;/Tooltip>
+      &lt;Tooltip title="BTS VĚŽ" placement="left">
+        &lt;IconButton>
+          &lt;Badge badgeContent={btsLeft} color="primary">
+            &lt;img
+              src={btsImage}
+              style={{ width: "60px", height: "40px" }}
+              alt="BTS Vez button"
+              onClick={() => handleAddNode("bts-build")}
+            />
+          &lt;/Badge>
+        &lt;/IconButton>
+      &lt;/Tooltip>
+    &lt;/div>
+  );
+}
+
+export default AddDeviceButtons;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 05 2023 18:25:42 GMT+0200 (Středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

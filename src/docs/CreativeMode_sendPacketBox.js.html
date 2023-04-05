@@ -1,4 +1,32 @@
-import { useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CreativeMode/sendPacketBox.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CreativeMode/sendPacketBox.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
@@ -42,11 +70,11 @@ function SendPacketBox({
    */
   function handleSend() {
     if (
-      isValidIpAddress(senderIpAddress) &&
+      isValidIpAddress(senderIpAddress) &amp;&amp;
       isValidIpAddress(recipientIpAddress)
     ) {
       if (
-        isSenderValid(nodes, senderIpAddress) &&
+        isSenderValid(nodes, senderIpAddress) &amp;&amp;
         isRecipientValid(nodes, recipientIpAddress)
       ) {
         if (isClientPlugged(nodes, senderIpAddress)) {
@@ -94,9 +122,9 @@ function SendPacketBox({
       return false;
     }
     const octets = ipAddress.split(".");
-    for (let i = 0; i < octets.length; i++) {
+    for (let i = 0; i &lt; octets.length; i++) {
       const octet = parseInt(octets[i]);
-      if (isNaN(octet) || octet < 0 || octet > 255) {
+      if (isNaN(octet) || octet &lt; 0 || octet > 255) {
         return false;
       }
     }
@@ -112,7 +140,7 @@ function SendPacketBox({
   function isSenderValid(nodes, senderIpAddress) {
     const senderNode = nodes.find((node) => node.id === senderIpAddress);
     return (
-      senderNode &&
+      senderNode &amp;&amp;
       (senderNode.className === CLIENT_CLASSNAME ||
         senderNode.className === CLIENT_PLUGGED_CLASSNAME)
     );
@@ -126,7 +154,7 @@ function SendPacketBox({
    */
   function isRecipientValid(nodes, recipientIpAddress) {
     const recipientNode = nodes.find((node) => node.id === recipientIpAddress);
-    return recipientNode && recipientNode.className === SERVER_CLASSNAME;
+    return recipientNode &amp;&amp; recipientNode.className === SERVER_CLASSNAME;
   }
 
   /**
@@ -137,7 +165,7 @@ function SendPacketBox({
    */
   function isClientPlugged(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
-    if (clientNode && clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
+    if (clientNode &amp;&amp; clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
       return true;
     } else {
       return false;
@@ -152,7 +180,7 @@ function SendPacketBox({
    */
   function getWirelessDeviceIpAddress(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
-    if (clientNode && clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
+    if (clientNode &amp;&amp; clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
       const nearbyNodes = nodes.filter((node) => {
         const distance = Math.sqrt(
           Math.pow(clientNode.position.x - node.position.x, 2) +
@@ -160,8 +188,8 @@ function SendPacketBox({
         );
         return (
           (node.className === BTS_CLASSNAME ||
-            node.className === WIFI_CLASSNAME) &&
-          distance <= 100
+            node.className === WIFI_CLASSNAME) &amp;&amp;
+          distance &lt;= 100
         );
       });
       if (nearbyNodes.length > 0) {
@@ -262,36 +290,59 @@ function SendPacketBox({
    * @returns {JSX.Element} - A React component.
    */
   return (
-    <div className="lp-send-packet-container">
-      <div className="lp-send-packet-first-column">
-        <div>
-          <TextField
+    &lt;div className="lp-send-packet-container">
+      &lt;div className="lp-send-packet-first-column">
+        &lt;div>
+          &lt;TextField
             id="sender-ip-address"
             label="IP Adresa odesílatele"
             variant="standard"
             value={senderIpAddress}
             onChange={(e) => setSenderIpAddress(e.target.value)}
           />
-        </div>
-        <div>
-          <TextField
+        &lt;/div>
+        &lt;div>
+          &lt;TextField
             id="recipient-ip-address"
             label="IP Adresa příjemce"
             variant="standard"
             value={recipientIpAddress}
             onChange={(e) => setRecipientIpAddress(e.target.value)}
           />
-        </div>
-      </div>
-      <div className="lp-send-packet-second-column">
-        <Tooltip title="POŠLI PAKET" placement="top">
-          <IconButton onClick={() => handleSend()}>
-            <SendIcon />
-          </IconButton>
-        </Tooltip>
-      </div>
-    </div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="lp-send-packet-second-column">
+        &lt;Tooltip title="POŠLI PAKET" placement="top">
+          &lt;IconButton onClick={() => handleSend()}>
+            &lt;SendIcon />
+          &lt;/IconButton>
+        &lt;/Tooltip>
+      &lt;/div>
+    &lt;/div>
   );
 }
 
 export default SendPacketBox;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 05 2023 18:25:42 GMT+0200 (Středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
