@@ -7,7 +7,7 @@ import Dialog from "./modalWindow";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import "../ModalWindow/modalWindow.css";
-import CreativeMode from "./creativeMode";
+import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "../Packet";
 import { landingPagePacketsData } from "../Packet/data/landingPage";
 
