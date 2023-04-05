@@ -1,7 +1,4 @@
-import Sidebar from "../Sidebar/sidebar";
-import QuizzComponents from "./QuizzComponents/Quizzes";
 import { useState } from "react";
-import Flow from "./reactFlow";
 import { useNodesState } from "reactflow";
 import Dialog from "./modalWindow";
 import "./QuizzComponents/Components.css";
@@ -10,6 +7,7 @@ import "../ModalWindow/modalWindow.css";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "../Packet";
 import { landingPagePacketsData } from "../Packet/data/landingPage";
+import EducationalMode from "./educationalMode/eduMode";
 
 /**
  * This is the main component of the application.
@@ -99,6 +97,7 @@ function Page() {
 
   return (
     <>
+      {/* Main dialog */}
       <Dialog
         open={openDialog}
         setOpen={setOpenDialog}
@@ -108,7 +107,7 @@ function Page() {
       />
 
       {/* Creative mode */}
-      {isCreativeMode && (
+      {isCreativeMode ? (
         <>
           <DefaultPackets
             packetsData={landingPagePacketsData}
@@ -123,55 +122,29 @@ function Page() {
             setIsLandingPage={() => setIsCreativeMode(false)}
           />
         </>
-      )}
-
-      {/* educational mode */}
-      {!isCreativeMode && (
+      ) : (
         <>
-          <QuizzComponents
+          {/* Educational mode */}
+          <EducationalMode
             game={game}
             setGame={setGame}
-            setGameAfterClose={handleGameAfterDialogCloseChange}
-            setAlertMessage={handleDialogMessageChange}
-            setOpenModal={handleOpenDialog}
+            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
+            setDialogMessage={handleDialogMessageChange}
+            setOpenDialog={handleOpenDialog}
             setIsDistroyedProblemWithPath={handleIsDestroyedProblemWithPath}
-            isDestroyed={isDestroyedProblemWithPath}
+            isDestroyedProblemWithPath={isDestroyedProblemWithPath}
+            openOverlayDialog={openOverlayDialog}
+            overlayDialogMessage={overlayDialogMessage}
+            gameAfterDialogClose={gameAfterDialogClose}
+            nodes={nodes}
+            setNodes={setNodes}
+            onNodesChange={onNodesChange}
+            setIsCreativeMode={setIsCreativeMode}
+            setOpenOverlayDialog={handleOpenOverlayDialog}
+            setOverlayDialogMessage={handleOverlayDialogMessageChange}
+            specialFlowGame={specialFlowGame}
+            isCreativeMode={isCreativeMode}
           />
-
-          {/* Overlay dialog */}
-          <Dialog
-            open={openOverlayDialog}
-            setOpen={setOpenOverlayDialog}
-            alertMessage={overlayDialogMessage}
-            setGame={setGame}
-            gameAfterClose={gameAfterDialogClose}
-          />
-
-          {/* Main content */}
-          <div>
-            {!specialFlowGame.includes(game) && (
-              <div className="main-flow-container">
-                <Flow
-                  game={game}
-                  nodes={nodes}
-                  setNodes={setNodes}
-                  onNodesChange={onNodesChange}
-                  isDestroyed={isDestroyedProblemWithPath}
-                />
-              </div>
-            )}
-
-            <Sidebar
-              showLandingPage={setIsCreativeMode}
-              setGame={setGame}
-              setAlertMessage={handleDialogMessageChange}
-              game={game}
-              setGameAfterClose={handleGameAfterDialogCloseChange}
-              setOpenModal={handleOpenDialog}
-              setOpenOverlayModal={handleOpenOverlayDialog}
-              setOverlayDialogMessage={handleOverlayDialogMessageChange}
-            />
-          </div>
         </>
       )}
     </>
