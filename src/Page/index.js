@@ -47,19 +47,6 @@ function Page() {
     setOpenOverlayDialog(isOpen);
   }
 
-  const zoomIn = () => {
-    if (zoom > 0) {
-      setZoom(zoom - 0.1);
-    }
-  };
-
-  const zoomOut = () => {
-    console.log(zoom);
-    if (zoom < 2) {
-      setZoom(zoom + 0.1);
-    }
-  };
-
   return (
     <>
       <AlertDialog
@@ -96,9 +83,6 @@ function Page() {
           <QuizzComponents
             game={game}
             setGame={setGame}
-            zoomIn={zoomIn}
-            zoomOut={zoomOut}
-            zoom={zoom}
             setGameAfterModalClose={setGameAfterModalClose}
             setAlertMessage={handleAlertMessageChange}
             setOpenModal={handleOpenDialog}

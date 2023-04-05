@@ -18,11 +18,7 @@ import WhatIsPathComponent from "./whatIsPath";
 import BuildNetwork from "./buildNetwork";
 
 function QuizzComponents({
-  setGame,
   game,
-  zoomIn,
-  zoomOut,
-  zoom,
   setOpenModal,
   setAlertMessage,
   setGameAfterModalClose,
@@ -49,9 +45,7 @@ function QuizzComponents({
         />
       );
     case "whatIsCabel":
-      return (
-        <WhatIsCabelComponent zoomIn={zoomIn} zoomOut={zoomOut} zoom={zoom} />
-      );
+      return <WhatIsCabelComponent />;
 
     case "whatIsPath":
       return <WhatIsPathComponent />;

@@ -143,7 +143,7 @@ function DropdownMenu({
             POSTAV SÍŤ
           </DropdownItem>
           <div id="downitem" onClick={() => showLandingPage(true)}>
-            <DropdownItem leftIcon={backarrow}>ÚVODNÍ STRÁNKA</DropdownItem>
+            <DropdownItem leftIcon={backarrow}>KREATIVNÍ MÓD</DropdownItem>
           </div>
         </div>
       </CSSTransition>

@@ -383,7 +383,7 @@ function SendPacketBox({
       }
     } else {
       setAlertMessage(
-        "první vyplň ip adresu odesílatele a příjemce. Ip adresa je číslo pod obrázkem."
+        "První vyplň ip adresu odesílatele a příjemce. Ip adresa je číslo pod obrázkem."
       );
     }
     setIpAdressRecipient("");
@@ -524,7 +524,7 @@ function GoToTasks({
 }) {
   function handleGoToTasks() {
     setAlertMessage(
-      "Vítej v hlavní části aplikace. V levé části obrazovky vidíš menu, ve kterém najdeš velké množství úkolů, díky který se dozvíš, jak funguje internet. Úkoly jsou rozděleny do 5 kategorií a je doporučeno je procházet postupně. Pokud se chceš vrátit zpátky na úvodní stránku aplikace, klikni v menu na tlačítko ÚVODNÍ STRÁNKA. Nyní zavři toto okno a můžeš začít postupně procházet jednotlivé úkoly."
+      "Vítej v hlavní části aplikace. V levé části obrazovky vidíš menu, ve kterém najdeš velké množství úkolů, díky který se dozvíš, jak funguje internet. Úkoly jsou rozděleny do 5 kategorií a je doporučeno je procházet postupně. Pokud se chceš vrátit zpátky do kretivního módu, klikni v menu na tlačítko KREATIVNÍ MÓD. Zavři toto okno a vrhni se na úkoly."
     );
     setOpenModal(true);
     setGameAfterModalClose("noGame");
