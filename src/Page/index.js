@@ -15,7 +15,6 @@ function Page() {
   const [isLandingPage, setIsLandingPage] =
     useState(true); /* zde změnit na true */
   const [game, setGame] = useState("noGame");
-  const [zoom, setZoom] = useState(0);
   const [nodes, setNodes, onNodesChange] = useNodesState();
   const [edge, setEdges, onEdgesChange] = useNodesState();
   const [alertMessage, setAlertMessage] = useState(
@@ -118,7 +117,7 @@ function Page() {
               >
                 <Flow
                   game={game}
-                  zoom={zoom}
+                  zoom={0}
                   nodes={nodes}
                   edge={edge}
                   setEdges={setEdges}
