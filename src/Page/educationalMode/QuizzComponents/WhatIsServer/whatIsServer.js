@@ -10,6 +10,12 @@ import serveryoutube from "../../../../images/nodes/serveryoutube.png";
 import CloseOpen from "../closeOpenWindow";
 import "./whatIsServerStyle.css";
 
+/**
+ * Renders a component that allows the user to upload files to different servers by dragging and dropping.
+ *
+ * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
+ * @returns {JSX.Element} - returns a JSX element representing the component
+ */
 function WhatIsServerComponent({ setOpenDialog }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
@@ -18,9 +24,11 @@ function WhatIsServerComponent({ setOpenDialog }) {
   const servernoRef = useRef(null);
   const servervideoRef = useRef(null);
   const serverwebRef = useRef(null);
-  const [touching14, setTouching14] = useState(false);
-  const [touching24, setTouching24] = useState(false);
-  const [touching34, setTouching34] = useState(false);
+  const [correctWebServerTouch, setcorrectWebServerTouch] = useState(false);
+  const [correctInstagramServerTouch, setcorrectInstagramServerTouch] =
+    useState(false);
+  const [correctYouTubeServerTouch, setcorrectYouTubeServerTouch] =
+    useState(false);
   const [filledServer, setFilledServer] = useState(0);
   const finalMessage =
     "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat.";
@@ -30,6 +38,10 @@ function WhatIsServerComponent({ setOpenDialog }) {
     "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
   const correctYouTubeMessage =
     "Správně! Na YouTube serveru bude uloženo spoustu videí";
+
+  /**
+   * Checks whether the draggable components are touching the correct server components
+   */
   const checkTouching = useCallback(() => {
     const web = webRef.current;
     const img = imgRef.current;
@@ -40,18 +52,21 @@ function WhatIsServerComponent({ setOpenDialog }) {
 
     if (web && serverweb) {
       const touching = areElementsTouching(web, serverweb);
-      setTouching14(touching);
+      setcorrectWebServerTouch(touching);
     }
     if (img && serverimg) {
       const touching = areElementsTouching(img, serverimg);
-      setTouching24(touching);
+      setcorrectInstagramServerTouch(touching);
     }
     if (video && servervideo) {
       const touching = areElementsTouching(video, servervideo);
-      setTouching34(touching);
+      setcorrectYouTubeServerTouch(touching);
     }
   }, []);
 
+  /**
+   * Checks whether the draggable components are touching the correct server components every 100 milliseconds
+   */
   useEffect(() => {
     const intervalId = setInterval(() => {
       checkTouching();
@@ -60,12 +75,21 @@ function WhatIsServerComponent({ setOpenDialog }) {
     return () => clearInterval(intervalId);
   }, [checkTouching]);
 
+  /**
+   * Checks whether all servers have been filled and opens the dialog box with the final message if they have
+   */
   useEffect(() => {
     if (filledServer == 3) {
       setOpenDialog(true, finalMessage, "noGame");
     }
   }, [filledServer]);
 
+  /**
+   * Checks whether two HTML elements are touching each other
+   * @param {HTMLElement} element1 - the first HTML element
+   * @param {HTMLElement} element2 - the second HTML element
+   * @returns {boolean} - returns true if the elements are touching, false otherwise
+   */
   const areElementsTouching = (element1, element2) => {
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
@@ -80,23 +104,30 @@ function WhatIsServerComponent({ setOpenDialog }) {
     return touching;
   };
 
+  /**
+   * Updates the state and opens the dialog box with the appropriate message if a draggable component touches the correct server component
+   */
   useEffect(() => {
-    if (touching14) {
+    if (correctWebServerTouch) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
       setOpenDialog(true, correctWebMessage);
     }
-    if (touching24) {
+    if (correctInstagramServerTouch) {
       imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
       setOpenDialog(true, correctInstagramMessage);
     }
-    if (touching34) {
+    if (correctYouTubeServerTouch) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
       setOpenDialog(true, correctYouTubeMessage);
     }
-  }, [touching14, touching24, touching34]);
+  }, [
+    correctWebServerTouch,
+    correctInstagramServerTouch,
+    correctYouTubeServerTouch,
+  ]);
   return (
     <>
       <UploadServer
@@ -139,6 +170,14 @@ function WhatIsServerComponent({ setOpenDialog }) {
   );
 }
 
+/**
+ * Renders a server component that represents a server that files can be uploaded to
+ * @param {Object} props - the component props
+ * @param {function} props.refProp - a reference to the server component
+ * @param {string} props.imageUrl - the URL of the image to display on the server
+ * @param {string} props.servername - the name of the server
+ * @returns {JSX.Element} - returns a JSX element representing the server component
+ */
 function UploadServer({ refProp, imageUrl, servername }) {
   return (
     <div
@@ -151,6 +190,13 @@ function UploadServer({ refProp, imageUrl, servername }) {
   );
 }
 
+/**
+ * Renders a draggable component that represents a file that can be dragged and dropped onto a server
+ * @param {Object} props - the component props
+ * @param {function} props.refProp - a reference to the draggable component
+ * @param {string} props.imageUrl - the URL of the image to display on the draggable component
+ * @returns {JSX.Element} - returns a JSX element representing the draggable component
+ */
 function DraggableComponent({ refProp, imageUrl }) {
   return (
     <Draggable>
