@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar/sidebar";
-import QuizzComponents from "../QuizzComponents/Quizzes";
+import QuizzComponents from "./QuizzComponents/Quizzes";
 import Flow from "./Flow/reactFlow";
 import Dialog from "../DialogWindow/dialogWindow";
 import { useState } from "react";

@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Draggable from "react-draggable";
-import web from "../../images/serverscontent/website-design.png";
-import video from "../../images/serverscontent/multimedia.png";
-import picture from "../../images/serverscontent/picture.png";
-import server from "../../images/nodes/server-messenger.jpg";
-import serverig from "../../images/nodes/serverig.png";
-import serverweb from "../../images/nodes/serverwebhost.png";
-import serveryoutube from "../../images/nodes/serveryoutube.png";
+import web from "../../../images/serverscontent/website-design.png";
+import video from "../../../images/serverscontent/multimedia.png";
+import picture from "../../../images/serverscontent/picture.png";
+import server from "../../../images/nodes/server-messenger.jpg";
+import serverig from "../../../images/nodes/serverig.png";
+import serverweb from "../../../images/nodes/serverwebhost.png";
+import serveryoutube from "../../../images/nodes/serveryoutube.png";
 import CloseOpen from "./closeOpenWindow";
 
 function WhatIsServerComponent({

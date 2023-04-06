@@ -19,11 +19,11 @@ import MailIcon from "@mui/icons-material/Mail";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import server from "../../images/nodes/server.png";
-import bts from "../../images/nodes/btsvez.jpg";
-import client from "../../images/nodes/klient.jpg";
-import wifi from "../../images/nodes/wifi.jpg";
-import gateway from "../../images/nodes/gateway.jpg";
+import server from "../../../images/nodes/server.png";
+import bts from "../../../images/nodes/btsvez.jpg";
+import client from "../../../images/nodes/klient.jpg";
+import wifi from "../../../images/nodes/wifi.jpg";
+import gateway from "../../../images/nodes/gateway.jpg";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import RuleIcon from "@mui/icons-material/Rule";
 

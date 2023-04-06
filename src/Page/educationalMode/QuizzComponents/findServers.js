@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Components.css";
 import CloseOpen from "./closeOpenWindow";
-import DefaultPackets from "../../Packet";
-import { findServerData } from "../../Packet/data/findServerPackets";
+import DefaultPackets from "../../../Packet";
+import { findServerData } from "../../../Packet/data/findServerPackets";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 

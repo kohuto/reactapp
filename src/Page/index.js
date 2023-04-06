@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNodesState } from "reactflow";
 import Dialog from "./DialogWindow/dialogWindow";
-import "./QuizzComponents/Components.css";
+import "./educationalMode/QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "../Packet";

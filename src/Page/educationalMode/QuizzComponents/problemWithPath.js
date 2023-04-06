@@ -3,7 +3,7 @@ import "./Components.css";
 import CloseOpen from "./closeOpenWindow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Packet from "../../Packet/Packet";
+import Packet from "../../../Packet/Packet";
 
 function ProblemWithPath({
   setOpenModal,

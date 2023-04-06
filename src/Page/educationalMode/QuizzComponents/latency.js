@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import globe from "../../images/Globe-Transparent-Background-PNG.png";
+import { useState, useEffect } from "react";
 import ReactFlow from "reactflow";
 
-import { jitterClient } from "../../Data/Flow/client/jitterClient";
-import { jitterEdges } from "../../Data/Flow/edges/jitterEdges";
-import { jitterGateway } from "../../Data/Flow/gateway/jitterGateway";
-import { jitterServer } from "../../Data/Flow/server/jitterServer";
+import { jitterClient } from "../../../Data/Flow/client/jitterClient";
+import { jitterEdges } from "../../../Data/Flow/edges/jitterEdges";
+import { jitterGateway } from "../../../Data/Flow/gateway/jitterGateway";
+import { jitterServer } from "../../../Data/Flow/server/jitterServer";
 
 function RaceAroundWorld({
   setOpenModal,

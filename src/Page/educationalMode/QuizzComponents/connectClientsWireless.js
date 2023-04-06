@@ -1,34 +1,20 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import ReactFlow, {
-  useNodes,
-  useEdges,
   addEdge,
-  Handle,
-  Position,
   useNodesState,
   useEdgesState,
   useReactFlow,
   ReactFlowProvider,
-  Controls,
   updateEdge,
 } from "reactflow";
-import { Provider } from "zustand";
-import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import server from "../../images/nodes/server.png";
-import bts from "../../images/nodes/btsvez.jpg";
-import client from "../../images/nodes/klient.jpg";
-import wifi from "../../images/nodes/wifi.jpg";
-import gateway from "../../images/nodes/gateway.jpg";
-import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import RuleIcon from "@mui/icons-material/Rule";
+import bts from "../../../images/nodes/btsvez.jpg";
+import wifi from "../../../images/nodes/wifi.jpg";
 import CloseOpen from "./closeOpenWindow";
-import { connectClientWirelessNodes } from "../../Data/Flow/connectClientWireless";
-import { connectClientWirelessEdges } from "../../Data/Flow/edges/connectClientWireless";
+import { connectClientWirelessNodes } from "../../../Data/Flow/connectClientWireless";
+import { connectClientWirelessEdges } from "../../../Data/Flow/edges/connectClientWireless";
 
 function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
   const reactFlowInstance = useReactFlow();

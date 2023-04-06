@@ -1,6 +1,6 @@
 import ReactFlow, { Controls } from "reactflow";
-import { whatIsPathNodes } from "../../Data/Flow/whatIsPath";
-import { whatIsPathEdges } from "../../Data/Flow/edges/whatIsPath";
+import { whatIsPathNodes } from "../../../Data/Flow/whatIsPath";
+import { whatIsPathEdges } from "../../../Data/Flow/edges/whatIsPath";
 
 function WhatIsPathComponent() {
   return (

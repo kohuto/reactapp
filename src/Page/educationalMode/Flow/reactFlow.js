@@ -7,7 +7,7 @@ import { serversZoom2Data } from "../../../Data/Flow/server/serverZoom2";
 import { gatewaysZoom2Data } from "../../../Data/Flow/gateway/gatewayZoom2";
 import { edgesData } from "../../../Data/Flow/edges/edges";
 import { shortestPathEdges } from "../../../Data/Flow/edges/shortestPathEdges";
-import BuildNetwork from "../../QuizzComponents/buildNetwork";
+import BuildNetwork from "../QuizzComponents/buildNetwork";
 import { clientsCreatePacket } from "../../../Data/Flow/client/clientsCreatePacket";
 import { clientsFindServer } from "../../../Data/Flow/client/clientsFindServer";
 import { shortestPathGateway } from "../../../Data/Flow/gateway/shortestPathGateway";

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import DefaultPackets from "../../Packet";
-import profileImageMan from "../../images/profile/man.png";
-import profileImageWoman from "../../images/profile/woman.png";
-import gallery from "../../images/icons/image-gallery.png";
-import plus from "../../images/icons/plusmess.png";
-import gif from "../../images/icons/gif.png";
+import { useState } from "react";
+import DefaultPackets from "../../../Packet";
+import profileImageMan from "../../../images/profile/man.png";
+import profileImageWoman from "../../../images/profile/woman.png";
+import gallery from "../../../images/icons/image-gallery.png";
+import plus from "../../../images/icons/plusmess.png";
+import gif from "../../../images/icons/gif.png";
 
 function DataIntoPackets({
   setAlertMessage,
