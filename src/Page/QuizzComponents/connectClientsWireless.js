@@ -27,8 +27,8 @@ import gateway from "../../images/nodes/gateway.jpg";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import RuleIcon from "@mui/icons-material/Rule";
 import CloseOpen from "./closeOpenWindow";
-import { connectClientWirelessNodes } from "../../Flow/data/connectClientWireless";
-import { connectClientWirelessEdges } from "../../Flow/data/edges/connectClientWireless";
+import { connectClientWirelessNodes } from "../../Data/Flow/connectClientWireless";
+import { connectClientWirelessEdges } from "../../Data/Flow/edges/connectClientWireless";
 
 function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
   const reactFlowInstance = useReactFlow();

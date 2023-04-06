@@ -3,7 +3,6 @@ import { useNodesState } from "reactflow";
 import Dialog from "./DialogWindow/dialogWindow";
 import "./QuizzComponents/Components.css";
 import "../ModalWindow/Quizzes/quizzesStyles.css";
-import "../ModalWindow/modalWindow.css";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "../Packet";
 import { landingPagePacketsData } from "../Packet/data/landingPage";

@@ -6,8 +6,8 @@ import ReactFlow, {
   Handle,
   Position,
 } from "reactflow";
-import { whatIsWifiNodes } from "../../Flow/data/whatIsWifi";
-import { whatIsWifiEdges } from "../../Flow/data/edges/whatIsWifiEdges";
+import { whatIsWifiNodes } from "../../Data/Flow/whatIsWifi";
+import { whatIsWifiEdges } from "../../Data/Flow/edges/whatIsWifiEdges";
 
 function WhatIsWiFiComponent({
   setOpenModal,

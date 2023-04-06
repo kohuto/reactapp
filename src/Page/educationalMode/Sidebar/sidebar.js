@@ -1,8 +1,8 @@
 import "reactflow/dist/style.css";
 import "./Sidebar.css";
-import SummaryTemplate from "../../../ModalWindow/templateSummary";
-import { stockData } from "../../../ModalWindow/dataQuizzes";
-import { summaryText } from "../../../ModalWindow/dataSummary";
+import SummaryTemplate from "../../DialogWindow/Templates/templateSummary";
+import { stockData } from "../../../Data/Quizzes/dataQuizzes";
+import { summaryText } from "../../../Data/Quizzes/dataSummary";
 import internet from "../../../images/icons/internet.png";
 import packet from "../../../images/icons/packet.png";
 import wifi from "../../../images/icons/wifi.png";

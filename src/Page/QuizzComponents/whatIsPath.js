@@ -1,14 +1,6 @@
-import React, { useCallback, useState, useEffect } from "react";
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Handle,
-  Position,
-  Controls,
-} from "reactflow";
-import { whatIsPathNodes } from "../../Flow/data/whatIsPath";
-import { whatIsPathEdges } from "../../Flow/data/edges/whatIsPath";
+import ReactFlow, { Controls } from "reactflow";
+import { whatIsPathNodes } from "../../Data/Flow/whatIsPath";
+import { whatIsPathEdges } from "../../Data/Flow/edges/whatIsPath";
 
 function WhatIsPathComponent() {
   return (

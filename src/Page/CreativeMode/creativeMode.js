@@ -1,8 +1,8 @@
 import { useCallback, useState, useEffect } from "react";
 import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
 import "./creativeMode.css";
-import { landingPageNodes } from "../../Flow/data/landingPage";
-import { landingPageEdges } from "../../Flow/data/edges/landingPage";
+import { landingPageNodes } from "../../Data/Flow/landingPage";
+import { landingPageEdges } from "../../Data/Flow/edges/landingPage";
 import DefaultPackets from "../../Packet";
 import AddDeviceButtons from "./addDeviceButtons";
 import ServiceButtons from "./serviceButtons";
