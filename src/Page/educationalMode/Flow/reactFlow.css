@@ -26,15 +26,6 @@
   border: none;
 }   
 
-
-.what-is-path-europe .react-flow__container svg{
-  background-image: url("../../../images/europemap.jpg");
-  background-repeat: no-repeat;
-  width: 2253px;
-  height: 2106px;
-}
-
-
 .reciver {
   width: 80px;
   height: 60px;
@@ -43,7 +34,6 @@
   background-size: contain;
   border: none;
 }
-
 
 .gateway, .gateway-build {
   width: 82px;
@@ -65,27 +55,6 @@
   background-color: transparent;
 }
 
-.server-small {
-  width: 45px;
-  height: 50px;
-  padding-top: 27px;
-  background-image: url("../../../images/nodes/server-messenger.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: none;
-  background-color: transparent;
-}
-
-.server-small .react-flow__handle-bottom, .server-small .react-flow__handle-top{
-  visibility: hidden;
-}
-
-.server-small .react-flow__handle-bottom{
-  bottom: 30px;
-}
-.server-small .react-flow__handle-top{
-  top: 30px;
-}
 
 .gateway-build .react-flow__handle-top{
   top: 0px;
@@ -94,32 +63,11 @@
 .gateway-build .react-flow__handle-bottom{
   bottom: 10px;
 }
-.gateway-small {
-  width: 40px;
-  height: 10px;
-  margin-top: -10px;
-  background-image: url("../../../images/nodes/gateway.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
- /* background-position: 10px 40px;*/
-  border: none;
-  background-color: transparent;
-}
-
-.gateway-small .react-flow__handle-bottom, .gateway-small .react-flow__handle-top{
-  
-  visibility: hidden;
-}
-
-.gateway-small .react-flow__handle-bottom{
-  bottom: 20px;
-}
 
 .client-plugged .react-flow__handle-bottom, .client-plugged .react-flow__handle-top{
   
   visibility: hidden;
 }
-
 
 .server-build .react-flow__handle-bottom{
   bottom: 5px;
@@ -134,31 +82,13 @@
   top: 40px;
 }
 
-.client-small {
-  width: 40px;
-  height: 25px;
-  background-image: url("../../../images/nodes/klient.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: none;
-  background-color: transparent;
-  padding-top: 21px;
-}
-
 .client-plugged {
   padding-top: 70px;
 }
 
-
-.client-small .react-flow__handle-bottom, .client-small .react-flow__handle-top{
-  visibility: hidden;
-}
-
-
 .server-messenger {
   background-image: url("../../../images/nodes/serverwebhost.png");
 }
-
 
 .wifi, .wifi-build {
   background: url("../../../images/nodes/wifi.jpg");
@@ -169,7 +99,6 @@
   width: 80px;
   padding-top: 62px;
   background-color: transparent;
-
 }
 .bts, .bts-build {
   background: url("../../../images/nodes/btsvez.jpg") no-repeat center center;
@@ -202,7 +131,6 @@
   font-size: 20px;
 }
 
-
 .server .react-flow__handle-bottom, .client .react-flow__handle-bottom, .gateway .react-flow__handle-bottom, .electric-socket .react-flow__handle-bottom{
   bottom: 20px;
   visibility: hidden;
@@ -212,7 +140,6 @@
   top: 20px;
   visibility: hidden;
 }
-
 
  .client-build .react-flow__handle-top, .client-build .react-flow__handle-bottom {
   top: 20px;

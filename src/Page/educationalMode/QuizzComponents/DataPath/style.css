@@ -1,0 +1,67 @@
+.data-path-flow-container {
+    height: 95vh;
+    width: 80%;
+    margin-left: 20%;
+}
+
+.what-is-path-bg-europe .react-flow__container svg{
+    background-image: url("../../../../images/europemap.jpg");
+    background-repeat: no-repeat;
+    width: 2253px;
+    height: 2106px;
+}
+
+.server-small, .gateway-small, .client-small {
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+}
+
+.server-small {
+    width: 45px;
+    height: 50px;
+    padding-top: 27px;
+    background-image: url("../../../../images/nodes/server-messenger.jpg");
+}
+
+.gateway-small {
+    width: 40px;
+    height: 10px;
+    margin-top: -10px;
+    background-image: url("../../../../images/nodes/gateway.jpg");
+}
+
+.client-small {
+    width: 40px;
+    height: 25px;
+    background-image: url("../../../../images/nodes/klient.jpg");
+    padding-top: 21px;
+}
+
+.server-small .react-flow__handle-bottom, .server-small .react-flow__handle-top{
+    visibility: hidden;
+}
+
+.server-small .react-flow__handle-bottom{
+    bottom: 30px;
+}
+
+.server-small .react-flow__handle-top{
+    top: 30px;
+}
+
+.gateway-small .react-flow__handle-bottom, .gateway-small .react-flow__handle-top{
+    visibility: hidden;
+}
+  
+.gateway-small .react-flow__handle-bottom{
+    bottom: 20px;
+}
+
+.client-small .react-flow__handle-bottom, .client-small .react-flow__handle-top{
+    visibility: hidden;
+}
+  
+  
+  

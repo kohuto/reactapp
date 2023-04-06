@@ -14,7 +14,7 @@ import SetPaths from "./setPaths";
 import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./latency";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
-import WhatIsPathComponent from "./whatIsPath";
+import WhatIsPathComponent from "./DataPath/dataPath";
 import BuildNetwork from "./buildNetwork";
 
 function QuizzComponents({
@@ -30,8 +30,6 @@ function QuizzComponents({
       return (
         <ClientServerCommunication setOpenDialog={setOpenDialog} game={game} />
       );
-    case "whatIsCabel":
-      return <WhatIsCabelComponent />;
 
     case "whatIsPath":
       return <WhatIsPathComponent />;
@@ -41,6 +39,8 @@ function QuizzComponents({
       return (
         <CreatePacketComponent setOpenDialog={setOpenDialog} game={game} />
       );
+    case "whatIsCabel":
+      return <WhatIsCabelComponent />;
     case "findServer":
       return <FindPacketComponent setOpenDialog={setOpenDialog} game={game} />;
     case "whatIsCabelTypeOfConnection":
