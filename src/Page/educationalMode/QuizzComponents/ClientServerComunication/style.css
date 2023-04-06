@@ -1,0 +1,90 @@
+.csc-client {
+    position: absolute;
+    top: 50vh; 
+    left: 35vw;
+}
+
+.csc-server {
+    position: absolute;
+    top: 50vh;
+    left: 75vw;
+}
+
+.csc-message {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: #1d1d1d;
+    color: white;
+}
+
+.csc-clients-wish {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: absolute;
+    top: 37vh;
+    left: 32vw;
+}
+  .csc-message {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .csc-message p {
+    margin: 0;
+  }
+  
+  .csc-clients-wish {
+    opacity: 1;
+  }
+  
+  .csc-request {
+    opacity: 0;
+    transform: translateX(0);
+    top: 50vh;
+    left: 35vw;
+    transition: opacity 0.5s ease-in-out, transform 4s ease-in-out;
+  }
+  
+  .csc-request.show {
+    opacity: 1;
+    transform: translateX(40vw);
+  }
+  
+  .csc-answer {
+    opacity: 0;
+    top: 37vh;
+    left: 73vw;
+  }
+  
+  .csc-answer.show {
+    opacity: 1;
+  }
+  
+  .csc-send-answer {
+    opacity: 0;
+    transform: translateX(0);
+    top: 50vh;
+    left: 75vw;
+    transition: opacity 0.5s ease-in-out, transform 4s ease-in-out;
+  }
+
+  .csc-send-answer img{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .csc-send-answer.show {
+    opacity: 1;
+    transform: translateX(-40vw);
+  }
+  
+  .csc-happy-client {
+    opacity: 0;
+    top: 37vh;
+    left: 32vw;
+  }
+  
+  .csc-happy-client.show {
+    opacity: 1;
+  }

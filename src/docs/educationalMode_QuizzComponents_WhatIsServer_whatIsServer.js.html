@@ -1,4 +1,32 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: educationalMode/QuizzComponents/WhatIsServer/whatIsServer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/WhatIsServer/whatIsServer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useRef, useEffect, useCallback } from "react";
 import Draggable from "react-draggable";
 import web from "../../../../images/serverscontent/website-design.png";
 import video from "../../../../images/serverscontent/multimedia.png";
@@ -49,15 +77,15 @@ function WhatIsServerComponent({ setOpenDialog }) {
     const servervideo = servervideoRef.current;
     const serverweb = serverwebRef.current;
 
-    if (web && serverweb) {
+    if (web &amp;&amp; serverweb) {
       const touching = areElementsTouching(web, serverweb);
       setcorrectWebServerTouch(touching);
     }
-    if (img && serverimg) {
+    if (img &amp;&amp; serverimg) {
       const touching = areElementsTouching(img, serverimg);
       setcorrectInstagramServerTouch(touching);
     }
-    if (video && servervideo) {
+    if (video &amp;&amp; servervideo) {
       const touching = areElementsTouching(video, servervideo);
       setcorrectYouTubeServerTouch(touching);
     }
@@ -94,9 +122,9 @@ function WhatIsServerComponent({ setOpenDialog }) {
     const rect2 = element2.getBoundingClientRect();
 
     const touching = !(
-      rect1.right < rect2.left ||
+      rect1.right &lt; rect2.left ||
       rect1.left > rect2.right ||
-      rect1.bottom < rect2.top ||
+      rect1.bottom &lt; rect2.top ||
       rect1.top > rect2.bottom
     );
 
@@ -128,44 +156,44 @@ function WhatIsServerComponent({ setOpenDialog }) {
     correctYouTubeServerTouch,
   ]);
   return (
-    <>
-      <UploadServer
+    &lt;>
+      &lt;UploadServer
         refProp={servernoRef}
         imageUrl={server}
         servername="no-upload"
       />
-      <UploadServer
+      &lt;UploadServer
         servername="upload-video"
         refProp={servervideoRef}
         imageUrl={serveryoutube}
       />
-      <UploadServer
+      &lt;UploadServer
         servername="upload-image"
         refProp={serverimgRef}
         imageUrl={serverig}
       />
-      <UploadServer
+      &lt;UploadServer
         servername="upload-web"
         refProp={serverwebRef}
         imageUrl={serverweb}
       />
 
-      <CloseOpen
+      &lt;CloseOpen
         content={
-          <>
-            <p className="fill-server-task">
+          &lt;>
+            &lt;p className="fill-server-task">
               Uploadni soubory do správného serveru. Upload provedeš přetažením
               souboru do serveru.
-            </p>
-            <div className="what-is-server-container">
-              <DraggableComponent refProp={webRef} imageUrl={web} />
-              <DraggableComponent refProp={imgRef} imageUrl={picture} />
-              <DraggableComponent refProp={videoRef} imageUrl={video} />
-            </div>
-          </>
+            &lt;/p>
+            &lt;div className="what-is-server-container">
+              &lt;DraggableComponent refProp={webRef} imageUrl={web} />
+              &lt;DraggableComponent refProp={imgRef} imageUrl={picture} />
+              &lt;DraggableComponent refProp={videoRef} imageUrl={video} />
+            &lt;/div>
+          &lt;/>
         }
       />
-    </>
+    &lt;/>
   );
 }
 
@@ -179,13 +207,13 @@ function WhatIsServerComponent({ setOpenDialog }) {
  */
 function UploadServer({ refProp, imageUrl, servername }) {
   return (
-    <div
+    &lt;div
       className={servername}
       ref={refProp}
       style={{
         backgroundImage: `url(${imageUrl})`,
       }}
-    ></div>
+    >&lt;/div>
   );
 }
 
@@ -198,17 +226,40 @@ function UploadServer({ refProp, imageUrl, servername }) {
  */
 function DraggableComponent({ refProp, imageUrl }) {
   return (
-    <Draggable>
-      <div
+    &lt;Draggable>
+      &lt;div
         className="server-content"
         ref={refProp}
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
         }}
-      ></div>
-    </Draggable>
+      >&lt;/div>
+    &lt;/Draggable>
   );
 }
 
 export default WhatIsServerComponent;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#ClientServerCommunication">ClientServerCommunication</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#Dialog">Dialog</a></li><li><a href="global.html#DraggableComponent">DraggableComponent</a></li><li><a href="global.html#DropdownMenu">DropdownMenu</a></li><li><a href="global.html#EducationalMode">EducationalMode</a></li><li><a href="global.html#Flow">Flow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UploadServer">UploadServer</a></li><li><a href="global.html#WhatIsServerComponent">WhatIsServerComponent</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Apr 06 2023 12:15:17 GMT+0200 (Středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

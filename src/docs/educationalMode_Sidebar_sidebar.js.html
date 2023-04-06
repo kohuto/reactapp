@@ -28,9 +28,9 @@
         <article>
             <pre class="prettyprint source linenums"><code>import "reactflow/dist/style.css";
 import "./Sidebar.css";
-import SummaryTemplate from "../../../ModalWindow/templateSummary";
-import { stockData } from "../../../ModalWindow/dataQuizzes";
-import { summaryText } from "../../../ModalWindow/dataSummary";
+import SummaryTemplate from "../../DialogWindow/Templates/summary";
+import { stockData } from "../../../Data/Quizzes/dataQuizzes";
+import { summaryText } from "../../../Data/Quizzes/dataSummary";
 import internet from "../../../images/icons/internet.png";
 import packet from "../../../images/icons/packet.png";
 import wifi from "../../../images/icons/wifi.png";
@@ -40,7 +40,7 @@ import backarrow from "../../../images/icons/left-arrow.png";
 import summary from "../../../images/icons/summary.png";
 import question from "../../../images/icons/question-mark.png";
 import lightbulb from "../../../images/icons/light-bulb.png";
-import Quizz from "../../../ModalWindow/Quizz";
+import Quizz from "../../DialogWindow/Templates/innerQuizz";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -136,6 +136,9 @@ function DropdownMenu({
         classNames="custom-menu-primary"
         unmountOnExit
       >
+        {/**
+         * main menu with five categories
+         */}
         &lt;div className="custom-menu">
           &lt;DropdownItem leftIcon={internet} goToMenu="internet-z-dalky">
             INTERNET Z DÁLKY
@@ -155,13 +158,18 @@ function DropdownMenu({
           &lt;/DropdownItem>
         &lt;/div>
       &lt;/CSSTransition>
-
+      {/**
+       * back to creative mode
+       */}
       &lt;div className="custom-menu custom-menu-bottom">
         &lt;div id="downitem" onClick={() => setIsCreativeMode(true)}>
           &lt;DropdownItem leftIcon={backarrow}>KREATIVNÍ MÓD&lt;/DropdownItem>
         &lt;/div>
       &lt;/div>
 
+      {/**
+       * first submenu with tasks
+       */}
       &lt;CSSTransition
         in={activeMenu === "internet-z-dalky"}
         timeout={500}
@@ -237,6 +245,9 @@ function DropdownMenu({
         &lt;/div>
       &lt;/CSSTransition>
 
+      {/**
+       * second submenu with tasks
+       */}
       &lt;CSSTransition
         in={activeMenu === "klienti-a-pakety"}
         timeout={500}
@@ -314,6 +325,10 @@ function DropdownMenu({
           &lt;/div>
         &lt;/div>
       &lt;/CSSTransition>
+
+      {/**
+       * third submenu with tasks
+       */}
       &lt;CSSTransition
         in={activeMenu === "typy-pripojeni"}
         timeout={500}
@@ -424,6 +439,10 @@ function DropdownMenu({
           &lt;/div>
         &lt;/div>
       &lt;/CSSTransition>
+
+      {/**
+       * fourth submenu with tasks
+       */}
       &lt;CSSTransition
         in={activeMenu === "servery-a-krizovatky"}
         timeout={500}
@@ -530,6 +549,10 @@ function DropdownMenu({
           &lt;/div>
         &lt;/div>
       &lt;/CSSTransition>
+
+      {/**
+       * fifth submenu with tasks
+       */}
       &lt;CSSTransition
         in={activeMenu === "build-network"}
         timeout={500}
@@ -601,13 +624,13 @@ export default Sidebar;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#Dialog">Dialog</a></li><li><a href="global.html#DropdownMenu">DropdownMenu</a></li><li><a href="global.html#EducationalMode">EducationalMode</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#ClientServerCommunication">ClientServerCommunication</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#Dialog">Dialog</a></li><li><a href="global.html#DraggableComponent">DraggableComponent</a></li><li><a href="global.html#DropdownMenu">DropdownMenu</a></li><li><a href="global.html#EducationalMode">EducationalMode</a></li><li><a href="global.html#Flow">Flow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UploadServer">UploadServer</a></li><li><a href="global.html#WhatIsServerComponent">WhatIsServerComponent</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Apr 06 2023 09:31:30 GMT+0200 (Středoevropský letní čas)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Apr 06 2023 12:15:17 GMT+0200 (Středoevropský letní čas)
 </footer>
 
 <script> prettyPrint(); </script>

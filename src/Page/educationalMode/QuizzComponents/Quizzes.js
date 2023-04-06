@@ -13,7 +13,7 @@ import CountPaths from "./countPaths";
 import SetPaths from "./setPaths";
 import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./latency";
-import ClientServerCommunication from "./clientServerComunication";
+import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
 import WhatIsPathComponent from "./whatIsPath";
 import BuildNetwork from "./buildNetwork";
 
@@ -25,9 +25,7 @@ function QuizzComponents({
 }) {
   switch (game) {
     case "whatIsServer":
-      return (
-        <WhatIsServerComponent setOpenDialog={setOpenDialog} game={game} />
-      );
+      return <WhatIsServerComponent setOpenDialog={setOpenDialog} />;
     case "client-server-communication":
       return (
         <ClientServerCommunication setOpenDialog={setOpenDialog} game={game} />

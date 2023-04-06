@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: educationalMode/Flow/reactFlow.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: educationalMode/Flow/reactFlow.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useEffect } from "react";
+import ReactFlow, { useEdgesState } from "reactflow";
+import "reactflow/dist/style.css";
+import "./reactFlow.css";
+import { clientsZoom2Data } from "../../../Data/Flow/client/clientsZoom2";
+import { serversZoom2Data } from "../../../Data/Flow/server/serverZoom2";
+import { gatewaysZoom2Data } from "../../../Data/Flow/gateway/gatewayZoom2";
+import { edgesData } from "../../../Data/Flow/edges/edges";
+import { shortestPathEdges } from "../../../Data/Flow/edges/shortestPathEdges";
+import BuildNetwork from "../QuizzComponents/buildNetwork";
+import { clientsCreatePacket } from "../../../Data/Flow/client/clientsCreatePacket";
+import { clientsFindServer } from "../../../Data/Flow/client/clientsFindServer";
+import { shortestPathGateway } from "../../../Data/Flow/gateway/shortestPathGateway";
+import { shortestPathClient } from "../../../Data/Flow/client/shortestPathClient";
+import { shortestPathServer } from "../../../Data/Flow/server/shortestPathServer";
+import { countPathGateway } from "../../../Data/Flow/gateway/countPathsGateway";
+import { countPathsEdges } from "../../../Data/Flow/edges/countPathsEdges";
+import { countPathsClient } from "../../../Data/Flow/client/countPathsClient";
+import { countPathsServer } from "../../../Data/Flow/server/countPathsServer";
+import { problemWithPathClient } from "../../../Data/Flow/client/problemWithPathClient";
+import { problemWithPathEdges } from "../../../Data/Flow/edges/problemWithPathEdges";
+import { problemWithPathGateway } from "../../../Data/Flow/gateway/problemWithPathGateway";
+import { problemWithPathServer } from "../../../Data/Flow/server/problemWithPathServer";
+import { setPathClient } from "../../../Data/Flow/client/setPathClient";
+import { setPathEdges } from "../../../Data/Flow/edges/setPathEdges";
+import { setPathGateway } from "../../../Data/Flow/gateway/setPathGateway";
+import { setPathServer } from "../../../Data/Flow/server/setPathServer";
+import { problemWithPathDestroyedPathEdges } from "../../../Data/Flow/edges/problemWithPathBrokenPathEdges";
+import { whatIsCabelClient } from "../../../Data/Flow/client/whatIsCabelClient";
+import { whatIsCabelEdges } from "../../../Data/Flow/edges/whatIsCabelEdges";
+import { whatIsCabelGateway } from "../../../Data/Flow/gateway/whatIsCabelGateway";
+import { whatIsCabelServer } from "../../../Data/Flow/server/whatIsCabelServer";
+import { whatIsSatelitNodes } from "../../../Data/Flow/whatIsSatelit";
+import { whatIsSatelitEdges } from "../../../Data/Flow/edges/whatIsSatelitEdges";
+import { whatIsBTSNodes } from "../../../Data/Flow/whatIsBTS";
+import { whatIsBTSEdges } from "../../../Data/Flow/edges/whatIsBTSEdges";
+import { whatIsWifiNodes } from "../../../Data/Flow/whatIsWifi";
+
+/**
+ * The Flow component represents a network that is rendered using the ReactFlow library.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.game - The current game being played.
+ * @param {Array} props.nodes - The current nodes in the flowchart.
+ * @param {function} props.setNodes - The function used to set the nodes in the flowchart.
+ * @param {function} props.onNodesChange - The function called when the nodes in the flowchart are changed.
+ * @param {boolean} props.isDestroyed - A boolean value indicating whether the flowchart has been destroyed.
+ * @returns {JSX.Element} - A JSX element representing the Flow component.
+ */
+function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
+  // Define an array of default nodes for the flowchart.
+  const defaultNodes = [
+    ...clientsZoom2Data,
+    ...serversZoom2Data,
+    ...gatewaysZoom2Data,
+  ];
+
+  // Get the edges to be used in the flowchart.
+  const [edges, setEdges] = useEdgesState(edgesData);
+
+  // Set the nodes and edges in the flowchart based on the current game.
+  useEffect(() => {
+    // Define an object that maps each game to its corresponding nodes and edges.
+    const gameToNodesAndEdges = {
+      whatIsClient: {
+        nodes: [...clientsZoom2Data, ...serversZoom2Data],
+        edges: edgesData,
+      },
+      createPacket: {
+        nodes: [
+          ...clientsCreatePacket,
+          ...serversZoom2Data,
+          ...gatewaysZoom2Data,
+        ],
+        edges: edgesData,
+      },
+      findServer: {
+        nodes: [
+          ...clientsFindServer,
+          ...serversZoom2Data,
+          ...gatewaysZoom2Data,
+        ],
+        edges: edgesData,
+      },
+      whatIsCabel: {
+        nodes: [
+          ...whatIsCabelClient,
+          ...whatIsCabelGateway,
+          ...whatIsCabelServer,
+        ],
+        edges: whatIsCabelEdges,
+      },
+      whatIsWiFi: {
+        nodes: whatIsWifiNodes,
+        edges: edgesData,
+      },
+      whatIsBTS: {
+        nodes: whatIsBTSNodes,
+        edges: whatIsBTSEdges,
+      },
+      whatIsSatelit: {
+        nodes: whatIsSatelitNodes,
+        edges: whatIsSatelitEdges,
+      },
+      setPath: {
+        nodes: [...setPathGateway, ...setPathClient, ...setPathServer],
+        edges: setPathEdges,
+      },
+      shortestPath: {
+        nodes: [
+          ...shortestPathGateway,
+          ...shortestPathClient,
+          ...shortestPathServer,
+        ],
+        edges: shortestPathEdges,
+      },
+      countOfPaths: {
+        nodes: [...countPathGateway, ...countPathsClient, ...countPathsServer],
+        edges: countPathsEdges,
+      },
+      problemWithPath: {
+        nodes: [
+          ...problemWithPathGateway,
+          ...problemWithPathServer,
+          ...problemWithPathClient,
+        ],
+        edges: isDestroyed
+          ? problemWithPathDestroyedPathEdges
+          : problemWithPathEdges,
+      },
+      buildNetwork: {
+        nodes: [],
+        edges: edgesData,
+      },
+      default: {
+        nodes: defaultNodes,
+        edges: edgesData,
+      },
+    };
+
+    // Get the nodes and edges for the current game or use the default nodes and edges.
+    const { nodes, edges } =
+      gameToNodesAndEdges[game] || gameToNodesAndEdges.default;
+    setNodes(nodes);
+    setEdges(edges);
+  }, [game, setNodes, setEdges, isDestroyed]);
+
+  return (
+    &lt;>
+      {game === "buildNetwork" &amp;&amp; (
+        &lt;BuildNetwork game={game} setNodes={setNodes} nodes={nodes} />
+      )}
+
+      &lt;ReactFlow
+        nodes={nodes}
+        edges={edges}
+        panOnDrag={false}
+        zoomOnScroll={false}
+        zoomOnPinch={false}
+        zoomOnDoubleClick={false}
+        onNodesChange={onNodesChange}
+        attributionPosition="top-right"
+      />
+    &lt;/>
+  );
+}
+
+export default Flow;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddDeviceButtons">AddDeviceButtons</a></li><li><a href="global.html#ClientServerCommunication">ClientServerCommunication</a></li><li><a href="global.html#CreativeMode">CreativeMode</a></li><li><a href="global.html#CreativeModeFlow">CreativeModeFlow</a></li><li><a href="global.html#Dialog">Dialog</a></li><li><a href="global.html#DraggableComponent">DraggableComponent</a></li><li><a href="global.html#DropdownMenu">DropdownMenu</a></li><li><a href="global.html#EducationalMode">EducationalMode</a></li><li><a href="global.html#Flow">Flow</a></li><li><a href="global.html#GoToEduModeDialog">GoToEduModeDialog</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#Page">Page</a></li><li><a href="global.html#SendPacketBox">SendPacketBox</a></li><li><a href="global.html#ServiceButtons">ServiceButtons</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UploadServer">UploadServer</a></li><li><a href="global.html#WhatIsServerComponent">WhatIsServerComponent</a></li><li><a href="global.html#countNodesByType">countNodesByType</a></li><li><a href="global.html#generateIpv4Address">generateIpv4Address</a></li><li><a href="global.html#isNodeInRange">isNodeInRange</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Apr 06 2023 12:15:17 GMT+0200 (Středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
