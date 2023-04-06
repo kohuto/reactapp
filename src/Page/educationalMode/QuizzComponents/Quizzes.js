@@ -1,5 +1,5 @@
 import "./Components.css";
-import WhatIsServerComponent from "./whatIsServer";
+import WhatIsServerComponent from "./WhatIsServer/whatIsServer";
 import FindPacketComponent from "./findServers";
 import CreatePacketComponent from "./createPacket";
 import ConnectClientsWirelessComponent from "./connectClientsWireless";
@@ -19,30 +19,18 @@ import BuildNetwork from "./buildNetwork";
 
 function QuizzComponents({
   game,
-  setOpenModal,
-  setAlertMessage,
-  setGameAfterModalClose,
+  setOpenDialog,
   setIsDistroyedProblemWithPath,
   isDestroyed,
 }) {
   switch (game) {
     case "whatIsServer":
       return (
-        <WhatIsServerComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
+        <WhatIsServerComponent setOpenDialog={setOpenDialog} game={game} />
       );
     case "client-server-communication":
       return (
-        <ClientServerCommunication
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
+        <ClientServerCommunication setOpenDialog={setOpenDialog} game={game} />
       );
     case "whatIsCabel":
       return <WhatIsCabelComponent />;
@@ -50,99 +38,43 @@ function QuizzComponents({
     case "whatIsPath":
       return <WhatIsPathComponent />;
     case "dataIntoPackets":
-      return (
-        <DataIntoPackets
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <DataIntoPackets setOpenDialog={setOpenDialog} game={game} />;
     case "createPacket":
       return (
-        <CreatePacketComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
+        <CreatePacketComponent setOpenDialog={setOpenDialog} game={game} />
       );
     case "findServer":
-      return (
-        <FindPacketComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <FindPacketComponent setOpenDialog={setOpenDialog} game={game} />;
     case "whatIsCabelTypeOfConnection":
       return <WhatIsWiFiComponent />;
     case "whatIsWiFi":
-      return (
-        <WhatIsWiFiComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <WhatIsWiFiComponent setOpenDialog={setOpenDialog} game={game} />;
     case "whatIsBTS":
       return <WhatIsBTSComponent />;
     case "whatIsSatelit":
       return <WhatIsSatelitComponent />;
     case "raceAroundWorld":
-      return (
-        <RaceAroundWorld
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <RaceAroundWorld setOpenDialog={setOpenDialog} game={game} />;
     case "connectClientsWireless":
       return (
         <ConnectClientsWirelessComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
+          setOpenDialog={setOpenDialog}
           game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
         />
       );
     case "setPath":
-      return (
-        <SetPaths
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <SetPaths setOpenDialog={setOpenDialog} game={game} />;
     case "shortestPath":
       return (
-        <ShortestPathComponent
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
+        <ShortestPathComponent setOpenDialog={setOpenDialog} game={game} />
       );
     case "countOfPaths":
-      return (
-        <CountPaths
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <CountPaths setOpenDialog={setOpenDialog} game={game} />;
     case "problemWithPath":
       return (
         <ProblemWithPath
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
+          setOpenDialog={setOpenDialog}
           game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
           setIsDistroyedProblemWithPath={setIsDistroyedProblemWithPath}
           isDestroyed={isDestroyed}
         />
@@ -151,14 +83,7 @@ function QuizzComponents({
     case "build-network-2":
     case "build-network-3":
     case "build-network-4":
-      return (
-        <BuildNetwork
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          game={game}
-          setGameAfterModalClose={setGameAfterModalClose}
-        />
-      );
+      return <BuildNetwork setOpenDialog={setOpenDialog} game={game} />;
     default:
       return "";
   }

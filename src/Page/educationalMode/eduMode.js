@@ -52,9 +52,7 @@ function EducationalMode({
       {/* Extra quizz components visible only within concrete quizz */}
       <QuizzComponents
         game={game}
-        setGame={setGame}
-        setGameAfterClose={setGameAfterDialogClose}
-        setOpenModal={setOpenDialog}
+        setOpenDialog={setOpenDialog}
         setIsDistroyedProblemWithPath={setIsDestroyedProblemWithPath}
         isDestroyed={isDestroyedProblemWithPath}
       />

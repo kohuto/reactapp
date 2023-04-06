@@ -1,0 +1,45 @@
+.what-is-server-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vh;
+  }
+  
+  .server-content {
+    height: 50px;
+    width: 50px;
+    z-index: 45;
+    background-size: cover;
+    cursor: pointer;
+  }
+  
+  .fill-server-task{
+    padding: 10px;
+  }
+  
+  .upload-video, .upload-image, .upload-web, .no-upload {
+    width: 100px;
+    height: 70px;
+    position: absolute;
+    z-index: 3;
+    background-size: cover;
+  }
+  
+  .upload-video {
+    top: 15vh;
+    right: 30vw;
+  }
+  .upload-image {
+    top: 55vh;
+    right: 40vw;
+  }
+  .upload-web {
+    top: 80vh;
+    right: 60vw;
+  }
+  .no-upload {
+    top: 23vh;
+    right: 60vw;
+  }
+  

@@ -1,20 +1,16 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Draggable from "react-draggable";
-import web from "../../../images/serverscontent/website-design.png";
-import video from "../../../images/serverscontent/multimedia.png";
-import picture from "../../../images/serverscontent/picture.png";
-import server from "../../../images/nodes/server-messenger.jpg";
-import serverig from "../../../images/nodes/serverig.png";
-import serverweb from "../../../images/nodes/serverwebhost.png";
-import serveryoutube from "../../../images/nodes/serveryoutube.png";
-import CloseOpen from "./closeOpenWindow";
+import web from "../../../../images/serverscontent/website-design.png";
+import video from "../../../../images/serverscontent/multimedia.png";
+import picture from "../../../../images/serverscontent/picture.png";
+import server from "../../../../images/nodes/server-messenger.jpg";
+import serverig from "../../../../images/nodes/serverig.png";
+import serverweb from "../../../../images/nodes/serverwebhost.png";
+import serveryoutube from "../../../../images/nodes/serveryoutube.png";
+import CloseOpen from "../closeOpenWindow";
+import "./whatIsServerStyle.css";
 
-function WhatIsServerComponent({
-  setOpenModal,
-  setAlertMessage,
-  game,
-  setGameAfterModalClose,
-}) {
+function WhatIsServerComponent({ setOpenDialog }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
   const videoRef = useRef(null);
@@ -26,7 +22,14 @@ function WhatIsServerComponent({
   const [touching24, setTouching24] = useState(false);
   const [touching34, setTouching34] = useState(false);
   const [filledServer, setFilledServer] = useState(0);
-
+  const finalMessage =
+    "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat.";
+  const correctWebMessage =
+    "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů.";
+  const correctInstagramMessage =
+    "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
+  const correctYouTubeMessage =
+    "Správně! Na YouTube serveru bude uloženo spoustu videí";
   const checkTouching = useCallback(() => {
     const web = webRef.current;
     const img = imgRef.current;
@@ -34,7 +37,6 @@ function WhatIsServerComponent({
     const serverimg = serverimgRef.current;
     const servervideo = servervideoRef.current;
     const serverweb = serverwebRef.current;
-    const serverno = servernoRef.current;
 
     if (web && serverweb) {
       const touching = areElementsTouching(web, serverweb);
@@ -60,11 +62,7 @@ function WhatIsServerComponent({
 
   useEffect(() => {
     if (filledServer == 3) {
-      setAlertMessage(
-        "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat."
-      );
-      setGameAfterModalClose("noGame");
-      setOpenModal(true);
+      setOpenDialog(true, finalMessage, "noGame");
     }
   }, [filledServer]);
 
@@ -86,27 +84,17 @@ function WhatIsServerComponent({
     if (touching14) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setAlertMessage(
-        "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů."
-      );
-      setGameAfterModalClose(game);
-      setOpenModal(true);
+      setOpenDialog(true, correctWebMessage);
     }
     if (touching24) {
       imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setAlertMessage(
-        "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků"
-      );
-      setGameAfterModalClose(game);
-      setOpenModal(true);
+      setOpenDialog(true, correctInstagramMessage);
     }
     if (touching34) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setAlertMessage("Správně! Na YouTube serveru bude uloženo spoustu videí");
-      setGameAfterModalClose(game);
-      setOpenModal(true);
+      setOpenDialog(true, correctYouTubeMessage);
     }
   }, [touching14, touching24, touching34]);
   return (
