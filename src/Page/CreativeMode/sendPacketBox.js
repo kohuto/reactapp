@@ -76,6 +76,7 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    * Validates an IP address.
    * @param {string} ipAddress - The IP address to validate.
    * @returns {boolean} True if the IP address is valid, false otherwise.
+   * @public
    */
   function isValidIpAddress(ipAddress) {
     const ipAddressRegex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;

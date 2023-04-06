@@ -61,7 +61,6 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
 
   /**
    * A callback function to add a node to the nodes state.
-   * @callback
    * @param {string} device - The type of device to add.
    */
   const handleAddNode = useCallback(
@@ -139,6 +138,7 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
 
 /**
  * Determines if a node is in range of a wifi or bts node.
+ * @public
  * @param {string} nodeId - The ID of the node to check.
  * @param {Object[]} nodes - An array of node objects.
  * @returns {boolean} - True if the node is in range, false otherwise.
