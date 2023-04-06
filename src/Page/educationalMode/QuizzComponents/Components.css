@@ -1,12 +1,3 @@
-/*  client serevr communication  */
-.client-server-communication-message {
-  width: auto;
-  height: auto;
-  padding: 10px;
-  background-color: #1d1d1d;
-  color: white;
-}
-
 /* close/open window - template */
 
 .close-open-content {
