@@ -1,5 +1,5 @@
-import DefaultPackets from "../../../Packet";
-import { btsData } from "../../../Packet/data/btsPackets";
+import DefaultPackets from "../../Packet";
+import { btsData } from "../../../Data/Packets/btsPackets";
 
 function WhatIsBTSComponent() {
   var packets = [

@@ -1,6 +1,6 @@
 import "reactflow/dist/style.css";
 import "./Sidebar.css";
-import SummaryTemplate from "../../DialogWindow/Templates/templateSummary";
+import SummaryTemplate from "../../DialogWindow/Templates/summary";
 import { stockData } from "../../../Data/Quizzes/dataQuizzes";
 import { summaryText } from "../../../Data/Quizzes/dataSummary";
 import internet from "../../../images/icons/internet.png";
@@ -12,7 +12,7 @@ import backarrow from "../../../images/icons/left-arrow.png";
 import summary from "../../../images/icons/summary.png";
 import question from "../../../images/icons/question-mark.png";
 import lightbulb from "../../../images/icons/light-bulb.png";
-import Quizz from "../../../ModalWindow/Quizz";
+import Quizz from "../../DialogWindow/Templates/innerQuizz";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 

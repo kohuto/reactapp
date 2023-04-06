@@ -1,4 +1,4 @@
-import DefaultPackets from "../../../Packet";
+import DefaultPackets from "../../Packet";
 
 function WhatIsCabelComponent({}) {
   var packets = [

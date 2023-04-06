@@ -1,9 +1,9 @@
-import SortFileSize from "./Quizzes/sortFileSize";
-import Puzzle from "./Quizzes/puzzle";
-import IPadress from "./Quizzes/IPadress";
-import SortIPAdresses from "./Quizzes/sortIPAdresses";
-import TypingChallenge from "./Quizzes/bandWidth";
-import HowToConnect from "./Quizzes/howToConnect";
+import SortFileSize from "../../educationalMode/QuizzComponents/sortFileSize";
+import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
+import IPadress from "../../educationalMode/QuizzComponents/IPadress";
+import SortIPAdresses from "../../educationalMode/QuizzComponents/sortIPAdresses";
+import TypingChallenge from "../../educationalMode/QuizzComponents/bandWidth";
+import HowToConnect from "../../educationalMode/QuizzComponents/howToConnect";
 
 function Quizz({
   taskType,

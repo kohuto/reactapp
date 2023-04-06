@@ -3,7 +3,7 @@ import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
 import "./creativeMode.css";
 import { landingPageNodes } from "../../Data/Flow/landingPage";
 import { landingPageEdges } from "../../Data/Flow/edges/landingPage";
-import DefaultPackets from "../../Packet";
+import DefaultPackets from "../Packet";
 import AddDeviceButtons from "./addDeviceButtons";
 import ServiceButtons from "./serviceButtons";
 import SendPacketBox from "./sendPacketBox";

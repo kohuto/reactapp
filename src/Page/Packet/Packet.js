@@ -1,17 +1,17 @@
 import "./PacketStyle.css";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
-import { serversZoom2Data } from "../Data/Flow/server/serverZoom2";
-import { clientsZoom2Data } from "../Data/Flow/client/clientsZoom2";
-import { gatewaysZoom2Data } from "../Data/Flow/gateway/gatewayZoom2";
-import { problemWithPathGateway } from "../Data/Flow/gateway/problemWithPathGateway";
-import { whatIsCabelClient } from "../Data/Flow/client/whatIsCabelClient";
-import { whatIsCabelGateway } from "../Data/Flow/gateway/whatIsCabelGateway";
-import { whatIsCabelServer } from "../Data/Flow/server/whatIsCabelServer";
-import { whatIsSatelitNodes } from "../Data/Flow/whatIsSatelit";
-import { whatIsBTSNodes } from "../Data/Flow/whatIsBTS";
-import { whatIsWifiNodes } from "../Data/Flow/whatIsWifi";
-import { landingPageNodes } from "../Data/Flow/landingPage";
+import { serversZoom2Data } from "../../Data/Flow/server/serverZoom2";
+import { clientsZoom2Data } from "../../Data/Flow/client/clientsZoom2";
+import { gatewaysZoom2Data } from "../../Data/Flow/gateway/gatewayZoom2";
+import { problemWithPathGateway } from "../../Data/Flow/gateway/problemWithPathGateway";
+import { whatIsCabelClient } from "../../Data/Flow/client/whatIsCabelClient";
+import { whatIsCabelGateway } from "../../Data/Flow/gateway/whatIsCabelGateway";
+import { whatIsCabelServer } from "../../Data/Flow/server/whatIsCabelServer";
+import { whatIsSatelitNodes } from "../../Data/Flow/whatIsSatelit";
+import { whatIsBTSNodes } from "../../Data/Flow/whatIsBTS";
+import { whatIsWifiNodes } from "../../Data/Flow/whatIsWifi";
+import { landingPageNodes } from "../../Data/Flow/landingPage";
 
 function getCoordinates(id, nodes) {
   const nodeInNodes = nodes.find((s) => s.id === id);

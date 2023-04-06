@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { JigsawPuzzle } from "react-jigsaw-puzzle/lib";
 import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
-import img from "../../images/nodes/klient.jpg";
+import img from "../../../images/nodes/klient.jpg";
 
 function Puzzle({
   setOpenModal,

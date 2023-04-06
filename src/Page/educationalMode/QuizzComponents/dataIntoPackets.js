@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DefaultPackets from "../../../Packet";
+import DefaultPackets from "../../Packet";
 import profileImageMan from "../../../images/profile/man.png";
 import profileImageWoman from "../../../images/profile/woman.png";
 import gallery from "../../../images/icons/image-gallery.png";

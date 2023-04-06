@@ -1,5 +1,4 @@
-import { satelitData } from "../../../Packet/data/satelitPackets";
-import DefaultPackets from "../../../Packet";
+import DefaultPackets from "../../Packet";
 
 function WhatIsSatelitComponent() {
   var packets = [
