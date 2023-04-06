@@ -2,7 +2,7 @@
 .client, .client-build {
   width: 120px;
   height: 70px;
-  background-image: url("../images/nodes/klient.jpg");
+  background-image: url("../../../images/nodes/klient.jpg");
   background-repeat: no-repeat;
   border: none;
   background-color: transparent;
@@ -20,15 +20,15 @@
 .boat{
   width: 120px;
   height: 40px;
-  background-image: url("../images/nodes/boat.png");
+  background-image: url("../../../images/nodes/boat.png");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
 }   
 
 
-.mojeuzasna .react-flow__container svg{
-  background-image: url("../images/europemap.jpg");
+.what-is-path-europe .react-flow__container svg{
+  background-image: url("../../../images/europemap.jpg");
   background-repeat: no-repeat;
   width: 2253px;
   height: 2106px;
@@ -38,7 +38,7 @@
 .reciver {
   width: 80px;
   height: 60px;
-  background-image: url("../images/nodes/reciverfromsatelit.png");
+  background-image: url("../../../images/nodes/reciverfromsatelit.png");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -48,7 +48,7 @@
 .gateway, .gateway-build {
   width: 82px;
   height: 30px;
-  background-image: url("../images/nodes/gateway.jpg");
+  background-image: url("../../../images/nodes/gateway.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -57,7 +57,7 @@
 .server, .server-build {
   width: 110px;
   height: 40px;
-  background-image: url("../images/nodes/server-messenger.jpg");
+  background-image: url("../../../images/nodes/server-messenger.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -69,7 +69,7 @@
   width: 45px;
   height: 50px;
   padding-top: 27px;
-  background-image: url("../images/nodes/server-messenger.jpg");
+  background-image: url("../../../images/nodes/server-messenger.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -98,7 +98,7 @@
   width: 40px;
   height: 10px;
   margin-top: -10px;
-  background-image: url("../images/nodes/gateway.jpg");
+  background-image: url("../../../images/nodes/gateway.jpg");
   background-repeat: no-repeat;
   background-size: contain;
  /* background-position: 10px 40px;*/
@@ -137,7 +137,7 @@
 .client-small {
   width: 40px;
   height: 25px;
-  background-image: url("../images/nodes/klient.jpg");
+  background-image: url("../../../images/nodes/klient.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -156,12 +156,12 @@
 
 
 .server-messenger {
-  background-image: url("../images/nodes/serverwebhost.png");
+  background-image: url("../../../images/nodes/serverwebhost.png");
 }
 
 
 .wifi, .wifi-build {
-  background: url("../images/nodes/wifi.jpg");
+  background: url("../../../images/nodes/wifi.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -172,7 +172,7 @@
 
 }
 .bts, .bts-build {
-  background: url("../images/nodes/btsvez.jpg") no-repeat center center;
+  background: url("../../../images/nodes/btsvez.jpg") no-repeat center center;
   border: none;
   background-repeat: no-repeat;
   background-size: contain;
@@ -184,7 +184,7 @@
 .satelit {
   width: 200px;
   height: 100px;
-  background-image: url("../images/nodes/satelit.jpg");
+  background-image: url("../../../images/nodes/satelit.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -192,7 +192,7 @@
 .electric-socket {
   width: 50px;
   height: 50px;
-  background-image: url("../images/nodes/electric-socket.png");
+  background-image: url("../../../images/nodes/electric-socket.png");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -224,21 +224,21 @@
 }
 
 .whatIsSatelit-bg{
-  background-image: url("../images/Globe-Transparent-Background-PNG.png");
+  background-image: url("../../../images/Globe-Transparent-Background-PNG.png");
   background-repeat: no-repeat;
   background-size: 300px 300px;
   background-position: 300px 300px;
 }
 
 .whatIsBTS-bg{
-  background-image: url("../images/landscape.png");
+  background-image: url("../../../images/landscape.png");
   background-repeat: no-repeat;
   background-size: 800px 600px;
   background-position: 0px 50px;
 }
 
 .whatIsWiFi-bg {
-  background-image: url("../images/house.jpg");
+  background-image: url("../../../images/house.jpg");
   background-repeat: no-repeat;
   background-size: 300px 300px;
   background-position: 500px 250px;

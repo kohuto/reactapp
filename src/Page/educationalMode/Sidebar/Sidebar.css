@@ -17,6 +17,15 @@ code {
   --speed: 500ms; 
 }
 
+.custom-dropdown {
+  position: relative;
+}
+
+.custom-menu-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 a.custom-menu-item {
   color: var(--text-color);

@@ -25,7 +25,7 @@ function WhatIsPathComponent() {
           edges={whatIsPathEdges}
           selectNodesOnDrag={false}
           attributionPosition="top-right"
-          className="mojeuzasna"
+          className="what-is-path-europe"
         >
           <Controls
             showFitView={false}
