@@ -1,10 +1,4 @@
-/* check-validity-button close open window */
-.submit-button-open-close{
-  position: absolute;
-}
-
-
- .set-path-container, .find-server-container, .shortest-path-container, .problem-with-path-container{
+.shortest-path-container, .problem-with-path-container{
   width: 100%;
   height: 100%;
   margin-left: 15%;
@@ -12,8 +6,8 @@
 }
 
 
-/* find servers */
-.find-server-container button, .set-path-container button.check-button,.create-packets-form-container button.check-button, .shortest-path-container button.check-button, .problem-with-path-container button.check-button {
+
+.shortest-path-container button.check-button, .problem-with-path-container button.check-button {
   position: absolute;
  bottom: 2vh;
  left: 33%;
@@ -22,7 +16,6 @@
 
 
 .connect-client-wireless-button-container {
- 
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -21,10 +21,11 @@
     margin-left: 13%;
   }
 
-  .create-packets-form-container .check-button {
-    position: absolute;
-    bottom: 2vh;
-  }
+.create-packets-form-container .check-button {
+  position: absolute;
+  bottom: 2vh;
+  left: 33%;
+}
 
   /* Slideshow */
   .create-packets-slideshow {
