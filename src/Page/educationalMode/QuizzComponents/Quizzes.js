@@ -33,12 +33,12 @@ function QuizzComponents({
       return <DataIntoPackets setOpenDialog={setOpenDialog} />;
     case "createPacket":
       return <CreatePacketComponent setOpenDialog={setOpenDialog} />;
-    case "whatIsCabel":
-      return <WhatIsCabelComponent />;
     case "findServer":
-      return <FindPacketComponent setOpenDialog={setOpenDialog} game={game} />;
+      return <FindPacketComponent setOpenDialog={setOpenDialog} />;
     case "whatIsCabelTypeOfConnection":
       return <WhatIsWiFiComponent />;
+    case "whatIsCabel":
+      return <WhatIsCabelComponent />;
     case "whatIsWiFi":
       return <WhatIsWiFiComponent setOpenDialog={setOpenDialog} game={game} />;
     case "whatIsBTS":

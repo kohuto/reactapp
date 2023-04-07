@@ -1,84 +1,52 @@
-import SortFileSize from "../../educationalMode/QuizzComponents/sortFileSize";
+import SortFileSize from "../../educationalMode/QuizzComponents/HowManyPackets/sortFileSize";
 import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
 import IPadress from "../../educationalMode/QuizzComponents/IPadress";
 import SortIPAdresses from "../../educationalMode/QuizzComponents/sortIPAdresses";
 import TypingChallenge from "../../educationalMode/QuizzComponents/bandWidth";
 import HowToConnect from "../../educationalMode/QuizzComponents/howToConnect";
 
-function Quizz({
-  taskType,
-  setAlertMessage,
-  setOpenModal,
-  setGameAfterModalClose,
-  game,
-  setOpenOverlayModal,
-  setOverlayDialogMessage,
-}) {
+function Quizz({ taskType, setOpenDialog, setOpenOverlayDialog }) {
   switch (taskType) {
     case "sortFileSize":
       return (
         <SortFileSize
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     case "typingChallenge":
       return (
         <TypingChallenge
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     case "howToConnect":
       return (
         <HowToConnect
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     case "IPadress":
       return (
         <IPadress
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     case "sortIPAdresses":
       return (
         <SortIPAdresses
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     case "puzzle":
       return (
         <Puzzle
-          setAlertMessage={setAlertMessage}
-          setOpenModal={setOpenModal}
-          setGameAfterModalClose={setGameAfterModalClose}
-          game={game}
-          setOpenOverlayModal={setOpenOverlayModal}
-          setOverlayDialogMessage={setOverlayDialogMessage}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={setOpenOverlayDialog}
         />
       );
     default:
