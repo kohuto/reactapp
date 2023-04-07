@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import bts from "../../../images/nodes/btsvez.jpg";
 import wifi from "../../../images/nodes/wifi.jpg";
-import CloseOpen from "./closeOpenWindow";
+import CloseOpen from "./CloseOpenWindow/closeOpenWindow";
 import { connectClientWirelessNodes } from "../../../Data/Flow/connectClientWireless";
 import { connectClientWirelessEdges } from "../../../Data/Flow/edges/connectClientWireless";
 

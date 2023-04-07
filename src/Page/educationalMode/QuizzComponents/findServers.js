@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Components.css";
-import CloseOpen from "./closeOpenWindow";
+import CloseOpen from "./CloseOpenWindow/closeOpenWindow";
 import DefaultPackets from "../../Packet";
 import { findServerData } from "../../../Data/Packets/findServerPackets";
 import TextField from "@mui/material/TextField";

@@ -1,27 +1,19 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import "./Components.css";
+import "./style.css";
 
-const show = {
-  opacity: 1,
-  display: "block",
-};
-
-const hide = {
-  opacity: 0,
-  transitionEnd: {
-    display: "none",
-  },
-};
-
+/**
+ * A component that renders content that can be shown or hidden using a button.
+ * The content is displayed with a fade-in/fade-out animation.
+ * @param {object} content - The content to display.
+ */
 function CloseOpen({ content }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <div className="close-open-container">
       <motion.div
-        className="close-open-content"
-        animate={isVisible ? show : hide}
+        className={`close-open-content ${isVisible ? "show" : "hide"}`} // use the classes
       >
         {content}
       </motion.div>

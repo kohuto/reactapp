@@ -7,7 +7,7 @@ import server from "../../../../images/nodes/server-messenger.jpg";
 import serverig from "../../../../images/nodes/serverig.png";
 import serverweb from "../../../../images/nodes/serverwebhost.png";
 import serveryoutube from "../../../../images/nodes/serveryoutube.png";
-import CloseOpen from "../closeOpenWindow";
+import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import "./style.css";
 
 /**

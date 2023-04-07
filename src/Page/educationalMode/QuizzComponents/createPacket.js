@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Components.css";
 import "react-slideshow-image/dist/styles.css";
-import CloseOpen from "./closeOpenWindow";
+import CloseOpen from "./CloseOpenWindow/closeOpenWindow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";

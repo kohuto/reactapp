@@ -1,0 +1,68 @@
+.show {
+    opacity: 1;
+    display: block;
+  }
+  
+  .hide {
+    opacity: 0;
+    display: none;
+  }
+
+  .close-open-content {
+    width: 20vw;
+    height: 65vh;
+    position: absolute;
+    bottom: 7vh;
+    right: 3vw;
+    z-index: 15;
+    border-radius: 0.5em;
+    background: #c7c7c7;
+    border: 1px solid #bebebe;
+    box-shadow: 6px 6px 12px #7c7c7c,
+    -6px -6px 12px #ffffff;
+  }
+
+/* pulsing button */ 
+.pulse-button {
+    border: none;
+   
+    box-shadow: 0 0 0 0 rgba(122, 122, 122, 0.7);
+    border-radius: 50%;
+    background-color: #2c2c2c;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
+  
+  .pulse-button:hover {
+    animation: none;
+    transform: scale(1.2);
+  }
+  
+  @keyframes pulse {
+    to {
+      box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+      transform: scale(1.2);
+    }
+  }
+  
+  /* minimize/maximize pulsing button openclose window  */
+  
+  .close-open-controls button {
+    background-color: rgb(92, 92, 92);
+    color: rgb(237, 237, 237);
+    border: none;
+    padding: 15px 15px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 67px;
+    height: 67px;
+    position: absolute;
+    bottom: 3vh;
+    right: 1vw;
+    z-index: 15;
+  }
+  

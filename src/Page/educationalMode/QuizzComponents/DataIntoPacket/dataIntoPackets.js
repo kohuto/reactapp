@@ -1,17 +1,15 @@
 import { useState } from "react";
-import DefaultPackets from "../../Packet";
-import profileImageMan from "../../../images/profile/man.png";
-import profileImageWoman from "../../../images/profile/woman.png";
-import gallery from "../../../images/icons/image-gallery.png";
-import plus from "../../../images/icons/plusmess.png";
-import gif from "../../../images/icons/gif.png";
+import DefaultPackets from "../../../Packet";
+import profileImageMan from "../../../../images/profile/man.png";
+import profileImageWoman from "../../../../images/profile/woman.png";
+import gallery from "../../../../images/icons/image-gallery.png";
+import plus from "../../../../images/icons/plusmess.png";
+import gif from "../../../../images/icons/gif.png";
+import { packetsFromClientToServer } from "../../../../Data/Packets/dataIntoPakcetsClientServer";
+import { packetsFromServerToClient } from "../../../../Data/Packets/dataIntoPacketsServerClient";
+import "./style.css";
 
-function DataIntoPackets({
-  setAlertMessage,
-  setOpenModal,
-  game,
-  setGameAfterModalClose,
-}) {
+function DataIntoPackets({ setOpenDialog }) {
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
@@ -19,6 +17,7 @@ function DataIntoPackets({
       sender: "user",
     },
   ]);
+
   const [newMessage, setNewMessage] = useState("");
   const [showChat, setShowChat] = useState(true);
   const [showPackets1, setShowPackets1] = useState(false);
@@ -31,110 +30,15 @@ function DataIntoPackets({
   const [content1, setContent1] = useState("");
   const [content2, setContent2] = useState("");
   const [content3, setContent3] = useState("");
-
-  var packets1 = [
-    {
-      id: 180,
-      path: [
-        "77.75.79.138",
-        "147.32.3.202",
-        "217.31.205.50",
-        "82.208.6.9",
-        "57.200.0.1",
-        "208.67.222.222",
-        "2002:c0a8:101::1",
-        "195.113.76.22",
-      ],
-      content: content1,
-      from: "77.75.79.138",
-      to: "195.113.76.22",
-      speed: 40,
-    },
-    {
-      id: 181,
-      path: [
-        "77.75.79.138",
-        "147.32.3.202",
-        "91.198.174.192",
-        "82.208.6.9",
-        "208.67.222.222",
-        "222.173.190.239",
-        "2002:c0a8:101::1",
-        "195.113.76.22",
-      ],
-      content: content2,
-      from: "77.75.79.138",
-      to: "195.113.76.22",
-      speed: 40,
-    },
-    {
-      id: 182,
-      path: [
-        "77.75.79.138",
-        "147.32.3.202",
-        "217.31.205.50",
-        "193.85.9.76",
-        "82.208.6.9",
-        "57.200.0.1",
-        "2002:c0a8:101::1",
-        "195.113.76.22",
-      ],
-      content: content3,
-      from: "77.75.79.138",
-      to: "195.113.76.22",
-      speed: 40,
-    },
-  ];
-  var packets2 = [
-    {
-      id: 10,
-      path: [
-        "195.113.76.22",
-        "2002:c0a8:101::1",
-        "57.200.0.1",
-        "82.208.6.9",
-        "208.67.222.222",
-        "222.173.190.239",
-        "195.113.27.221",
-      ],
-      content: content1,
-      from: "195.113.76.22",
-      to: "195.113.27.221",
-      speed: 40,
-    },
-    {
-      id: 11,
-      path: [
-        "195.113.76.22",
-        "2002:c0a8:101::1",
-        "208.67.222.222",
-        "57.200.0.1",
-        "2002:c0a8:101::1",
-        "222.173.190.239",
-        "195.113.27.221",
-      ],
-      content: content2,
-      from: "195.113.76.22",
-      to: "195.113.27.221",
-      speed: 40,
-    },
-    {
-      id: 12,
-      path: [
-        "195.113.76.22",
-        "2002:c0a8:101::1",
-        "57.200.0.1",
-        "208.67.222.222",
-        "2002:c0a8:101::1",
-        "222.173.190.239",
-        "195.113.27.221",
-      ],
-      content: content3,
-      from: "195.113.76.22",
-      to: "195.113.27.221",
-      speed: 40,
-    },
-  ];
+  const longMessageErrorMessage = "napis zpravu, ktera ma max 24 znaku.";
+  const finalMessage =
+    "Perfektní! Právě jsi viděl, že se zpráva před odesláním rozloží na malé části, kterým říkáme pakety. Každá informace (fotka, webová stránka, video), je před odesláním rozložená a posílá se po částech.";
+  const firstInform =
+    "Zpráva se rozložila na pakety. Každý paket, má určitou velikost. Může se stát, že poslední paket, který obsahuje zbytek dat, nemá stejnou velikost jako předchozí pakety. Je to proto, že poslední část zprávy je menší než velikost běžného paketu. To ale nevadí, paket dorazí do cíle stejně jako ostatní pakety. Zavři nyní toto okno a sleduj, jak se v mapě objeví pakety. Na pakety můžeš kliknout a podívat se, co je uvnitř.";
+  const secondInform =
+    "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Anička bude chtít zobrazit zprávu, pošle požadavek serveru a ten ji zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Aničce. Opět se můžeš podívat dovnitř paketů.";
+  let packets1 = packetsFromClientToServer;
+  let packets2 = packetsFromServerToClient;
 
   function swapSenders() {
     setIsSwapedSenders(true);
@@ -178,10 +82,14 @@ function DataIntoPackets({
       if (newMessage.length > 8) setContent2(newMessage.substring(8, 16));
       if (newMessage.length > 16);
       setContent3(newMessage.substring(16, 24));
+      packets1[0].content = content1;
+      packets1[1].content = content2;
+      packets1[2].content = content3;
+      packets2[0].content = content1;
+      packets2[1].content = content2;
+      packets2[2].content = content3;
     } else {
-      setAlertMessage("napis zpravu, ktera ma max 24 znaku.");
-      setGameAfterModalClose(game);
-      setOpenModal(true);
+      setOpenDialog(true, longMessageErrorMessage);
     }
   };
 
@@ -197,11 +105,7 @@ function DataIntoPackets({
   };
 
   function handleClose() {
-    setAlertMessage(
-      "Perfektní! Právě jsi viděl, že se zpráva před odesláním rozloží na malé části, kterým říkáme pakety. Každá informace (fotka, webová stránka, video), je před odesláním rozložená a posílá se po částech."
-    );
-    setGameAfterModalClose("noGame");
-    setOpenModal(true);
+    setOpenDialog(true, finalMessage, "noGame");
   }
 
   if (showPacketsCreatedMessageBox) {
@@ -215,15 +119,7 @@ function DataIntoPackets({
             >
               &times;
             </span>
-            <p>
-              Zpráva se rozložila na pakety. Každý paket, má určitou velikost.
-              Může se stát, že poslední paket, který obsahuje zbytek dat, nemá
-              stejnou velikost jako předchozí pakety. Je to proto, že poslední
-              část zprávy je menší než velikost běžného paketu. To ale nevadí,
-              paket dorazí do cíle stejně jako ostatní pakety. Zavři nyní toto
-              okno a sleduj, jak se v mapě objeví pakety. Na pakety můžeš
-              kliknout a podívat se, co je uvnitř.
-            </p>
+            <p>{firstInform}</p>
             <div>
               {[
                 ...Array(
@@ -332,14 +228,7 @@ function DataIntoPackets({
             >
               &times;
             </span>
-            <p>
-              Zpráva dorazila v paketech do messenger serveru. Z předchozí
-              kapitoly už víme, že klient posílá zprávy na server. Jiní klienti
-              si pak zprávu můžou od serveru vyžádat. Když si Anička bude chtít
-              zobrazit zprávu, pošle požadavek serveru a ten ji zprávu pošle.
-              Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Aničce.
-              Opět se můžeš podívat dovnitř paketů.
-            </p>
+            <p>{secondInform}adresu</p>
           </div>
         </div>
       </>

@@ -3,7 +3,7 @@ import WhatIsServerComponent from "./WhatIsServer/whatIsServer";
 import FindPacketComponent from "./findServers";
 import CreatePacketComponent from "./createPacket";
 import ConnectClientsWirelessComponent from "./connectClientsWireless";
-import DataIntoPackets from "./dataIntoPackets";
+import DataIntoPackets from "./DataIntoPacket/dataIntoPackets";
 import WhatIsBTSComponent from "./whatIsBTS";
 import WhatIsCabelComponent from "./whatIsCabel";
 import WhatIsSatelitComponent from "./whatIsSatelit";
@@ -27,10 +27,7 @@ function QuizzComponents({
     case "whatIsServer":
       return <WhatIsServerComponent setOpenDialog={setOpenDialog} />;
     case "client-server-communication":
-      return (
-        <ClientServerCommunication setOpenDialog={setOpenDialog} game={game} />
-      );
-
+      return <ClientServerCommunication setOpenDialog={setOpenDialog} />;
     case "whatIsPath":
       return <WhatIsPathComponent />;
     case "dataIntoPackets":
