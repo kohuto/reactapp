@@ -25,7 +25,6 @@
 /* pulsing button */ 
 .pulse-button {
     border: none;
-   
     box-shadow: 0 0 0 0 rgba(122, 122, 122, 0.7);
     border-radius: 50%;
     background-color: #2c2c2c;
@@ -49,7 +48,7 @@
   
   /* minimize/maximize pulsing button openclose window  */
   
-  .close-open-controls button {
+  .close-open-controls .pulse-button {
     background-color: rgb(92, 92, 92);
     color: rgb(237, 237, 237);
     border: none;

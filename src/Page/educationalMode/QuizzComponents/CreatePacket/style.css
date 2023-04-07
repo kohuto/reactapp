@@ -1,0 +1,45 @@
+.create-packets-form-container{
+    width: 100%;
+    height: 100%;
+    margin-left: 15%;
+    margin-top: 5vh;
+  }
+  
+  .create-packets-form-container p {
+    max-width: 15vw;
+  }
+  
+  /* space below input field */
+  .create-packets-form-container .MuiTextField-root {
+    margin-bottom: 0.5vh;
+    width: 70%;
+  }
+  
+  .create-packet-buttons{
+    position: absolute;
+    bottom: 9vh;
+    margin-left: 13%;
+  }
+
+  .create-packets-form-container .check-button {
+    position: absolute;
+    bottom: 2vh;
+  }
+
+  /* Slideshow */
+  .create-packets-slideshow {
+    overflow: hidden;
+  }
+  
+  .create-packets-slideshowSlider {
+    white-space: nowrap;
+    transition: ease 500ms;
+  }
+  
+  .create-packets-slide {
+    display: inline-block;
+    height: 36vh;
+    width: 20vw;
+    border-radius: 40px;
+  }
+
