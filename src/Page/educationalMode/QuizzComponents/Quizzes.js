@@ -10,7 +10,6 @@ import WhatIsSatelitComponent from "./whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
-import SetPaths from "./setPaths";
 import WhatIsWiFiComponent from "./whatIsWifi";
 import RaceAroundWorld from "./latency";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
@@ -55,8 +54,6 @@ function QuizzComponents({
           game={game}
         />
       );
-    case "setPath":
-      return <SetPaths setOpenDialog={setOpenDialog} game={game} />;
     case "shortestPath":
       return (
         <ShortestPathComponent setOpenDialog={setOpenDialog} game={game} />
