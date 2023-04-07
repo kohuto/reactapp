@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import RangeSlider from "./RangeSlider,";
+import "./style.css";
 
 /**
  * Component that allows the user to sort files by their size
