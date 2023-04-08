@@ -1,0 +1,23 @@
+.typing-challenge-text {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+}
+
+.typing-challenge-container{
+    margin-left: 35%;
+    margin-top: 2vh;
+}
+
+.typing-challenge-container button.start-button {
+    margin-left: 6%;
+    margin-top: 3vh;
+}
