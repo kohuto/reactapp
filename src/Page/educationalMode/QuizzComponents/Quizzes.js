@@ -13,7 +13,7 @@ import CountPaths from "./CountPaths/countPaths";
 import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
 import WhatIsPathComponent from "./DataPath/dataPath";
-import BuildNetwork from "./buildNetwork";
+import BuildNetwork from "./BuildNetwork/buildNetwork";
 import LatencyComponent from "./Latency/latency";
 
 function QuizzComponents({
