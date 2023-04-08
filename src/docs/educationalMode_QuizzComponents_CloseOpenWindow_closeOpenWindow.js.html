@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: educationalMode/QuizzComponents/CloseOpenWindow/closeOpenWindow.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,51 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/CloseOpenWindow/closeOpenWindow.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
+import { motion } from "framer-motion";
+import "./style.css";
 
+/**
+ * A component that renders content that can be shown or hidden using a button.
+ * The content is displayed with a fade-in/fade-out animation.
+ * @param {object} content - The content to display.
+ */
+function CloseOpen({ content }) {
+  const [isVisible, setIsVisible] = useState(true);
 
-    <h3> </h3>
+  return (
+    &lt;div className="close-open-container">
+      &lt;motion.div
+        className={`close-open-content ${isVisible ? "show" : "hide"}`} // use the classes
+      >
+        {content}
+      &lt;/motion.div>
+      &lt;div className="close-open-controls">
+        &lt;button
+          className="pulse-button"
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsVisible(!isVisible)}
+        >
+          {isVisible ? "SKRYJ" : "UKAŽ"}
+        &lt;/button>
+      &lt;/div>
+    &lt;/div>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default CloseOpen;
+</code></pre>
+        </article>
+    </section>
 
 
 

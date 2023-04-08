@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: educationalMode/QuizzComponents/whatIsCabel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/whatIsCabel.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import DefaultPackets from "../../Packet";
+import { whatIsCabelPackets } from "../../../Data/Packets/whatIsCabel";
 
+/**
+ * Renders a component that displays packets explaining what is a cable.
+ * @param {object} props - The props object.
+ * @returns {JSX.Element} - The component's UI.
+ */
+function WhatIsCabelComponent({}) {
+  return (
+    &lt;DefaultPackets
+      packetsData={whatIsCabelPackets}
+      repeat={Infinity}
+      marginleft={20}
+    />
+  );
+}
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default WhatIsCabelComponent;
+</code></pre>
+        </article>
+    </section>
 
 
 

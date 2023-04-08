@@ -34,6 +34,6 @@ export const whatIsWifiNodes = [
     position: { x: 760, y: 480 },
     className: "electric-socket",
     dragHandle: "noDrag",
-    targetPosition: "left",
+    sourcePosition: "left",
   },
 ];

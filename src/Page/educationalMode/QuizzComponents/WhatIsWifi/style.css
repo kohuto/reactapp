@@ -1,0 +1,31 @@
+.what-is-wifi-container {
+    background-image: url("../../../../images/house.jpg");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: 500px 200px;
+    height: 95vh;
+    width: 80%; 
+    margin-left: 20%;
+}
+
+.what-is-wifi-container .switch-on-off-button {
+    position: absolute;
+    margin-left: 19.6vw;
+    top: 400px;
+    left: 610px;
+    z-index: 4;
+}
+
+.what-is-wifi-container .wifi-list{
+    position: absolute;
+    margin-left: 20vw;
+    top: 150px;
+    left: 110px;
+    z-index: 4;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.electric-socket .react-flow__handle-top {
+    visibility: hidden;
+}

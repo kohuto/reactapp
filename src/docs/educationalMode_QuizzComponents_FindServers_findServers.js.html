@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: educationalMode/QuizzComponents/FindServers/findServers.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,44 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/FindServers/findServers.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
+import DefaultPackets from "../../../Packet";
+import { findServerData } from "../../../../Data/Packets/findServerPackets";
+import InputBox from "./inputBox";
+import "./style.css";
 
+/**
+ * Component that renders a find packet form and a list of packets.
+ * @param {Object} props - The component props.
+ * @param {Function} props.setOpenDialog - A function to open a dialog window.
+ * @returns {JSX.Element} The component JSX element.
+ */
+function FindPacketComponent(props) {
+  return (
+    &lt;>
+      &lt;DefaultPackets
+        packetsData={findServerData}
+        repeat={Infinity}
+        marginleft={20}
+      />
+      &lt;CloseOpen content={&lt;InputBox setOpenDialog={props.setOpenDialog} />} />
+    &lt;/>
+  );
+}
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default FindPacketComponent;
+</code></pre>
+        </article>
+    </section>
 
 
 

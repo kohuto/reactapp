@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: educationalMode/QuizzComponents/FindServers/inputBox.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,82 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/FindServers/inputBox.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
+import Button from "@mui/material/Button";
+import ClientInput from "./clientInput";
+import "./style.css";
 
+/**
+ * Component that renders a form to find packets by client IP addresses.
+ * @param {Object} props - The component props.
+ * @param {Function} props.setOpenDialog - A function to open a dialog window.
+ * @returns {JSX.Element} The component JSX element.
+ */
+function InputBox(props) {
+  const correctClients = [
+    { name: "Kiara", ip: "195.113.76.22" },
+    { name: "Annika", ip: "195.113.89.35" },
+    { name: "Eustác", ip: "192.168.1.1" },
+  ];
 
-    <h3> </h3>
+  const finalMessage =
+    "Perfektní! Nezpomeň, že v každém paketu najdeš informaci o tom, kdo paket poslal a komu má být paket doručen.";
+  const incorrectServerMessage = "nějaký server je špatně";
+  const [clients, setClients] = useState(
+    correctClients.map((client) => ({ ...client, value: "" }))
+  );
 
+  const handleSubmit = () => {
+    const hasIncorrectClient = clients.some(
+      (client) => client.value !== client.ip
+    );
 
+    if (!hasIncorrectClient) {
+      props.setOpenDialog(true, finalMessage, "noGame");
+    } else {
+      props.setOpenDialog(true, incorrectServerMessage);
+    }
+  };
 
+  const handleClientChange = (name, value) => {
+    const newClients = clients.map((client) =>
+      client.name === name ? { ...client, value } : client
+    );
+    setClients(newClients);
+  };
 
+  return (
+    &lt;>
+      &lt;div className="find-server-container">
+        {clients.map((client) => (
+          &lt;ClientInput
+            key={client.name}
+            label={client.name}
+            value={client.value}
+            onChange={(value) => handleClientChange(client.name, value)}
+          />
+        ))}
+        &lt;Button variant="outlined" onClick={handleSubmit}>
+          ZKONTROLUJ
+        &lt;/Button>
+      &lt;/div>
+    &lt;/>
+  );
+}
 
-
-
-
-
-
-    
-
-
-
-
-
+export default InputBox;
+</code></pre>
+        </article>
+    </section>
 
 
 

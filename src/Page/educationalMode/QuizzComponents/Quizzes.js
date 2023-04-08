@@ -10,7 +10,7 @@ import WhatIsSatelitComponent from "./whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
-import WhatIsWiFiComponent from "./whatIsWifi";
+import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";
 import RaceAroundWorld from "./latency";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
 import WhatIsPathComponent from "./DataPath/dataPath";

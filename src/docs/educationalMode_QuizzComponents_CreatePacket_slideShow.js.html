@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: educationalMode/QuizzComponents/CreatePacket/slideShow.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,86 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: educationalMode/QuizzComponents/CreatePacket/slideShow.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import InsidePacket from "./insidePacket";
+import "./style.css";
 
+/**
+ * A slideshow component that renders multiple copies of the InsidePacket component
+ * based on the number of slides specified.
+ *
+ * @param {Object} props - The component props
+ * @param {Array} props.id - An array of IDs for each packet
+ * @param {function} props.setId - A function to update the IDs array
+ * @param {Array} props.order - An array of orders for each packet
+ * @param {function} props.setOrder - A function to update the orders array
+ * @param {Array} props.senderIP - An array of sender IPs for each packet
+ * @param {function} props.setSenderIP - A function to update the sender IPs array
+ * @param {Array} props.recipientIP - An array of recipient IPs for each packet
+ * @param {function} props.setRecipientIP - A function to update the recipient IPs array
+ * @param {Array} props.content - An array of content for each packet
+ * @param {function} props.setContent - A function to update the content array
+ */
+function Slideshow(props) {
+  const [index, setIndex] = useState(0);
 
-    <h3> </h3>
+  return (
+    &lt;div className="create-packets-slideshow">
+      &lt;div
+        className="create-packets-slideshowSlider"
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+      >
+        {[1, 2, 3].map((number, index) => (
+          &lt;div className="create-packets-slide">
+            &lt;InsidePacket
+              key={index}
+              number={number}
+              id={props.id}
+              setId={props.setId}
+              order={props.order}
+              setOrder={props.setOrder}
+              senderIP={props.senderIP}
+              setSenderIP={props.setSenderIP}
+              recipientIP={props.recipientIP}
+              setRecipientIP={props.setRecipientIP}
+              content={props.content}
+              setContent={props.setContent}
+            />
+          &lt;/div>
+        ))}
+      &lt;/div>
 
+      &lt;ButtonGroup
+        variant="outlined"
+        aria-label="outlined button group small"
+        className="create-packet-buttons"
+        size="small"
+      >
+        {["One", "Two", "Three"].map((text, index) => (
+          &lt;Button key={index} onClick={() => setIndex(index)}>
+            {text}
+          &lt;/Button>
+        ))}
+      &lt;/ButtonGroup>
+    &lt;/div>
+  );
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Slideshow;
+</code></pre>
+        </article>
+    </section>
 
 
 
