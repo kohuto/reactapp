@@ -65,7 +65,9 @@ function LatencyComponent({ setOpenDialog }) {
       const elapsedTime = (endTime - startTime) / 1000;
       setOpenDialog(
         true,
-        `Perfektní! Tvá doba odezvy je ${elapsedTime} sekund \n Tvá doba odezvy je skutečně malá, ovšem oproti ideální době odezvy 30-40 ms v roce 2023 je to stále ještě pomalé. \n V dalším úkolu se blíže podíváme na druhý aspekt rychlosti internetu - tzv. šířku pásma.`,
+        `Perfektní! Tvá doba odezvy je ${elapsedTime} sekund \n Je dobré zmínit, že v roce 2023 je ideální doba odezvy až 30-40 ms. Z toho vyplývá, že bys musel cestu naklikat ${
+          (elapsedTime * 1000) / 30
+        }x rychleji, abys dosáhl stejné rychlosti. Navíc bys v podobném čase musel být schopen klikat na cestu dlouhou i několik set kilometrů. \n V dalším úkolu se blíže podíváme na druhý aspekt rychlosti internetu - tzv. šířku pásma.`,
         "noGame"
       );
     }

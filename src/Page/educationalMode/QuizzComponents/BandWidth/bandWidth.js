@@ -18,9 +18,11 @@ function BandWidthComponent({ setOpenDialog }) {
   const [startTime, setStartTime] = useState(null);
   const finalMessage = `Perfektní! Zvládl jsi přepsat ${
     userInput.length
-  } znaků za 10 sekund. To znamená, že jsi psal rychlostí ${Math.round(
-    userInput.length / (10 / 1000)
-  )} Mb/s. Je dobré ale zmínit, že ideální rychlost přenosu v roce 2023 je až 240 Mb/s. Z toho vyplývá, že bys musel psát x rychleji, abys zvládl přenášet data stejně rychle, jako jsou přenášena po internetu.`;
+  } znaků za 10 sekund. To znamená, že jsi přepsal ${
+    userInput.length * 8
+  } bitů. Jeden bit je ale 1000000x menší, než jeden Mega bit. \n Je dobré zmínit, že ideální šířka pásma v roce 2023 je až 240 Mb/s. Z toho vyplývá, že bys musel psát ${Math.round(
+    240000000 / (userInput.length * 8)
+  )}x rychleji, abys zvládl přenášet data stejně rychle, jako jsou přenášena po internetu.`;
 
   // Use effect hook to check if the time limit has been exceeded
   useEffect(() => {
@@ -30,10 +32,10 @@ function BandWidthComponent({ setOpenDialog }) {
       if (isStarted && elapsedTime > 10) {
         setOpenDialog(true, finalMessage, "noGame");
       }
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(intervalId);
-  }, [isStarted, startTime, finalMessage]);
+  }, [isStarted, startTime, userInput, finalMessage]);
 
   // Use effect hook to show error message for half a second
   useEffect(() => {
