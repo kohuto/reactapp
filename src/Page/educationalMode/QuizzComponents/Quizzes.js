@@ -7,7 +7,7 @@ import DataIntoPackets from "./DataIntoPacket/dataIntoPackets";
 import WhatIsBTSComponent from "./WhatIsBTS/whatIsBTS";
 import WhatIsCabelComponent from "./WhatIsCabel/whatIsCabel";
 import WhatIsSatelitComponent from "./WhatIsSatelit/whatIsSatelit";
-import ProblemWithPath from "./problemWithPath";
+import ProblemWithPath from "./ProblemWithPath/problemWithPath";
 import ShortestPathComponent from "./FastestPath/shortestPath";
 import CountPaths from "./CountPaths/countPaths";
 import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";

@@ -125,7 +125,7 @@ export const stockData = [
   },
   {
     content:
-      "Konečně jsme na konci naší cesty. Všechny pakety úspěšně dorazili až k příjemci. Pakety ovšem dorazili do cíle nezávisle na sobě, proto je potřeba je nyní setřídit. Poslali jsme kamarádovi fotku, fotka dorazila do cíle přeházená. Zkus nyní fotku poskládat zpět do původní podoby.",
+      "Konečně jsme na konci naší cesty. Všechny pakety úspěšně dorazily až k příjemci. Pakety ovšem dorazily do cíle nezávisle na sobě, proto je potřeba je nyní setřídit. Poslal jsi kamarádovi fotku, fotka dorazila do cíle přeházená. Zkus nyní fotku poskládat zpět do původní podoby.",
     type: "puzzle",
   },
   {

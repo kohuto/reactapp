@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import "./Components.css";
-import CloseOpen from "./CloseOpenWindow/closeOpenWindow";
+import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Packet from "../../Packet/Packet";
+import Packet from "../../../Packet/Packet";
+import "./style.css";
 
 function ProblemWithPath({
   setOpenModal,

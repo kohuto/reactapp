@@ -1,5 +1,5 @@
 import SortFileSize from "../../educationalMode/QuizzComponents/HowManyPackets/sortFileSize";
-import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
+import Puzzle from "../../educationalMode/QuizzComponents/Puzzle/puzzle";
 import IPadress from "../../educationalMode/QuizzComponents/MyIP/IPadress";
 import SortIPAdresses from "../../educationalMode/QuizzComponents/SortIPAddresses/sortIPAdresses";
 import HowToConnect from "../../educationalMode/QuizzComponents/HowToConnect/howToConnect";
