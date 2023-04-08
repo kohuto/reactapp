@@ -22,10 +22,10 @@ const DEVICE_TYPE = {
  * Component that renders buttons for adding nodes to a network.
  * @param {Object} props - Component props.
  * @param {Function} props.handleAddNode - Function to add a node to the network.
- * @param {Function} props.checkValidty - Function to check the validity of the network.
+ * @param {Function} props.checkValidity - Function to check the validity of the network.
  * @param {Array} props.nodes - Array of nodes in the network.
  */
-function AddNodeButtons({ handleAddNode, checkValidty, nodes }) {
+function AddNodeButtons({ handleAddNode, checkValidity, nodes }) {
   // Calculate the remaining number of nodes of each type that can be added
   const remainingNodes = {
     [DEVICE_TYPE.SERVER]: 7 - countNodesOfType(nodes, DEVICE_TYPE.SERVER),
@@ -82,7 +82,7 @@ function AddNodeButtons({ handleAddNode, checkValidty, nodes }) {
         </Tooltip>
       ))}
       <Tooltip title="ZKONTROLOVAT" placement="left">
-        <IconButton onClick={checkValidty}>
+        <IconButton onClick={checkValidity}>
           <RuleIcon />
         </IconButton>
       </Tooltip>

@@ -4,6 +4,9 @@ import Flow from "./flow";
 import AddNodeButtons from "./addNodeButtons";
 import "./style.css";
 
+/**
+ * Object containing the possible types of devices.
+ */
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged",
   CLIENT_UNPLUGGED: "client",
@@ -30,25 +33,30 @@ const MISSING_DEVICES_TASK1_ERROR =
   "Potřebuješ aspoň jeden server, jednoho klienta a tři chytré křižovatky.";
 const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
 
+/**
+ * React component that displays the network builder with provider.
+ *
+ * @param {Object} setOpenDialog - A function that opens a dialog box.
+ * @param {string} game - A string representing the current game being played.
+ */
 function FlowWithProvider({ setOpenDialog, game }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  // check if clients are plugged
+  /**
+   * Checks if clients are plugged in and updates their class accordingly.
+   */
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const clientInfoNodes = nodes.filter(
-        (node) => node.className === DEVICE_TYPE.CLIENT_PLUGGED
-      );
-
-      const clientBuildNodes = nodes.filter(
-        (node) => node.className === DEVICE_TYPE.CLIENT_UNPLUGGED
-      );
-
-      const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
-
+      // Separate the client nodes into two groups: plugged and unplugged
+      const [clientInfoNodes, clientBuildNodes] = [
+        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_PLUGGED),
+        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_UNPLUGGED),
+      ];
+      const tempClientNodes = [...clientInfoNodes, ...clientBuildNodes];
+      // Update the class of each client node based on whether it's within range of a WiFi or BTS node
       tempClientNodes.forEach((node) => {
-        if (isNodeInRange(node.id, nodes, edges)) {
+        if (isNodeInRange(node.id, nodes)) {
           node.className = DEVICE_TYPE.CLIENT_PLUGGED;
         } else {
           node.className = DEVICE_TYPE.CLIENT_UNPLUGGED;
@@ -72,6 +80,11 @@ function FlowWithProvider({ setOpenDialog, game }) {
     return () => clearInterval(intervalId);
   }, [nodes]);
 
+  /**
+   * This function handles the logic for adding a new node to the network.
+   * It first checks whether there are too many nodes of the given device type, and if not, generates a new node object
+   * and adds it to the `nodes` array.
+   */
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) => node.className === device);
@@ -80,8 +93,7 @@ function FlowWithProvider({ setOpenDialog, game }) {
       if (nodeCount >= 7) {
         setOpenDialog(true, TOO_MANY_DEVICES_ERROR);
       } else {
-        let newNode = {};
-        newNode = {
+        let newNode = {
           id: `${ipv4Address}`,
           type: "default",
           position: { x: 300, y: 300 },
@@ -94,70 +106,74 @@ function FlowWithProvider({ setOpenDialog, game }) {
     [nodes, setNodes]
   );
 
-  function checkValidty() {
-    if (isConnected(nodes, edges)) {
-      if (!hasGatewayBridge(nodes, edges)) {
-        if (!hasArticulationGateway(nodes, edges)) {
-          if (hasCorrectEdge(nodes, edges)) {
-            if (countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) === 0) {
-              switch (game) {
-                case "build-network-1":
-                  if (
-                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
-                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
-                    countNodesByType(nodes, DEVICE_TYPE.GATEWAY) > 2
-                  ) {
-                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
-                  } else {
-                    setOpenDialog(true, MISSING_DEVICES_TASK1_ERROR);
-                  }
-                  break;
-                case "build-network-2":
-                  if (
-                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
-                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
-                    countNodesByType(nodes, DEVICE_TYPE.BTS) > 0
-                  ) {
-                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
-                  } else {
-                    setOpenDialog(true, MISSING_DEVICES_TASK2_ERROR);
-                  }
-                  break;
-                case "build-network-3":
-                  if (
-                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 2 &&
-                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 2
-                  ) {
-                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
-                  } else {
-                    setOpenDialog(true, MISSING_DEVICES_TASK3_ERROR);
-                  }
-                  break;
-                case "build-network-4":
-                  setOpenDialog(true, FINAL_MESSAGE, "noGame");
-                  break;
-              }
-            } else {
-              setOpenDialog(true, UNPLUGGED_CLIENT_ERROR);
-            }
-          } else {
-            setOpenDialog(true, INCORRECT_EDGE_ERROR);
-          }
+  /**
+   * This function checks whether the current network configuration is valid, based on the rules for the given game.
+   * It first checks for basic connectivity and structural constraints, then applies game-specific rules to determine
+   * whether the configuration is complete and successful.
+   *
+   * If any errors are found, it displays a corresponding error message to the user.
+   */
+  function checkValidity() {
+    const nodeCounts = countNodesByType(nodes);
+
+    if (!isConnected(nodes, edges)) {
+      return setOpenDialog(true, MISSING_CONNECTION_ERROR);
+    }
+    if (hasGatewayBridge(nodes, edges)) {
+      return setOpenDialog(true, BRIDGE_ERROR);
+    }
+    if (hasArticulationGateway(nodes, edges)) {
+      return setOpenDialog(true, ARTICULATION_ERROR);
+    }
+    if (!hasCorrectEdge(nodes, edges)) {
+      return setOpenDialog(true, INCORRECT_EDGE_ERROR);
+    }
+    if (nodeCounts[DEVICE_TYPE.CLIENT_UNPLUGGED] > 0) {
+      return setOpenDialog(true, UNPLUGGED_CLIENT_ERROR);
+    }
+
+    switch (game) {
+      case "build-network-1":
+        if (
+          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 0 &&
+          nodeCounts[DEVICE_TYPE.SERVER] > 0 &&
+          nodeCounts[DEVICE_TYPE.GATEWAY] > 2
+        ) {
+          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
         } else {
-          setOpenDialog(true, ARTICULATION_ERROR);
+          return setOpenDialog(true, MISSING_DEVICES_TASK1_ERROR);
         }
-      } else {
-        setOpenDialog(true, BRIDGE_ERROR);
-      }
-    } else {
-      setOpenDialog(true, MISSING_CONNECTION_ERROR);
+      case "build-network-2":
+        if (
+          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 0 &&
+          nodeCounts[DEVICE_TYPE.SERVER] > 0 &&
+          nodeCounts[DEVICE_TYPE.BTS] > 0
+        ) {
+          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+        } else {
+          return setOpenDialog(true, MISSING_DEVICES_TASK2_ERROR);
+        }
+      case "build-network-3":
+        if (
+          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 2 &&
+          nodeCounts[DEVICE_TYPE.SERVER] > 2
+        ) {
+          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+        } else {
+          return setOpenDialog(true, MISSING_DEVICES_TASK3_ERROR);
+        }
+      case "build-network-4":
+        return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+      default:
+        return;
     }
   }
+
   return (
     <>
       <AddNodeButtons
         handleAddNode={handleAddNode}
-        checkValidty={checkValidty}
+        checkValidity={checkValidity}
         nodes={nodes}
       />
 
@@ -174,6 +190,13 @@ function FlowWithProvider({ setOpenDialog, game }) {
   );
 }
 
+/**
+ * Determines whether a given node is within range of a WiFi or BTS node
+ * @param {string} nodeId - The ID of the node to check
+ * @param {Array} nodes - An array of all nodes in the network
+ * @param {Array} edges - An array of all edges in the network
+ * @returns {boolean} - Whether or not the node is within range of a WiFi or BTS node
+ */
 function isNodeInRange(nodeId, nodes, edges) {
   const node = nodes.find((node) => node.id === nodeId);
   const wifiNodes = nodes.filter((node) => node.className === DEVICE_TYPE.WIFI);
@@ -184,55 +207,40 @@ function isNodeInRange(nodeId, nodes, edges) {
   const wifiRange = 100;
   const btsRange = 250;
 
-  // Check if node is at most 100 away from some wifi nodes
-  for (let i = 0; i < wifiNodes.length; i++) {
-    const wifiNode = wifiNodes[i];
+  return [...wifiNodes, ...btsNodes].some((deviceNode) => {
+    const isWifi = deviceNode.className === DEVICE_TYPE.WIFI;
     const distance = Math.sqrt(
-      Math.pow(node.position.x - wifiNode.position.x, 2) +
-        Math.pow(node.position.y - wifiNode.position.y, 2)
+      Math.pow(node.position.x - deviceNode.position.x, 2) +
+        Math.pow(node.position.y - deviceNode.position.y, 2)
     );
-    if (distance <= wifiRange) {
-      // Check if there is an edge between the wifi node and some gateway node
-      const connectedGateway = gatewayNodes.some((gatewayNode) => {
-        return edges.some((edge) => {
-          return (
-            (edge.source === gatewayNode.id && edge.target === wifiNode.id) ||
-            (edge.target === gatewayNode.id && edge.source === wifiNode.id)
-          );
-        });
+    if (distance <= (isWifi ? wifiRange : btsRange)) {
+      return edges.some((edge) => {
+        return (
+          (edge.source === deviceNode.id &&
+            gatewayNodes.some(
+              (gatewayNode) =>
+                gatewayNode.id === edge.target &&
+                gatewayNode.className === DEVICE_TYPE.GATEWAY
+            )) ||
+          (edge.target === deviceNode.id &&
+            gatewayNodes.some(
+              (gatewayNode) =>
+                gatewayNode.id === edge.source &&
+                gatewayNode.className === DEVICE_TYPE.GATEWAY
+            ))
+        );
       });
-      if (connectedGateway) {
-        return true;
-      }
     }
-  }
-
-  // Check if node is at most 250 away from some bts nodes
-  for (let i = 0; i < btsNodes.length; i++) {
-    const btsNode = btsNodes[i];
-    const distance = Math.sqrt(
-      Math.pow(node.position.x - btsNode.position.x, 2) +
-        Math.pow(node.position.y - btsNode.position.y, 2)
-    );
-    if (distance <= btsRange) {
-      // Check if there is an edge between the bts node and some gateway node
-      const connectedGateway = gatewayNodes.some((gatewayNode) => {
-        return edges.some((edge) => {
-          return (
-            (edge.source === gatewayNode.id && edge.target === btsNode.id) ||
-            (edge.target === gatewayNode.id && edge.source === btsNode.id)
-          );
-        });
-      });
-      if (connectedGateway) {
-        return true;
-      }
-    }
-  }
-
-  return false;
+    return false;
+  });
 }
 
+/**
+ * Checks whether all nodes in the graph are connected via edges.
+ * @param {Object[]} nodes - An array of objects representing nodes in the graph
+ * @param {Object[]} edges - An array of objects representing edges in the graph
+ * @returns {boolean} - True if all nodes are connected, false otherwise
+ */
 function isConnected(nodes, edges) {
   // Create an adjacency list to represent the graph
   const adjList = {};
@@ -245,7 +253,7 @@ function isConnected(nodes, edges) {
     adjList[edge.target].push(edge.source);
   }
 
-  // Perform BFS starting from the first node
+  // Perform BFS starting from a random node
   const visited = {};
   const queue = [nodes[0].id];
   while (queue.length > 0) {
@@ -259,57 +267,56 @@ function isConnected(nodes, edges) {
   }
 
   // Check if every node was visited
-  for (const node of nodes) {
-    if (
-      node.className !== DEVICE_TYPE.CLIENT_UNPLUGGED &&
-      node.className !== DEVICE_TYPE.CLIENT_PLUGGED &&
-      !visited[node.id]
-    ) {
-      return false;
-    }
-  }
-  return true;
+  return nodes.every(
+    (node) =>
+      node.className === DEVICE_TYPE.CLIENT_UNPLUGGED ||
+      node.className === DEVICE_TYPE.CLIENT_PLUGGED ||
+      visited[node.id]
+  );
 }
 
+/**
+ * Determines whether there is a bridge (a gateway node that disconnects two components of the graph) in the given graph.
+ * @param {Array} nodes - The nodes in the graph.
+ * @param {Array} edges - The edges in the graph.
+ * @returns {boolean} True if there is a bridge in the graph, false otherwise.
+ */
 function hasGatewayBridge(nodes, edges) {
-  const adjList = new Map();
+  const adjList = {};
   const visited = new Set();
   const low = new Map();
   const ids = new Map();
   let id = 0;
   let bridges = false;
-  const gatewayNodes = new Set();
 
   // Build adjacency list and store gateway nodes
+  const gatewayNodes = nodes
+    .filter((node) => node.className === DEVICE_TYPE.GATEWAY)
+    .map((node) => node.id);
   for (const node of nodes) {
-    if (node.className === DEVICE_TYPE.GATEWAY) {
-      gatewayNodes.add(node.id);
-    }
+    adjList[node.id] = [];
   }
   for (const edge of edges) {
-    const source = edge.source;
-    const target = edge.target;
-    if (!adjList.has(source)) adjList.set(source, []);
-    if (!adjList.has(target)) adjList.set(target, []);
-    adjList.get(source).push(target);
-    adjList.get(target).push(source);
+    adjList[edge.source].push(edge.target);
+    adjList[edge.target].push(edge.source);
   }
   if (Object.keys(adjList).length < 2) return false;
+
   // DFS algorithm
   function dfs(node, parent) {
     visited.add(node);
     ids.set(node, id);
     low.set(node, id);
     id++;
-    for (const neighbor of adjList.get(node)) {
+    for (const neighbor of adjList[node]) {
       if (neighbor === parent) continue;
       if (!visited.has(neighbor)) {
         dfs(neighbor, node);
         low.set(node, Math.min(low.get(node), low.get(neighbor)));
         if (
           ids.get(node) < low.get(neighbor) &&
-          gatewayNodes.has(node) &&
-          gatewayNodes.has(neighbor)
+          gatewayNodes.includes(node) &&
+          gatewayNodes.includes(neighbor)
         ) {
           bridges = true;
           return;
@@ -328,6 +335,12 @@ function hasGatewayBridge(nodes, edges) {
   return bridges;
 }
 
+/**
+ * Checks if the edges in the graph connect client nodes to server nodes following the allowed edge types.
+ * @param {Array} nodes - An array of objects representing the nodes in the graph.
+ * @param {Array} edges - An array of objects representing the edges in the graph.
+ * @returns {boolean} True if all edges connect client nodes to server nodes following the allowed edge types, false otherwise.
+ */
 function hasCorrectEdge(nodes, edges) {
   const serverNodes = new Set();
   const gatewayNodes = new Set();
@@ -335,7 +348,7 @@ function hasCorrectEdge(nodes, edges) {
   const btsNodes = new Set();
 
   // Store nodes with class DEVICE_TYPE.CLIENT_UNPLUGGED, DEVICE_TYPE.SERVER, DEVICE_TYPE.GATEWAY, DEVICE_TYPE.WIFI, and DEVICE_TYPE.BTS
-  for (const node of nodes) {
+  nodes.forEach((node) => {
     if (node.className === DEVICE_TYPE.SERVER) {
       serverNodes.add(node.id);
     } else if (node.className === DEVICE_TYPE.GATEWAY) {
@@ -345,7 +358,7 @@ function hasCorrectEdge(nodes, edges) {
     } else if (node.className === DEVICE_TYPE.BTS) {
       btsNodes.add(node.id);
     }
-  }
+  });
 
   // Check if any edges connect a client node and a server node, following the allowed edge types
   for (const edge of edges) {
@@ -353,13 +366,14 @@ function hasCorrectEdge(nodes, edges) {
     const target = edge.target;
     if (
       !(
-        (gatewayNodes.has(source) && gatewayNodes.has(target)) ||
-        (gatewayNodes.has(source) && wifiNodes.has(target)) ||
-        (gatewayNodes.has(source) && btsNodes.has(target)) ||
-        (gatewayNodes.has(source) && serverNodes.has(target)) ||
-        (gatewayNodes.has(target) && wifiNodes.has(source)) ||
-        (gatewayNodes.has(target) && btsNodes.has(source)) ||
-        (gatewayNodes.has(target) && serverNodes.has(source))
+        (gatewayNodes.has(source) &&
+          (gatewayNodes.has(target) ||
+            wifiNodes.has(target) ||
+            btsNodes.has(target) ||
+            serverNodes.has(target))) ||
+        (wifiNodes.has(source) && gatewayNodes.has(target)) ||
+        (btsNodes.has(source) && gatewayNodes.has(target)) ||
+        (serverNodes.has(source) && gatewayNodes.has(target))
       )
     ) {
       return false;
@@ -369,6 +383,12 @@ function hasCorrectEdge(nodes, edges) {
   return true;
 }
 
+/**
+ * Checks whether the network has an articulation point between gateway nodes.
+ * @param {Array} nodes - The nodes in the network.
+ * @param {Array} edges - The edges in the network.
+ * @returns {boolean} Whether the network has an articulation point between gateway nodes.
+ */
 function hasArticulationGateway(nodes, edges) {
   const gatewayNodes = new Set();
   const gatewayEdges = [];
