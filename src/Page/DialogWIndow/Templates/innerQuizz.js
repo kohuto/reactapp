@@ -2,7 +2,7 @@ import SortFileSize from "../../educationalMode/QuizzComponents/HowManyPackets/s
 import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
 import IPadress from "../../educationalMode/QuizzComponents/IPadress";
 import SortIPAdresses from "../../educationalMode/QuizzComponents/sortIPAdresses";
-import HowToConnect from "../../educationalMode/QuizzComponents/howToConnect";
+import HowToConnect from "../../educationalMode/QuizzComponents/HowToConnect/howToConnect";
 import BandWidthComponent from "../../educationalMode/QuizzComponents/BandWidth/bandWidth";
 
 function Quizz({ taskType, setOpenDialog, setOpenOverlayDialog }) {

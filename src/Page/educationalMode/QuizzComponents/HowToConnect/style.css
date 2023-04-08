@@ -1,0 +1,13 @@
+.how-to-connect-column {
+    float: left;
+    width: 20%;
+    padding: 10px;
+  }
+
+.how-to-connect-container{
+    margin-left: 15%;
+}
+
+.how-to-connect-container button {
+  margin-left: 28%;
+}
