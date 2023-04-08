@@ -4,7 +4,7 @@ import FindPacketComponent from "./FindServers/findServers";
 import CreatePacketComponent from "./CreatePacket/createPacket";
 import ConnectClientsWirelessComponent from "./connectClientsWireless";
 import DataIntoPackets from "./DataIntoPacket/dataIntoPackets";
-import WhatIsBTSComponent from "./whatIsBTS";
+import WhatIsBTSComponent from "./WhatIsBTS/whatIsBTS";
 import WhatIsCabelComponent from "./whatIsCabel";
 import WhatIsSatelitComponent from "./whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
