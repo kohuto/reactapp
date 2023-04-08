@@ -452,7 +452,6 @@ function hasArticulationGateway(nodes, edges) {
       dfs(node);
     }
   }
-
   return ap.size > 0;
 }
 
