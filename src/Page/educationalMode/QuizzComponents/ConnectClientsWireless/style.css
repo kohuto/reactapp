@@ -1,0 +1,15 @@
+.connect-client-wireless-button-container {
+    margin-top: 10vh;
+}
+
+.connect-client-wireless-button-container img {
+    width: 60px; 
+    max-height: 70px;
+    margin-bottom: 5vh;
+}
+
+.connect-client-wireless-flow-container{
+    height: 95vh;
+    width: 80%;
+    margin-left: 20%;
+}

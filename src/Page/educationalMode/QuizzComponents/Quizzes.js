@@ -2,7 +2,7 @@ import "./Components.css";
 import WhatIsServerComponent from "./WhatIsServer/whatIsServer";
 import FindPacketComponent from "./FindServers/findServers";
 import CreatePacketComponent from "./CreatePacket/createPacket";
-import ConnectClientsWirelessComponent from "./connectClientsWireless";
+import ConnectClientsWirelessComponent from "./ConnectClientsWireless/connectClientsWireless";
 import DataIntoPackets from "./DataIntoPacket/dataIntoPackets";
 import WhatIsBTSComponent from "./WhatIsBTS/whatIsBTS";
 import WhatIsCabelComponent from "./whatIsCabel";
@@ -48,12 +48,7 @@ function QuizzComponents({
     case "raceAroundWorld":
       return <LatencyComponent setOpenDialog={setOpenDialog} />;
     case "connectClientsWireless":
-      return (
-        <ConnectClientsWirelessComponent
-          setOpenDialog={setOpenDialog}
-          game={game}
-        />
-      );
+      return <ConnectClientsWirelessComponent setOpenDialog={setOpenDialog} />;
     case "shortestPath":
       return (
         <ShortestPathComponent setOpenDialog={setOpenDialog} game={game} />
