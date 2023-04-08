@@ -1,5 +1,5 @@
-import DefaultPackets from "../../Packet";
-import { whatIsCabelPackets } from "../../../Data/Packets/whatIsCabel";
+import DefaultPackets from "../../../Packet";
+import { whatIsCabelPackets } from "../../../../Data/Packets/whatIsCabel";
 
 /**
  * Renders a component that displays packets explaining what is a cable.
