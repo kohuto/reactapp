@@ -9,17 +9,6 @@
   margin-left: 10%;
 }
 
-/* find your ip */
-
-.ip-adress-container{
-  margin-left: 35%;
-  margin-top: 2vh;
-}
-
-.ip-adress-container button.submit-button {
-  margin-left: 6%;
-  margin-top: 3vh;
-}
 
 /* for the jigsaw puzzle container */
 .jigsaw-puzzle {
