@@ -1,0 +1,11 @@
+.what-is-satelit-container {
+    position: absolute;
+    margin-left: 20vw;
+    width: 80vw;
+    height: 100vh;
+    z-index: 0;
+    background-image: url("../../../../images/Globe-Transparent-Background-PNG.png");
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    background-position: 300px 300px;
+}

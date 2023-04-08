@@ -51,7 +51,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
-  padding-top: 70px;  /* toto by tu nemelo byt */
+  padding-top: 70px;  
   background-color: transparent;
 }
 
@@ -148,27 +148,6 @@
 
 .react-flow__node.gateway{
   padding-top: 20px;
-}
-
-.whatIsSatelit-bg{
-  background-image: url("../../../images/Globe-Transparent-Background-PNG.png");
-  background-repeat: no-repeat;
-  background-size: 300px 300px;
-  background-position: 300px 300px;
-}
-
-.whatIsBTS-bg{
-  background-image: url("../../../images/landscape.png");
-  background-repeat: no-repeat;
-  background-size: 800px 600px;
-  background-position: 0px 50px;
-}
-
-.whatIsWiFi-bg {
-  background-image: url("../../../images/house.jpg");
-  background-repeat: no-repeat;
-  background-size: 300px 300px;
-  background-position: 500px 250px;
 }
 
 .build-network-button-container {

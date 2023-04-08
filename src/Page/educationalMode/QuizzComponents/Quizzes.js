@@ -6,7 +6,7 @@ import ConnectClientsWirelessComponent from "./connectClientsWireless";
 import DataIntoPackets from "./DataIntoPacket/dataIntoPackets";
 import WhatIsBTSComponent from "./WhatIsBTS/whatIsBTS";
 import WhatIsCabelComponent from "./whatIsCabel";
-import WhatIsSatelitComponent from "./whatIsSatelit";
+import WhatIsSatelitComponent from "./WhatIsSatelit/whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
