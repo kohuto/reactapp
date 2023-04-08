@@ -9,7 +9,7 @@ import WhatIsCabelComponent from "./whatIsCabel";
 import WhatIsSatelitComponent from "./WhatIsSatelit/whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./FastestPath/shortestPath";
-import CountPaths from "./countPaths";
+import CountPaths from "./CountPaths/countPaths";
 import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
 import WhatIsPathComponent from "./DataPath/dataPath";
