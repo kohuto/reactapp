@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./Components.css";
 import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";

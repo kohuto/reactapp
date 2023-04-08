@@ -1,4 +1,3 @@
-import "./Components.css";
 import WhatIsServerComponent from "./WhatIsServer/whatIsServer";
 import FindPacketComponent from "./FindServers/findServers";
 import CreatePacketComponent from "./CreatePacket/createPacket";

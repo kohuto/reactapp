@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNodesState } from "reactflow";
 import Dialog from "./DialogWindow/dialogWindow";
-import "./educationalMode/QuizzComponents/Components.css";
-import "./educationalMode/QuizzComponents/quizzesStyles.css";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "./Packet";
 import { landingPagePacketsData } from "../Data/Packets/landingPage";
@@ -13,7 +11,6 @@ import EducationalMode from "./educationalMode/eduMode";
  * It includes the educational mode and the creative mode.
  * @returns {JSX.Element} The main component of the application.
  */
-
 function Page() {
   // Welcome message
   const welcomeMessage =
