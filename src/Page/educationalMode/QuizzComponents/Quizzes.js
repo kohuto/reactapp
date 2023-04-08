@@ -8,7 +8,7 @@ import WhatIsBTSComponent from "./WhatIsBTS/whatIsBTS";
 import WhatIsCabelComponent from "./whatIsCabel";
 import WhatIsSatelitComponent from "./WhatIsSatelit/whatIsSatelit";
 import ProblemWithPath from "./problemWithPath";
-import ShortestPathComponent from "./shortestPath";
+import ShortestPathComponent from "./SortIPAddresses/shortestPath";
 import CountPaths from "./countPaths";
 import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";

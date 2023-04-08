@@ -1,7 +1,7 @@
 import SortFileSize from "../../educationalMode/QuizzComponents/HowManyPackets/sortFileSize";
 import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
 import IPadress from "../../educationalMode/QuizzComponents/MyIP/IPadress";
-import SortIPAdresses from "../../educationalMode/QuizzComponents/sortIPAdresses";
+import SortIPAdresses from "../../educationalMode/QuizzComponents/SortIPAddresses/sortIPAdresses";
 import HowToConnect from "../../educationalMode/QuizzComponents/HowToConnect/howToConnect";
 import BandWidthComponent from "../../educationalMode/QuizzComponents/BandWidth/bandWidth";
 

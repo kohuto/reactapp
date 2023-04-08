@@ -1,0 +1,11 @@
+/* sort ip adresses */
+.sort-ip-container {
+    margin-top: 4vh ;
+    margin-left: 30%;
+  }
+  
+  .sort-ip-container button.submit-button{
+    margin-top: 2vh;
+    margin-left: 10%;
+  }
+  
