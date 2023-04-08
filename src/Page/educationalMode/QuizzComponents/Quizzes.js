@@ -11,10 +11,10 @@ import ProblemWithPath from "./problemWithPath";
 import ShortestPathComponent from "./shortestPath";
 import CountPaths from "./countPaths";
 import WhatIsWiFiComponent from "./WhatIsWifi/whatIsWifi";
-import RaceAroundWorld from "./latency";
 import ClientServerCommunication from "./ClientServerComunication/clientServerComunication";
 import WhatIsPathComponent from "./DataPath/dataPath";
 import BuildNetwork from "./buildNetwork";
+import LatencyComponent from "./Latency/latency";
 
 function QuizzComponents({
   game,
@@ -40,13 +40,13 @@ function QuizzComponents({
     case "whatIsCabel":
       return <WhatIsCabelComponent />;
     case "whatIsWiFi":
-      return <WhatIsWiFiComponent setOpenDialog={setOpenDialog} game={game} />;
+      return <WhatIsWiFiComponent setOpenDialog={setOpenDialog} />;
     case "whatIsBTS":
       return <WhatIsBTSComponent />;
     case "whatIsSatelit":
       return <WhatIsSatelitComponent />;
     case "raceAroundWorld":
-      return <RaceAroundWorld setOpenDialog={setOpenDialog} game={game} />;
+      return <LatencyComponent setOpenDialog={setOpenDialog} />;
     case "connectClientsWireless":
       return (
         <ConnectClientsWirelessComponent

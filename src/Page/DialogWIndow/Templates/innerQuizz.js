@@ -2,8 +2,8 @@ import SortFileSize from "../../educationalMode/QuizzComponents/HowManyPackets/s
 import Puzzle from "../../educationalMode/QuizzComponents/puzzle";
 import IPadress from "../../educationalMode/QuizzComponents/IPadress";
 import SortIPAdresses from "../../educationalMode/QuizzComponents/sortIPAdresses";
-import TypingChallenge from "../../educationalMode/QuizzComponents/bandWidth";
 import HowToConnect from "../../educationalMode/QuizzComponents/howToConnect";
+import BandWidthComponent from "../../educationalMode/QuizzComponents/BandWidth/bandWidth";
 
 function Quizz({ taskType, setOpenDialog, setOpenOverlayDialog }) {
   switch (taskType) {
@@ -16,7 +16,7 @@ function Quizz({ taskType, setOpenDialog, setOpenOverlayDialog }) {
       );
     case "typingChallenge":
       return (
-        <TypingChallenge
+        <BandWidthComponent
           setOpenDialog={setOpenDialog}
           setOpenOverlayDialog={setOpenOverlayDialog}
         />
