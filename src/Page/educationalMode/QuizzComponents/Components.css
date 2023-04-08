@@ -1,24 +1,19 @@
-.shortest-path-container, .problem-with-path-container{
+ .problem-with-path-container{
   width: 100%;
   height: 100%;
   margin-left: 15%;
   margin-top: 5vh;
 }
 
-
-
-.shortest-path-container button.check-button, .problem-with-path-container button.check-button {
+ .problem-with-path-container button.check-button {
   position: absolute;
- bottom: 2vh;
- left: 33%;
+  bottom: 2vh;
+  left: 33%;
 }
-
-
 
 .connect-client-wireless-button-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }

@@ -1,0 +1,12 @@
+.shortest-path-container{
+    width: 100%;
+    height: 100%;
+    margin-left: 15%;
+    margin-top: 5vh;
+  }
+  
+.shortest-path-container button.check-button {
+position: absolute;
+bottom: 2vh;
+left: 33%;
+}
