@@ -16,10 +16,10 @@ import BuildNetwork from "./BuildNetwork/buildNetwork";
 import LatencyComponent from "./Latency/latency";
 
 function QuizzComponents({
-  game,
   setOpenDialog,
   setIsDistroyedProblemWithPath,
   isDestroyed,
+  game,
 }) {
   switch (game) {
     case "whatIsServer":
@@ -49,20 +49,11 @@ function QuizzComponents({
     case "connectClientsWireless":
       return <ConnectClientsWirelessComponent setOpenDialog={setOpenDialog} />;
     case "shortestPath":
-      return (
-        <ShortestPathComponent setOpenDialog={setOpenDialog} game={game} />
-      );
+      return <ShortestPathComponent setOpenDialog={setOpenDialog} />;
     case "countOfPaths":
-      return <CountPaths setOpenDialog={setOpenDialog} game={game} />;
+      return <CountPaths setOpenDialog={setOpenDialog} />;
     case "problemWithPath":
-      return (
-        <ProblemWithPath
-          setOpenDialog={setOpenDialog}
-          game={game}
-          setIsDistroyedProblemWithPath={setIsDistroyedProblemWithPath}
-          isDestroyed={isDestroyed}
-        />
-      );
+      return <ProblemWithPath setOpenDialog={setOpenDialog} />;
     case "build-network-1":
     case "build-network-2":
     case "build-network-3":

@@ -1,93 +1,36 @@
-import React, { useCallback, useState, useEffect, useRef } from "react";
-import ReactFlow, {
-  useNodes,
-  useEdges,
-  addEdge,
-  Handle,
-  Position,
-  useNodesState,
-  useEdgesState,
-  useReactFlow,
-  ReactFlowProvider,
-  Controls,
-  updateEdge,
-} from "reactflow";
-import { Provider } from "zustand";
-import Avatar from "@mui/material/Avatar";
-import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import server from "../../../images/nodes/server.png";
-import bts from "../../../images/nodes/btsvez.jpg";
-import client from "../../../images/nodes/klient.jpg";
-import wifi from "../../../images/nodes/wifi.jpg";
-import gateway from "../../../images/nodes/gateway.jpg";
-import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import RuleIcon from "@mui/icons-material/Rule";
+import { useCallback, useEffect } from "react";
+import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
+import Flow from "./flow";
+import AddNodeButtons from "./addNodeButtons";
+import "./style.css";
 
-function Flow({ nodes, edges, setEdges, game, onNodesChange, onEdgesChange }) {
-  const edgeUpdateSuccessful = useRef(true);
+const DEVICE_TYPE = {
+  CLIENT_PLUGGED: "client-plugged",
+  CLIENT_UNPLUGGED: "client",
+  WIFI: "wifi-build",
+  BTS: "bts-build",
+  GATEWAY: "gateway-build",
+  SERVER: "server-build",
+};
 
-  const onConnect = useCallback(
-    (params) => setEdges((els) => addEdge(params, els)),
-    []
-  );
+const FINAL_MESSAGE = "good job";
+const MISSING_CONNECTION_ERROR =
+  "Všechna zařízení musí být navzájem propojeny kabelem (pouze klient bude připojen bezdrátově).";
+const BRIDGE_ERROR = "nesmi obsahovat mosty mezi krizovatkami";
+const ARTICULATION_ERROR = "nesmi obsahovat artikulace";
+const INCORRECT_EDGE_ERROR =
+  "Hrany mohou vést pouze mezi dvěma křižovatkami, mezi křižovatkou a BTS/serverem/wifi";
+const UNPLUGGED_CLIENT_ERROR =
+  "všichni klienti musí být připojení. Proto musí být v dosahu nějaké BTS věže nebo wifi routeru. Když je klient v dosahu zobrazí se mu nad hlavou ikona wifi";
+const MISSING_DEVICES_TASK3_ERROR =
+  "potřebuješ aspoň tři servery a tři klienty";
+const MISSING_DEVICES_TASK2_ERROR =
+  "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž";
+const MISSING_DEVICES_TASK1_ERROR =
+  "Potřebuješ aspoň jeden server, jednoho klienta a tři chytré křižovatky.";
+const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
 
-  const onEdgeUpdateStart = useCallback(() => {
-    edgeUpdateSuccessful.current = false;
-  }, []);
-
-  const onEdgeUpdate = useCallback((oldEdge, newConnection) => {
-    edgeUpdateSuccessful.current = true;
-    setEdges((els) => updateEdge(oldEdge, newConnection, els));
-  }, []);
-
-  const onEdgeUpdateEnd = useCallback((_, edge) => {
-    if (!edgeUpdateSuccessful.current) {
-      setEdges((eds) => eds.filter((e) => e.id !== edge.id));
-    }
-
-    edgeUpdateSuccessful.current = true;
-  }, []);
-
-  return (
-    <>
-      <div
-        style={{ height: "95vh", width: "80%", marginLeft: "20%" }}
-        className={`${game}-bg`}
-      >
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          snapToGrid
-          onEdgeUpdate={onEdgeUpdate}
-          onEdgeUpdateStart={onEdgeUpdateStart}
-          onEdgeUpdateEnd={onEdgeUpdateEnd}
-          selectNodesOnDrag={true}
-          attributionPosition="bottom-right"
-          onConnect={onConnect}
-        >
-          <Controls
-            showFitView={false}
-            showInteractive={false}
-            position="bottom-right"
-          />
-        </ReactFlow>
-      </div>
-    </>
-  );
-}
-
-function FlowWithProvider({
-  setAlertMessage,
-  setOpenModal,
-  game,
-  setGameAfterModalClose,
-}) {
+function FlowWithProvider({ setOpenDialog, game }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
@@ -95,20 +38,20 @@ function FlowWithProvider({
   useEffect(() => {
     const intervalId = setInterval(() => {
       const clientInfoNodes = nodes.filter(
-        (node) => node.className === "client-plugged"
+        (node) => node.className === DEVICE_TYPE.CLIENT_PLUGGED
       );
 
       const clientBuildNodes = nodes.filter(
-        (node) => node.className === "client-build"
+        (node) => node.className === DEVICE_TYPE.CLIENT_UNPLUGGED
       );
 
       const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
 
       tempClientNodes.forEach((node) => {
         if (isNodeInRange(node.id, nodes, edges)) {
-          node.className = "client-plugged";
+          node.className = DEVICE_TYPE.CLIENT_PLUGGED;
         } else {
-          node.className = "client-build";
+          node.className = DEVICE_TYPE.CLIENT_UNPLUGGED;
         }
       });
 
@@ -135,9 +78,7 @@ function FlowWithProvider({
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 7) {
-        setAlertMessage("vice uz jich nepridavej. Uz jich mas az moc");
-        setGameAfterModalClose(game);
-        setOpenModal(true);
+        setOpenDialog(true, TOO_MANY_DEVICES_ERROR);
       } else {
         let newNode = {};
         newNode = {
@@ -154,85 +95,67 @@ function FlowWithProvider({
   );
 
   function checkValidty() {
-    setGameAfterModalClose(game);
     if (isConnected(nodes, edges)) {
       if (!hasGatewayBridge(nodes, edges)) {
         if (!hasArticulationGateway(nodes, edges)) {
           if (hasCorrectEdge(nodes, edges)) {
-            if (countNodesByType(nodes, "client-build") === 0) {
+            if (countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) === 0) {
               switch (game) {
                 case "build-network-1":
                   if (
-                    countNodesByType(nodes, "client-plugged") > 0 &&
-                    countNodesByType(nodes, "server-build") > 0 &&
-                    countNodesByType(nodes, "gatewaz-build") > 2
+                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
+                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
+                    countNodesByType(nodes, DEVICE_TYPE.GATEWAY) > 2
                   ) {
-                    setGameAfterModalClose("noGame");
-                    setAlertMessage("good job");
+                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
                   } else {
-                    setAlertMessage(
-                      "Potřebuješ aspoň jeden server, jednoho klienta a tři chytré křižovatky."
-                    );
+                    setOpenDialog(true, MISSING_DEVICES_TASK1_ERROR);
                   }
                   break;
                 case "build-network-2":
                   if (
-                    countNodesByType(nodes, "client-plugged") > 0 &&
-                    countNodesByType(nodes, "server-build") > 0 &&
-                    countNodesByType(nodes, "bts-build") > 0
+                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
+                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
+                    countNodesByType(nodes, DEVICE_TYPE.BTS) > 0
                   ) {
-                    setGameAfterModalClose("noGame");
-                    setAlertMessage("good job");
+                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
                   } else {
-                    setAlertMessage(
-                      "potřebuješ aspoň jeden server, jednoho klienta a jednu bts věž"
-                    );
+                    setOpenDialog(true, MISSING_DEVICES_TASK2_ERROR);
                   }
                   break;
                 case "build-network-3":
                   if (
-                    countNodesByType(nodes, "client-plugged") > 2 &&
-                    countNodesByType(nodes, "server-build") > 2
+                    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 2 &&
+                    countNodesByType(nodes, DEVICE_TYPE.SERVER) > 2
                   ) {
-                    setGameAfterModalClose("noGame");
-                    setAlertMessage("good job");
+                    setOpenDialog(true, FINAL_MESSAGE, "noGame");
                   } else {
-                    setAlertMessage(
-                      "potřebuješ aspoň tři servery a tři klienty"
-                    );
+                    setOpenDialog(true, MISSING_DEVICES_TASK3_ERROR);
                   }
                   break;
                 case "build-network-4":
-                  setGameAfterModalClose("noGame");
-                  setAlertMessage("good job");
+                  setOpenDialog(true, FINAL_MESSAGE, "noGame");
                   break;
               }
             } else {
-              setAlertMessage(
-                "všichni klienti musí být připojení. Proto musí být v dosahu nějaké BTS věže nebo wifi routeru. Kdžy je klient v dosahu zobrazí se mu nad hlavou ikona wifi"
-              );
+              setOpenDialog(true, UNPLUGGED_CLIENT_ERROR);
             }
           } else {
-            setAlertMessage(
-              "Hrany mohou vést pouze mezi dvěma křižovatkami, mezi křižovatkou a BTS/serverem/wifi"
-            );
+            setOpenDialog(true, INCORRECT_EDGE_ERROR);
           }
         } else {
-          setAlertMessage("nesmi obsahovat artikulace");
+          setOpenDialog(true, ARTICULATION_ERROR);
         }
       } else {
-        setAlertMessage("nesmi obsahovat mosty mezi krizovatkami");
+        setOpenDialog(true, BRIDGE_ERROR);
       }
     } else {
-      setAlertMessage(
-        "Všechna zařízení musí být navzájem propojeny kabelem (pouze klient bude připojen bezdrátově)."
-      );
+      setOpenDialog(true, MISSING_CONNECTION_ERROR);
     }
-    setOpenModal(true);
   }
   return (
     <>
-      <Buttons
+      <AddNodeButtons
         handleAddNode={handleAddNode}
         checkValidty={checkValidty}
         nodes={nodes}
@@ -253,10 +176,10 @@ function FlowWithProvider({
 
 function isNodeInRange(nodeId, nodes, edges) {
   const node = nodes.find((node) => node.id === nodeId);
-  const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
-  const btsNodes = nodes.filter((node) => node.className === "bts-build");
+  const wifiNodes = nodes.filter((node) => node.className === DEVICE_TYPE.WIFI);
+  const btsNodes = nodes.filter((node) => node.className === DEVICE_TYPE.BTS);
   const gatewayNodes = nodes.filter(
-    (node) => node.className === "gateway-build"
+    (node) => node.className === DEVICE_TYPE.GATEWAY
   );
   const wifiRange = 100;
   const btsRange = 250;
@@ -338,8 +261,8 @@ function isConnected(nodes, edges) {
   // Check if every node was visited
   for (const node of nodes) {
     if (
-      node.className !== "client-build" &&
-      node.className !== "client-plugged" &&
+      node.className !== DEVICE_TYPE.CLIENT_UNPLUGGED &&
+      node.className !== DEVICE_TYPE.CLIENT_PLUGGED &&
       !visited[node.id]
     ) {
       return false;
@@ -359,7 +282,7 @@ function hasGatewayBridge(nodes, edges) {
 
   // Build adjacency list and store gateway nodes
   for (const node of nodes) {
-    if (node.className === "gateway-build") {
+    if (node.className === DEVICE_TYPE.GATEWAY) {
       gatewayNodes.add(node.id);
     }
   }
@@ -411,15 +334,15 @@ function hasCorrectEdge(nodes, edges) {
   const wifiNodes = new Set();
   const btsNodes = new Set();
 
-  // Store nodes with class "client-build", "server-build", "gateway-build", "wifi-build", and "bts-build"
+  // Store nodes with class DEVICE_TYPE.CLIENT_UNPLUGGED, DEVICE_TYPE.SERVER, DEVICE_TYPE.GATEWAY, DEVICE_TYPE.WIFI, and DEVICE_TYPE.BTS
   for (const node of nodes) {
-    if (node.className === "server-build") {
+    if (node.className === DEVICE_TYPE.SERVER) {
       serverNodes.add(node.id);
-    } else if (node.className === "gateway-build") {
+    } else if (node.className === DEVICE_TYPE.GATEWAY) {
       gatewayNodes.add(node.id);
-    } else if (node.className === "wifi-build") {
+    } else if (node.className === DEVICE_TYPE.WIFI) {
       wifiNodes.add(node.id);
-    } else if (node.className === "bts-build") {
+    } else if (node.className === DEVICE_TYPE.BTS) {
       btsNodes.add(node.id);
     }
   }
@@ -450,9 +373,9 @@ function hasArticulationGateway(nodes, edges) {
   const gatewayNodes = new Set();
   const gatewayEdges = [];
 
-  // Store nodes with class "gateway-build" and edges between them
+  // Store nodes with class DEVICE_TYPE.GATEWAY and edges between them
   for (const node of nodes) {
-    if (node.className === "gateway-build") {
+    if (node.className === DEVICE_TYPE.GATEWAY) {
       gatewayNodes.add(node.id);
     }
   }
@@ -525,92 +448,7 @@ function generateIpv4Address() {
 }
 
 function countNodesByType(nodes, type) {
-  let count = 0;
-
-  for (const node of nodes) {
-    if (node.className === type) {
-      count++;
-    }
-  }
-
-  return count;
-}
-
-function Buttons({ handleAddNode, checkValidty, nodes }) {
-  const serversLeft = 7 - countNodesByType(nodes, "server-build");
-  const gatewayLeft = 7 - countNodesByType(nodes, "gateway-build");
-  const clientLeft = 7 - countNodesByType(nodes, "client-build");
-  const wifiLeft = 7 - countNodesByType(nodes, "wifi-build");
-  const btsLeft = 7 - countNodesByType(nodes, "bts-build");
-
-  return (
-    <div className="build-network-button-container">
-      <Tooltip title="SERVER" placement="left">
-        <IconButton>
-          <Badge badgeContent={serversLeft} color="primary">
-            <img
-              src={server}
-              style={{ width: "60px", height: "40px" }}
-              onClick={() => handleAddNode("server-build")}
-            />
-          </Badge>
-        </IconButton>
-      </Tooltip>
-      <Tooltip
-        title="CHYTRÁ KŘIŽOVATKA"
-        placement="left"
-        style={{ marginTop: "1vh", marginBottom: "1vh" }}
-      >
-        <IconButton>
-          <Badge badgeContent={gatewayLeft} color="primary">
-            <img
-              src={gateway}
-              style={{ width: "60px", height: "20px" }}
-              onClick={() => handleAddNode("gateway-build")}
-            />
-          </Badge>
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="KLIENT" placement="left">
-        <IconButton>
-          <Badge badgeContent={clientLeft} color="primary">
-            <img
-              src={client}
-              style={{ width: "60px", height: "40px" }}
-              onClick={() => handleAddNode("client-build")}
-            />
-          </Badge>
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="WIFI" placement="left">
-        <IconButton>
-          <Badge badgeContent={wifiLeft} color="primary">
-            <img
-              src={wifi}
-              style={{ width: "60px", height: "40px" }}
-              onClick={() => handleAddNode("wifi-build")}
-            />
-          </Badge>
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="BTS VĚŽ" placement="left">
-        <IconButton>
-          <Badge badgeContent={btsLeft} color="primary">
-            <img
-              src={bts}
-              style={{ width: "60px", height: "40px" }}
-              onClick={() => handleAddNode("bts-build")}
-            />
-          </Badge>
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="ZKONTROLOVAT" placement="left">
-        <IconButton onClick={checkValidty}>
-          <RuleIcon />
-        </IconButton>
-      </Tooltip>
-    </div>
-  );
+  return nodes.filter((node) => node.className === type).length;
 }
 
 export default FlowWithProvider;

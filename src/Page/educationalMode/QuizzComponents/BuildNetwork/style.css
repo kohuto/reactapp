@@ -1,0 +1,10 @@
+.build-network-flow-container {
+    height: 95vh;
+    width: 80%;
+    margin-left: 20%;
+}
+
+.build-network-button-container img {
+    width: 60px; 
+    height: 40px;
+}
