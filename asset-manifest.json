@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.b17eae5d.css",
-    "main.js": "/reactapp/static/js/main.cbca9959.js",
+    "main.css": "/reactapp/static/css/main.1a66215e.css",
+    "main.js": "/reactapp/static/js/main.86f13bc0.js",
     "static/media/Globe-Transparent-Background-PNG.png": "/reactapp/static/media/Globe-Transparent-Background-PNG.f2fa4a0cb76e759ef593.png",
     "static/media/europemap.jpg": "/reactapp/static/media/europemap.141cfc2b0ca2201bd26b.jpg",
     "static/media/landscape.png": "/reactapp/static/media/landscape.82dae0f11d46707044ab.png",
@@ -28,11 +28,11 @@
     "static/media/light-bulb.png": "/reactapp/static/media/light-bulb.a51bd6c6c8059390d774.png",
     "static/media/gif.png": "/reactapp/static/media/gif.0c33918dbc8c74c4bb4f.png",
     "index.html": "/reactapp/index.html",
-    "main.b17eae5d.css.map": "/reactapp/static/css/main.b17eae5d.css.map",
-    "main.cbca9959.js.map": "/reactapp/static/js/main.cbca9959.js.map"
+    "main.1a66215e.css.map": "/reactapp/static/css/main.1a66215e.css.map",
+    "main.86f13bc0.js.map": "/reactapp/static/js/main.86f13bc0.js.map"
   },
   "entrypoints": [
-    "static/css/main.b17eae5d.css",
-    "static/js/main.cbca9959.js"
+    "static/css/main.1a66215e.css",
+    "static/js/main.86f13bc0.js"
   ]
 }
