@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNodesState } from "reactflow";
-import Dialog from "./DialogWindow/dialogWindow";
+import Dialog from "./DialogWIndow/dialogWindow";
 import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "./Packet";
 import { landingPagePacketsData } from "../Data/Packets/landingPage";
