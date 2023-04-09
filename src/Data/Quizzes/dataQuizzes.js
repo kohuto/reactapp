@@ -56,52 +56,52 @@ export const stockData = [
   },
   {
     content:
-      "Největší množství cest v internetu je tvořeno právě kabely. Máme dva hlavní druhy kabelů - metalické (kovové) a optické. Data v metalických kabelech jsou přenášena pomocí elektrických signálů, zatímco v optických kabelech jsou data přenášena pomocí světelných signálů. \n V roce 2019 se poslalo za jedinou hodinu skoro stejné množství dat, jako za celý rok 2000. Řešením tohoto obrovského nárůstu jsou právě optické kabely, které přenáší data až 10000x větší rychlostí na daleko větší vzdálenosti. \n Zavři okno a koukni se, jak je rozdíl v rychlosti přenosu dat pomocí kovových kabelů a pomocí optických kabelů.",
+      "Nejvíce cest je tvořeno KABELY. Ty mohou být metalické (kovové) nebo optické. V metalických jsou data přenášena pomocí elektrických signálů, zatímco v optických pomocí světelných signálů. \n Množství posílaných dat neustále roste. V roce 2019 se poslalo za hodinu stejné množství dat, jako za celý rok 2000. Řešením jsou optické KABELY, jelikož přenáší data až 10000x větší rychlostí i na daleko větší vzdálenosti. \n Po zavření okna se podívej, jaký je rozdíl v rychlosti přenosu oběma typy kabelů.",
     type: "whatIsCabel",
   },
   {
     content:
-      "Už víš, že pakety mohou putovat do jiných zařízení skrz kabely. Určitě ale víš, že data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WiFi. Jako WiFi označujeme signál, který vysílá tzv. WiFi router. Router je krabička, kterou máš pravděpodobně doma. Z routeru vede kabel, kterým je router připojen k chytré křižovatce. Router vysílá WiFi signál k zařízením (počítač, tablet, telefon), která jsou v jeho blízkosti a zařízení posílají data pomocí WiFi signálu zpět k routeru. Router data zpracuje a pošle je kabelem do chytré křižovatky, ke které je tímto kabelem připojen. \n Zavři okno a vyzkoušej si, jak se doma zapojuje wifi router.",
+      "Data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WIFI, což je označení pro signál, který je vysílán z WIFI ROUTERU. \n ROUTER je krabička, kterou bys určitě našel doma. Vede z něj kabel, kterým je připojen k chytré křižovatce. Vysílá WIFI SIGNÁL k zařízením (počítače, telefony), která posílají data pomocí WIFI SIGNÁLU zpět k ROUTERU. Ten data pošle kabelem do chytré křižovatky. \n Po zavření okna si zkus zapojit WIFI ROUTER.",
     type: "whatIsWiFi",
   },
   {
     content:
-      "Dalším bezdrátovým způsobem připojení je mobilní signál. Tento signál vysílají tzv. BTS věže. Princip je tedy podobný jako u WiFi signálu a WiFi routeru, nejedná se však o stejné signály. \n BTS věže jsou většinou na kopcích nebo na vyšších domech a vede z nich kabel, kterým jsou BTS věže připojeny k chytré křižovatce. Signál, který BTS věže vysílají, může využít pro přenos dat (dokonce i telefonních hovorů) zařízení se SIM kartou (většiou jsou to naše chytré telefony). \n Zařízení se SIM kartou se tedy připojí k BTS věži a začne směrem k BTS věži posílat data. BTS věž data, která k ní díky mobilnímu signálu dorazí, pošle kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient pomocí mobilních dat poslat požadavek na server.",
+      "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který může využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Po zavření okna se podívej, jak vypadá přenos pomocí mobilního signálu.",
     type: "whatIsBTS",
   },
   {
     content:
-      "Satelity jsou zařízení vyrobená lidmi, která jsou umístěna na oběžné dráze kolem Země. \n Satelitní připojení je nejméně používané, používá se na obtížně přístupných místech. Satelit jenom přeposílá data zpátky na zem - když někdo pošle signál ze Země k satelitu, antény na satelitu přijmou tento signál a přenesou ho zpět na Zemi. \n Satelity komunikují z oběžné dráhy. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
+      "Satelity jsou zařízení umístěna na oběžné dráze okolo Země. \n Satelitní připojení je nejméně používané, používají ho zařízení na obtížně přístupných místech. Když někdo pošle signál ze Země k satelitu, antény na satelitu signál zachytí a odrazí ho zpět na Zemi. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
     type: "whatIsSatelit",
   },
   {
     content:
-      "Pravděpodobně už sis někdy řekl: “Proč je ten internet takový pomalý?”. Pojďme si nyní říct, co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - dobu odezvy a šířku pásma. Doba odezvy nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím vyšší je doba odezvy, tím déle trvá, než je paket doručen do cíle. Doba může být ovlivněna třeba tím, že některé chytré křižovatky jsou zrovna přetížené, nebo že jsou pakety odeslány přes satelit. \n Malou dobu odezvy potřebuješ např. při hraní her, nebo při online hovoru. Pokud hraješ online hru a doba odezvy je velká, může to způsobit, že se hra bude zasekávat. U hovoru velká doba odezvy způsobí, že tě člověk na druhém konci slyší až s několika sekundovým zpožděním. \n Zavři okno a vyzkoušej si, s jakou odezvou zvládneš posílat data. naklikej cestu od klienta až po server a pak zase zpátky ke klientovi za co nejkratší čas.",
+      "“Proč je ten internet takový pomalý?” Co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - DOBU ODEZVY a ŠÍŘKU PÁSMA. DOBA ODEZVY nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím je vyšší, tím déle trvá, než je paket doručen. To může být ovlivněno třeba přetížením křižovatek, nebo posíláním přes satelit. \n Malou DOBU ODEZVY potřebuješ třeba při hraní her, nebo při online hovoru. Velká doba odezvy totiž způsobí zasekávání online hry. U hovoru způsobí, že člověk na druhém konci slyší i s několika sekundovým zpožděním. \n Zavři okno a zkus, s jakou odezvou zvládneš posílat data. Naklikej co nejrychleji cestu od klienta až do serveru.",
     type: "raceAroundWorld",
   },
   {
     content:
-      "Pojďme se zaměřit na druhý aspekt  rychlosti internetu - tzv. šířku pásma. \n Představ si posílání dat po internetu jako vodu, která teče potrubím. Doba odezvy by v takovém případě znamenala, jak rychle voda potrubím protéká (za jak dlouho se voda potrubím dostane na jiné místo). \n Šířka pásma ale určuje šířku potrubí. Čím širší je potrubí (čím větší je šířka pásma), tím více vody může najednou potrubím protékat (tím více dat můžeme najednou posílat). \n Velkou šířku pásma potřebuješ např. při stahování videa, protože je potřeba přenést velké množství dat. \n Šířka pásma se měří v Mb/s, tedy kolik Mb dat můžeš po cestě přenést za jednu sekundu. \n Pojď si to nyní vyzkoušet. Klikni na START a začni přepisovat text níže. Kolik Mb textu zvládneš za 10 sekund přepsat?",
+      "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu). \n Klikni na START a zkus za 10 sekund přepsat co nejvíce Mb textu.",
     type: "typingChallenge",
   },
   {
     content:
-      "Je potřeba připojit všechny klienty v mapě k internetu. K dispozici máš 2 WiFi routery, 2 BTS věže. Vyber vždy jedno zařízení kliknutím na jeho ikonu vpravo dole. Kliknutím do mapy dané zařízení umístíš. Cílem je, aby po umístění posledního zařízení byl každý klient v dosahu alespoň jednoho zařízení. Dosah každého zařízení znázorňuje průhledné kolečko okolo daného zařízení. Zařízení tedy musíš umístit tak, aby všichni klienti byli v dosahu alespoň jednoho zařízení.",
+      "Připoj všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidáš kliknutím na jeho ikonu v nabídce, poté jej můžeš libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad hlavou ikonu wifi.",
     type: "connectClientsWireless",
   },
   {
     content:
-      "Pojďme se ještě nyní zamyslet nad tím, jestli máme vždy možnost využít libovolný typ připojení k internetu. Níže vidíme čtyři situace z běžného života. Zaškrtni v každém sloupečku typ připojení, který je v dané situaci vhodný. V jednom sloupečku může být i více možností.",
+      "Ne vždy lze použít libovolný typ připojení. Zaškrtni pro každou ze čtyř situací níže, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
     type: "howToConnect",
   },
   {
     content:
-      "Před tím, než vyšleme paket na cestu, musíme mu říct, kam má dojet. Je to stejné, jako když posíláte dopis a musíte na něj napsat adresu, kam má být doručen. Takovým adresám říkáme v internetové komunikaci IP adresy. \n Pokud např. chcete otevřít webovou stránku, váš počítač potřebuje znát IP adresu serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP adres - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel oddělených tečkami (př. 192.168.0.1.). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Dokázal bys vymyslet, proč potřebujeme novější verzi IPv6? Pokud tě nic nenapadá, tak počkej na další úkol. Nyní zkus zjistit, jakou IP adresu má tvůj počítač a napiš ji do textového pole níže.",
+      "Stejně jako při posílání dopisu i v paketu musí být uložená cílová adresa. Těmto adresám říkáme IP ADRESY. \n Pokud chceš třeba otevřít webovou stránku, musí počítač zjistit IP ADRESU serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP ADRES - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel v rozsahu 0-255 oddělených tečkou (př. 192.168.0.255). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Napiš do textového pole níže, jakou IP adresu má tvůj počítač.",
     type: "IPadress",
   },
   {
     content:
-      "V předchozím úkolu jsme zmínili, že existují dvě verze IP adres. Proč ale potřebujeme novější verzi IPv6? Odpověď je jednoduchá. V dnešní době máme již tolik počítačů, že je IPv4 adres prostě málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více unikátních adres. Dokonce jich je tolik, že se nemusíme bát, že by IPv6 adresy v budoucnosti došly. Máme totiž 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost adres na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Zkus nyní níže pro každou IP adresu určit, jestli se jedná o IPv4, IPv6 nebo jestli se vůbec nejedná o IP adresu.",
+      "Proč vznikla novější verze adres IPv6, když existovala IPv4? Dnes máme tolik počítačů, že je IPv4 adres málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více adres. Nemusíme se ani bát, že by IPv6 adresy došly. Existuje 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Zkus nyní pro každou IP adresu níže určit, jestli se jedná o IPv4, IPv6 případně jestli to není IP adresa.",
     type: "sortIPAdresses",
   },
   {
@@ -110,22 +110,22 @@ export const stockData = [
   },
   {
     content:
-      "Už víš, že paket putuje po cestách od odesílatele k příjemci po cestách. Cestu si ale paket nevybírá sám. Ve skutečnosti tuto trasu určuje chytrá křižovatka, která vždy vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Můžeš si to představit jako jízdu autem, občas je rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Když zavřeš okno, tak se v mapě u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Napiš do textového pole, jak dlouhá je nejkratší cesta od Logana do serveru Messengeru.",
+      "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od Logana do serveru Messengeru.",
     type: "shortestPath",
   },
   {
     content:
-      "Už víš, že chytrá křižovatka pošle paket vždy nejrychlejší cestou. Zkus nyní spočítat, kolik různých cest mezi dvěma místy existuje.\n Zavři okno spočítej, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet vícekrát stejnou chytrou křižovatkou. Počet různých cest napiš do textového pole. Zvládl bys přijít na to, proč je dobré, aby cest bylo více? Pokud tě nic nenapadá, počkej na další úkol.",
+      "Zkus spočítat, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole. V další aktivitě se dozvíš, proč je dobré, aby cest bylo více.",
     type: "countOfPaths",
   },
   {
     content:
-      "V předchozím úkolu bylo zmíněno, že je dobré, aby mezi dvěma místy vedlo více různých cest. Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam ale vede pouze jedna cesta.",
+      "Proč je dobré, aby mezi dvěma místy vedlo více různých cest? Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam vede pouze jedna cesta.",
     type: "problemWithPath",
   },
   {
     content:
-      "Konečně jsme na konci naší cesty. Všechny pakety úspěšně dorazily až k příjemci. Pakety ovšem dorazily do cíle nezávisle na sobě, proto je potřeba je nyní setřídit. Poslal jsi kamarádovi fotku, fotka dorazila do cíle přeházená. Zkus nyní fotku poskládat zpět do původní podoby.",
+      "Klientovi přišla v paketech fotka. Pakety putují nezávisle na sobě, proto je potřeba je seřadit. Zkus fotku poskládat zpět do původní podoby. Pomohou ti čísla udávající pořadí paketu.",
     type: "puzzle",
   },
   {
