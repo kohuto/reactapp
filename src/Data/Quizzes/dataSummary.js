@@ -4,11 +4,11 @@ export const summaryText = [
       "Všichni ho známe, všichni ho používáme. Většina z nás ale neví, jak funguje. Řeč je samozřejmě o internetu.\n Důležité je hned na začátek říct, že internet není nic neviditelného. Internet je velké množství navzájem propojených zařízení, která spolu neustále komunikují. Máme zde zařízení, která něco chtějí - těm říkáme klienti. Poté jsou zde zařízení, tzv. servery, která nabízejí služby. Navíc potřebujeme cesty a křižovatky, aby spolu mohli klienti a servery komunikovat.\n V následujících úkolech se se s těmito zařízeními seznámíš blíže.",
     prerequsities: ["Zatím nepotřebuješ vědět nic o fungování internetu"],
     learningOutcomes: [
-      "Zjistíš, že internet, není nic neviditelného",
-      "Zjistíš, kam se ukládá vše, co najdeme na internetu",
-      "Zjistíš, jak fungují zařízení jako server a chytrá křižovatka",
-      "Zjistíš, proč spolu server a klient potřebují komunikovat",
-      "Zjistíš, kudy putují všechna data",
+      "Internet, není nic neviditelného.",
+      "Kam se ukládá vše, co najdeme na internetu?",
+      "Jak fungují zařízení jako server a chytrá křižovatka?",
+      "Proč spolu server a klient potřebují komunikovat?",
+      "Kudy putují všechna data",
     ],
   },
   {
@@ -19,9 +19,9 @@ export const summaryText = [
       "víme, jak spolu zařízení vzájemně komunikují",
     ],
     learningOutcomes: [
-      "Naučíme se, co je to paket",
-      "Naučíme se, co musí paket obsahovat, aby byl schopen doručit data na správné místo",
-      "Naučíme se, jestli je rozdíl v tom, když kamarádovi pošleš video nebo textovou zprávu",
+      "Co je paket",
+      "Co musí paket obsahovat, aby byl schopen doručit data na správné místo",
+      "jaký je rozdíl, když kamarádovi pošleš video nebo textovou zprávu",
     ],
   },
   {

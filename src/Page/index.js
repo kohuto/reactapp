@@ -14,7 +14,7 @@ import EducationalMode from "./educationalMode/eduMode";
 function Page() {
   // Welcome message
   const welcomeMessage =
-    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. V případě, že nebudeš vědět, co dál, klikni vpravo dole na otazník a otevře se ti nápověda. Nyní zavři toto okno a můžeš začít zkoumat.";
+    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. Pokud si nebudeš vědět rady, klikni vpravo dole na nápovědu. Nyní zavři toto okno a můžeš začít zkoumat.";
 
   // State initialization
   const [isCreativeMode, setIsCreativeMode] = useState(true);
