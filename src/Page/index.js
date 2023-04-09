@@ -5,6 +5,7 @@ import CreativeMode from "./CreativeMode/creativeMode";
 import DefaultPackets from "./Packet";
 import { landingPagePacketsData } from "../Data/Packets/landingPage";
 import EducationalMode from "./educationalMode/eduMode";
+import LandingPage from "./LandingPage/landingPage";
 
 /**
  * This is the main component of the application.
@@ -12,20 +13,15 @@ import EducationalMode from "./educationalMode/eduMode";
  * @returns {JSX.Element} The main component of the application.
  */
 function Page() {
-  // Welcome message
-  const welcomeMessage =
-    "Vítej! Právě ses dostal do aplikace, která tě naučí, jak funguje internet. Pokud si nebudeš vědět rady, klikni vpravo dole na nápovědu. Nyní zavři toto okno a můžeš začít zkoumat.";
-
   // State initialization
-  const [isCreativeMode, setIsCreativeMode] = useState(true);
   const [game, setGame] = useState("noGame");
   const [nodes, setNodes, onNodesChange] = useNodesState();
-  const [dialogMessage, setDialogMessage] = useState(welcomeMessage);
+  const [dialogMessage, setDialogMessage] = useState("");
   const [isDestroyedProblemWithPath, setIsDestroyedProblemWithPath] =
     useState(false);
-  const [openDialog, setOpenDialog] = useState(true);
+  const [openDialog, setOpenDialog] = useState(false);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
-
+  const [mode, setMode] = useState("landingPage");
   // games that needs special flows
   const specialFlowGame = [
     "client-server-communication",
@@ -48,6 +44,7 @@ function Page() {
    * @param {string} gameAfterClose - The game thate will be set after close dialog box.
    */
   function handleOpenDialog(isOpen, content, gameAfterClose = game) {
+    setGame("noGame");
     setDialogMessage(content);
     setGameAfterDialogClose(gameAfterClose);
     setOpenDialog(isOpen);
@@ -61,8 +58,18 @@ function Page() {
     setGameAfterDialogClose(game);
   }
 
+  function handleModeChange(mode) {
+    setMode(mode);
+  }
+
   return (
     <>
+      {mode === "landingPage" && (
+        <LandingPage
+          setMode={handleModeChange}
+          setOpenDialog={handleOpenDialog}
+        />
+      )}
       {/* Main dialog */}
       <Dialog
         open={openDialog}
@@ -72,7 +79,7 @@ function Page() {
         gameAfterClose={gameAfterDialogClose}
       />
 
-      {isCreativeMode ? (
+      {mode === "creative" && (
         <>
           {/* Creative mode */}
           <DefaultPackets
@@ -82,27 +89,24 @@ function Page() {
           />
           <CreativeMode
             setOpenModal={handleOpenDialog}
-            setIsCreativeMode={() => setIsCreativeMode(false)}
+            setIsCreativeMode={() => setMode("educational")}
           />
         </>
-      ) : (
-        <>
-          {/* Educational mode */}
-          <EducationalMode
-            game={game}
-            setGame={setGame}
-            setOpenDialog={handleOpenDialog}
-            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
-            isDestroyedProblemWithPath={isDestroyedProblemWithPath}
-            gameAfterDialogClose={gameAfterDialogClose}
-            nodes={nodes}
-            setNodes={setNodes}
-            onNodesChange={onNodesChange}
-            setIsCreativeMode={setIsCreativeMode}
-            specialFlowGame={specialFlowGame}
-            isCreativeMode={isCreativeMode}
-          />
-        </>
+      )}
+      {mode === "educational" && (
+        <EducationalMode
+          game={game}
+          setGame={setGame}
+          setOpenDialog={handleOpenDialog}
+          setGameAfterDialogClose={handleGameAfterDialogCloseChange}
+          isDestroyedProblemWithPath={isDestroyedProblemWithPath}
+          gameAfterDialogClose={gameAfterDialogClose}
+          nodes={nodes}
+          setNodes={setNodes}
+          onNodesChange={onNodesChange}
+          setIsCreativeMode={() => setMode("creative")}
+          specialFlowGame={specialFlowGame}
+        />
       )}
     </>
   );

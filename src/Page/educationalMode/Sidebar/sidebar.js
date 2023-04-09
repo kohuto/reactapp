@@ -16,6 +16,8 @@ import Quizz from "../../DialogWindow/Templates/innerQuizz";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
+const CREATIVE_WELCOME_MESSAGE =
+  "Vítej v kreativním módu. \n Pokud nebudeš vědět, co máš dělat, klikni vpravo dole na nápovědu. Pokud budeš chtít přejít do výukového módu, klikni na ikonku vedle nápovědy.";
 /**
  * Renders the sidebar component.
  * @param {function} setIsCreativeMode - Function to set the creative mode.
@@ -100,6 +102,11 @@ function DropdownMenu({
     );
   }
 
+  function handleGoToEduMode() {
+    setIsCreativeMode();
+    setOpenDialog(true, CREATIVE_WELCOME_MESSAGE);
+  }
+
   return (
     <div className="custom-dropdown" ref={dropdownRef}>
       <CSSTransition
@@ -134,7 +141,7 @@ function DropdownMenu({
        * back to creative mode
        */}
       <div className="custom-menu custom-menu-bottom">
-        <div id="downitem" onClick={() => setIsCreativeMode(true)}>
+        <div id="downitem" onClick={() => handleGoToEduMode()}>
           <DropdownItem leftIcon={backarrow}>KREATIVNÍ MÓD</DropdownItem>
         </div>
       </div>

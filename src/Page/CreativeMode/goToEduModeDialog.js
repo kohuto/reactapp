@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 
+const EDUCATIONAL_WELCOME_MESSAGE =
+  "Vítej ve výukovém módu. \n Vlevo vidíš menu s pěti tématy. U každého tématu najdeš řadu aktivit. Pokud budeš chtít přejít do kreativního módu, klikni v menu na KREATIVNÍ MÓD.";
 /**
  * Displays a dialog to prompt the user to go to the education mode.
  * @param {object} props - The component props.
@@ -8,14 +10,12 @@ import Button from "@mui/material/Button";
  * @returns {JSX.Element} - The component's JSX code.
  */
 function GoToEduModeDialog({ setOpenModal, setIsCreativeMode }) {
-  const welcomeMessage =
-    "Vítej v hlavní části aplikace. V levé části obrazovky vidíš menu, ve kterém najdeš velké množství úkolů, díky který se dozvíš, jak funguje internet. Úkoly jsou rozděleny do 5 kategorií a je doporučeno je procházet postupně. Pokud se chceš vrátit zpátky do kretivního módu, klikni v menu na tlačítko KREATIVNÍ MÓD. Zavři toto okno a vrhni se na úkoly.";
   /**
    * Handles the click event of the "ÚKOLY" button.
    * Sets the alert message, opens the modal, sets the game after modal close, and sets the landing page state.
    */
   function handleGoToTasksClick() {
-    setOpenModal(true, welcomeMessage, "noGame");
+    setOpenModal(true, EDUCATIONAL_WELCOME_MESSAGE, "noGame");
     setIsCreativeMode();
   }
   return (

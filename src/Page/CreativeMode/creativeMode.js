@@ -9,6 +9,7 @@ import ServiceButtons from "./serviceButtons";
 import SendPacketBox from "./sendPacketBox";
 import CreativeModeFlow from "./creativeModeFlow";
 
+const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
 /**
  * Represents the Creative Mode component.
  * @param {Object} props - The component props.
@@ -69,7 +70,7 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 15) {
-        setOpenModal(true, "vice uz jich nepridavej. Uz jich mas az moc");
+        setOpenModal(true, TOO_MANY_DEVICES_ERROR);
       } else {
         const newNode = {
           id: `${ipv4Address}`,
