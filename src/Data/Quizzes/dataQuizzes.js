@@ -1,47 +1,47 @@
 export const stockData = [
   {
     content:
-      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. Jsou to speciálně upravené počítače, které nemívají obrazovku a typicky běží nonstop. Kdokoliv může do internetu připojit vlastní server. Většinou jsou to ale drahé výkonné počítače v budovách firem. Například společnost Seznam má ve své budově server. Ten má na disku uloženou stránku www.seznam.cz. Nahrávání dat na server říkáme upload.\n Zavři okno a podívej se, jak se objeví servery. V pravém dolním rohu najdeš svůj první úkol.",
+      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.\n Po zavření okna najdeš v pravém dolním rohu první úkol.",
     type: "whatIsServer",
   },
   {
     content:
-      "Klient je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru nějakou službu. Lze si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webovým stránkám, nebo může chtít poslat video, které si chce přehrát.\n Zavři okno a přejdi na AKTIVITU aktivitu, kde si o klientovi řekneme více.",
+      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Představ si to jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.\n Přejdi na aktivitu KOMUNIKACE KLIENT-SERVER.",
     type: "info",
   },
   {
     content:
-      "Už víš, že informace se ukládají na serverech. Jedná se např. o webovky uložené na web serverech, historii chatu uloženou na chat serveru, stav hry uložený na game serveru nebo emaily uložené na mail serveru. \n Co se tedy stane, když budeš chtít na svém počítači otevřít třeba nějakou webovou stránku? \n Klient (zde by to byl webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje požadavek, který říká, co má server udělat. V našem případě žádáme server, aby nám poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak by mohla komunikace vypadat.",
+      "Už víš, že se informace ukládají na serverech (př. webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? \n Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje informaci, co má server udělat. V našem případě chceme, aby server poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
     type: "client-server-communication",
   },
   {
     content:
-      "V minulém úkolu jsme se dozvěděli, že klienti posílají serverům balíčky dat s požadavky. Kudy se ale balíček dat dostane na server? \n Požadavek je doručen na server podobně, jako je třeba tvému kamarádovi doručen dopis poštou. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), a to jede po silnicích tak dlouho, až se dostane ke kamarádovi (do serveru). Při jízdě autem se ti ale málokdy stane, že jedeš po jedné dlouhé cestě, většinou projedeš několik křižovatek. Cesty a křižovatky najdeš i v internetové síti. Jak fungují se dozvíš v dalších úkolech. \n Nyní zavři okno a podívej se, jak by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je jich ale daleko více! V mapě se můžeš pohybovat a můžeš si ji přibližovat a oddalovat.",
+      "Kudy se dostanou požadavky, které jsi viděl v minulém úkolu, na server? \n Požadavek je doručen na server podobně jako dopis poštou tvému kamarádovi. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), které jede po silnicích až ke kamarádovi (do serveru). Po cestě navíc auto většinou projede mnoho křižovatek. CESTY a KŘIŽOVATKY najdeš i v internetové síti. Více se o nich dozvíš později. \n Po zavření okna uvidíš, jak by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je ale daleko více zařízení! Se sítí lze pohybovat, nebo ji přiblížit.",
     type: "whatIsPath",
   },
   {
     content:
-      "Zmínili jsme, že data internetem putují po cestách, aby se dostala z jednoho zařízení do druhého. Cesty mohou být bezdrátové jako WiFi nebo satelity, většinou jsou ale cesty kabely (kovové nebo optické), které jsou nejčastěji zakopané pod zemí a pod mořem.",
+      "Aby se data dostala z jednoho zařízení do druhého, putují po CESTÁCH. CESTY mohou být bezdrátové (WiFi, satelity), většinou ale mají podobu kabelů (kovových nebo optických), které jsou nejčastěji zakopané pod zemí a pod mořem.",
     type: "info",
   },
   {
     content:
-      "Křižovatky propojují cesty pro informace. Když do křižovatky přijede po cestě balíček informací, tak ho křižovatka pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, tento směr je určen chytrou křižovatkou. Pokud nějaká cesta zrovna nefunguje, chytrá křižovatka umí najít objížďku. \n Nezapomeň, že cíl balíčku je vždy server nebo klient. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíly mezi nimi ale pro nás nejsou příliš důležité.",
+      "KŘIŽOVATKY propojují cesty pro informace. Když do KŘIŽOVATKY přijede po cestě balíček informací, tak ho pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, směr určí chytrá KŘIŽOVATKA. Pokud nějaká cesta nefunguje, chytrá KŘIŽOVATKA najde objížďku. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíl ale pro nás není příliš důležitý.",
     type: "info",
   },
   {
     content:
-      "Už víš, že Internet je síť složená ze zařízení, která si mezi sebou posílají balíčky dat (požadavky, soubory, informace...). Pojďme se nyní zaměřit právě na tyto balíčky dat. \n Každá tvoje zpráva, video či fotka, co se po internetu posílá, je před odesláním rozdělena na části. Těmto částem se říká pakety. Pakety jsou tedy malé balíčky dat obsahující část původní zprávy. Pakety jsou doručeny po cestách z klientů do serverů nebo ze serverů zpátky do klientů. Poté, co je zpráva rozložena na pakety, pakety putují do cílé nezávisle na sobě. \n Pojď se nyní podívat, jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi na jeho zprávu. Poté, co zavřeš okno, se objeví okno messengeru. Napiš nějakou zprávu a odešli ji.",
+      "Internet je síť složená ze zařízení, která si posílají balíčky dat. Co jsou ale ty balíčky zač? \n Každá tvoje zpráva, video či fotka je před odesláním rozdělena na části - PAKETY. PAKETY jsou malé balíčky dat obsahující část původní zprávy. Jsou posílány po cestách mezi klienty a servery. Poté, co se zpráva rozloží, putují PAKETY do cíle nezávisle na sobě. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi. Objeví se okno messengeru, kam napiš nějakou zprávu a odešli ji.",
     type: "dataIntoPackets",
   },
   {
     content:
-      "Už víš, že zpráva neputuje vcelku, ale že se po odeslání rozdělí na malé balíčky dat - pakety. Jak se ale pozná, kam má být paket doručen? Případně kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako když posíláš dopis poštou. Na obálku napíšeš svou adresu a také adresu kamaráda, kterému má být dopis doručen. V případě paketu je uvnitř uložena tzv. IP adresa. IP adresa každého zařízení musí být unikátní. \n Viděl jsi, že pakety putují každý po jiné trase a do cíle proto mohou dorazit v jiném pořadí. Aby je bylo možné v cíli správně seřadit, musíme do každého paketu uložit jeho pořadí. \n V každém momentě je po internetu posláno obrovské množství zpráv (paketů). Abychom od sebe zprávy (pakety) odlišily, uložíme do paketu ještě identifikační číslo -  zkráceně ID. Pakety, které tvoří jednu zprávu, mají stejné ID.",
+      "Zpráva je před odesláním rozložena na PAKETY. Jak se ale pozná, kam má být paket doručen? A kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako posílání dopisu. Na obálku napíšeš adresu odesílatele a příjemce. V paketu jsou uloženy tzv. IP adresy. \n Pakety putují nezávisle na sobě, proto mohou dorazit v jiném pořadí. Aby se správně seřadily, je v paketu uloženo pořadí. \n Po internetu je posíláno obrovské množství zpráv. Aby se od sebe zprávy odlišily, obsahují pakety identifikační číslo (ID). Pakety, které tvoří jednu zprávu, mají stejné ID.",
     type: "info",
   },
   {
     content:
-      "Už víš, že každý paket v sobě nese část odeslané zprávy. Musí v něm být uložena adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc v paketu musí být uloženo pořadí a ID, aby mohla být zpráva v cíli poskládaná zpět do původní podoby.\n Zkus nyní sám rozložit zprávu na pakety. Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Po odeslání se zpráva rozložila na tři pakety. Zkus vyplnit obsah všech paketů.",
+      "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc obsahuje pořadí a ID pro zpětné sestavení zprávy. \n Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Zavři okno a vyplň obsah tří paketů, na které se zpráva rozložila",
     type: "createPacket",
   },
   {
@@ -51,7 +51,7 @@ export const stockData = [
   },
   {
     content:
-      "Už víš, že odeslaná data neputují vcelku, ale rozloží se na pakety. \n Klikni na tlačítko SOUBORY. Otevře se ti složka se 4 soubory, které prozkoumej. Pro každý soubor nastav na posuvníku hodnotu, která bude udávat přibližný počet paketů, na který se soubor před odesláním rozloží. Počítej s tím, že do jednoho paketu se vleze 1KB dat",
+      "Odeslaná data se před odesláním rozloží na pakety. \n Po kliknutí na tlačítko SOUBORY se otevře složka se čtyřmi soubory. Pro každý soubor nastav na posuvníku hodnotu, na kolik paketů by se před odesláním soubor rozložil. Do jednoho paketu se vleze 1KB dat",
     type: "sortFileSize",
   },
   {

@@ -10,6 +10,16 @@ import serveryoutube from "../../../../images/nodes/serveryoutube.png";
 import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import "./style.css";
 
+const FINAL_MESSAGE =
+  "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat.";
+const CORRECT_WEB_MESSAGE =
+  "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů.";
+const CORRECT_INSTAGRAM_MESSAGE =
+  "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
+const CORRECT_YOUTUBE_MESSAGE =
+  "Správně! Na YouTube serveru bude uloženo spoustu videí";
+const TASK_MESSAGE =
+  "Uploadni soubory do správného serveru. Upload provedeš přetažením souboru do serveru.";
 /**
  * Renders a component that allows the user to upload files to different servers by dragging and dropping.
  * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
@@ -29,14 +39,6 @@ function WhatIsServerComponent({ setOpenDialog }) {
   const [correctYouTubeServerTouch, setcorrectYouTubeServerTouch] =
     useState(false);
   const [filledServer, setFilledServer] = useState(0);
-  const finalMessage =
-    "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat.";
-  const correctWebMessage =
-    "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů.";
-  const correctInstagramMessage =
-    "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
-  const correctYouTubeMessage =
-    "Správně! Na YouTube serveru bude uloženo spoustu videí";
 
   /**
    * Checks whether the draggable components are touching the correct server components
@@ -79,7 +81,7 @@ function WhatIsServerComponent({ setOpenDialog }) {
    */
   useEffect(() => {
     if (filledServer == 3) {
-      setOpenDialog(true, finalMessage, "noGame");
+      setOpenDialog(true, FINAL_MESSAGE, "noGame");
     }
   }, [filledServer]);
 
@@ -110,17 +112,17 @@ function WhatIsServerComponent({ setOpenDialog }) {
     if (correctWebServerTouch) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, correctWebMessage);
+      setOpenDialog(true, CORRECT_WEB_MESSAGE);
     }
     if (correctInstagramServerTouch) {
       imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, correctInstagramMessage);
+      setOpenDialog(true, CORRECT_INSTAGRAM_MESSAGE);
     }
     if (correctYouTubeServerTouch) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, correctYouTubeMessage);
+      setOpenDialog(true, CORRECT_YOUTUBE_MESSAGE);
     }
   }, [
     correctWebServerTouch,
@@ -153,10 +155,7 @@ function WhatIsServerComponent({ setOpenDialog }) {
       <CloseOpen
         content={
           <>
-            <p className="fill-server-task">
-              Uploadni soubory do správného serveru. Upload provedeš přetažením
-              souboru do serveru.
-            </p>
+            <p className="fill-server-task">{TASK_MESSAGE}</p>
             <div className="what-is-server-container">
               <DraggableComponent refProp={webRef} imageUrl={web} />
               <DraggableComponent refProp={imgRef} imageUrl={picture} />
