@@ -39,13 +39,13 @@ function AddNodeButtons({ handleAddNode, checkValidity, nodes }) {
   // Array of objects that define each button to be rendered
   const buttonData = [
     {
-      title: "GATEWAY",
+      title: "CHYTRÁ KŘIŽOVATKA",
       icon: gateway,
       badgeCount: remainingNodes[DEVICE_TYPE.GATEWAY],
       onClick: () => handleAddNode(DEVICE_TYPE.GATEWAY),
     },
     {
-      title: "CLIENT",
+      title: "KLIENT",
       icon: client,
       badgeCount: remainingNodes[DEVICE_TYPE.CLIENT_UNPLUGGED],
       onClick: () => handleAddNode(DEVICE_TYPE.CLIENT_UNPLUGGED),

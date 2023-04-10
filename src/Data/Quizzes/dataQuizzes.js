@@ -120,7 +120,8 @@ export const stockData = [
   },
   {
     content:
-      "Proč je dobré, aby mezi dvěma místy vedlo více různých cest? Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam vede pouze jedna cesta.",
+      /*"Proč je dobré, aby mezi dvěma místy vedlo více různých cest? Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam vede pouze jedna cesta.",*/
+      "Tento úkol není hotový",
     type: "problemWithPath",
   },
   {
@@ -144,7 +145,7 @@ export const stockData = [
     type: "build-network-3",
   },
   {
-    content: "",
+    content: "Tento úkol není hotový",
     type: "build-network-4",
   },
 ];
