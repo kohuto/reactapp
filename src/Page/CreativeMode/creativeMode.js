@@ -9,6 +9,15 @@ import ServiceButtons from "./serviceButtons";
 import SendPacketBox from "./sendPacketBox";
 import CreativeModeFlow from "./creativeModeFlow";
 
+const DEVICE_TYPE = {
+  CLIENT_PLUGGED: "client-plugged-creative",
+  CLIENT_UNPLUGGED: "client-unplugged-creative",
+  WIFI: "wifi-creative",
+  BTS: "bts-creative",
+  GATEWAY: "gateway-creative",
+  SERVER: "server-creative",
+};
+
 const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
 /**
  * Represents the Creative Mode component.
@@ -28,18 +37,22 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       const clientInfoNodes = nodes.filter(
-        (node) => node.className === "client-plugged"
+        (node) =>
+          node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED) &&
+          !node.className.includes("nodrag")
       );
       const clientBuildNodes = nodes.filter(
-        (node) => node.className === "client-build"
+        (node) =>
+          node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED) &&
+          !node.className.includes("nodrag")
       );
 
       const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
       tempClientNodes.forEach((node) => {
         if (isNodeInRange(node.id, nodes)) {
-          node.className = "client-plugged";
+          node.className = [DEVICE_TYPE.CLIENT_PLUGGED];
         } else {
-          node.className = "client-build";
+          node.className = [DEVICE_TYPE.CLIENT_UNPLUGGED];
         }
       });
 
@@ -74,7 +87,7 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
       } else {
         const newNode = {
           id: `${ipv4Address}`,
-          type: "default",
+          type: "custom",
           position: { x: 300, y: 300 },
           className: `${device}`,
           data: { label: `${ipv4Address}` },
@@ -124,15 +137,13 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
       />
       <AddDeviceButtons handleAddNode={handleAddNode} nodes={nodes} />
 
-      <ReactFlowProvider>
-        <CreativeModeFlow
-          setEdges={setEdges}
-          edges={edges}
-          nodes={nodes}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-        />
-      </ReactFlowProvider>
+      <CreativeModeFlow
+        setEdges={setEdges}
+        edges={edges}
+        nodes={nodes}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+      />
     </>
   );
 }
@@ -146,8 +157,12 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
  */
 function isNodeInRange(nodeId, nodes) {
   const node = nodes.find((node) => node.id === nodeId);
-  const wifiNodes = nodes.filter((node) => node.className === "wifi-build");
-  const btsNodes = nodes.filter((node) => node.className === "bts-build");
+  const wifiNodes = nodes.filter((node) =>
+    node.className.includes(DEVICE_TYPE.WIFI)
+  );
+  const btsNodes = nodes.filter((node) =>
+    node.className.includes(DEVICE_TYPE.BTS)
+  );
 
   // Check if node is at most 100 away from some wifi nodes
   for (let i = 0; i < wifiNodes.length; i++) {

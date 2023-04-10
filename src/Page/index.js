@@ -81,12 +81,12 @@ function Page() {
 
       {mode === "creative" && (
         <>
-          {/* Creative mode */}
           <DefaultPackets
             packetsData={landingPagePacketsData}
             repeat={Infinity}
             marginleft={0}
           />
+
           <CreativeMode
             setOpenModal={handleOpenDialog}
             setIsCreativeMode={() => setMode("educational")}

@@ -7,6 +7,14 @@ import clientImage from "../../images/nodes/klient.jpg";
 import wifiImage from "../../images/nodes/wifi.jpg";
 import gatewayImage from "../../images/nodes/gateway.jpg";
 
+const DEVICE_TYPE = {
+  CLIENT_PLUGGED: "client-plugged",
+  CLIENT_UNPLUGGED: "client-unplugged-creative",
+  WIFI: "wifi-creative",
+  BTS: "bts-creative",
+  GATEWAY: "gateway-creative",
+  SERVER: "server-creative",
+};
 /**
  * Counts the number of nodes of a specific type in the given array of nodes.
  *
@@ -33,11 +41,11 @@ function countNodesByType(nodes, type) {
  * @returns {JSX.Element} The rendered component.
  */
 function AddDeviceButtons({ handleAddNode, nodes }) {
-  const serversLeft = 8 - countNodesByType(nodes, "server-build");
-  const gatewaysLeft = 15 - countNodesByType(nodes, "gateway-build");
-  const clientsLeft = 9 - countNodesByType(nodes, "client-build");
-  const wifiLeft = 8 - countNodesByType(nodes, "wifi-build");
-  const btsLeft = 8 - countNodesByType(nodes, "bts-build");
+  const serversLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
+  const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);
+  const clientsLeft = 9 - countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED);
+  const wifiLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.WIFI);
+  const btsLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.BTS);
 
   return (
     <div className="lp-add-nodes-buttons-container">
@@ -48,7 +56,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
               src={serverImage}
               style={{ width: "60px", height: "40px" }}
               alt="Server button"
-              onClick={() => handleAddNode("server-build")}
+              onClick={() => handleAddNode(DEVICE_TYPE.SERVER)}
             />
           </Badge>
         </IconButton>
@@ -64,7 +72,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
               src={gatewayImage}
               style={{ width: "60px", height: "20px" }}
               alt="Gateway button"
-              onClick={() => handleAddNode("gateway-build")}
+              onClick={() => handleAddNode(DEVICE_TYPE.GATEWAY)}
             />
           </Badge>
         </IconButton>
@@ -76,7 +84,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
               src={clientImage}
               style={{ width: "60px", height: "40px" }}
               alt="Client button"
-              onClick={() => handleAddNode("client-build")}
+              onClick={() => handleAddNode(DEVICE_TYPE.CLIENT_UNPLUGGED)}
             />
           </Badge>
         </IconButton>
@@ -88,7 +96,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
               src={wifiImage}
               style={{ width: "60px", height: "40px" }}
               alt="WiFi button"
-              onClick={() => handleAddNode("wifi-build")}
+              onClick={() => handleAddNode(DEVICE_TYPE.WIFI)}
             />
           </Badge>
         </IconButton>
@@ -100,7 +108,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
               src={btsImage}
               style={{ width: "60px", height: "40px" }}
               alt="BTS Vez button"
-              onClick={() => handleAddNode("bts-build")}
+              onClick={() => handleAddNode(DEVICE_TYPE.BTS)}
             />
           </Badge>
         </IconButton>

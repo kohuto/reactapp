@@ -4,11 +4,11 @@ import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
 import TextField from "@mui/material/TextField";
 
-const CLIENT_CLASSNAME = "client-build";
-const CLIENT_PLUGGED_CLASSNAME = "client-plugged";
-const SERVER_CLASSNAME = "server-build";
-const BTS_CLASSNAME = "bts-build";
-const WIFI_CLASSNAME = "wifi-build";
+const CLIENT_CLASSNAME = "client-unplugged-creative";
+const CLIENT_PLUGGED_CLASSNAME = "client-plugged-creative";
+const SERVER_CLASSNAME = "server-creative";
+const BTS_CLASSNAME = "bts-creative";
+const WIFI_CLASSNAME = "wifi-creative";
 
 /**
  * Component for sending packets between nodes in a network simulation.
@@ -103,8 +103,8 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
     const senderNode = nodes.find((node) => node.id === senderIpAddress);
     return (
       senderNode &&
-      (senderNode.className === CLIENT_CLASSNAME ||
-        senderNode.className === CLIENT_PLUGGED_CLASSNAME)
+      (senderNode.className.includes(CLIENT_CLASSNAME) ||
+        senderNode.className.includes(CLIENT_PLUGGED_CLASSNAME))
     );
   }
 
@@ -116,7 +116,7 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    */
   function isRecipientValid(nodes, recipientIpAddress) {
     const recipientNode = nodes.find((node) => node.id === recipientIpAddress);
-    return recipientNode && recipientNode.className === SERVER_CLASSNAME;
+    return recipientNode && recipientNode.className.includes(SERVER_CLASSNAME);
   }
 
   /**
@@ -127,7 +127,7 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    */
   function isClientPlugged(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
-    if (clientNode && clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
+    if (clientNode && clientNode.className.includes(CLIENT_PLUGGED_CLASSNAME)) {
       return true;
     } else {
       return false;
@@ -142,15 +142,15 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    */
   function getWirelessDeviceIpAddress(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
-    if (clientNode && clientNode.className === CLIENT_PLUGGED_CLASSNAME) {
+    if (clientNode && clientNode.className.includes(CLIENT_PLUGGED_CLASSNAME)) {
       const nearbyNodes = nodes.filter((node) => {
         const distance = Math.sqrt(
           Math.pow(clientNode.position.x - node.position.x, 2) +
             Math.pow(clientNode.position.y - node.position.y, 2)
         );
         return (
-          (node.className === BTS_CLASSNAME ||
-            node.className === WIFI_CLASSNAME) &&
+          (node.className.includes(BTS_CLASSNAME) ||
+            node.className.includes(WIFI_CLASSNAME)) &&
           distance <= 100
         );
       });
