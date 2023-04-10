@@ -11,7 +11,7 @@ export const stockData = [
   },
   {
     content:
-      "Už víš, že se informace ukládají na serverech (př. webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? \n Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje informaci, co má server udělat. V našem případě chceme, aby server poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
+      "Už víš, že se informace ukládají na serverech (př. webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje informaci, co má server udělat. V našem případě chceme, aby server poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
     type: "client-server-communication",
   },
   {
