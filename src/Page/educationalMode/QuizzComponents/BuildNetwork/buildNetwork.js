@@ -8,8 +8,8 @@ import "./style.css";
  * Object containing the possible types of devices.
  */
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged",
-  CLIENT_UNPLUGGED: "client",
+  CLIENT_PLUGGED: "client-plugged-build",
+  CLIENT_UNPLUGGED: "client-unplugged-build",
   WIFI: "wifi-build",
   BTS: "bts-build",
   GATEWAY: "gateway-build",
@@ -48,18 +48,23 @@ function FlowWithProvider({ setOpenDialog, game }) {
    */
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // Separate the client nodes into two groups: plugged and unplugged
-      const [clientInfoNodes, clientBuildNodes] = [
-        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_PLUGGED),
-        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_UNPLUGGED),
-      ];
-      const tempClientNodes = [...clientInfoNodes, ...clientBuildNodes];
-      // Update the class of each client node based on whether it's within range of a WiFi or BTS node
+      const clientInfoNodes = nodes.filter(
+        (node) =>
+          node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED) &&
+          !node.className.includes("nodrag")
+      );
+      const clientBuildNodes = nodes.filter(
+        (node) =>
+          node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED) &&
+          !node.className.includes("nodrag")
+      );
+
+      const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
       tempClientNodes.forEach((node) => {
         if (isNodeInRange(node.id, nodes)) {
-          node.className = DEVICE_TYPE.CLIENT_PLUGGED;
+          node.className = [DEVICE_TYPE.CLIENT_PLUGGED];
         } else {
-          node.className = DEVICE_TYPE.CLIENT_UNPLUGGED;
+          node.className = [DEVICE_TYPE.CLIENT_UNPLUGGED];
         }
       });
 
@@ -197,42 +202,40 @@ function FlowWithProvider({ setOpenDialog, game }) {
  * @param {Array} edges - An array of all edges in the network
  * @returns {boolean} - Whether or not the node is within range of a WiFi or BTS node
  */
-function isNodeInRange(nodeId, nodes, edges) {
+function isNodeInRange(nodeId, nodes) {
   const node = nodes.find((node) => node.id === nodeId);
-  const wifiNodes = nodes.filter((node) => node.className === DEVICE_TYPE.WIFI);
-  const btsNodes = nodes.filter((node) => node.className === DEVICE_TYPE.BTS);
-  const gatewayNodes = nodes.filter(
-    (node) => node.className === DEVICE_TYPE.GATEWAY
+  const wifiNodes = nodes.filter((node) =>
+    node.className.includes(DEVICE_TYPE.WIFI)
   );
-  const wifiRange = 100;
-  const btsRange = 250;
+  const btsNodes = nodes.filter((node) =>
+    node.className.includes(DEVICE_TYPE.BTS)
+  );
 
-  return [...wifiNodes, ...btsNodes].some((deviceNode) => {
-    const isWifi = deviceNode.className === DEVICE_TYPE.WIFI;
+  // Check if node is at most 100 away from some wifi nodes
+  for (let i = 0; i < wifiNodes.length; i++) {
+    const wifiNode = wifiNodes[i];
     const distance = Math.sqrt(
-      Math.pow(node.position.x - deviceNode.position.x, 2) +
-        Math.pow(node.position.y - deviceNode.position.y, 2)
+      Math.pow(node.position.x - wifiNode.position.x, 2) +
+        Math.pow(node.position.y - wifiNode.position.y, 2)
     );
-    if (distance <= (isWifi ? wifiRange : btsRange)) {
-      return edges.some((edge) => {
-        return (
-          (edge.source === deviceNode.id &&
-            gatewayNodes.some(
-              (gatewayNode) =>
-                gatewayNode.id === edge.target &&
-                gatewayNode.className === DEVICE_TYPE.GATEWAY
-            )) ||
-          (edge.target === deviceNode.id &&
-            gatewayNodes.some(
-              (gatewayNode) =>
-                gatewayNode.id === edge.source &&
-                gatewayNode.className === DEVICE_TYPE.GATEWAY
-            ))
-        );
-      });
+    if (distance <= 100) {
+      return true;
     }
-    return false;
-  });
+  }
+
+  // Check if node is at most 200 away from some bts nodes
+  for (let i = 0; i < btsNodes.length; i++) {
+    const btsNode = btsNodes[i];
+    const distance = Math.sqrt(
+      Math.pow(node.position.x - btsNode.position.x, 2) +
+        Math.pow(node.position.y - btsNode.position.y, 2)
+    );
+    if (distance <= 100) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 /**

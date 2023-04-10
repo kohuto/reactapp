@@ -10,8 +10,8 @@ import RuleIcon from "@mui/icons-material/Rule";
 
 // Object that defines the different types of devices that can be added
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged",
-  CLIENT_UNPLUGGED: "client",
+  CLIENT_PLUGGED: "client-plugged-build",
+  CLIENT_UNPLUGGED: "client-unplugged-build",
   WIFI: "wifi-build",
   BTS: "bts-build",
   GATEWAY: "gateway-build",
