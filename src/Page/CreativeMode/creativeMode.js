@@ -7,7 +7,7 @@ import DefaultPackets from "../Packet";
 import AddDeviceButtons from "./addDeviceButtons";
 import ServiceButtons from "./serviceButtons";
 import SendPacketBox from "./sendPacketBox";
-import CreativeModeFlow from "./creativeModeFlow";
+import CreativeModeFlow from "./Flow/creativeModeFlow";
 
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
