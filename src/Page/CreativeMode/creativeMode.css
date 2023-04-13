@@ -71,7 +71,7 @@
 
   .customNodeBody .ip-address {
     position: relative;
-    font-size: 10px;
+    font-size: 15px;
     user-select: text;
     z-index: 10;
   }
@@ -102,22 +102,22 @@
   }
 
   .gateway-creative .customNodeBody .ip-address {
-    top: 5px;
+    top: 10px;
   }
   .server-creative .customNodeBody .ip-address {
-    top: 27px;
+    top: 33px;
   }
   .client-unplugged-creative .customNodeBody .ip-address {
-    top: 23px;
+    top: 29px;
   }
   .client-plugged-creative .customNodeBody .ip-address {
-    top: 27px;
+    top: 33px;
   }
   .wifi-creative .customNodeBody .ip-address {
-    top: 20px;
+    top: 26px;
   }
   .bts-creative .customNodeBody .ip-address {
-    top: 52px;
+    top: 58px;
   }
   
   /* node drag move */
