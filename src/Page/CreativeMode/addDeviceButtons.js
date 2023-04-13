@@ -8,13 +8,14 @@ import wifiImage from "../../images/nodes/wifi.jpg";
 import gatewayImage from "../../images/nodes/gateway.jpg";
 
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged",
+  CLIENT_PLUGGED: "client-plugged-creative",
   CLIENT_UNPLUGGED: "client-unplugged-creative",
   WIFI: "wifi-creative",
   BTS: "bts-creative",
   GATEWAY: "gateway-creative",
   SERVER: "server-creative",
 };
+
 /**
  * Counts the number of nodes of a specific type in the given array of nodes.
  *
@@ -23,13 +24,7 @@ const DEVICE_TYPE = {
  * @returns {number} The number of nodes of the specified type.
  */
 function countNodesByType(nodes, type) {
-  let count = 0;
-  for (const node of nodes) {
-    if (node.className === type) {
-      count++;
-    }
-  }
-  return count;
+  return nodes.filter((node) => node.className.includes(type)).length;
 }
 
 /**
@@ -41,11 +36,14 @@ function countNodesByType(nodes, type) {
  * @returns {JSX.Element} The rendered component.
  */
 function AddDeviceButtons({ handleAddNode, nodes }) {
-  const serversLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
+  const serversLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
   const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);
-  const clientsLeft = 9 - countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED);
-  const wifiLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.WIFI);
-  const btsLeft = 8 - countNodesByType(nodes, DEVICE_TYPE.BTS);
+  const clientsLeft =
+    15 -
+    countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) -
+    countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED);
+  const wifiLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.WIFI);
+  const btsLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.BTS);
 
   return (
     <div className="lp-add-nodes-buttons-container">

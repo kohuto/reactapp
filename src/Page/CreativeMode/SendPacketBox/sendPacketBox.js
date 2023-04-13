@@ -2,7 +2,6 @@ import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
-import TextField from "@mui/material/TextField";
 import SelectVariants from "./selectVariants";
 
 const CLIENT_CLASSNAME = "client-unplugged-creative";
@@ -25,7 +24,7 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
   const invalidSenderRecipientMessage =
     "Odesílatel musí být klient a příjemce musí být server.";
   const unplugedClientMessage =
-    "Klient musí být připojený k wifi nebo bts věži.";
+    "Klient musí být v dosahu wifi nebo bts věže. V tu chvíli má nad hlavou ikonu WiFi";
   const noPathMessage =
     "Nelze doručit. Mezi odesílatelem a příjemcem není cesta.";
 

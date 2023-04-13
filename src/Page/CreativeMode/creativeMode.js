@@ -79,7 +79,9 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
    */
   const handleAddNode = useCallback(
     (device) => {
-      const deviceNodes = nodes.filter((node) => node.className === device);
+      const deviceNodes = nodes.filter((node) =>
+        node.className.includes(device)
+      );
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 15) {

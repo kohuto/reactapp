@@ -24,7 +24,7 @@ function ServiceButtons({ setIsCreativeMode, setOpenModal }) {
    */
   const [isTasksClicked, setIsTasksClicked] = useState(false);
   const hintMessage =
-    "Vpravo nahoře klikni na zařízení a tím ho přidej do sítě. S přidanými prvky můžeš pohybovat. \n Přidej novou cestu kliknutím na zařízení a přetažením na jiné zařízení. \n Vlevo dole pošli paket. Vyber IP adresu odesílatele a příjemce a odešli. \n Vpravo dole najdeš tlačítko pro vstup do výukového módu.";
+    "Vpravo nahoře klikni na zařízení a tím ho přidej do sítě. S přidanými prvky můžeš pohybovat. \n Přidej novou cestu kliknutím na zařízení a přetažením na jiné zařízení. \n Vlevo dole pošli paket. Vyber IP adresu odesílatele a příjemce a odešli. Odesílatel je klient, který je v dosahu WiFi nebo BTS věže - má nad hlavou ikonu WiFi. \n Vpravo dole najdeš tlačítko pro vstup do výukového módu.";
 
   /**
    * Handles the click event of the help button. Sets the value of isHintClicked to true and displays a help dialog.
