@@ -24,7 +24,7 @@ function ServiceButtons({ setIsCreativeMode, setOpenModal }) {
    */
   const [isTasksClicked, setIsTasksClicked] = useState(false);
   const hintMessage =
-    "Toto je interaktivní mód, ve kterém je skoro vše dovoleno. Vpravo nahoře můžeš přidat různé prvky do sítě. Přidání provedeš tak, že na daný prvek klikneš, on se poté objeví v mapě. S přidanými prvky můžeš hýbat a umisťovat je na libovolnou pozici. Také můžeš přidávat nové cesty tak, že klikneš na jeden z černých puntíků u prvku a poté kllikneš na černý puntík u jiného prvku, se kterým ho chceš propojit. Vlevo dole můžeš poslat paket. Paket pošleš tak, že napíšeš IP adresu odesílatele (klient, který je připojený k internetu) a IP adresu příjemce (server). Vpravo dole je tlačítko, které tě přemístí do hlavní části aplikace, ve které je připraveno velké množství úkolů.";
+    "Vpravo nahoře klikni na zařízení a tím ho přidej do sítě. S přidanými prvky můžeš pohybovat. \n Přidej novou cestu kliknutím na zařízení a přetažením na jiné zařízení. \n Vlevo dole pošli paket. Vyber IP adresu odesílatele a příjemce a odešli. \n Vpravo dole najdeš tlačítko pro vstup do výukového módu.";
 
   /**
    * Handles the click event of the help button. Sets the value of isHintClicked to true and displays a help dialog.
