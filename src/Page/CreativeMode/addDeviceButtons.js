@@ -39,7 +39,7 @@ function AddDeviceButtons({ handleAddNode, nodes }) {
   const serversLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
   const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);
   const clientsLeft =
-    15 -
+    16 -
     countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) -
     countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED);
   const wifiLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.WIFI);
