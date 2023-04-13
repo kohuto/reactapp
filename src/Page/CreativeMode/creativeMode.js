@@ -18,7 +18,7 @@ const DEVICE_TYPE = {
   SERVER: "server-creative",
 };
 
-const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
+const TOO_MANY_DEVICES_ERROR = "Více už jich nepřidávej.";
 /**
  * Represents the Creative Mode component.
  * @param {Object} props - The component props.
