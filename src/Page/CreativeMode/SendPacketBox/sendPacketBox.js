@@ -3,6 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
 import TextField from "@mui/material/TextField";
+import SelectVariants from "./selectVariants";
 
 const CLIENT_CLASSNAME = "client-unplugged-creative";
 const CLIENT_PLUGGED_CLASSNAME = "client-plugged-creative";
@@ -251,25 +252,31 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    * Renders a component for sending a packet in the network simulation.
    * @returns {JSX.Element} - A React component.
    */
+
+  function GetNodesTypeIpList(nodes, type) {
+    const nodesType = nodes.filter(
+      (node) => node.className && node.className.includes(type)
+    );
+    const nodesTypeIds = nodesType.map((node) => node.id);
+    return nodesTypeIds;
+  }
   return (
     <div className="lp-send-packet-container">
       <div className="lp-send-packet-first-column">
         <div>
-          <TextField
-            id="sender-ip-address"
-            label="IP Adresa odesílatele"
-            variant="standard"
+          <SelectVariants
+            ipList={GetNodesTypeIpList(nodes, CLIENT_PLUGGED_CLASSNAME)}
+            handleChange={setSenderIpAddress}
             value={senderIpAddress}
-            onChange={(e) => setSenderIpAddress(e.target.value)}
+            label="IP Adresa odesílatele"
           />
         </div>
         <div>
-          <TextField
-            id="recipient-ip-address"
-            label="IP Adresa příjemce"
-            variant="standard"
+          <SelectVariants
+            ipList={GetNodesTypeIpList(nodes, SERVER_CLASSNAME)}
+            handleChange={setRecipientIpAddress}
             value={recipientIpAddress}
-            onChange={(e) => setRecipientIpAddress(e.target.value)}
+            label="IP Adresa příjemce"
           />
         </div>
       </div>

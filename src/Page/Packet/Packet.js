@@ -11,7 +11,7 @@ import { whatIsCabelServer } from "../../Data/Flow/server/whatIsCabelServer";
 import { whatIsSatelitNodes } from "../../Data/Flow/whatIsSatelit";
 import { whatIsBTSNodes } from "../../Data/Flow/whatIsBTS";
 import { whatIsWifiNodes } from "../../Data/Flow/whatIsWifi";
-import { landingPageNodes } from "../../Data/Flow/landingPage";
+import { landingPageNodes } from "../../Data/Flow/creativeMode";
 
 function getCoordinates(id, nodes) {
   const nodeInNodes = nodes.find((s) => s.id === id);

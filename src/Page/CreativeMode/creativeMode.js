@@ -1,12 +1,12 @@
 import { useCallback, useState, useEffect } from "react";
 import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
 import "./creativeMode.css";
-import { landingPageNodes } from "../../Data/Flow/landingPage";
+import { landingPageNodes } from "../../Data/Flow/creativeMode";
 import { landingPageEdges } from "../../Data/Flow/edges/landingPage";
 import DefaultPackets from "../Packet";
 import AddDeviceButtons from "./addDeviceButtons";
 import ServiceButtons from "./serviceButtons";
-import SendPacketBox from "./sendPacketBox";
+import SendPacketBox from "./SendPacketBox/sendPacketBox";
 import CreativeModeFlow from "./Flow/creativeModeFlow";
 
 const DEVICE_TYPE = {
