@@ -75,17 +75,16 @@ export const landingPageNodes = [
   {
     id: "155.150.188.207",
     type: "custom",
-    className: "client-plugged-creative nodrag",
+    className: "client-plugged-creative",
     position: { x: 355, y: 470 },
     data: { label: "155.150.188.207" },
   },
   {
     id: "93.175.52.45",
     type: "custom",
-    className: "client-unplugged-creative nodrag",
+    className: "client-unplugged-creative",
     position: { x: 55, y: 190 },
     data: { label: "93.175.52.45" },
-    dragHandle: "noDrag",
   },
   {
     id: "234.162.245.59",

@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import "./style.css";
 
 const WELCOME_MESSAGE =
-  "Vítej! Právě jsi objevil aplikaci, díky které máš možnost zjistit, jak funguje internet. Aplikace obsahuje dva módy - VÝUKOVÝ a KREATIVNÍ. Pokud nevíš nic o fungování internetu, začni VÝUKOVÝM módem. Pokud chceš pouze zkusit vytvořit internetovou síť, tak bez váhání přejdi do KREATIVNÍHO módu. Později se můžeš mezi módy přepínat.";
+  "Vítej! Pokud se chceš dozvědět, jak funguje internet, klikni na VÝUKOVÝ MÓD. Pokud chceš tvořit, klikni na KREATIVNÍ MÓD.";
 const CREATIVE_WELCOME_MESSAGE =
   "Vítej v kreativním módu. \n Pokud nebudeš vědět, co máš dělat, klikni vpravo dole na nápovědu. Pokud budeš chtít přejít do výukového módu, klikni na ikonku vedle nápovědy.";
 const EDUCATIONAL_WELCOME_MESSAGE =

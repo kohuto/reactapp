@@ -32,19 +32,15 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
 
   /**
-   *A hook to update the client nodes every 10ms.
+   * A hook to update the client nodes every 10ms.
    */
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const clientInfoNodes = nodes.filter(
-        (node) =>
-          node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED) &&
-          !node.className.includes("nodrag")
+      const clientInfoNodes = nodes.filter((node) =>
+        node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED)
       );
-      const clientBuildNodes = nodes.filter(
-        (node) =>
-          node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED) &&
-          !node.className.includes("nodrag")
+      const clientBuildNodes = nodes.filter((node) =>
+        node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED)
       );
 
       const tempClientNodes = clientInfoNodes.concat(clientBuildNodes);
