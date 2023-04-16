@@ -58,7 +58,7 @@ function ServiceButtons({ setIsCreativeMode, setOpenModal }) {
           </Badge>
         </IconButton>
       </Tooltip>
-      <Tooltip title="PŘEJDI NA ÚKOLY" placement="top">
+      <Tooltip title="VZDĚLÁVACÍ MÓD" placement="top">
         <IconButton onClick={() => handleGoToEduModeClick()}>
           <Badge badgeContent="!" color="primary" invisible={isTasksClicked}>
             <RuleIcon />
