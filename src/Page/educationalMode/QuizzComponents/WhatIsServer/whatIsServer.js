@@ -25,7 +25,7 @@ const CORRECT_YOUTUBE_MESSAGE =
  * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
  * @returns {JSX.Element} - returns a JSX element representing the component
  */
-function WhatIsServerComponent({ setOpenDialog, intro, setGame, game }) {
+function WhatIsServerComponent({ setOpenDialog, info, setGame }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
   const videoRef = useRef(null);
@@ -127,9 +127,13 @@ function WhatIsServerComponent({ setOpenDialog, intro, setGame, game }) {
   return (
     <>
       {filledServer == 3 && (
-        <NextLevelModal content={FINAL_MESSAGE} game={game} setGame={setGame} />
+        <NextLevelModal
+          content={FINAL_MESSAGE}
+          game={info.type}
+          setGame={setGame}
+        />
       )}
-      <BasicModal content={intro} />
+      <BasicModal content={info.content} />
       <UploadServer
         refProp={servernoRef}
         imageUrl={server}

@@ -7,8 +7,8 @@ export const stockData = [
   },
   {
     content:
-      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Představ si to jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.\n Přejdi na aktivitu KOMUNIKACE KLIENT-SERVER.",
-    type: "client",
+      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Představ si to jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.",
+    type: "whatIsClient",
     hint: "",
   },
   {

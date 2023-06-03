@@ -28,26 +28,18 @@ export default function NextLevelModal({ content, setGame, game }) {
     return null;
   };
 
-  function IconLabelButtons() {
-    return (
-      <Stack direction="row" spacing={2}>
-        <Button
-          variant="outlined"
-          endIcon={<NavigateNextIcon />}
-          onClick={() => setGame(getNextLevelType())}
-        >
-          Další úkol
-        </Button>
-      </Stack>
-    );
-  }
-
   function ContentNextLevel() {
     return (
       <>
         <div>{messageLines}</div>
-        <div>
-          <IconLabelButtons />
+        <div className="next-level-button">
+          <Button
+            variant="outlined"
+            endIcon={<NavigateNextIcon />}
+            onClick={() => setGame(getNextLevelType())}
+          >
+            Další úkol
+          </Button>
         </div>
       </>
     );

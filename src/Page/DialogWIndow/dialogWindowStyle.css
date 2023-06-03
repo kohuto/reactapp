@@ -89,4 +89,12 @@
   .MuiBox-root{
     max-width: 80vw;
   }
+
+  /* Next level modal window */
+
+  .next-level-button {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: flex-end;
+  }
   

@@ -188,19 +188,15 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[2].content, stockData[2].type)
-              }
+              onClick={() => setGame(stockData[2].type)}
             >
               <DropdownItem leftIcon={lightbulb}>
-                KOMUNIKACE <br /> KLIENT-SERVER
+                KOMUNIKACE KLIENT-SERVER
               </DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[3].content, stockData[3].type)
-              }
+              onClick={() => setGame(stockData[3].type)}
             >
               <DropdownItem leftIcon={lightbulb}>
                 PUTOVÁNÍ INFORMACÍ
@@ -208,17 +204,13 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[4].content, stockData[4].type)
-              }
+              onClick={() => setGame(stockData[4].type)}
             >
               <DropdownItem leftIcon={lightbulb}>CESTA</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[5].content, stockData[5].type)
-              }
+              onClick={() => setGame(stockData[5].type)}
             >
               <DropdownItem leftIcon={lightbulb}>
                 CHYTRÁ KŘIŽOVATKA
@@ -254,33 +246,25 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[6].content, stockData[6].type)
-              }
+              onClick={() => setGame(stockData[6].type)}
             >
               <DropdownItem leftIcon={question}>POSÍLÁNÍ DAT</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[7].content, stockData[7].type)
-              }
+              onClick={() => setGame(stockData[7].type)}
             >
               <DropdownItem leftIcon={lightbulb}>PAKET</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[8].content, stockData[8].type)
-              }
+              onClick={() => setGame(stockData[8].type)}
             >
               <DropdownItem leftIcon={question}>VYTVOŘ PAKET</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[9].content, stockData[9].type)
-              }
+              onClick={() => setGame(stockData[9].type)}
             >
               <DropdownItem leftIcon={question}>NAJDI PAKET</DropdownItem>
             </div>
@@ -335,41 +319,31 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[11].content, stockData[11].type)
-              }
+              onClick={() => setGame(stockData[11].type)}
             >
               <DropdownItem leftIcon={lightbulb}>KABELY</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[12].content, stockData[12].type)
-              }
+              onClick={() => setGame(stockData[12].type)}
             >
               <DropdownItem leftIcon={lightbulb}>WIFI</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[13].content, stockData[13].type)
-              }
+              onClick={() => setGame(stockData[13].type)}
             >
               <DropdownItem leftIcon={lightbulb}>MOBILNÍ DATA</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[14].content, stockData[14].type)
-              }
+              onClick={() => setGame(stockData[14].type)}
             >
               <DropdownItem leftIcon={lightbulb}>SATELIT</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[15].content, stockData[15].type)
-              }
+              onClick={() => setGame(stockData[15].type)}
             >
               <DropdownItem leftIcon={question}>DOBA ODEZVY</DropdownItem>
             </div>
@@ -394,9 +368,7 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[17].content, stockData[17].type)
-              }
+              onClick={() => setGame(stockData[17].type)}
             >
               <DropdownItem leftIcon={question}>
                 OMEZENÁ VZDÁLENOST
@@ -490,9 +462,7 @@ function DropdownMenu({
 
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[22].content, stockData[22].type)
-              }
+              onClick={() => setGame(stockData[22].type)}
             >
               <DropdownItem leftIcon={question}>
                 NEJRYCHLEJŠÍ CESTA
@@ -500,17 +470,13 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[23].content, stockData[23].type)
-              }
+              onClick={() => setGame(stockData[23].type)}
             >
               <DropdownItem leftIcon={question}>POČET CEST</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[24].content, stockData[24].type)
-              }
+              onClick={() => setGame(stockData[24].type)}
             >
               <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
             </div>
@@ -563,34 +529,26 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[26].content, stockData[26].type)
-              }
+              onClick={() => setGame(stockData[26].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 1</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[27].content, stockData[27].type)
-              }
+              onClick={() => setGame(stockData[27].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 2</DropdownItem>
             </div>
 
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[28].content, stockData[28].type)
-              }
+              onClick={() => setGame(stockData[28].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 3</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[29].content, stockData[29].type)
-              }
+              onClick={() => setGame(stockData[29].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 4</DropdownItem>
             </div>

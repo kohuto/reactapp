@@ -14,34 +14,23 @@ import ClientServerCommunication from "./ClientServerComunication/clientServerCo
 import WhatIsPathComponent from "./DataPath/dataPath";
 import BuildNetwork from "./BuildNetwork/buildNetwork";
 import LatencyComponent from "./Latency/latency";
-import Client from "./Client/client";
+import Client from "./WhatIsClient/whatIsClient";
 import { stockData } from "../../../Data/Quizzes/dataQuizzes";
 
-function QuizzComponents({
-  setOpenDialog,
-  setIsDistroyedProblemWithPath,
-  isDestroyed,
-  game,
-  setGame,
-}) {
-  function getGameIntro(game) {
-    return stockData.find((item) => item.type === game).content;
-  }
+function QuizzComponents({ setOpenDialog, game, setGame }) {
+  const gameInfo = stockData.find((item) => item.type === game);
 
   switch (game) {
     case "whatIsServer":
       return (
         <WhatIsServerComponent
           setOpenDialog={setOpenDialog}
-          intro={getGameIntro(game)}
+          info={gameInfo}
           setGame={setGame}
-          game={game}
         />
       );
-    case "client":
-      return (
-        <Client intro={getGameIntro(game)} setGame={setGame} game={game} />
-      );
+    case "whatIsClient":
+      return <Client info={gameInfo} setGame={setGame} />;
     case "client-server-communication":
       return <ClientServerCommunication setOpenDialog={setOpenDialog} />;
     case "whatIsPath":
