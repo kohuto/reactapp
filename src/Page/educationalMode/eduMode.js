@@ -2,6 +2,7 @@ import Sidebar from "./Sidebar/sidebar";
 import QuizzComponents from "./QuizzComponents/Quizzes";
 import Flow from "./Flow/reactFlow";
 import Dialog from "../DialogWindow/dialogWindow";
+import PlaygroundSpeedDial from "./QuizzHelp/quizzHelp";
 import { useState } from "react";
 import "./style.css";
 
@@ -80,7 +81,10 @@ function EducationalMode({
           />
         </div>
       )}
-      {game == "noGame" && (
+      {/* sidebars */}
+      {game != "noGame" ? (
+        <PlaygroundSpeedDial setGame={setGame} game={game} />
+      ) : (
         <Sidebar
           setIsCreativeMode={setIsCreativeMode}
           setOpenDialog={setOpenDialog}

@@ -11,7 +11,7 @@ import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import "./style.css";
 
 const FINAL_MESSAGE =
-  "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech. O serverech si ještě budeme povídat.";
+  "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech.";
 const CORRECT_WEB_MESSAGE =
   "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů.";
 const CORRECT_INSTAGRAM_MESSAGE =
@@ -151,19 +151,12 @@ function WhatIsServerComponent({ setOpenDialog }) {
         refProp={serverwebRef}
         imageUrl={serverweb}
       />
-
-      <CloseOpen
-        content={
-          <>
-            <p className="fill-server-task">{TASK_MESSAGE}</p>
-            <div className="what-is-server-container">
-              <DraggableComponent refProp={webRef} imageUrl={web} />
-              <DraggableComponent refProp={imgRef} imageUrl={picture} />
-              <DraggableComponent refProp={videoRef} imageUrl={video} />
-            </div>
-          </>
-        }
-      />
+      <div className="what-is-server-container">
+        <p>Soubory:</p>
+        <DraggableComponent refProp={webRef} imageUrl={web} />
+        <DraggableComponent refProp={imgRef} imageUrl={picture} />
+        <DraggableComponent refProp={videoRef} imageUrl={video} />
+      </div>
     </>
   );
 }

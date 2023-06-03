@@ -3,6 +3,7 @@ export const stockData = [
     content:
       "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.\n Po zavření okna najdeš v pravém dolním rohu první úkol.",
     type: "whatIsServer",
+    hint: "Uploadni soubory do správného serveru. Upload provedeš přetažením souboru do serveru.",
   },
   {
     content:
