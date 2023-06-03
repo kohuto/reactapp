@@ -20,7 +20,6 @@ const WIFI_CLASSNAME = "wifi-creative";
 function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
   const [recipientIpAddress, setRecipientIpAddress] = useState("");
   const [senderIpAddress, setSenderIpAddress] = useState("");
-  const invalidIPMessage = "Zadejte platnou IP adresu odesílatele a příjemce.";
   const invalidSenderRecipientMessage =
     "Odesílatel musí být klient a příjemce musí být server.";
   const unplugedClientMessage =
@@ -32,91 +31,33 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    * Handles sending a packet between nodes in the network.
    */
   function handleSend() {
-    if (
-      isValidIpAddress(senderIpAddress) &&
-      isValidIpAddress(recipientIpAddress)
-    ) {
-      if (
-        isSenderValid(nodes, senderIpAddress) &&
-        isRecipientValid(nodes, recipientIpAddress)
-      ) {
-        if (isClientPlugged(nodes, senderIpAddress)) {
-          if (
-            hasPath(
-              edges,
-              getWirelessDeviceIpAddress(nodes, senderIpAddress),
-              recipientIpAddress
-            )
-          ) {
-            setPath(
-              findPath(
-                edges,
-                getWirelessDeviceIpAddress(nodes, senderIpAddress),
-                recipientIpAddress
-              )
-            );
-            return;
-          } else {
-            setOpenModal(true, noPathMessage);
-          }
-        } else {
-          setOpenModal(true, unplugedClientMessage);
-        }
-      } else {
-        setOpenModal(true, invalidSenderRecipientMessage);
-      }
-    } else {
-      setOpenModal(true, invalidIPMessage);
+    if (!isInputsFilled(senderIpAddress, recipientIpAddress)) {
+      setOpenModal(true, invalidSenderRecipientMessage);
+      return;
     }
-    setSenderIpAddress("");
-    setRecipientIpAddress("");
+
+    if (!isClientPlugged(nodes, senderIpAddress)) {
+      setOpenModal(true, unplugedClientMessage);
+      return;
+    }
+
+    const path = findPath(
+      edges,
+      getWirelessDeviceIpAddress(nodes, senderIpAddress),
+      recipientIpAddress
+    );
+    if (path === null) setOpenModal(true, noPathMessage);
+    else setPath(path);
   }
 
   /**
-   * Validates an IP address.
-   * @param {string} ipAddress - The IP address to validate.
-   * @returns {boolean} True if the IP address is valid, false otherwise.
-   * @public
-   */
-  function isValidIpAddress(ipAddress) {
-    const ipAddressRegex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
-    if (!ipAddressRegex.test(ipAddress)) {
-      return false;
-    }
-    const octets = ipAddress.split(".");
-    for (let i = 0; i < octets.length; i++) {
-      const octet = parseInt(octets[i]);
-      if (isNaN(octet) || octet < 0 || octet > 255) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  /**
-   * Checks if the sender IP address is valid and corresponds to a client node.
+   * Checks if the sender and recipient IP addresses are filled.
    * @param {Array} nodes - Array of node objects.
    * @param {string} senderIpAddress - The IP address of the sender.
    * @returns {boolean} - True if the sender IP address is valid, false otherwise.
    */
-  function isSenderValid(nodes, senderIpAddress) {
-    const senderNode = nodes.find((node) => node.id === senderIpAddress);
-    return (
-      senderNode &&
-      (senderNode.className.includes(CLIENT_CLASSNAME) ||
-        senderNode.className.includes(CLIENT_PLUGGED_CLASSNAME))
-    );
-  }
-
-  /**
-   * Checks if the recipient IP address is valid and corresponds to a server node.
-   * @param {Array} nodes - Array of node objects.
-   * @param {string} recipientIpAddress - The IP address of the recipient.
-   * @returns {boolean} - True if the recipient IP address is valid, false otherwise.
-   */
-  function isRecipientValid(nodes, recipientIpAddress) {
-    const recipientNode = nodes.find((node) => node.id === recipientIpAddress);
-    return recipientNode && recipientNode.className.includes(SERVER_CLASSNAME);
+  function isInputsFilled(senderIpAddress, recipientIpAddress) {
+    return senderIpAddress.length > 0 && recipientIpAddress.length > 0;
   }
 
   /**
@@ -202,49 +143,6 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
     }
 
     return null; // id2 is not reachable from id1
-  }
-
-  /**
-   * Checks if there is a path between two nodes in the network using breadth-first search.
-   * @param {Array} edges - Array of edge objects.
-   * @param {string} startNodeId - The ID of the starting node.
-   * @param {string} endNodeId - The ID of the target node.
-   * @returns {boolean} - True if there is a path between the nodes, false otherwise.
-   */
-  function hasPath(edges, startNodeId, endNodeId) {
-    // create a set of visited node IDs and a queue of nodes to visit
-    const visited = new Set();
-    const queue = [startNodeId];
-
-    // loop through the queue until it is empty
-    while (queue.length > 0) {
-      // get the next node to visit from the queue
-      const nodeId = queue.shift();
-
-      // mark the node as visited
-      visited.add(nodeId);
-
-      // check if the node is the end node
-      if (nodeId === endNodeId) {
-        return true;
-      }
-
-      // get the edges that connect to the current node
-      const edgesFromNode = edges.filter(
-        (edge) => edge.source === nodeId || edge.target === nodeId
-      );
-
-      // loop through the edges and add the neighboring nodes to the queue
-      for (const edge of edgesFromNode) {
-        const neighborId = edge.source === nodeId ? edge.target : edge.source;
-        if (!visited.has(neighborId)) {
-          queue.push(neighborId);
-        }
-      }
-    }
-
-    // if the end node was not found, there is no path
-    return false;
   }
 
   /**
