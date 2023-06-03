@@ -95,6 +95,6 @@
   .next-level-button {
     margin-top: 5vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
   }
   

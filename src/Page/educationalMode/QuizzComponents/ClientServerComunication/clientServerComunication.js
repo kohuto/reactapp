@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import client from "../../../../images/nodes/klient.jpg";
-import server from "../../../../images/nodes/server-messenger.jpg";
+import client from "../../../../images/nodes/notebook.svg";
+import server from "../../../../images/nodes/serverwebhost.svg";
 import web from "../../../../images/serverscontent/website-design.png";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
@@ -18,7 +18,7 @@ function ClientServerCommunication({ setOpenDialog, info, setGame }) {
   const [showHappyClient, setShowHappyClient] = useState(false);
   const finalMessage =
     "Zpamatuj si, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.";
-
+  const [restartAnimation, setRestartAnimation] = useState(false);
   // set up timing for showing different messages
   useEffect(() => {
     const timeoutId1 = setTimeout(() => {
@@ -44,7 +44,9 @@ function ClientServerCommunication({ setOpenDialog, info, setGame }) {
       setShowHappyClient(true);
     }, 19000);
     const timeoutId8 = setTimeout(() => {
-      setOpenDialog(true, finalMessage, "noGame");
+      /* reset all and start again */
+      setShowHappyClient(false);
+      setRestartAnimation(!restartAnimation);
     }, 22000);
 
     // clear timeouts when the component unmounts
@@ -56,7 +58,7 @@ function ClientServerCommunication({ setOpenDialog, info, setGame }) {
       clearTimeout(timeoutId7);
       clearTimeout(timeoutId8);
     };
-  }, []);
+  }, [restartAnimation]);
 
   return (
     <div>

@@ -4,6 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BasicModal from "../basicModal";
 import Typography from "@mui/material/Typography";
 import { stockData } from "../../../Data/Quizzes/dataQuizzes";
@@ -33,6 +34,13 @@ export default function NextLevelModal({ content, setGame, game }) {
       <>
         <div>{messageLines}</div>
         <div className="next-level-button">
+          <Button
+            variant="outlined"
+            startIcon={<ArrowBackIosNewIcon />}
+            onClick={() => setGame("noGame")}
+          >
+            Zpět do menu
+          </Button>
           <Button
             variant="outlined"
             endIcon={<NavigateNextIcon />}

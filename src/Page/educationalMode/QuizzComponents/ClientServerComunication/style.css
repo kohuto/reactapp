@@ -1,13 +1,16 @@
 .csc-client {
     position: absolute;
     top: 50vh; 
-    left: 35vw;
+    left: 34vw;
+    z-index: 3;
+    width: 150px;
 }
 
 .csc-server {
     position: absolute;
-    top: 50vh;
-    left: 75vw;
+    top: 45vh;
+    z-index: 3;
+    left: 73vw;
 }
 
 .csc-message {
