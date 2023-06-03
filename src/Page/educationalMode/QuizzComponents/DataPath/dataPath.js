@@ -7,7 +7,7 @@ import "./style.css";
  * Component that renders the special flow represents network for what is path game.
  * @returns {JSX.Element} - Returns a JSX element that renders the "What is Path" flowchart.
  */
-function WhatIsPathComponent() {
+function WhereDataTravel() {
   return (
     <div className="data-path-flow-container">
       <ReactFlow
@@ -28,4 +28,4 @@ function WhatIsPathComponent() {
   );
 }
 
-export default WhatIsPathComponent;
+export default WhereDataTravel;

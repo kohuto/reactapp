@@ -3,13 +3,14 @@ import client from "../../../../images/nodes/klient.jpg";
 import server from "../../../../images/nodes/server-messenger.jpg";
 import web from "../../../../images/serverscontent/website-design.png";
 import "./style.css";
+import BasicModal from "../../../DialogWindow/basicModal";
 
 /**
  * Component that demonstrates the process of client-server communication.
  * @param {Function} setOpenDialog - A function that opens a dialog box.
  * @returns {JSX.Element} - Returns a JSX element that renders the client-server communication demo.
  */
-function ClientServerCommunication({ setOpenDialog }) {
+function ClientServerCommunication({ setOpenDialog, info, setGame }) {
   const [showRequestMessage, setShowRequestMessage] = useState(false);
   const [showSendRequestComponent, setShowSendRequest] = useState(false);
   const [showAnswerMessage, setShowAnswerMessage] = useState(false);
@@ -59,6 +60,7 @@ function ClientServerCommunication({ setOpenDialog }) {
 
   return (
     <div>
+      <BasicModal content={info.content} />
       <div className="csc-client">
         <img src={client}></img>
       </div>
