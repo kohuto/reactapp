@@ -25,7 +25,12 @@ const CREATIVE_WELCOME_MESSAGE =
  * @param {function} setOpenOverlayDialog - Function to open the overlay dialog.
  * @return {JSX.Element} The rendered component.
  */
-function Sidebar({ setIsCreativeMode, setOpenDialog, setOpenOverlayDialog }) {
+function Sidebar({
+  setIsCreativeMode,
+  setOpenDialog,
+  setOpenOverlayDialog,
+  setGame,
+}) {
   return (
     <Navbar>
       <NavItem>
@@ -33,6 +38,7 @@ function Sidebar({ setIsCreativeMode, setOpenDialog, setOpenOverlayDialog }) {
           setIsCreativeMode={setIsCreativeMode}
           setOpenDialog={setOpenDialog}
           setOpenOverlayDialog={setOpenOverlayDialog}
+          setGame={setGame}
         />
       </NavItem>
     </Navbar>
@@ -75,6 +81,7 @@ function DropdownMenu({
   setIsCreativeMode,
   setOpenDialog,
   setOpenOverlayDialog,
+  setGame,
 }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const dropdownRef = useRef(null);
@@ -169,17 +176,13 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[0].content, stockData[0].type)
-              }
+              onClick={() => setGame(stockData[0].type)}
             >
               <DropdownItem leftIcon={lightbulb}>SERVER</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(true, stockData[1].content, stockData[1].type)
-              }
+              onClick={() => setGame(stockData[1].type)}
             >
               <DropdownItem leftIcon={lightbulb}>KLIENT</DropdownItem>
             </div>

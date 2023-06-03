@@ -1,24 +1,27 @@
 export const stockData = [
   {
     content:
-      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.\n Po zavření okna najdeš v pravém dolním rohu první úkol.",
+      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.",
     type: "whatIsServer",
     hint: "Uploadni soubory do správného serveru. Upload provedeš přetažením souboru do serveru.",
   },
   {
     content:
       "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Představ si to jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.\n Přejdi na aktivitu KOMUNIKACE KLIENT-SERVER.",
-    type: "info",
+    type: "client",
+    hint: "",
   },
   {
     content:
       "Už víš, že se informace ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
     type: "client-server-communication",
+    hint: "Animace znázorňuje komunikaci klienta a serveru.",
   },
   {
     content:
       "Kudy se dostanou požadavky, které jsi viděl v minulém úkolu, na server? \n Požadavek je doručen na server podobně jako dopis poštou tvému kamarádovi. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), které jede po silnicích až ke kamarádovi (do serveru). Po cestě navíc auto většinou projede mnoho křižovatek. CESTY a KŘIŽOVATKY najdeš i v internetové síti. Více se o nich dozvíš později. \n Po zavření okna uvidíš, jak by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je ale daleko více zařízení! Se sítí lze pohybovat, nebo ji přiblížit.",
     type: "whatIsPath",
+    hint: "S mapou můžeš pohybovat a můžeš ji přibližovat.",
   },
   {
     content:

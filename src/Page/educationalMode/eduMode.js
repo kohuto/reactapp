@@ -58,6 +58,7 @@ function EducationalMode({
         setIsDistroyedProblemWithPath={setIsDestroyedProblemWithPath}
         isDestroyed={isDestroyedProblemWithPath}
         setOpenDialog={handleOpenOverlayDialog}
+        setGame={setGame}
       />
 
       {/* Overlay dialog */}
@@ -89,6 +90,7 @@ function EducationalMode({
           setIsCreativeMode={setIsCreativeMode}
           setOpenDialog={setOpenDialog}
           setOpenOverlayDialog={handleOpenOverlayDialog}
+          setGame={setGame}
         />
       )}
     </>

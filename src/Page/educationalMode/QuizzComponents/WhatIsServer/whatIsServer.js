@@ -7,7 +7,8 @@ import server from "../../../../images/nodes/server-messenger.svg";
 import serverig from "../../../../images/nodes/serverig.svg";
 import serverweb from "../../../../images/nodes/serverwebhost.svg";
 import serveryoutube from "../../../../images/nodes/serveryoutube.svg";
-import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
+import BasicModal from "../../../DialogWindow/basicModal";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import "./style.css";
 
 const FINAL_MESSAGE =
@@ -18,14 +19,13 @@ const CORRECT_INSTAGRAM_MESSAGE =
   "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
 const CORRECT_YOUTUBE_MESSAGE =
   "Správně! Na YouTube serveru bude uloženo spoustu videí";
-const TASK_MESSAGE =
-  "Uploadni soubory do správného serveru. Upload provedeš přetažením souboru do serveru.";
+
 /**
  * Renders a component that allows the user to upload files to different servers by dragging and dropping.
  * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
  * @returns {JSX.Element} - returns a JSX element representing the component
  */
-function WhatIsServerComponent({ setOpenDialog }) {
+function WhatIsServerComponent({ setOpenDialog, intro, setGame, game }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
   const videoRef = useRef(null);
@@ -79,11 +79,6 @@ function WhatIsServerComponent({ setOpenDialog }) {
   /**
    * Checks whether all servers have been filled and opens the dialog box with the final message if they have
    */
-  useEffect(() => {
-    if (filledServer == 3) {
-      setOpenDialog(true, FINAL_MESSAGE, "noGame");
-    }
-  }, [filledServer]);
 
   /**
    * Checks whether two HTML elements are touching each other
@@ -131,6 +126,10 @@ function WhatIsServerComponent({ setOpenDialog }) {
   ]);
   return (
     <>
+      {filledServer == 3 && (
+        <NextLevelModal content={FINAL_MESSAGE} game={game} setGame={setGame} />
+      )}
+      <BasicModal content={intro} />
       <UploadServer
         refProp={servernoRef}
         imageUrl={server}

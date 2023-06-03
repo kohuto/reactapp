@@ -1,0 +1,6 @@
+.quizz-help-container {
+    position: absolute;
+    top: 0vh;
+    left: 1vw;
+    z-index: 99;
+}
