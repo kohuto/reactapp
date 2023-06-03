@@ -1,7 +1,6 @@
 .data-path-flow-container {
-    height: 95vh;
-    width: 80%;
-    margin-left: 20%;
+    height: 100vh;
+    width: 100%;
 }
 
 .what-is-path-bg-europe .react-flow__container svg{
@@ -24,20 +23,20 @@
     width: 45px;
     height: 50px;
     padding-top: 27px;
-    background-image: url("../../../../images/nodes/server-messenger.jpg");
+    background-image: url("../../../../images/nodes/server_komplet.svg");
 }
 
 .gateway-small {
     width: 40px;
     height: 10px;
     margin-top: -10px;
-    background-image: url("../../../../images/nodes/gateway.jpg");
+    background-image: url("../../../../images/nodes/chytrakrizovatka_kratka.svg");
 }
 
 .client-small {
     width: 40px;
     height: 25px;
-    background-image: url("../../../../images/nodes/klient.jpg");
+    background-image: url("../../../../images/nodes/PC.svg");
     padding-top: 21px;
 }
 

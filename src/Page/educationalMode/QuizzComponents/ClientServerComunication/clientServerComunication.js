@@ -10,7 +10,7 @@ import BasicModal from "../../../DialogWindow/basicModal";
  * @param {Function} setOpenDialog - A function that opens a dialog box.
  * @returns {JSX.Element} - Returns a JSX element that renders the client-server communication demo.
  */
-function ClientServerCommunication({ setOpenDialog, info, setGame }) {
+function ClientServerCommunication({ info }) {
   const [showRequestMessage, setShowRequestMessage] = useState(false);
   const [showSendRequestComponent, setShowSendRequest] = useState(false);
   const [showAnswerMessage, setShowAnswerMessage] = useState(false);

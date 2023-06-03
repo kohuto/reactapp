@@ -24,9 +24,10 @@ function Page() {
   const [mode, setMode] = useState("landingPage");
   // games that needs special flows
   const specialFlowGame = [
-    "client-server-communication",
+    /*"client-server-communication",
     "whatIsServer",
     "whatIsPath",
+    "",
     "raceAroundWorld",
     "whatIsWiFi",
     "buildNetwork",
@@ -34,7 +35,7 @@ function Page() {
     "build-network-1",
     "build-network-2",
     "build-network-3",
-    "build-network-4",
+    "build-network-4",*/
   ];
 
   /**

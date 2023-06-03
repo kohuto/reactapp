@@ -71,7 +71,7 @@ function EducationalMode({
       />
 
       {/* Main content */}
-      {!specialFlowGame.includes(game) && game != "noGame" && (
+      {specialFlowGame.includes(game) && game != "noGame" && (
         <div className="main-flow-container">
           <Flow
             game={game}
