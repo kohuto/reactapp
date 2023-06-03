@@ -128,14 +128,14 @@
   }
   
   .new-message-box {  /* one part of message */
-    padding: 10px;
-    border-radius: 5px;
     margin: 20px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
-    border: 1px solid #a5a4a4;
-    box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
+    width: 129px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../../images/paket.svg");
+    background-size: cover;
   } 
   
   .close.data-into-packet {

@@ -8,8 +8,9 @@ import gif from "../../../../images/icons/gif.png";
 import { packetsFromClientToServer } from "../../../../Data/Packets/dataIntoPakcetsClientServer";
 import { packetsFromServerToClient } from "../../../../Data/Packets/dataIntoPacketsServerClient";
 import "./style.css";
+import BasicModal from "../../../DialogWindow/basicModal";
 
-function DataIntoPackets({ setOpenDialog }) {
+function DataIntoPackets({ setOpenDialog, info, setGame }) {
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
@@ -104,10 +105,6 @@ function DataIntoPackets({ setOpenDialog }) {
     endPackets2();
   };
 
-  function handleClose() {
-    setOpenDialog(true, finalMessage, "noGame");
-  }
-
   if (showPacketsCreatedMessageBox) {
     return (
       <>
@@ -126,11 +123,7 @@ function DataIntoPackets({ setOpenDialog }) {
                   Math.ceil(messages[messages.length - 1].text.length / 8)
                 ),
               ].map((_, index) => (
-                <div
-                  key={index}
-                  className="new-message-box"
-                  style={{ marginRight: 10, display: "inline-block" }}
-                >
+                <div key={index} className="new-message-box">
                   {messages[messages.length - 1].text.substring(
                     index * 8,
                     (index + 1) * 8
@@ -146,9 +139,6 @@ function DataIntoPackets({ setOpenDialog }) {
     return (
       <div className={`chat-container ${showChat ? "" : "hidden"}`}>
         <div className="chat-header">
-          <span className="close data-into-packet" onClick={handleClose}>
-            &times;
-          </span>
           <img
             className="profile-image"
             src={isSwapedSenders ? profileImageWoman : profileImageMan}
@@ -183,6 +173,7 @@ function DataIntoPackets({ setOpenDialog }) {
             }}
           ></button>
         </div>
+        {!isSwapedSenders && <BasicModal content={info.content} />}
       </div>
     );
   } else if (showPackets1) {

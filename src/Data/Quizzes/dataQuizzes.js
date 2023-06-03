@@ -27,19 +27,19 @@ export const stockData = [
     content:
       "Aby se data dostala z jednoho zařízení do druhého, putují po CESTÁCH. CESTY mohou být bezdrátové (WiFi, satelity), většinou ale mají podobu kabelů (kovových nebo optických), které jsou nejčastěji zakopané pod zemí a pod mořem.",
     type: "whatIsPath",
-    hint: "",
+    hint: "Tady zatím není žádný úkol.",
   },
   {
     content:
       "KŘIŽOVATKY propojují cesty pro informace. Když do KŘIŽOVATKY přijede po cestě balíček informací, tak ho pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, směr určí chytrá KŘIŽOVATKA. Pokud nějaká cesta nefunguje, chytrá KŘIŽOVATKA najde objížďku. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíl ale pro nás není příliš důležitý.",
     type: "whatIsGateway",
-    hint: "",
+    hint: "Tady zatím není žádný úkol.",
   },
   {
     content:
-      "Internet je síť složená ze zařízení, která si posílají balíčky dat. Co jsou ale ty balíčky zač? \n Každá tvoje zpráva, video či fotka je před odesláním rozdělena na části - PAKETY. PAKETY jsou malé balíčky dat obsahující část původní zprávy. Jsou posílány po cestách mezi klienty a servery. Poté, co se zpráva rozloží, putují PAKETY do cíle nezávisle na sobě. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi. Objeví se okno messengeru, kam napiš nějakou zprávu a odešli ji.",
+      "Internet je síť složená ze zařízení, která si posílají balíčky dat. Co jsou ale ty balíčky zač? \n Každá tvoje zpráva, video či fotka je před odesláním rozdělena na části - PAKETY. PAKETY jsou malé balíčky dat obsahující část původní zprávy. Jsou posílány po cestách mezi klienty a servery. Poté, co se zpráva rozloží, putují PAKETY do cíle nezávisle na sobě.",
     type: "dataIntoPackets",
-    hint: "",
+    hint: "Jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi? Napiš zprávu a odešli ji.",
   },
   {
     content:
