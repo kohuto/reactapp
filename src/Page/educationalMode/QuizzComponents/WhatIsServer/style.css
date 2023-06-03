@@ -19,8 +19,8 @@
   }
   
   .upload-video, .upload-image, .upload-web, .no-upload {
-    width: 100px;
-    height: 70px;
+    width: 150px;
+    height: 110px;
     position: absolute;
     z-index: 3;
     background-size: cover;

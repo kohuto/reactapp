@@ -5,10 +5,12 @@
 }
 
 .what-is-path-bg-europe .react-flow__container svg{
-    background-image: url("../../../../images/europemap.jpg");
+    background-image: url("../../../../images/north-america.svg");
     background-repeat: no-repeat;
-    width: 2253px;
-    height: 2106px;
+    background-size: 100% auto;
+    background-position: -1150px -300px;
+    width: 3253px;
+    height: 4006px;
 }
 
 .server-small, .gateway-small, .client-small {

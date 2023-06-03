@@ -3,10 +3,10 @@ import Draggable from "react-draggable";
 import web from "../../../../images/serverscontent/website-design.png";
 import video from "../../../../images/serverscontent/multimedia.png";
 import picture from "../../../../images/serverscontent/picture.png";
-import server from "../../../../images/nodes/server-messenger.jpg";
-import serverig from "../../../../images/nodes/serverig.png";
-import serverweb from "../../../../images/nodes/serverwebhost.png";
-import serveryoutube from "../../../../images/nodes/serveryoutube.png";
+import server from "../../../../images/nodes/server-messenger.svg";
+import serverig from "../../../../images/nodes/serverig.svg";
+import serverweb from "../../../../images/nodes/serverwebhost.svg";
+import serveryoutube from "../../../../images/nodes/serveryoutube.svg";
 import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import "./style.css";
 

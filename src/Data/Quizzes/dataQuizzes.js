@@ -1,7 +1,7 @@
 export const stockData = [
   {
     content:
-      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.\n Po zavření okna najdeš v pravém dolním rohu první úkol.",
+      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.\n Po zavření okna najdeš v pravém dolním rohu první úkol.",
     type: "whatIsServer",
   },
   {
@@ -11,7 +11,7 @@ export const stockData = [
   },
   {
     content:
-      "Už víš, že se informace ukládají na serverech (př. webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat. Balíček obsahuje informaci, co má server udělat. V našem případě chceme, aby server poslal webovou stránku. Server pošle webovou stránku zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
+      "Už víš, že se informace ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na tvém počítači. \n Zavři okno a podívej se, jak komunikace vypadá.",
     type: "client-server-communication",
   },
   {
