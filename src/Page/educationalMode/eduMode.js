@@ -3,6 +3,7 @@ import QuizzComponents from "./QuizzComponents/Quizzes";
 import Flow from "./Flow/reactFlow";
 import Dialog from "../DialogWindow/dialogWindow";
 import { useState } from "react";
+import "./style.css";
 
 /**
  * This component represents the educational mode of the application.
@@ -68,7 +69,7 @@ function EducationalMode({
       />
 
       {/* Main content */}
-      {!specialFlowGame.includes(game) && (
+      {!specialFlowGame.includes(game) && game != "noGame" && (
         <div className="main-flow-container">
           <Flow
             game={game}
@@ -79,12 +80,13 @@ function EducationalMode({
           />
         </div>
       )}
-
-      <Sidebar
-        setIsCreativeMode={setIsCreativeMode}
-        setOpenDialog={setOpenDialog}
-        setOpenOverlayDialog={handleOpenOverlayDialog}
-      />
+      {game == "noGame" && (
+        <Sidebar
+          setIsCreativeMode={setIsCreativeMode}
+          setOpenDialog={setOpenDialog}
+          setOpenOverlayDialog={handleOpenOverlayDialog}
+        />
+      )}
     </>
   );
 }

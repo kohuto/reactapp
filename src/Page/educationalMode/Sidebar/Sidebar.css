@@ -12,31 +12,21 @@ code {
   --bg:  #242526;
   --bg-accent: #484a4d;
   --text-color: #dadce1;
-  --nav-size: 60px;
+  --nav-size: 0;
+  --icon-circle-size: 60px;
   --border: 1px solid #474a4d;
   --speed: 500ms; 
-}
-
-.custom-dropdown {
-  position: relative;
-}
-
-.custom-menu-bottom {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  --menu-width: 100%;
 }
 
 a.custom-menu-item {
   color: var(--text-color);
+  font-size: 1.3rem;
   text-decoration: none;
 }
 
-/* Top Navigation Bar */
-
 .custom-navbar {
-  padding: 0 1rem;
-  max-width: 20%;
+  width: var(--menu-width);
 }
 
 .custom-navbar-nav {
@@ -45,15 +35,13 @@ a.custom-menu-item {
 }
 
 .custom-nav-item {
-  width: calc(var(--nav-size) * 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 /* Icon Button */
 .custom-icon-button {
-  --button-size: calc(var(--nav-size) * 0.5);
+  --button-size: calc(var(--icon-circle-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
   background-color: #f7f7f7;
@@ -63,49 +51,45 @@ a.custom-menu-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 300ms;
-}
-
-.custom-icon-button:hover {
-  filter: brightness(1.2);
-}
-
-.custom-icon-button svg { 
-  fill: var(--text-color);
-  width: 20px;
-  height: 20px;
 }
 
 .custom-icon-button img{ 
   height: 30px;
   width: auto;
 }
-/* Dropdown Menu */
 
+/* Dropdown Menu */
 .custom-dropdown {
   position: absolute;
-  top: 0;
-  width: 20%;
-  height: 100%;
-  transform: translateX(-45%);
-  background-color: var(--bg);
-  padding: 0 1rem;
   overflow: hidden;
+  top: 0;
+  width: var(--menu-width);
+  height: 100%;
+  transform: translateX(-50%);
+  background-color: var(--bg);
   transition: height var(--speed) ease;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
-#downitem{
-  width: 90%;
-  position: absolute;
-  bottom: 0;
-}
 .custom-menu-item-div{
  width: 100%;
 }
-.custom-menu-item {
-  height: 50px;
 
+.over-flow-container {
+  position: absolute;
+  overflow: hidden;
+  width: 30%;
   display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.custom-menu-item {
+  height: 7vh;
+  display: flex;
+ 
   align-items: center;
   border-radius: var(--border-radius);
   transition: background var(--speed);
@@ -125,11 +109,6 @@ a.custom-menu-item {
   background-color: #525357;
 }
 
-.custom-icon-right {
-  margin-left: auto;
-
-}
-
 /* CSSTransition classes  */
 .custom-menu-primary-enter {
   position: absolute;
@@ -146,7 +125,6 @@ a.custom-menu-item {
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
-
 
 .custom-menu-secondary-enter {
   transform: translateX(110%);

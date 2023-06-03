@@ -15,7 +15,7 @@ function GoToEduModeDialog({ setOpenModal, setIsCreativeMode }) {
    * Sets the alert message, opens the modal, sets the game after modal close, and sets the landing page state.
    */
   function handleGoToTasksClick() {
-    setOpenModal(true, EDUCATIONAL_WELCOME_MESSAGE, "noGame");
+    setOpenModal(false, EDUCATIONAL_WELCOME_MESSAGE);
     setIsCreativeMode();
   }
   return (

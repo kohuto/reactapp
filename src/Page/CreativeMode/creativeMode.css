@@ -1,8 +1,3 @@
-.main-flow-container{
-    height: 95vh; 
-    width: 80%; 
-    margin-left: 20%;
-}
 
 .creative-mode-flow-container {
     height: 100vh;
@@ -65,125 +60,121 @@
     align-items: center;
 }
 
+.customNodeBody .ip-address {
+  position: relative;
+  font-size: 15px;
+  user-select: text;
+  z-index: 10;
+}
+
+.gateway-creative .customNodeBody {
+  height: 13px;
+  width: 50px;
+}
+.server-creative .customNodeBody {
+  height: 35px;
+  width: 52px;
+}
+.client-unplugged-creative .customNodeBody {
+  height: 30px;
+  width: 50px;
+}
+.client-plugged-creative .customNodeBody {
+  height: 35px;
+  width: 44px;
+}
+.wifi-creative .customNodeBody {
+  height: 30px;
+  width: 35px;
+}
+.bts-creative .customNodeBody {
+  height: 60px;
+  width: 28px;
+}
+
+.gateway-creative .customNodeBody .ip-address {
+  top: 10px;
+}
+.server-creative .customNodeBody .ip-address {
+  top: 33px;
+}
+.client-unplugged-creative .customNodeBody .ip-address {
+  top: 29px;
+}
+.client-plugged-creative .customNodeBody .ip-address {
+  top: 33px;
+}
+.wifi-creative .customNodeBody .ip-address {
+  top: 26px;
+}
+.bts-creative .customNodeBody .ip-address {
+  top: 58px;
+}
+
+/* node drag move */
+.customNode:before {
+  content: '';
+  position: absolute; 
+  left: 35%;
+  height: 5px;
+  width: 30%;
+  background: #d6d5e6;
+  z-index: 10; /* zde bylo 1000 */
+  border-radius: 3px;
+  border: 2px solid #222138;
+}
+
+.nodrag .customNode:before {
+  display: none;
+}
+
+div.sourceHandle {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  background-color:transparent;
+}
 
 
 
-
-  .customNodeBody .ip-address {
-    position: relative;
-    font-size: 15px;
-    user-select: text;
-    z-index: 10;
-  }
-  
-  .gateway-creative .customNodeBody {
-    height: 13px;
-    width: 50px;
-  }
-  .server-creative .customNodeBody {
-    height: 35px;
-    width: 52px;
-  }
-  .client-unplugged-creative .customNodeBody {
-    height: 30px;
-    width: 50px;
-  }
-  .client-plugged-creative .customNodeBody {
-    height: 35px;
-    width: 44px;
-  }
-  .wifi-creative .customNodeBody {
-    height: 30px;
-    width: 35px;
-  }
-  .bts-creative .customNodeBody {
-    height: 60px;
-    width: 28px;
-  }
-
-  .gateway-creative .customNodeBody .ip-address {
-    top: 10px;
-  }
-  .server-creative .customNodeBody .ip-address {
-    top: 33px;
-  }
-  .client-unplugged-creative .customNodeBody .ip-address {
-    top: 29px;
-  }
-  .client-plugged-creative .customNodeBody .ip-address {
-    top: 33px;
-  }
-  .wifi-creative .customNodeBody .ip-address {
-    top: 26px;
-  }
-  .bts-creative .customNodeBody .ip-address {
-    top: 58px;
-  }
-  
-  /* node drag move */
-  .customNode:before {
-    content: '';
-    position: absolute; 
-    left: 35%;
-    height: 5px;
-    width: 30%;
-    background: #d6d5e6;
-    z-index: 10; /* zde bylo 1000 */
-    border-radius: 3px;
-    border: 2px solid #222138;
-  }
-  
-  .nodrag .customNode:before {
-    display: none;
-  }
-
-  div.sourceHandle {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    border: none;
-    background-color:transparent;
-  }
+div.targetHandle {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background-color:transparent;
+}
 
 
-  
-  div.targetHandle {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    background-color:transparent;
-  }
-  
 
+.gateway-creative div.targetHandle {
+  background-image: url("../../images/nodes/gateway.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.server-creative div.targetHandle {
+  background-image: url("../../images/nodes/server.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.client-unplugged-creative div.targetHandle {
+  background-image: url("../../images/nodes/klient.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.client-plugged-creative div.targetHandle {
+  background-image: url("../../images/nodes/client-plugged.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.wifi-creative div.targetHandle {
+  background-image: url("../../images/nodes/wifi.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.bts-creative div.targetHandle {
+  background-image: url("../../images/nodes/btsvez.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
-  .gateway-creative div.targetHandle {
-    background-image: url("../../images/nodes/gateway.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .server-creative div.targetHandle {
-    background-image: url("../../images/nodes/server.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .client-unplugged-creative div.targetHandle {
-    background-image: url("../../images/nodes/klient.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .client-plugged-creative div.targetHandle {
-    background-image: url("../../images/nodes/client-plugged.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .wifi-creative div.targetHandle {
-    background-image: url("../../images/nodes/wifi.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .bts-creative div.targetHandle {
-    background-image: url("../../images/nodes/btsvez.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  

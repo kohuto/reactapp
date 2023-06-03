@@ -10,7 +10,6 @@ const EDUCATIONAL_WELCOME_MESSAGE =
 
 function LandingPage({ setMode, setOpenDialog }) {
   function handleGoToEduMode() {
-    setOpenDialog(true, EDUCATIONAL_WELCOME_MESSAGE);
     setMode("educational");
   }
   function handleGoToCreativeMode() {
