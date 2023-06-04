@@ -3,10 +3,8 @@ import Button from "@mui/material/Button";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
 import InsidePacket from "./insidePacket";
-import packet1 from "../../../../images/packets/packet1.svg";
-import packet2 from "../../../../images/packets/packet2.svg";
-import packet3 from "../../../../images/packets/packet3.svg";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 /**
  * Component that allows the user to create and validate packets of a message
  * @param {function} setOpenDialog - A function that sets the open state of a dialog
@@ -22,7 +20,15 @@ function CreatePacketComponent({ info, setGame }) {
   const [content, setContent] = useState([]);
   const finalMessage =
     "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele. Pakety jsou očíslované, aby bylo možné v cíli zprávu správně poskládat.";
+  const incorrectContent = "Špatně vyplněný obsah některého z paketů.";
+  const incorrectSender =
+    "Špatně vyplněný odesílatel některého z paketů. Nezapomeň, že odesílatel je Karin, tudíž musíš napsat její IP adresu.";
+  const incorrectRecipient =
+    "Špatně vyplněný příjemce některého z paketů. Nezapomeň, že příjemce je server.";
+  const unfilledInput = "Nějaké pole není vyplněné.";
   const [filledCorrectly, setfilledCorrectly] = useState(false);
+  const [isIncorrect, setIsIncorrect] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   /**
    * Handles the submit event of the form and validates the input data
    */
@@ -46,14 +52,29 @@ function CreatePacketComponent({ info, setGame }) {
           ) {
             setfilledCorrectly(true);
             return;
+          } else {
+            setErrorMessage(incorrectContent);
           }
+        } else {
+          setErrorMessage(incorrectRecipient);
         }
+      } else {
+        setErrorMessage(incorrectSender);
       }
+    } else {
+      setErrorMessage(unfilledInput);
     }
+    setIsIncorrect(true);
   };
 
   return (
     <>
+      {isIncorrect && (
+        <AlertDialog
+          content={errorMessage}
+          closeAction={() => setIsIncorrect(false)}
+        />
+      )}
       {filledCorrectly && (
         <NextLevelModal
           setGame={setGame}

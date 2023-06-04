@@ -1,3 +1,21 @@
+/* simple flow */ 
+.simple-flow-container{
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+}
+
+.mobil {
+  width: 120px;
+  height: 70px;
+  background-image: url("../../../images/nodes/mobil.svg");
+  background-repeat: no-repeat;
+  border: none;
+}   
+
+/* some other flow */
+
 .client, .client-build, .client-unplugged-build {
   width: 120px;
   height: 70px;
@@ -37,7 +55,7 @@
 .gateway, .gateway-build {
   width: 82px;
   height: 30px;
-  background-image: url("../../../images/nodes/gateway.jpg");
+  background-image: url("../../../images/nodes/chytrakrizovatka_kratka.svg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;

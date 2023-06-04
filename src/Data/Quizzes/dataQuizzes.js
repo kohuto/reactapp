@@ -49,15 +49,15 @@ export const stockData = [
   },
   {
     content:
-      "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc obsahuje pořadí a ID pro zpětné sestavení zprávy. \n Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Zavři okno a vyplň obsah tří paketů, na které se zpráva rozložila",
+      "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc obsahuje pořadí a ID pro zpětné sestavení zprávy.",
     type: "createPacket",
-    hint: "",
+    hint: "Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vleze 8 písmen z původní zprávy.",
   },
   {
     content:
       "Kiara, Annika a Eustác brouzdají na internetu. Každý z nich nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
     type: "findServer",
-    hint: "",
+    hint: "Ke každému jménu napiš adresu serveru, který daný člověk navštívil.",
   },
   {
     content:

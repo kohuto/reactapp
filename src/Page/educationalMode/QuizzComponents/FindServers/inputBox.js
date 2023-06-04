@@ -9,16 +9,13 @@ import "./style.css";
  * @param {Function} props.setOpenDialog - A function to open a dialog window.
  * @returns {JSX.Element} The component JSX element.
  */
-function InputBox(props) {
+function InputBox({ setFilledCorrectly, setIsIncorrect }) {
   const correctClients = [
     { name: "Kiara", ip: "195.113.76.22" },
     { name: "Annika", ip: "195.113.89.35" },
     { name: "Eustác", ip: "192.168.1.1" },
   ];
 
-  const finalMessage =
-    "Perfektní! Nezpomeň, že v každém paketu najdeš informaci o tom, kdo paket poslal a komu má být paket doručen.";
-  const incorrectServerMessage = "nějaký server je špatně";
   const [clients, setClients] = useState(
     correctClients.map((client) => ({ ...client, value: "" }))
   );
@@ -29,9 +26,9 @@ function InputBox(props) {
     );
 
     if (!hasIncorrectClient) {
-      props.setOpenDialog(true, finalMessage, "noGame");
+      setFilledCorrectly();
     } else {
-      props.setOpenDialog(true, incorrectServerMessage);
+      setIsIncorrect();
     }
   };
 

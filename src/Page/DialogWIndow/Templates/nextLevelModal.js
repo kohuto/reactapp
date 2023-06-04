@@ -1,8 +1,4 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SendIcon from "@mui/icons-material/Send";
-import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import BasicModal from "../basicModal";

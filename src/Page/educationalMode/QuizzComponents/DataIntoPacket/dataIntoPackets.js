@@ -178,7 +178,7 @@ function DataIntoPackets({ setOpenDialog, info, setGame }) {
     );
   } else if (showPackets1) {
     return content3.length > 0 ? (
-      <DefaultPackets packetsData={packets1} repeat={0} marginleft={20} />
+      <DefaultPackets packetsData={packets1} repeat={0} marginleft={0} />
     ) : content2.length > 0 ? (
       <DefaultPackets
         packetsData={packets1.slice(0, 2)}
@@ -194,7 +194,7 @@ function DataIntoPackets({ setOpenDialog, info, setGame }) {
     );
   } else if (showPackets2) {
     return content3.length > 0 ? (
-      <DefaultPackets packetsData={packets2} repeat={0} marginleft={20} />
+      <DefaultPackets packetsData={packets2} repeat={0} marginleft={0} />
     ) : content2.length > 0 ? (
       <DefaultPackets
         packetsData={packets2.slice(0, 2)}
