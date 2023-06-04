@@ -20,34 +20,6 @@ function InsidePacket(props) {
     <>
       <TextField
         id="standard-basic"
-        label="ID paketu"
-        variant="standard"
-        value={props.id[props.number]}
-        onChange={(e) =>
-          props.setId((prevId) => {
-            const newId = [...prevId];
-            newId[props.number] = e.target.value;
-            return newId;
-          })
-        }
-      />
-      <br />
-      <TextField
-        id="standard-basic"
-        label="Pořadí"
-        variant="standard"
-        value={props.order[props.number]}
-        onChange={(e) =>
-          props.setOrder((prevOrder) => {
-            const newOrder = [...prevOrder];
-            newOrder[props.number] = e.target.value;
-            return newOrder;
-          })
-        }
-      />
-      <br />
-      <TextField
-        id="standard-basic"
         label="Odesílatel"
         variant="standard"
         value={props.senderIP[props.number]}

@@ -1,46 +1,37 @@
-.create-packets-form-container{
-    width: 100%;
-    height: 100%;
-    margin-left: 15%;
-    margin-top: 5vh;
-  }
-  
-  .create-packets-form-container p {
-    max-width: 15vw;
-  }
-  
-  /* space below input field */
-  .create-packets-form-container .MuiTextField-root {
-    margin-bottom: 0.5vh;
-    width: 70%;
-  }
-  
-  .create-packet-buttons{
-    position: absolute;
-    bottom: 9vh;
-    margin-left: 13%;
-  }
-
-.create-packets-form-container .check-button {
+.create-packet-packets-container {
   position: absolute;
-  bottom: 2vh;
-  left: 33%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-  /* Slideshow */
-  .create-packets-slideshow {
-    overflow: hidden;
-  }
-  
-  .create-packets-slideshowSlider {
-    white-space: nowrap;
-    transition: ease 500ms;
-  }
-  
-  .create-packets-slide {
-    display: inline-block;
-    height: 36vh;
-    width: 20vw;
-    border-radius: 40px;
-  }
+.create-packet-packet1 {
+  background-image: url("../../../../images/packets/packet1.svg");
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 33vw;
+}
+.create-packet-packet2 {
+  background-image: url("../../../../images/packets/packet2.svg");
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 33vw;
+}
+.create-packet-packet3 {
+  background-image: url("../../../../images/packets/packet3.svg");
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 33vw;
+}
 
+.create-packet-content {  
+  position: relative;
+  top: 170px;
+  left: 150px;
+}
+
+.create-packet-check-button {
+  position: absolute;
+  top: 60vh;
+  left: 45vw;
+}
