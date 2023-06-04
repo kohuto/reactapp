@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./style.css";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import BasicModal from "../../../DialogWindow/basicModal";
 
 /**
  * Renders a typing challenge interface.
@@ -9,13 +11,14 @@ import "./style.css";
  * @param {object} props - Component props.
  * @param {function} props.setOpenDialog - Function to open a dialog box upon successful completion of the challenge.
  */
-function BandWidthComponent({ setOpenDialog }) {
+function BandWidthComponent({ info, setGame }) {
   const text =
-    "Toto je ukázkový text, který je potřeba přepsat do textového pole, níže. Text je schválně takto dlouhý, aby bylo vysoce nepravděpodobné, že ho zvládneš přepsat celý za 10  sekund.";
+    "Toto je ukázkový text, který je potřeba přepsat do textového pole níže. Text je schválně takto dlouhý, aby bylo vysoce nepravděpodobné, že ho zvládneš přepsat celý za 10  sekund.";
   const [userInput, setUserInput] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [showError, setShowError] = useState(false);
   const [startTime, setStartTime] = useState(null);
+  const [isFinished, setIsFinished] = useState(false);
   const finalMessage = `Perfektní! Zvládl jsi přepsat ${
     userInput.length
   } znaků za 10 sekund. To znamená, že jsi přepsal ${
@@ -30,7 +33,7 @@ function BandWidthComponent({ setOpenDialog }) {
       const endTime = Date.now();
       const elapsedTime = (endTime - startTime) / 1000;
       if (isStarted && elapsedTime > 10) {
-        setOpenDialog(true, finalMessage, "noGame");
+        setIsFinished(true);
       }
     }, 10);
 
@@ -82,6 +85,14 @@ function BandWidthComponent({ setOpenDialog }) {
 
   return (
     <>
+      {isFinished && (
+        <NextLevelModal
+          content={finalMessage}
+          setGame={setGame}
+          game={info.type}
+        />
+      )}
+      <BasicModal content={info.content} />
       <div className="typing-challenge-text">
         <p>{text}</p>
       </div>
@@ -90,7 +101,8 @@ function BandWidthComponent({ setOpenDialog }) {
           <TextField
             id="standard-basic"
             label="Text"
-            variant="standard"
+            multiline
+            rows={4}
             value={userInput}
             onChange={handleInputChange}
             error={showError}

@@ -1,8 +1,6 @@
 .typing-challenge-text {
-    width: 100%;
     padding: 0.4rem;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
+    margin: 20vh 10vw;
     text-align: center;
     font-size: 1.5rem;
     border-radius: 0.5em;
@@ -13,11 +11,16 @@
 }
 
 .typing-challenge-container{
-    margin-left: 35%;
-    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    margin: 0 40vw;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .typing-challenge-container button.start-button {
-    margin-left: 6%;
     margin-top: 3vh;
 }

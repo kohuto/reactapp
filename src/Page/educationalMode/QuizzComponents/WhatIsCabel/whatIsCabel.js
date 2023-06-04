@@ -1,18 +1,26 @@
 import DefaultPackets from "../../../Packet";
 import { whatIsCabelPackets } from "../../../../Data/Packets/whatIsCabel";
+import SimpleFlow from "../../Flow/simpleFlow";
+import BasicModal from "../../../DialogWindow/basicModal";
+import { whatIsCabelNodes } from "../../../../Data/Flow/whatIsCabel";
+import { whatIsCabelEdges } from "../../../../Data/Flow/edges/whatIsCabelEdges";
 
 /**
  * Renders a component that displays packets explaining what is a cable.
  * @param {object} props - The props object.
  * @returns {JSX.Element} - The component's UI.
  */
-function WhatIsCabelComponent({}) {
+function WhatIsCabelComponent({ info, setGame }) {
   return (
-    <DefaultPackets
-      packetsData={whatIsCabelPackets}
-      repeat={Infinity}
-      marginleft={20}
-    />
+    <>
+      <BasicModal content={info.content} />
+      <SimpleFlow nodes={whatIsCabelNodes} edges={whatIsCabelEdges} />
+      <DefaultPackets
+        packetsData={whatIsCabelPackets}
+        repeat={Infinity}
+        marginleft={0}
+      />
+    </>
   );
 }
 

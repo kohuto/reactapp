@@ -67,9 +67,9 @@ export const stockData = [
   },
   {
     content:
-      "Nejvíce cest je tvořeno KABELY. Ty mohou být metalické (kovové) nebo optické. V metalických jsou data přenášena pomocí elektrických signálů, zatímco v optických pomocí světelných signálů. \n Množství posílaných dat neustále roste. V roce 2019 se poslalo za hodinu stejné množství dat, jako za celý rok 2000. Řešením jsou optické KABELY, jelikož přenáší data až 10000x větší rychlostí i na daleko větší vzdálenosti. \n Po zavření okna se podívej, jaký je rozdíl v rychlosti přenosu oběma typy kabelů.",
+      "Nejvíce cest je tvořeno KABELY. Ty mohou být metalické (kovové) nebo optické. V metalických jsou data přenášena pomocí elektrických signálů, zatímco v optických pomocí světelných signálů. \n Množství posílaných dat neustále roste. V roce 2019 se poslalo za hodinu stejné množství dat, jako za celý rok 2000. Řešením jsou optické KABELY, jelikož přenáší data až 10000x větší rychlostí i na daleko větší vzdálenosti.",
     type: "whatIsCabel",
-    hint: "",
+    hint: "Animace znázorňuje srovnání rychlosti přenosu v optickém a metelickém kabelu.",
   },
   {
     content:
@@ -91,21 +91,21 @@ export const stockData = [
   },
   {
     content:
-      "“Proč je ten internet takový pomalý?” Co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - DOBU ODEZVY a ŠÍŘKU PÁSMA. DOBA ODEZVY nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím je vyšší, tím déle trvá, než je paket doručen. To může být ovlivněno třeba přetížením křižovatek, nebo posíláním přes satelit. \n Malou DOBU ODEZVY potřebuješ třeba při hraní her, nebo při online hovoru. Velká doba odezvy totiž způsobí zasekávání online hry. U hovoru způsobí, že člověk na druhém konci slyší i s několika sekundovým zpožděním. \n Zavři okno a zkus, s jakou odezvou zvládneš posílat data. Naklikej co nejrychleji cestu od klienta až do serveru.",
+      "“Proč je ten internet takový pomalý?” Co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - DOBU ODEZVY a ŠÍŘKU PÁSMA. DOBA ODEZVY nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím je vyšší, tím déle trvá, než je paket doručen. To může být ovlivněno třeba přetížením křižovatek, nebo posíláním přes satelit. \n Malou DOBU ODEZVY potřebuješ třeba při hraní her, nebo při online hovoru. Velká doba odezvy totiž způsobí zasekávání online hry. U hovoru způsobí, že člověk na druhém konci slyší i s několika sekundovým zpožděním.",
     type: "raceAroundWorld",
-    hint: "",
+    hint: "Naklikej co nejrychleji cestu od klienta až do serveru.",
   },
   {
     content:
       "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu). \n Klikni na START a zkus za 10 sekund přepsat co nejvíce Mb textu.",
     type: "typingChallenge",
-    hint: "",
+    hint: "Klikni na START a zkus za 10 sekund opsat do textov0ho pole co nejvíce Mb textu.",
   },
   {
     content:
       "Připoj všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidáš kliknutím na jeho ikonu v nabídce, poté jej můžeš libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad hlavou ikonu wifi.",
     type: "connectClientsWireless",
-    hint: "",
+    hint: "Připoj všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidáš kliknutím na jeho ikonu v nabídce, poté jej můžeš libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad hlavou ikonu wifi.",
   },
   {
     content:

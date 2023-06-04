@@ -21,6 +21,7 @@ import WhatIsPathComponent from "./WhatIsPath/whatIsPath";
 import WhatIsGatewayComponent from "./WhatIsGateway/whatIsGateway";
 import HowToConnect from "./HowToConnect/howToConnect";
 import SortFileSize from "./HowManyPackets/sortFileSize";
+import BandWidthComponent from "./BandWidth/bandWidth";
 
 function QuizzComponents({ setOpenDialog, game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
@@ -103,6 +104,9 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
           setGame={setGame}
         />
       );
+    case "typingChallenge":
+      return <BandWidthComponent info={gameInfo} setGame={setGame} />;
+
     case "connectClientsWireless":
       return (
         <ConnectClientsWirelessComponent
