@@ -1,4 +1,14 @@
-/* sort file by size*/
+.sort-file-size-files-image {
+  width: 70%;
+}
+
+.sort-file-size-img-container {
+  margin: 10vh 0;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
 .container-sort .first-line {
     display: flex;
     flex-direction: row;

@@ -19,6 +19,8 @@ import { stockData } from "../../../Data/Quizzes/dataQuizzes";
 import WhatIsPacketComponent from "./WhatIsPacket/whatIsPacket";
 import WhatIsPathComponent from "./WhatIsPath/whatIsPath";
 import WhatIsGatewayComponent from "./WhatIsGateway/whatIsGateway";
+import HowToConnect from "./HowToConnect/howToConnect";
+import SortFileSize from "./HowManyPackets/sortFileSize";
 
 function QuizzComponents({ setOpenDialog, game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
@@ -74,6 +76,9 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
           setGame={setGame}
         />
       );
+
+    case "sortFileSize":
+      return <SortFileSize info={gameInfo} setGame={setGame} />;
     case "whatIsCabelTypeOfConnection":
       return <WhatIsWiFiComponent info={gameInfo} setGame={setGame} />;
     case "whatIsCabel":
@@ -106,6 +111,8 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
           setGame={setGame}
         />
       );
+    case "howToConnect":
+      return <HowToConnect info={gameInfo} setGame={setGame} />;
     case "shortestPath":
       return (
         <ShortestPathComponent

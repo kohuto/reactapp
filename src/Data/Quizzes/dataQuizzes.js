@@ -61,7 +61,7 @@ export const stockData = [
   },
   {
     content:
-      "Odeslaná data se před odesláním rozloží na pakety. \n Po kliknutí na tlačítko SOUBORY se otevře složka se čtyřmi soubory. Pro každý soubor nastav na posuvníku hodnotu, na kolik paketů by se před odesláním soubor rozložil. Do jednoho paketu se vleze 1KB dat",
+      "Odeslaná data se před odesláním rozloží na pakety. Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vleze 1KB dat",
     type: "sortFileSize",
     hint: "",
   },

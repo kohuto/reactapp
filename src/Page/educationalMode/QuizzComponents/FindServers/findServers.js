@@ -38,7 +38,7 @@ function FindPacketComponent({ info, setGame }) {
         />
       )}
       <BasicModal content={info.content} />
-      {<SimpleFlow nodes={findServerNodes} edges={[]} />}
+      <SimpleFlow nodes={findServerNodes} edges={[]} />
       <DefaultPackets
         packetsData={findServerData}
         repeat={Infinity}
