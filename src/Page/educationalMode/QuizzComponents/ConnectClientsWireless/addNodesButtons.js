@@ -1,8 +1,8 @@
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import bts from "../../../../images/nodes/btsvez.jpg";
-import wifi from "../../../../images/nodes/wifi.jpg";
+import bts from "../../../../images/nodes/BTSvez.svg";
+import wifi from "../../../../images/nodes/wifi.svg";
 
 const DEVICE_TYPE = {
   WIFI: "wifi",
@@ -36,7 +36,10 @@ function AddNodeButtons({ handleAddNode, nodes }) {
     },
   ];
   return (
-    <div className="connect-client-wireless-button-container">
+    <>
+      <div className="connect-client-wireless-button-label">
+        Přidej zařízení:
+      </div>
       {buttonData.map(({ title, icon, badgeCount, onClick }, index) => (
         <Tooltip key={index} title={title} placement="left">
           <IconButton onClick={onClick}>
@@ -46,7 +49,7 @@ function AddNodeButtons({ handleAddNode, nodes }) {
           </IconButton>
         </Tooltip>
       ))}
-    </div>
+    </>
   );
 }
 

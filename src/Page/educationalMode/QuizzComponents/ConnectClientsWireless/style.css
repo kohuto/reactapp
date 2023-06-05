@@ -1,26 +1,28 @@
-.connect-client-wireless-button-container {
-    margin-top: 10vh;
+.connect-client-wireless-add-device-container {
+    position: absolute;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    bottom: 10vh;
+    right: 5vw;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.connect-client-wireless-button-container img {
+.connect-client-wireless-add-device-container img {
     width: 60px; 
     max-height: 70px;
     margin-bottom: 5vh;
 }
 
-.connect-client-wireless-flow-container{
-    height: 95vh;
-    width: 80%;
-    margin-left: 20%;
+.connect-client-wireless-button-label{
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
-.client-plugged{
-    width: 110px;
-    height: 40px;
-    background-image: url("../../../../images/nodes/client-plugged.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    border: none;
-    padding-top: 70px;  
-    background-color: transparent;
-  }
+.connect-client-wireless-flow-container{
+    height: 100vh;
+    width: 100%;
+}

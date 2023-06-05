@@ -70,6 +70,39 @@
   bottom: 35px;
 }
 
+/* PC-connected node */
+
+.notebook-connected {
+  width: 200px;
+  height: 100px;
+  background-image: url("../../../images/nodes/notebookconnected.svg");
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Sets the text color to white */
+  -webkit-text-stroke: 1px black; /* Adds a black stroke as a border */
+  font-weight: bold; 
+  font-size: 18px;
+}
+
+.notebook-connected .react-flow__handle-bottom, .notebook-connected .react-flow__handle-top{
+  visibility: hidden;
+}
+
+.notebook-connected .react-flow__handle-top{
+  top: 35px;
+}
+
+.notebook-connected .react-flow__handle-bottom{
+  bottom: 35px;
+}
+
+/* PC node */
 
 .PC {
   width: 120px;

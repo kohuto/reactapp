@@ -1,13 +1,22 @@
-.how-to-connect-column {
-    float: left;
-    width: 20%;
-    padding: 10px;
-  }
-
 .how-to-connect-container{
-    margin-left: 15%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    width: 50vw;
+    height: 40vh;
+    margin: 30vh 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.how-to-connect-container button {
-  margin-left: 28%;
+.how-to-connect-columns {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
+
+.how-to-connect-check-button {
+  margin-top: 20px;
+}
+

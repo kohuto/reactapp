@@ -1,18 +1,21 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNodesState } from "reactflow";
 import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import { connectClientWirelessNodes } from "../../../../Data/Flow/connectClientWireless";
 import ReactFlow from "reactflow";
 import AddNodeButtons from "./addNodesButtons";
+import BasicModal from "../../../DialogWindow/basicModal";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import "./style.css";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 
 const FINAL_MESSAGE =
-  "Perfektní! Zvládl jsi umístit všechna zařízení tak, aby se mohli všichni připojit k internetu. Při umisťování jsi viděl, že každé zařízení má jiný dosah. Pojďme si nyní říct. Jaký dosah ve skutečnosti tato zařízení mají. Doma používáme WiFi router, který může WiFi signál vysílat do vzdálenosti 50–100 metrů, ale může být i menší, pokud máte tlusté zdi. Dosah signálu vysílaného BTS věží je až 5 km. Na těžko dostupných místech využíváme satelity, které komunikují z oběžné dráhy v různé výšce. Ty nejnižší jsou ve výšce 200 km. Ty nejvyšší jsou až 36 000 km nad zemí. Pro přenos dat na větší vzdálenosti používáme kabely.";
+  "Perfektní! Všichni klienti jsou připojení. \n Při umisťování jsi viděl, že každé zařízení má jiný dosah. Jaký je ale jejich reálný dosah? \n Doma používáme WiFi router, který může WiFi signál vysílat do vzdálenosti 50–100 metrů, ale může být i menší, pokud máte tlusté zdi. Dosah signálu vysílaného BTS věží je až 5 km. Na těžko dostupných místech využíváme satelity, které komunikují z oběžné dráhy v různé výšce. Ty nejnižší jsou ve výšce 200 km. Ty nejvyšší jsou až 36 000 km nad zemí. Pro přenos dat na větší vzdálenosti používáme kabely.";
 const NO_MORE_NODES_MESSAGE = "více už ne";
 const FINAL_COUNT_PLUGGED_CLIENT = 10;
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged",
-  CLIENT_UNPLUGGED: "client",
+  CLIENT_PLUGGED: "notebook-connected",
+  CLIENT_UNPLUGGED: "notebook",
   WIFI: "wifi",
   BTS: "bts",
 };
@@ -22,10 +25,13 @@ const DEVICE_TYPE = {
  * @param {Object} props - The component props.
  * @param {function} props.setOpenDialog - A function that opens the dialog for displaying messages to the user.
  */
-function ConnectClientsWirelessComponent({ setOpenDialog }) {
+function ConnectClientsWirelessComponent({ setGame, info }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(
     connectClientWirelessNodes
   );
+
+  const [isFinished, setIsFinished] = useState(false);
+  const [isTooMuchNodes, setIsTooMuchNodes] = useState(false);
 
   /**
    * This useEffect hook updates the positions and classes of the client nodes every 10 milliseconds. It also
@@ -38,7 +44,7 @@ function ConnectClientsWirelessComponent({ setOpenDialog }) {
       countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) ===
       FINAL_COUNT_PLUGGED_CLIENT
     ) {
-      setOpenDialog(true, FINAL_MESSAGE, "noGame");
+      setIsFinished(true);
     }
 
     // Continuously update the positions of the client nodes
@@ -81,7 +87,7 @@ function ConnectClientsWirelessComponent({ setOpenDialog }) {
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 2) {
-        setOpenDialog(true, NO_MORE_NODES_MESSAGE);
+        setIsTooMuchNodes(true);
       } else {
         const newNode = {
           id: `${ipv4Address}`,
@@ -98,9 +104,23 @@ function ConnectClientsWirelessComponent({ setOpenDialog }) {
 
   return (
     <>
-      <CloseOpen
-        content={<AddNodeButtons handleAddNode={handleAddNode} nodes={nodes} />}
-      />
+      <div className="connect-client-wireless-add-device-container">
+        <AddNodeButtons handleAddNode={handleAddNode} nodes={nodes} />
+      </div>
+      {isFinished && (
+        <NextLevelModal
+          content={FINAL_MESSAGE}
+          setGame={setGame}
+          game={info.type}
+        />
+      )}
+      {isTooMuchNodes && (
+        <AlertDialog
+          content={NO_MORE_NODES_MESSAGE}
+          closeAction={() => setIsTooMuchNodes(false)}
+        />
+      )}
+
       <div className="connect-client-wireless-flow-container">
         <ReactFlow
           nodes={nodes}

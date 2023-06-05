@@ -126,35 +126,37 @@ function HowToConnect({ info, setGame }) {
         />
       )}
       <div className="how-to-connect-container">
-        <div className="how-to-connect-column">
-          <h5>mobil doma</h5>
-          <CheckboxGroup
-            checkboxes={checkboxes1}
-            handleCheckboxChange={handleCheckboxChange1}
-          />
+        <div className="how-to-connect-columns">
+          <div className="how-to-connect-column">
+            <h5>mobil doma</h5>
+            <CheckboxGroup
+              checkboxes={checkboxes1}
+              handleCheckboxChange={handleCheckboxChange1}
+            />
+          </div>
+          <div className="how-to-connect-column">
+            <h5> mobil v lese</h5>
+            <CheckboxGroup
+              checkboxes={checkboxes2}
+              handleCheckboxChange={handleCheckboxChange2}
+            />
+          </div>
+          <div className="how-to-connect-column">
+            <h5> počítač ve škole</h5>
+            <CheckboxGroup
+              checkboxes={checkboxes3}
+              handleCheckboxChange={handleCheckboxChange3}
+            />
+          </div>
+          <div className="how-to-connect-column">
+            <h5>notebook doma</h5>
+            <CheckboxGroup
+              checkboxes={checkboxes4}
+              handleCheckboxChange={handleCheckboxChange4}
+            />
+          </div>
         </div>
-        <div className="how-to-connect-column">
-          <h5> mobil v lese</h5>
-          <CheckboxGroup
-            checkboxes={checkboxes2}
-            handleCheckboxChange={handleCheckboxChange2}
-          />
-        </div>
-        <div className="how-to-connect-column">
-          <h5> počítač ve škole</h5>
-          <CheckboxGroup
-            checkboxes={checkboxes3}
-            handleCheckboxChange={handleCheckboxChange3}
-          />
-        </div>
-        <div className="how-to-connect-column">
-          <h5>notebook doma</h5>
-          <CheckboxGroup
-            checkboxes={checkboxes4}
-            handleCheckboxChange={handleCheckboxChange4}
-          />
-        </div>
-        <div className="start-quizz-button">
+        <div className="how-to-connect-check-button">
           <Button variant="outlined" onClick={handleSubmit}>
             ZKONTROLOVAT
           </Button>
