@@ -384,39 +384,13 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(
-                  true,
-                  <>
-                    {stockData[19].content}
-                    <Quizz
-                      taskType={stockData[19].type}
-                      setOpenDialog={setOpenDialog}
-                      setOpenOverlayDialog={setOpenOverlayDialog}
-                    />
-                  </>,
-                  "noGame"
-                )
-              }
+              onClick={() => setGame(stockData[19].type)}
             >
               <DropdownItem leftIcon={lightbulb}>IP ADRESA</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(
-                  true,
-                  <>
-                    {stockData[20].content}
-                    <Quizz
-                      taskType={stockData[20].type}
-                      setOpenDialog={setOpenDialog}
-                      setOpenOverlayDialog={setOpenOverlayDialog}
-                    />
-                  </>,
-                  "noGame"
-                )
-              }
+              onClick={() => setGame(stockData[20].type)}
             >
               <DropdownItem leftIcon={lightbulb}>IPV4, IPv6</DropdownItem>
             </div>
@@ -443,20 +417,7 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() =>
-                setOpenDialog(
-                  true,
-                  <>
-                    {stockData[25].content}
-                    <Quizz
-                      taskType={stockData[25].type}
-                      setOpenDialog={setOpenDialog}
-                      setOpenOverlayDialog={setOpenOverlayDialog}
-                    />
-                  </>,
-                  "noGame"
-                )
-              }
+              onClick={() => setGame(stockData[25].type)}
             >
               <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
             </div>

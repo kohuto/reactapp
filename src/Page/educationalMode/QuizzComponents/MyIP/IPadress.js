@@ -2,6 +2,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import "./style.css";
+import BasicModal from "../../../DialogWindow/basicModal";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 
 const FINAL_MESSAGE =
   "Perfektní! Toto je IP adresa. Nezapomeň, že díky IP adrese přesně víme, kam poslat paket.";
@@ -14,8 +17,10 @@ const ERROR_MESSAGE = "Toto není IP adresa";
  * @param {function} props.setOpenDialog - A function to open a dialog.
  * @param {function} props.setOpenOverlayDialog - A function to open an overlay dialog.
  */
-function IPaddress({ setOpenDialog, setOpenOverlayDialog }) {
+function IPaddress({ info, setGame }) {
   const [ipAddress, setIpAddress] = useState("");
+  const [isInvalidIP, setIsInvalidIP] = useState(false);
+  const [isValidIP, setIsValidIP] = useState(false);
 
   /**
    * Handles form submission and validates the IP address.
@@ -29,15 +34,29 @@ function IPaddress({ setOpenDialog, setOpenOverlayDialog }) {
       /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$/;
 
     if (IPv4.test(ipAddress) || IPv6.test(ipAddress)) {
-      setOpenDialog(true, FINAL_MESSAGE, "noGame");
+      setIsValidIP(true);
     } else {
-      setOpenOverlayDialog(true, ERROR_MESSAGE);
+      setIsInvalidIP(true);
     }
   };
 
   return (
-    <div className="ip-adress-container">
-      <div>
+    <>
+      <BasicModal content={info.content} />
+      {isInvalidIP && (
+        <AlertDialog
+          content={ERROR_MESSAGE}
+          closeAction={() => setIsInvalidIP(false)}
+        />
+      )}
+      {isValidIP && (
+        <NextLevelModal
+          content={FINAL_MESSAGE}
+          setGame={setGame}
+          game={info.type}
+        />
+      )}
+      <div className="ip-adress-container">
         <TextField
           id="standard-basic"
           label="IP Adresa"
@@ -45,16 +64,14 @@ function IPaddress({ setOpenDialog, setOpenOverlayDialog }) {
           value={ipAddress}
           onChange={(e) => setIpAddress(e.target.value)}
         />
-      </div>
 
-      <Button
-        variant="outlined"
-        onClick={handleSubmit}
-        className="submit-button"
-      >
-        ZKONTROLUJ
-      </Button>
-    </div>
+        <div className="submit-button">
+          <Button variant="outlined" onClick={handleSubmit}>
+            ZKONTROLUJ
+          </Button>
+        </div>
+      </div>
+    </>
   );
 }
 

@@ -1,9 +1,15 @@
 .ip-adress-container{
-    margin-left: 35%;
-    margin-top: 2vh;
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    margin: 40vh 40vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-  
-.ip-adress-container button.submit-button {
-    margin-left: 6%;
-    margin-top: 3vh;
+
+.submit-button{
+    margin-top: 20px;
 }

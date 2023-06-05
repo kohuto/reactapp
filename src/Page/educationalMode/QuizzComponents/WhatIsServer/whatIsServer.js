@@ -26,7 +26,7 @@ const CORRECT_YOUTUBE_MESSAGE =
  * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
  * @returns {JSX.Element} - returns a JSX element representing the component
  */
-function WhatIsServerComponent({ setOpenDialog, info, setGame }) {
+function WhatIsServerComponent({ info, setGame }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
   const videoRef = useRef(null);

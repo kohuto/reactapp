@@ -22,6 +22,7 @@ import WhatIsGatewayComponent from "./WhatIsGateway/whatIsGateway";
 import HowToConnect from "./HowToConnect/howToConnect";
 import SortFileSize from "./HowManyPackets/sortFileSize";
 import BandWidthComponent from "./BandWidth/bandWidth";
+import IPaddress from "./MyIP/IPadress";
 
 function QuizzComponents({ setOpenDialog, game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
@@ -69,8 +70,8 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
       );
     case "howToConnect":
       return <HowToConnect info={gameInfo} setGame={setGame} />;
-    case "howToConnect":
-      return <HowToConnect info={gameInfo} setGame={setGame} />;
+    case "IPadress":
+      return <IPaddress info={gameInfo} setGame={setGame} />;
     case "shortestPath":
       return (
         <ShortestPathComponent
