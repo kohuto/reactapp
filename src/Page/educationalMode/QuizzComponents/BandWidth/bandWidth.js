@@ -21,7 +21,7 @@ function BandWidthComponent({ info, setGame }) {
   const [isFinished, setIsFinished] = useState(false);
   const finalMessage = `Perfektní! Zvládl jsi přepsat ${
     userInput.length
-  } znaků za 10 sekund. To znamená, že jsi přepsal ${
+  } znaků za 10 sekund. To znamená, že jsi přepsal přibližně ${
     userInput.length * 8
   } bitů. Jeden bit je ale 1000000x menší, než jeden Mega bit. \n Je dobré zmínit, že ideální šířka pásma v roce 2023 je až 240 Mb/s. Z toho vyplývá, že bys musel psát ${Math.round(
     240000000 / (userInput.length * 8)

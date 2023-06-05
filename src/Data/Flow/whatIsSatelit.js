@@ -2,7 +2,7 @@ export const whatIsSatelitNodes = [
   {
     id: "75.110.246.238",
     type: "custom",
-    position: { x: 385, y: 280 },
+    position: { x: 185, y: 500 },
     className: "boat",
     data: { label: "75.110.246.238" },
     dragHandle: "noDrag",
@@ -10,7 +10,7 @@ export const whatIsSatelitNodes = [
   {
     id: "260:01:812:ed8a::8",
     type: "custom",
-    position: { x: 505, y: 130 },
+    position: { x: 105, y: 130 },
     className: "satelit",
     data: { label: "260:01:812:ed8a::8" },
     dragHandle: "noDrag",
@@ -18,7 +18,7 @@ export const whatIsSatelitNodes = [
   {
     id: "9c8f:7a36::818f:b57a:68a1",
     type: "custom",
-    position: { x: 535, y: 330 },
+    position: { x: 355, y: 280 },
     className: "reciver",
     data: { label: "9c8f:7a36::818f:b57a:68a1" },
     dragHandle: "noDrag",
@@ -26,7 +26,7 @@ export const whatIsSatelitNodes = [
   {
     id: "31.172.218.103",
     type: "custom",
-    position: { x: 555, y: 450 },
+    position: { x: 555, y: 320 },
     className: "gateway",
     data: { label: "31.172.218.103" },
     dragHandle: "noDrag",
@@ -34,7 +34,7 @@ export const whatIsSatelitNodes = [
   {
     id: "182.49.39.109",
     type: "custom",
-    position: { x: 505, y: 550 },
+    position: { x: 705, y: 350 },
     className: "gateway",
     data: { label: "182.49.39.109" },
     dragHandle: "noDrag",
@@ -42,8 +42,8 @@ export const whatIsSatelitNodes = [
   {
     id: "192.135.109.25",
     type: "custom",
-    position: { x: 305, y: 520 },
-    className: "server",
+    position: { x: 855, y: 300 },
+    className: "server-plain",
     data: { label: "192.135.109.25" },
     dragHandle: "noDrag",
   },

@@ -3,8 +3,8 @@ export const latencyNodes = [
     id: "2620:0:862:ed1a::1",
     type: "custom",
     position: { x: 90, y: 230 },
-    className: "client",
-    data: { label: "2620:0:862:ed1a::1  Maruška" },
+    className: "notebook",
+    data: { label: "154.123.1.68" },
     dragHandle: "noDrag",
   },
   {
@@ -12,7 +12,7 @@ export const latencyNodes = [
     type: "input",
     dragHandle: "noDrag",
     position: { x: 625, y: 450 },
-    className: "server non-draggable",
+    className: "server-plain non-draggable",
     data: { label: "195.113.89.35" },
   },
   {

@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import ReactFlow from "reactflow";
 import { jitterEdges } from "../../../../Data/Flow/edges/latencyEdges";
 import { latencyNodes } from "../../../../Data/Flow/latency";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import BasicModal from "../../../DialogWindow/basicModal";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import "./style.css";
 
 // The correct sequence of node IDs to be clicked in order to complete the task
@@ -25,13 +28,15 @@ const INCORRECT_CLICK_MESSAGE = "začni v klientovi a nepřeskakuj křižovatky"
  * @param {function} setOpenDialog - A function for opening a dialog window to display results or error messages.
  * @returns A React component that renders a network graph and measures latency on node clicks.
  */
-function LatencyComponent({ setOpenDialog }) {
+function LatencyComponent({ info, setGame }) {
+  const [isIncorrectClick, setIsIncorrectClick] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
   // State variable for counting the number of correctly clicked nodes
   const [countClickedJitter, setCountClickedJitter] = useState(0);
 
   // State variable for storing the timestamp of when the first node is clicked
   const [startTime, setStartTime] = useState(null);
-
+  const [finalMessage, setFinalMessage] = useState("");
   /**
    * Event handler for when a node is clicked.
    * If the clicked node is the correct one in the sequence, the count of correctly clicked nodes is incremented.
@@ -50,7 +55,7 @@ function LatencyComponent({ setOpenDialog }) {
         setStartTime(Date.now());
       }
     } else {
-      setOpenDialog(true, INCORRECT_CLICK_MESSAGE);
+      setIsIncorrectClick(true);
     }
   };
 
@@ -63,19 +68,32 @@ function LatencyComponent({ setOpenDialog }) {
     if (countClickedJitter === CORRECT_PATH.length) {
       const endTime = Date.now();
       const elapsedTime = (endTime - startTime) / 1000;
-      setOpenDialog(
-        true,
-        `Perfektní! Tvá doba odezvy je ${elapsedTime} sekund \n Je dobré zmínit, že v roce 2023 je ideální doba odezvy až 30-40 ms. Z toho vyplývá, že bys musel cestu naklikat ${
+      setFinalMessage(
+        `Perfektní! Tvá doba odezvy je ${elapsedTime} sekund \n Je dobré zmínit, že v roce 2023 je ideální doba odezvy 30-40 ms. Z toho vyplývá, že bys musel  ${Math.ceil(
           (elapsedTime * 1000) / 30
-        }x rychleji, abys dosáhl stejné rychlosti. Navíc bys v podobném čase musel být schopen klikat na cestu dlouhou i několik set kilometrů. \n V dalším úkolu se blíže podíváme na druhý aspekt rychlosti internetu - tzv. šířku pásma.`,
-        "noGame"
+        )}x rychleji naklikat cestu dlouhou i několik kilometrů , abys dosáhl stejné rychlosti.`
       );
+      setIsFinished(true);
     }
   }, [countClickedJitter]);
 
   return (
     <>
       <div className="latency-container">
+        <BasicModal content={info.content} />
+        {isFinished && (
+          <NextLevelModal
+            content={finalMessage}
+            setGame={setGame}
+            game={info.type}
+          />
+        )}
+        {isIncorrectClick && (
+          <AlertDialog
+            closeAction={() => setIsIncorrectClick(false)}
+            content={INCORRECT_CLICK_MESSAGE}
+          />
+        )}
         <ReactFlow
           nodes={latencyNodes}
           edges={jitterEdges}

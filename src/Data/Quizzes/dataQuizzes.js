@@ -97,9 +97,9 @@ export const stockData = [
   },
   {
     content:
-      "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu). \n Klikni na START a zkus za 10 sekund přepsat co nejvíce Mb textu.",
+      "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu).",
     type: "typingChallenge",
-    hint: "Klikni na START a zkus za 10 sekund opsat do textového pole co nejvíce Mb textu.",
+    hint: "Klikni na START a zkus za 10 sekund opsat do textového pole co nejvíce textu.",
   },
   {
     content:
