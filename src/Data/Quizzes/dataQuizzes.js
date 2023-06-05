@@ -81,13 +81,13 @@ export const stockData = [
     content:
       "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který může využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Po zavření okna se podívej, jak vypadá přenos pomocí mobilního signálu.",
     type: "whatIsBTS",
-    hint: "",
+    hint: "Animace znázorňuje jak jsou přenášena data pomocí BTS věže.",
   },
   {
     content:
       "Satelity jsou zařízení umístěna na oběžné dráze okolo Země. \n Satelitní připojení je nejméně používané, používají ho zařízení na obtížně přístupných místech. Když někdo pošle signál ze Země k satelitu, antény na satelitu signál zachytí a odrazí ho zpět na Zemi. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
     type: "whatIsSatelit",
-    hint: "",
+    hint: "Animace znázorňuje jak jsou přenášena data pomocí satelitu.",
   },
   {
     content:
@@ -99,7 +99,7 @@ export const stockData = [
     content:
       "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu). \n Klikni na START a zkus za 10 sekund přepsat co nejvíce Mb textu.",
     type: "typingChallenge",
-    hint: "Klikni na START a zkus za 10 sekund opsat do textov0ho pole co nejvíce Mb textu.",
+    hint: "Klikni na START a zkus za 10 sekund opsat do textového pole co nejvíce Mb textu.",
   },
   {
     content:
@@ -109,9 +109,9 @@ export const stockData = [
   },
   {
     content:
-      "Ne vždy lze použít libovolný typ připojení. Zaškrtni pro každou ze čtyř situací níže, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
+      "Ne vždy lze použít libovolný typ připojení. Zaškrtni pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
     type: "howToConnect",
-    hint: "",
+    hint: "Zaškrtni pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
   },
   {
     content:

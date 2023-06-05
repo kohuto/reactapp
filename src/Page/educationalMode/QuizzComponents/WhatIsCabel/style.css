@@ -1,0 +1,10 @@
+.what-is-cabel-labels {
+    position: absolute;
+    font-size: 30px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 150px;
+    top: 100px;
+}
