@@ -1,9 +1,10 @@
 import Button from "@mui/material/Button";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import BasicModal from "../basicModal";
 import Typography from "@mui/material/Typography";
 import { stockData } from "../../../Data/Quizzes/dataQuizzes";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
 
 export default function NextLevelModal({ content, setGame, game }) {
   let messageLines = content;
@@ -48,5 +49,18 @@ export default function NextLevelModal({ content, setGame, game }) {
       </>
     );
   }
-  return <BasicModal content={<ContentNextLevel />} />;
+  return (
+    <>
+      <Dialog
+        open={true}
+        onClose={() => setGame("noGame")}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <ContentNextLevel />
+        </DialogContent>
+      </Dialog>
+    </>
+  );
 }

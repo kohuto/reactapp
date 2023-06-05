@@ -10,6 +10,7 @@ import serveryoutube from "../../../../images/nodes/serveryoutube.svg";
 import BasicModal from "../../../DialogWindow/basicModal";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import "./style.css";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 
 const FINAL_MESSAGE =
   "Perfektní! Nezapomeň, že informace (webové stránky, obrázky, videa...), které hledáme na internetu, jsou uložená na serverech.";
@@ -39,6 +40,8 @@ function WhatIsServerComponent({ setOpenDialog, info, setGame }) {
   const [correctYouTubeServerTouch, setcorrectYouTubeServerTouch] =
     useState(false);
   const [filledServer, setFilledServer] = useState(0);
+  const [infoMessage, setInfoMessage] = useState("");
+  const [isCorrectlyFilled, setIsCorrectlyFilled] = useState(false);
 
   /**
    * Checks whether the draggable components are touching the correct server components
@@ -107,17 +110,20 @@ function WhatIsServerComponent({ setOpenDialog, info, setGame }) {
     if (correctWebServerTouch) {
       webRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, CORRECT_WEB_MESSAGE);
+      setInfoMessage(CORRECT_WEB_MESSAGE);
+      setIsCorrectlyFilled(true);
     }
     if (correctInstagramServerTouch) {
       imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, CORRECT_INSTAGRAM_MESSAGE);
+      setInfoMessage(CORRECT_INSTAGRAM_MESSAGE);
+      setIsCorrectlyFilled(true);
     }
     if (correctYouTubeServerTouch) {
       videoRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
-      setOpenDialog(true, CORRECT_YOUTUBE_MESSAGE);
+      setInfoMessage(CORRECT_YOUTUBE_MESSAGE);
+      setIsCorrectlyFilled(true);
     }
   }, [
     correctWebServerTouch,
@@ -131,6 +137,13 @@ function WhatIsServerComponent({ setOpenDialog, info, setGame }) {
           content={FINAL_MESSAGE}
           game={info.type}
           setGame={setGame}
+        />
+      )}
+
+      {isCorrectlyFilled && (
+        <AlertDialog
+          content={infoMessage}
+          closeAction={() => setIsCorrectlyFilled(false)}
         />
       )}
       <BasicModal content={info.content} />

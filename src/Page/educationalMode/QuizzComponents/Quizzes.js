@@ -28,23 +28,11 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
 
   switch (game) {
     case "whatIsServer":
-      return (
-        <WhatIsServerComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <WhatIsServerComponent info={gameInfo} setGame={setGame} />;
     case "whatIsClient":
       return <Client info={gameInfo} setGame={setGame} />;
     case "client-server-communication":
-      return (
-        <ClientServerCommunication
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <ClientServerCommunication info={gameInfo} setGame={setGame} />;
     case "whereDataTravel":
       return <WhereDataTravel info={gameInfo} setGame={setGame} />;
     case "whatIsPath":
@@ -52,32 +40,13 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
     case "whatIsGateway":
       return <WhatIsGatewayComponent info={gameInfo} setGame={setGame} />;
     case "dataIntoPackets":
-      return (
-        <DataIntoPackets
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <DataIntoPackets info={gameInfo} setGame={setGame} />;
     case "whatIsPacket":
       return <WhatIsPacketComponent info={gameInfo} setGame={setGame} />;
     case "createPacket":
-      return (
-        <CreatePacketComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <CreatePacketComponent info={gameInfo} setGame={setGame} />;
     case "findServer":
-      return (
-        <FindPacketComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
-
+      return <FindPacketComponent info={gameInfo} setGame={setGame} />;
     case "sortFileSize":
       return <SortFileSize info={gameInfo} setGame={setGame} />;
     case "whatIsCabelTypeOfConnection":
@@ -85,36 +54,21 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
     case "whatIsCabel":
       return <WhatIsCabelComponent info={gameInfo} setGame={setGame} />;
     case "whatIsWiFi":
-      return (
-        <WhatIsWiFiComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <WhatIsWiFiComponent info={gameInfo} setGame={setGame} />;
     case "whatIsBTS":
       return <WhatIsBTSComponent info={gameInfo} setGame={setGame} />;
     case "whatIsSatelit":
       return <WhatIsSatelitComponent info={gameInfo} setGame={setGame} />;
     case "raceAroundWorld":
-      return (
-        <LatencyComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <LatencyComponent info={gameInfo} setGame={setGame} />;
     case "typingChallenge":
       return <BandWidthComponent info={gameInfo} setGame={setGame} />;
-
     case "connectClientsWireless":
       return (
-        <ConnectClientsWirelessComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
+        <ConnectClientsWirelessComponent info={gameInfo} setGame={setGame} />
       );
+    case "howToConnect":
+      return <HowToConnect info={gameInfo} setGame={setGame} />;
     case "howToConnect":
       return <HowToConnect info={gameInfo} setGame={setGame} />;
     case "shortestPath":

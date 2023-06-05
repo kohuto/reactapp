@@ -9,8 +9,9 @@ import { packetsFromClientToServer } from "../../../../Data/Packets/dataIntoPakc
 import { packetsFromServerToClient } from "../../../../Data/Packets/dataIntoPacketsServerClient";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 
-function DataIntoPackets({ setOpenDialog, info, setGame }) {
+function DataIntoPackets({ info, setGame }) {
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
@@ -31,6 +32,7 @@ function DataIntoPackets({ setOpenDialog, info, setGame }) {
   const [content1, setContent1] = useState("");
   const [content2, setContent2] = useState("");
   const [content3, setContent3] = useState("");
+  const [isErrorInput, setIsErrorInput] = useState(false);
   const longMessageErrorMessage = "napis zpravu, ktera ma max 24 znaku.";
   const finalMessage =
     "Perfektní! Právě jsi viděl, že se zpráva před odesláním rozloží na malé části, kterým říkáme pakety. Každá informace (fotka, webová stránka, video), je před odesláním rozložená a posílá se po částech.";
@@ -90,7 +92,7 @@ function DataIntoPackets({ setOpenDialog, info, setGame }) {
       packets2[1].content = content2;
       packets2[2].content = content3;
     } else {
-      setOpenDialog(true, longMessageErrorMessage);
+      setIsErrorInput(true);
     }
   };
 
@@ -108,6 +110,12 @@ function DataIntoPackets({ setOpenDialog, info, setGame }) {
   if (showPacketsCreatedMessageBox) {
     return (
       <>
+        {isErrorInput && (
+          <AlertDialog
+            closeAction={() => setIsErrorInput(false)}
+            content={longMessageErrorMessage}
+          />
+        )}
         <div className="data-into-packets-container-bg">
           <div className="data-into-packets-container">
             <span
