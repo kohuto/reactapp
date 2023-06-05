@@ -1,6 +1,10 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import IpGroup from "./ipGroup";
+import BasicModal from "../../../DialogWindow/basicModal";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+
 import "./style.css";
 
 const CORRECT_VALUES = ["IPv4", "Neplatná", "Neplatná", "IPv6", "IPv4"];
@@ -14,7 +18,6 @@ const IP_ADDRESSES = [
 const FINAL_MESSAGE =
   "Perfektní! Teď už víš, že díky IPv6 adresám se ještě hodně dlouho nemusíme bát, že by nám IP adresy došly.";
 const ERROR_MESSAGE = "Toto není správně.";
-
 /**
  * A component for sorting IP addresses.
  * @param {object} props - The props object.
@@ -22,7 +25,9 @@ const ERROR_MESSAGE = "Toto není správně.";
  * @param {function} props.setOpenOverlayDialog - The function to open the error overlay dialog.
  * @returns {JSX.Element} - The component JSX.
  */
-function SortIPAdresses({ setOpenDialog, setOpenOverlayDialog }) {
+function SortIPAdresses({ info, setGame }) {
+  const [isCorrectlyFilled, setIsCorrectlyFilled] = useState(false);
+  const [isIncorrectlyFilled, setIsIncorrectlyFilled] = useState(false);
   const [values, setValues] = useState(["", "", "", "", ""]);
 
   /**
@@ -43,14 +48,28 @@ function SortIPAdresses({ setOpenDialog, setOpenOverlayDialog }) {
    */
   function handleSubmit() {
     if (values.every((value, index) => value === CORRECT_VALUES[index])) {
-      setOpenDialog(true, FINAL_MESSAGE, "noGame");
+      setIsCorrectlyFilled(true);
     } else {
-      setOpenOverlayDialog(true, ERROR_MESSAGE);
+      setIsIncorrectlyFilled(true);
     }
   }
 
   return (
     <>
+      <BasicModal content={info.content} />
+      {isIncorrectlyFilled && (
+        <AlertDialog
+          content={ERROR_MESSAGE}
+          closeAction={() => setIsIncorrectlyFilled(false)}
+        />
+      )}
+      {isCorrectlyFilled && (
+        <NextLevelModal
+          content={FINAL_MESSAGE}
+          setGame={setGame}
+          game={info.type}
+        />
+      )}
       <div className="sort-ip-container">
         <div className="sort-ip-group">
           {values.map((value, index) => (
@@ -64,13 +83,11 @@ function SortIPAdresses({ setOpenDialog, setOpenOverlayDialog }) {
             </>
           ))}
         </div>
-        <Button
-          variant="outlined"
-          onClick={handleSubmit}
-          className="submit-button"
-        >
-          ZKONTROLOVAT
-        </Button>
+        <div className="sort-ip-submit-button">
+          <Button variant="outlined" onClick={handleSubmit}>
+            ZKONTROLOVAT
+          </Button>
+        </div>
       </div>
     </>
   );

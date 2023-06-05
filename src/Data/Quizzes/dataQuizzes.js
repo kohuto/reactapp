@@ -121,9 +121,9 @@ export const stockData = [
   },
   {
     content:
-      "Proč vznikla novější verze adres IPv6, když existovala IPv4? Dnes máme tolik počítačů, že je IPv4 adres málo. Proto byla vytvořena nová verze IPv6, díky které můžeme vytvořit daleko více adres. Nemusíme se ani bát, že by IPv6 adresy došly. Existuje 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres. Zkus nyní pro každou IP adresu níže určit, jestli se jedná o IPv4, IPv6 případně jestli to není IP adresa.",
+      "Novější IPv6 adresy vznikly, protože IPv4 adres začal být nedostatek. Existuje 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres.",
     type: "sortIPAdresses",
-    hint: "",
+    hint: "Pro každou z adres urči, jestli se jedná o IPv4, IPv6 nebo o neplatnou IP adresu.",
   },
   {
     content: "",
