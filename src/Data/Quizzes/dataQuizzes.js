@@ -79,13 +79,13 @@ export const stockData = [
   },
   {
     content:
-      "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který může využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat. \n Po zavření okna se podívej, jak vypadá přenos pomocí mobilního signálu.",
+      "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který může využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat.",
     type: "whatIsBTS",
     hint: "Animace znázorňuje, jak jsou přenášena data pomocí BTS věže.",
   },
   {
     content:
-      "Satelity jsou zařízení umístěna na oběžné dráze okolo Země. \n Satelitní připojení je nejméně používané, používají ho zařízení na obtížně přístupných místech. Když někdo pošle signál ze Země k satelitu, antény na satelitu signál zachytí a odrazí ho zpět na Zemi. \n Zavři okno a podívej se, jak by to vypadalo, kdyby chtěl klient na lodi uprostřed moře poslat požadavek na server.",
+      "Satelity jsou zařízení umístěna na oběžné dráze okolo Země. \n Satelitní připojení je nejméně používané, používají ho zařízení na obtížně přístupných místech. Když někdo pošle signál ze Země k satelitu, antény na satelitu signál zachytí a odrazí ho zpět na Zemi.",
     type: "whatIsSatelit",
     hint: "Animace znázorňuje, jak jsou přenášena data pomocí satelitu.",
   },
