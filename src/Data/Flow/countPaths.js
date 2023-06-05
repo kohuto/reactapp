@@ -1,4 +1,12 @@
-export const countPathGateway = [
+export const countPathsNodes = [
+  {
+    id: "51.247.206.27",
+    type: "custom",
+    dragHandle: "noDrag",
+    position: { x: 900, y: 300 },
+    className: "server-plain non-draggable",
+    data: { label: "51.247.206.27" },
+  },
   {
     id: "102.80.143.201",
     type: "default",
@@ -29,6 +37,14 @@ export const countPathGateway = [
     position: { x: 540, y: 500 },
     className: "gateway",
     data: { label: "135.156.222.108" },
+    dragHandle: "noDrag",
+  },
+  {
+    id: "194.200.5.136",
+    type: "custom",
+    position: { x: 85, y: 130 },
+    className: "PC",
+    data: { label: "194.200.5.136" },
     dragHandle: "noDrag",
   },
 ];

@@ -153,7 +153,7 @@ export const stockData = [
     content:
       "Klientovi přišla v paketech fotka. Pakety putují nezávisle na sobě, proto je potřeba je seřadit. Zkus fotku poskládat zpět do původní podoby. Pomohou ti čísla udávající pořadí paketu.",
     type: "puzzle",
-    hint: "",
+    hint: "Poskládej obrázek zpět do původní podoby. Pomohou ti čísla udávající pořadí paketu.",
   },
   {
     content:

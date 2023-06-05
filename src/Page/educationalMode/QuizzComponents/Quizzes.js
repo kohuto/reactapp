@@ -24,6 +24,7 @@ import SortFileSize from "./HowManyPackets/sortFileSize";
 import BandWidthComponent from "./BandWidth/bandWidth";
 import IPaddress from "./MyIP/IPadress";
 import SortIPAdresses from "./SortIPAddresses/sortIPAdresses";
+import Puzzle from "./Puzzle/puzzle";
 
 function QuizzComponents({ setOpenDialog, game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
@@ -76,29 +77,13 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
     case "sortIPAdresses":
       return <SortIPAdresses info={gameInfo} setGame={setGame} />;
     case "shortestPath":
-      return (
-        <ShortestPathComponent
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <ShortestPathComponent info={gameInfo} setGame={setGame} />;
     case "countOfPaths":
-      return (
-        <CountPaths
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <CountPaths info={gameInfo} setGame={setGame} />;
     case "problemWithPath":
-      return (
-        <ProblemWithPath
-          setOpenDialog={setOpenDialog}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <ProblemWithPath info={gameInfo} setGame={setGame} />;
+    case "puzzle":
+      return <Puzzle info={gameInfo} setGame={setGame} />;
     case "build-network-1":
     case "build-network-2":
     case "build-network-3":

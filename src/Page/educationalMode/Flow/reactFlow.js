@@ -6,15 +6,9 @@ import { clientsZoom2Data } from "../../../Data/Flow/client/clientsZoom2";
 import { serversZoom2Data } from "../../../Data/Flow/server/serverZoom2";
 import { gatewaysZoom2Data } from "../../../Data/Flow/gateway/gatewayZoom2";
 import { edgesData } from "../../../Data/Flow/edges/edges";
-import { shortestPathEdges } from "../../../Data/Flow/edges/shortestPathEdges";
 import BuildNetwork from "../QuizzComponents/BuildNetwork/buildNetwork";
 import { clientsCreatePacket } from "../../../Data/Flow/client/clientsCreatePacket";
 import { clientsFindServer } from "../../../Data/Flow/client/clientsFindServer";
-import { countPathGateway } from "../../../Data/Flow/gateway/countPathsGateway";
-import { countPathsEdges } from "../../../Data/Flow/edges/countPathsEdges";
-import { countPathsClient } from "../../../Data/Flow/client/countPathsClient";
-import { countPathsServer } from "../../../Data/Flow/server/countPathsServer";
-import { problemWithPathClient } from "../../../Data/Flow/client/problemWithPathClient";
 import { problemWithPathEdges } from "../../../Data/Flow/edges/problemWithPathEdges";
 import { problemWithPathGateway } from "../../../Data/Flow/gateway/problemWithPathGateway";
 import { problemWithPathServer } from "../../../Data/Flow/server/problemWithPathServer";
@@ -104,20 +98,6 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
         edges: setPathEdges,
       },
 
-      countOfPaths: {
-        nodes: [...countPathGateway, ...countPathsClient, ...countPathsServer],
-        edges: countPathsEdges,
-      },
-      problemWithPath: {
-        nodes: [
-          ...problemWithPathGateway,
-          ...problemWithPathServer,
-          ...problemWithPathClient,
-        ],
-        edges: isDestroyed
-          ? problemWithPathDestroyedPathEdges
-          : problemWithPathEdges,
-      },
       buildNetwork: {
         nodes: [],
         edges: edgesData,
