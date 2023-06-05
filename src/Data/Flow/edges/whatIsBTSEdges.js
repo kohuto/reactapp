@@ -2,7 +2,7 @@ export const whatIsBTSEdges = [
   {
     id: "86.108.103.180-94.113.91.4",
     source: "86.108.103.180",
-    target: "94.113.91.4",
+    target: "186.1.43.90",
     type: "straight",
   },
   {
