@@ -10,9 +10,6 @@ import { shortestPathEdges } from "../../../Data/Flow/edges/shortestPathEdges";
 import BuildNetwork from "../QuizzComponents/BuildNetwork/buildNetwork";
 import { clientsCreatePacket } from "../../../Data/Flow/client/clientsCreatePacket";
 import { clientsFindServer } from "../../../Data/Flow/client/clientsFindServer";
-import { shortestPathGateway } from "../../../Data/Flow/gateway/shortestPathGateway";
-import { shortestPathClient } from "../../../Data/Flow/client/shortestPathClient";
-import { shortestPathServer } from "../../../Data/Flow/server/shortestPathServer";
 import { countPathGateway } from "../../../Data/Flow/gateway/countPathsGateway";
 import { countPathsEdges } from "../../../Data/Flow/edges/countPathsEdges";
 import { countPathsClient } from "../../../Data/Flow/client/countPathsClient";
@@ -106,14 +103,7 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
         nodes: [...setPathGateway, ...setPathClient, ...setPathServer],
         edges: setPathEdges,
       },
-      shortestPath: {
-        nodes: [
-          ...shortestPathGateway,
-          ...shortestPathClient,
-          ...shortestPathServer,
-        ],
-        edges: shortestPathEdges,
-      },
+
       countOfPaths: {
         nodes: [...countPathGateway, ...countPathsClient, ...countPathsServer],
         edges: countPathsEdges,

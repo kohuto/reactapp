@@ -1,4 +1,12 @@
-export const shortestPathGateway = [
+export const shortestPathNodes = [
+  {
+    id: "194.200.5.136",
+    type: "custom",
+    position: { x: 85, y: 130 },
+    className: "notebook",
+    data: { label: "194.200.5.136" },
+    dragHandle: "noDrag",
+  },
   {
     id: "102.80.143.201",
     type: "default",
@@ -70,5 +78,13 @@ export const shortestPathGateway = [
     className: "gateway",
     data: { label: "159.199.179.144" },
     dragHandle: "noDrag",
+  },
+  {
+    id: "51.247.206.27",
+    type: "custom",
+    dragHandle: "noDrag",
+    position: { x: 900, y: 300 },
+    className: "server-plain non-draggable",
+    data: { label: "51.247.206.27" },
   },
 ];
