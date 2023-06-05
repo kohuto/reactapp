@@ -132,7 +132,7 @@ export const stockData = [
   },
   {
     content:
-      "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od Logana do serveru Messengeru.",
+      "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru Messengeru.",
     type: "shortestPath",
     hint: "Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od Logana do serveru Messengeru.",
   },
