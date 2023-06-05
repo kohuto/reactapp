@@ -1,17 +1,15 @@
 .jigsaw-puzzle {
-  
-    width: 33%;
-    height: 33%;
-    border: 2px solid black;
-    
-    box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
-    z-index: 15;
-  }
+  width: 33%;
+  height: 33%;
+  border: 2px solid black;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
+  z-index: 15;
+}
 
-  .jigsaw-puzzle-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.jigsaw-puzzle-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
