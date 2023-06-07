@@ -396,7 +396,7 @@ function DropdownMenu({
 
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[22].type)}
+              onClick={() => setGame(stockData[21].type)}
             >
               <DropdownItem leftIcon={question}>
                 NEJRYCHLEJŠÍ CESTA
@@ -404,19 +404,19 @@ function DropdownMenu({
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[23].type)}
+              onClick={() => setGame(stockData[22].type)}
             >
               <DropdownItem leftIcon={question}>POČET CEST</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[24].type)}
+              onClick={() => setGame(stockData[23].type)}
             >
               <DropdownItem leftIcon={question}>PROBLÉM NA CESTĚ</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[25].type)}
+              onClick={() => setGame(stockData[24].type)}
             >
               <DropdownItem leftIcon={question}>SESTAVENÍ ZPRÁVY</DropdownItem>
             </div>
