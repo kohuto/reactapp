@@ -8,6 +8,7 @@ import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import SimpleFlow from "../../Flow/simpleFlow";
 import { findServerNodes } from "../../../../Data/Flow/findServers";
+import { findServerEdges } from "../../../../Data/Flow/edges/findServers";
 /**
  * Component that renders a find packet form and a list of packets.
  * @param {Object} props - The component props.
@@ -38,7 +39,7 @@ function FindPacketComponent({ info, setGame }) {
         />
       )}
       <BasicModal content={info.content} />
-      <SimpleFlow nodes={findServerNodes} edges={[]} />
+      <SimpleFlow nodes={findServerNodes} edges={findServerEdges} />
       <DefaultPackets
         packetsData={findServerData}
         repeat={Infinity}

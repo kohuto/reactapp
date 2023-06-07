@@ -12,11 +12,17 @@ import { whatIsSatelitNodes } from "../../Data/Flow/whatIsSatelit";
 import { whatIsBTSNodes } from "../../Data/Flow/whatIsBTS";
 import { whatIsWifiNodes } from "../../Data/Flow/whatIsWifi";
 import { landingPageNodes } from "../../Data/Flow/creativeMode";
+import { findServerNodes } from "../../Data/Flow/findServers";
 
 function getCoordinates(id, nodes) {
   const nodeInNodes = nodes.find((s) => s.id === id);
   if (nodeInNodes) {
     return { x: nodeInNodes.position.x, y: nodeInNodes.position.y };
+  }
+
+  const nodeInFindServers = findServerNodes.find((s) => s.id === id);
+  if (nodeInFindServers) {
+    return { x: nodeInFindServers.position.x, y: nodeInFindServers.position.y };
   }
 
   const nodesLandingPage = landingPageNodes.find((s) => s.id === id);
