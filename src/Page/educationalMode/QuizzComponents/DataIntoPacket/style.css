@@ -1,10 +1,17 @@
 
+:root {
+  --width-chat-container: var(500px);
+  --height-chat-container: var(500px);
+  --margin-left-chat-container: calc((100vw - 500px) / 2);
+  --margin-top-chat-container: calc((100vh - 500px) / 2);
+}
+
 /* messenger chat styles */
 .chat-container {
     position: absolute;
     z-index: 5;
-    top: 50px;
-    right: 25%;
+    top: var(--margin-top-chat-container);
+    right: var(--margin-left-chat-container);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

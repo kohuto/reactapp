@@ -10,8 +10,19 @@ import { packetsFromServerToClient } from "../../../../Data/Packets/dataIntoPack
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+import SimpleFlow from "../../Flow/simpleFlow";
+import { edgesData } from "../../../../Data/Flow/edges/edges";
+import { clientsZoom2Data } from "../../../../Data/Flow/client/clientsZoom2";
+import { serversZoom2Data } from "../../../../Data/Flow/server/serverZoom2";
+import { gatewaysZoom2Data } from "../../../../Data/Flow/gateway/gatewayZoom2";
 
 function DataIntoPackets({ info, setGame }) {
+  const defaultNodes = [
+    ...clientsZoom2Data,
+    ...serversZoom2Data,
+    ...gatewaysZoom2Data,
+  ];
+
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
     {
@@ -185,36 +196,46 @@ function DataIntoPackets({ info, setGame }) {
       </div>
     );
   } else if (showPackets1) {
-    return content3.length > 0 ? (
-      <DefaultPackets packetsData={packets1} repeat={0} marginleft={0} />
-    ) : content2.length > 0 ? (
-      <DefaultPackets
-        packetsData={packets1.slice(0, 2)}
-        repeat={0}
-        marginleft={20}
-      />
-    ) : (
-      <DefaultPackets
-        packetsData={packets1.slice(0, 1)}
-        repeat={0}
-        marginleft={20}
-      />
+    return (
+      <>
+        <SimpleFlow nodes={defaultNodes} edges={edgesData} />
+        {content3.length > 0 ? (
+          <DefaultPackets packetsData={packets1} repeat={0} marginleft={0} />
+        ) : content2.length > 0 ? (
+          <DefaultPackets
+            packetsData={packets1.slice(0, 2)}
+            repeat={0}
+            marginleft={0}
+          />
+        ) : (
+          <DefaultPackets
+            packetsData={packets1.slice(0, 1)}
+            repeat={0}
+            marginleft={0}
+          />
+        )}
+      </>
     );
   } else if (showPackets2) {
-    return content3.length > 0 ? (
-      <DefaultPackets packetsData={packets2} repeat={0} marginleft={0} />
-    ) : content2.length > 0 ? (
-      <DefaultPackets
-        packetsData={packets2.slice(0, 2)}
-        repeat={0}
-        marginleft={20}
-      />
-    ) : (
-      <DefaultPackets
-        packetsData={packets2.slice(0, 1)}
-        repeat={0}
-        marginleft={20}
-      />
+    return (
+      <>
+        <SimpleFlow nodes={defaultNodes} edges={edgesData} />
+        {content3.length > 0 ? (
+          <DefaultPackets packetsData={packets2} repeat={0} marginleft={0} />
+        ) : content2.length > 0 ? (
+          <DefaultPackets
+            packetsData={packets2.slice(0, 2)}
+            repeat={0}
+            marginleft={0}
+          />
+        ) : (
+          <DefaultPackets
+            packetsData={packets2.slice(0, 1)}
+            repeat={0}
+            marginleft={0}
+          />
+        )}
+      </>
     );
   } else if (showPacketsInServerMessageBox) {
     return (

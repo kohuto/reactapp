@@ -53,18 +53,6 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
   useEffect(() => {
     // Define an object that maps each game to its corresponding nodes and edges.
     const gameToNodesAndEdges = {
-      whatIsClient: {
-        nodes: [...clientsZoom2Data, ...serversZoom2Data],
-        edges: edgesData,
-      },
-      createPacket: {
-        nodes: [
-          ...clientsCreatePacket,
-          ...serversZoom2Data,
-          ...gatewaysZoom2Data,
-        ],
-        edges: edgesData,
-      },
       findServer: {
         nodes: [
           ...clientsFindServer,
@@ -73,35 +61,17 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
         ],
         edges: edgesData,
       },
-      whatIsCabel: {
-        nodes: [
-          ...whatIsCabelClient,
-          ...whatIsCabelGateway,
-          ...whatIsCabelServer,
-        ],
-        edges: whatIsCabelEdges,
-      },
+
       whatIsWiFi: {
         nodes: whatIsWifiNodes,
         edges: edgesData,
       },
-      whatIsBTS: {
-        nodes: whatIsBTSNodes,
-        edges: whatIsBTSEdges,
-      },
-      whatIsSatelit: {
-        nodes: whatIsSatelitNodes,
-        edges: whatIsSatelitEdges,
-      },
+
       setPath: {
         nodes: [...setPathGateway, ...setPathClient, ...setPathServer],
         edges: setPathEdges,
       },
 
-      buildNetwork: {
-        nodes: [],
-        edges: edgesData,
-      },
       default: {
         nodes: defaultNodes,
         edges: edgesData,
@@ -117,10 +87,6 @@ function Flow({ game, nodes, setNodes, onNodesChange, isDestroyed }) {
 
   return (
     <>
-      {game === "buildNetwork" && (
-        <BuildNetwork game={game} setNodes={setNodes} nodes={nodes} />
-      )}
-
       <ReactFlow
         nodes={nodes}
         edges={edges}
