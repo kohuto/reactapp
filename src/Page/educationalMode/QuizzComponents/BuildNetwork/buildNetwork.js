@@ -1,19 +1,24 @@
 import { useCallback, useEffect } from "react";
-import { useNodesState, useEdgesState, ReactFlowProvider } from "reactflow";
-import Flow from "./flow";
-import AddNodeButtons from "./addNodeButtons";
+import { useNodesState, useEdgesState } from "reactflow";
 import "./style.css";
-
+import CreativeModeFlow from "../../../CreativeMode/Flow/creativeModeFlow";
+import AddDeviceButtons from "../../../CreativeMode/addDeviceButtons";
+import "../../../CreativeMode/creativeMode.css";
+import CheckButton from "./checkButton";
+import BasicModal from "../../../DialogWindow/basicModal";
+import { useState } from "react";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 /**
  * Object containing the possible types of devices.
  */
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged-build",
-  CLIENT_UNPLUGGED: "client-unplugged-build",
-  WIFI: "wifi-build",
-  BTS: "bts-build",
-  GATEWAY: "gateway-build",
-  SERVER: "server-build",
+  CLIENT_PLUGGED: "client-plugged-creative",
+  CLIENT_UNPLUGGED: "client-unplugged-creative",
+  WIFI: "wifi-creative",
+  BTS: "bts-creative",
+  GATEWAY: "gateway-creative",
+  SERVER: "server-creative",
 };
 
 const FINAL_MESSAGE = "good job";
@@ -39,9 +44,12 @@ const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
  * @param {Object} setOpenDialog - A function that opens a dialog box.
  * @param {string} game - A string representing the current game being played.
  */
-function FlowWithProvider({ setOpenDialog, game }) {
+function FlowWithProvider({ setOpenDialog, game, info, setGame }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [isInvalid, setIsInvalid] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   /**
    * Checks if clients are plugged in and updates their class accordingly.
@@ -100,7 +108,7 @@ function FlowWithProvider({ setOpenDialog, game }) {
       } else {
         let newNode = {
           id: `${ipv4Address}`,
-          type: "default",
+          type: "custom",
           position: { x: 300, y: 300 },
           className: `${device}`,
           data: { label: `${ipv4Address}` },
@@ -119,56 +127,66 @@ function FlowWithProvider({ setOpenDialog, game }) {
    * If any errors are found, it displays a corresponding error message to the user.
    */
   function checkValidity() {
-    const nodeCounts = countNodesByType(nodes);
-
     if (!isConnected(nodes, edges)) {
-      return setOpenDialog(true, MISSING_CONNECTION_ERROR);
+      setErrorMessage(MISSING_CONNECTION_ERROR);
+      setIsInvalid(true);
     }
     if (hasGatewayBridge(nodes, edges)) {
-      return setOpenDialog(true, BRIDGE_ERROR);
+      setErrorMessage(BRIDGE_ERROR);
+      setIsInvalid(true);
     }
     if (hasArticulationGateway(nodes, edges)) {
-      return setOpenDialog(true, ARTICULATION_ERROR);
+      setErrorMessage(ARTICULATION_ERROR);
+      setIsInvalid(true);
     }
     if (!hasCorrectEdge(nodes, edges)) {
-      return setOpenDialog(true, INCORRECT_EDGE_ERROR);
+      setErrorMessage(INCORRECT_EDGE_ERROR);
+      setIsInvalid(true);
     }
-    if (nodeCounts[DEVICE_TYPE.CLIENT_UNPLUGGED] > 0) {
-      return setOpenDialog(true, UNPLUGGED_CLIENT_ERROR);
+    if (countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) > 0) {
+      setErrorMessage(UNPLUGGED_CLIENT_ERROR);
+      setIsInvalid(true);
     }
 
     switch (game) {
       case "build-network-1":
         if (
-          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 0 &&
-          nodeCounts[DEVICE_TYPE.SERVER] > 0 &&
-          nodeCounts[DEVICE_TYPE.GATEWAY] > 2
+          countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
+          countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
+          countNodesByType(nodes, DEVICE_TYPE.GATEWAY) > 2
         ) {
-          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+          setIsValid(true);
         } else {
-          return setOpenDialog(true, MISSING_DEVICES_TASK1_ERROR);
+          setErrorMessage(MISSING_DEVICES_TASK1_ERROR);
+          setIsInvalid(true);
         }
+        return;
       case "build-network-2":
         if (
-          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 0 &&
-          nodeCounts[DEVICE_TYPE.SERVER] > 0 &&
-          nodeCounts[DEVICE_TYPE.BTS] > 0
+          countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
+          countNodesByType(nodes, DEVICE_TYPE.SERVER) > 0 &&
+          countNodesByType(nodes, DEVICE_TYPE.BTS) > 0
         ) {
-          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+          setIsValid(true);
         } else {
-          return setOpenDialog(true, MISSING_DEVICES_TASK2_ERROR);
+          setErrorMessage(MISSING_DEVICES_TASK2_ERROR);
+          setIsInvalid(true);
         }
+        return;
       case "build-network-3":
         if (
-          nodeCounts[DEVICE_TYPE.CLIENT_PLUGGED] > 2 &&
-          nodeCounts[DEVICE_TYPE.SERVER] > 2
+          countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&
+          countNodesByType(nodes, DEVICE_TYPE.SERVER) > 2
         ) {
-          return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+          setIsValid(true);
         } else {
-          return setOpenDialog(true, MISSING_DEVICES_TASK3_ERROR);
+          setErrorMessage(MISSING_DEVICES_TASK3_ERROR);
+          setIsInvalid(true);
         }
+        return;
       case "build-network-4":
-        return setOpenDialog(true, FINAL_MESSAGE, "noGame");
+        setIsValid(true);
+        return;
       default:
         return;
     }
@@ -176,21 +194,29 @@ function FlowWithProvider({ setOpenDialog, game }) {
 
   return (
     <>
-      <AddNodeButtons
-        handleAddNode={handleAddNode}
-        checkValidity={checkValidity}
-        nodes={nodes}
-      />
-
-      <ReactFlowProvider>
-        <Flow
-          setEdges={setEdges}
-          edges={edges}
-          nodes={nodes}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
+      <BasicModal content={info.content} />
+      {isInvalid && (
+        <AlertDialog
+          closeAction={() => setIsInvalid(false)}
+          content={errorMessage}
         />
-      </ReactFlowProvider>
+      )}
+      {isValid && (
+        <NextLevelModal
+          content={FINAL_MESSAGE}
+          setGame={setGame}
+          game={info.type}
+        />
+      )}
+      <AddDeviceButtons handleAddNode={handleAddNode} nodes={nodes} />
+      <CheckButton checkValidity={checkValidity} />
+      <CreativeModeFlow
+        setEdges={setEdges}
+        edges={edges}
+        nodes={nodes}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+      />
     </>
   );
 }
@@ -272,8 +298,8 @@ function isConnected(nodes, edges) {
   // Check if every node was visited
   return nodes.every(
     (node) =>
-      node.className === DEVICE_TYPE.CLIENT_UNPLUGGED ||
-      node.className === DEVICE_TYPE.CLIENT_PLUGGED ||
+      node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED) ||
+      node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED) ||
       visited[node.id]
   );
 }
@@ -470,7 +496,7 @@ function generateIpv4Address() {
 }
 
 function countNodesByType(nodes, type) {
-  return nodes.filter((node) => node.className === type).length;
+  return nodes.filter((node) => node.className.includes(type)).length;
 }
 
 export default FlowWithProvider;

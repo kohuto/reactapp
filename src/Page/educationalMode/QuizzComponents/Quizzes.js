@@ -25,6 +25,9 @@ import BandWidthComponent from "./BandWidth/bandWidth";
 import IPaddress from "./MyIP/IPadress";
 import SortIPAdresses from "./SortIPAddresses/sortIPAdresses";
 import Puzzle from "./Puzzle/puzzle";
+import BuildNetwork1 from "./BuildNetwork1/buildNetwork1";
+import BuildNetwork2 from "./BuildNetwork2/buildNetwork";
+import BuildNetwork3 from "./BuildNetwork3/buildNetwork";
 
 function QuizzComponents({ setOpenDialog, game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
@@ -85,8 +88,32 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
     case "puzzle":
       return <Puzzle info={gameInfo} setGame={setGame} />;
     case "build-network-1":
+      return (
+        <BuildNetwork1
+          setOpenDialog={setOpenDialog}
+          game={game}
+          info={gameInfo}
+          setGame={setGame}
+        />
+      );
     case "build-network-2":
+      return (
+        <BuildNetwork2
+          setOpenDialog={setOpenDialog}
+          game={game}
+          info={gameInfo}
+          setGame={setGame}
+        />
+      );
     case "build-network-3":
+      return (
+        <BuildNetwork3
+          setOpenDialog={setOpenDialog}
+          game={game}
+          info={gameInfo}
+          setGame={setGame}
+        />
+      );
     case "build-network-4":
       return (
         <BuildNetwork

@@ -1,11 +1,11 @@
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import serverImage from "../../images/nodes/server.png";
-import btsImage from "../../images/nodes/btsvez.jpg";
-import clientImage from "../../images/nodes/klient.jpg";
-import wifiImage from "../../images/nodes/wifi.jpg";
-import gatewayImage from "../../images/nodes/gateway.jpg";
+import serverImage from "../../images/nodes/server_komplet.svg";
+import btsImage from "../../images/nodes/BTSvez.svg";
+import clientImage from "../../images/nodes/notebook.svg";
+import wifiImage from "../../images/nodes/wifi.svg";
+import gatewayImage from "../../images/nodes/chytrakrizovatka_kratka.svg";
 
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",

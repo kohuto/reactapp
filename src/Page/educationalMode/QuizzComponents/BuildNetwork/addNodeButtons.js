@@ -10,12 +10,12 @@ import RuleIcon from "@mui/icons-material/Rule";
 
 // Object that defines the different types of devices that can be added
 const DEVICE_TYPE = {
-  CLIENT_PLUGGED: "client-plugged-build",
-  CLIENT_UNPLUGGED: "client-unplugged-build",
-  WIFI: "wifi-build",
-  BTS: "bts-build",
-  GATEWAY: "gateway-build",
-  SERVER: "server-build",
+  CLIENT_PLUGGED: "client-plugged-creative",
+  CLIENT_UNPLUGGED: "client-unplugged-creative",
+  WIFI: "wifi-creative",
+  BTS: "bts-creative",
+  GATEWAY: "gateway-creative",
+  SERVER: "server-creative",
 };
 
 /**
