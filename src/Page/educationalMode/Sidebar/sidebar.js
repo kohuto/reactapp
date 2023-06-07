@@ -12,7 +12,6 @@ import backarrow from "../../../images/icons/left-arrow.png";
 import summary from "../../../images/icons/summary.png";
 import question from "../../../images/icons/question-mark.png";
 import lightbulb from "../../../images/icons/light-bulb.png";
-import Quizz from "../../DialogWindow/Templates/innerQuizz";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 

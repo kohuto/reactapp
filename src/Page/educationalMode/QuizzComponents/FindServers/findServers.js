@@ -28,7 +28,7 @@ function FindPacketComponent({ info, setGame }) {
       {filledCorrectly && (
         <NextLevelModal
           setGame={setGame}
-          game={info.game}
+          game={info.type}
           content={finalMessage}
         />
       )}

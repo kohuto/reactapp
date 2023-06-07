@@ -63,7 +63,7 @@ export const stockData = [
     content:
       "Odeslaná data se před odesláním rozloží na pakety. Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vleze 1KB dat",
     type: "sortFileSize",
-    hint: "",
+    hint: "Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vleze 1KB dat",
   },
   {
     content:
