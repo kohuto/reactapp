@@ -51,7 +51,7 @@ export const stockData = [
     content:
       "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc obsahuje pořadí a ID pro zpětné sestavení zprávy.",
     type: "createPacket",
-    hint: "Karin poslala Xavierovi přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vleze 8 písmen z původní zprávy.",
+    hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vleze 8 znaků z původní zprávy.",
   },
   {
     content:

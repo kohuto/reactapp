@@ -5,13 +5,16 @@ import BasicModal from "../../../DialogWindow/basicModal";
 import InsidePacket from "./insidePacket";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+import SimpleFlow from "../../Flow/simpleFlow";
+import { createPacketsNodes } from "../../../../Data/Flow/createPackets";
+import { createPacketsEdges } from "../../../../Data/Flow/edges/createPackets";
 /**
  * Component that allows the user to create and validate packets of a message
  * @param {function} setOpenDialog - A function that sets the open state of a dialog
  */
 function CreatePacketComponent({ info, setGame }) {
   const messengerServer = "195.113.76.22";
-  const correctSenderIP = "2620:0:862:ed1a::1";
+  const correctSenderIP = "214.17.55.99";
   const firstPartMessage = "AHOJ XAV";
   const secondPartMessage = "I, JAK S";
   const thirdPartMessage = "E MÁŠ?";
@@ -69,6 +72,7 @@ function CreatePacketComponent({ info, setGame }) {
 
   return (
     <>
+      <SimpleFlow nodes={createPacketsNodes} edges={createPacketsEdges} />
       {isIncorrect && (
         <AlertDialog
           content={errorMessage}
