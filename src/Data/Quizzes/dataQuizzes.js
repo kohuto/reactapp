@@ -129,13 +129,13 @@ export const stockData = [
     content:
       "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru Messengeru.",
     type: "shortestPath",
-    hint: "Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od Logana do serveru Messengeru.",
+    hint: "Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru.",
   },
   {
     content:
-      "Zkus spočítat, po kolika různých cestách by mohl putovat paket od Elisabeth do Messenger serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole. V další aktivitě se dozvíš, proč je dobré, aby cest bylo více.",
+      "Zkus spočítat, po kolika různých cestách by mohl putovat paket od klienta do serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole.",
     type: "countOfPaths",
-    hint: "",
+    hint: "Zkus spočítat, po kolika různých cestách by mohl putovat paket od klienta do serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole.",
   },
   {
     content:
@@ -154,23 +154,23 @@ export const stockData = [
     content:
       "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
     type: "build-network-1",
-    hint: "",
+    hint: "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
   },
   {
     content:
       "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
     type: "build-network-2",
-    hint: "",
+    hint: "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
   },
   {
     content:
       "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
     type: "build-network-3",
-    hint: "",
+    hint: "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
   },
   {
     content: "Tento úkol není hotový",
     type: "build-network-4",
-    hint: "",
+    hint: "Tento úkol není hotový",
   },
 ];
