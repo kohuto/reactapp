@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.c20cfc77.css",
-    "main.js": "/reactapp/static/js/main.14e15c09.js",
+    "main.css": "/reactapp/static/css/main.a2735b40.css",
+    "main.js": "/reactapp/static/js/main.a3a56168.js",
     "static/media/land.jpg": "/reactapp/static/media/land.3f3365c06929f40c82df.jpg",
     "static/media/whatisbtsbg.png": "/reactapp/static/media/whatisbtsbg.f3e5908f5b2f649da82b.png",
     "static/media/serverwebhost.svg": "/reactapp/static/media/serverwebhost.04cf856bc5500e3f3acb925165afc9d3.svg",
@@ -46,11 +46,11 @@
     "static/media/wifi.svg": "/reactapp/static/media/wifi.e23c4d268d7321bdfdce7cf1622fbbc1.svg",
     "static/media/paket.svg": "/reactapp/static/media/paket.ed826b73ce07888eb6f4.svg",
     "index.html": "/reactapp/index.html",
-    "main.c20cfc77.css.map": "/reactapp/static/css/main.c20cfc77.css.map",
-    "main.14e15c09.js.map": "/reactapp/static/js/main.14e15c09.js.map"
+    "main.a2735b40.css.map": "/reactapp/static/css/main.a2735b40.css.map",
+    "main.a3a56168.js.map": "/reactapp/static/js/main.a3a56168.js.map"
   },
   "entrypoints": [
-    "static/css/main.c20cfc77.css",
-    "static/js/main.14e15c09.js"
+    "static/css/main.a2735b40.css",
+    "static/js/main.a3a56168.js"
   ]
 }
