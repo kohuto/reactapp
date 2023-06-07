@@ -11,9 +11,9 @@ import "./style.css";
  */
 function InputBox({ setFilledCorrectly, setIsIncorrect }) {
   const correctClients = [
-    { name: "Kiara", ip: "195.113.76.22" },
-    { name: "Annika", ip: "195.113.89.35" },
-    { name: "Eustác", ip: "192.168.1.1" },
+    { name: "Kiara (104.169.110.92)", ip: "199.38.67.227" },
+    { name: "Annika (60.150.25.71)", ip: "5.10.40.25" },
+    { name: "Eustác (99.133.116.181)", ip: "199.38.67.227" },
   ];
 
   const [clients, setClients] = useState(

@@ -4,7 +4,7 @@ export const findServerNodes = [
     type: "custom",
     position: { x: 90, y: 130 },
     className: "mobil",
-    data: { label: "60.150.25.71  Maruška" },
+    data: { label: "60.150.25.71" },
     dragHandle: "noDrag",
   },
   {
@@ -12,7 +12,7 @@ export const findServerNodes = [
     type: "custom",
     position: { x: 90, y: 280 },
     className: "mobil",
-    data: { label: "104.169.110.92  Maruška" },
+    data: { label: "104.169.110.92" },
     dragHandle: "noDrag",
   },
   {
@@ -20,7 +20,7 @@ export const findServerNodes = [
     type: "custom",
     position: { x: 90, y: 420 },
     className: "mobil",
-    data: { label: "99.133.116.181  Maruška" },
+    data: { label: "99.133.116.181" },
     dragHandle: "noDrag",
   },
   {
