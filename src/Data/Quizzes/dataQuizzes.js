@@ -126,11 +126,6 @@ export const stockData = [
     hint: "Pro každou z adres urči, jestli se jedná o IPv4, IPv6 nebo o neplatnou IP adresu.",
   },
   {
-    content: "",
-    type: "setPath",
-    hint: "",
-  },
-  {
     content:
       "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru Messengeru.",
     type: "shortestPath",
