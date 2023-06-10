@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNodesState } from "reactflow";
 import Dialog from "./DialogWindow/dialogWindow";
-import CreativeMode from "./CreativeMode/creativeMode";
+import CreativeMode from "./CreativeMode/creativeModeWithoutPackets";
 import DefaultPackets from "./Packet";
 import { landingPagePacketsData } from "../Data/Packets/landingPage";
 import EducationalMode from "./educationalMode/eduMode";
-import LandingPage from "./LandingPage/landingPage";
 
 /**
  * This is the main component of the application.
@@ -21,7 +20,7 @@ function Page() {
     useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
-  const [mode, setMode] = useState("landingPage");
+  const [mode, setMode] = useState("educational");
   // games that needs special flows
   const specialFlowGame = [
     /*"client-server-communication",
@@ -60,18 +59,8 @@ function Page() {
     setGameAfterDialogClose(game);
   }
 
-  function handleModeChange(mode) {
-    setMode(mode);
-  }
-
   return (
     <>
-      {mode === "landingPage" && (
-        <LandingPage
-          setMode={handleModeChange}
-          setOpenDialog={handleOpenDialog}
-        />
-      )}
       {/* Main dialog */}
       <Dialog
         open={openDialog}
@@ -81,35 +70,13 @@ function Page() {
         gameAfterClose={gameAfterDialogClose}
       />
 
-      {mode === "creative" && (
-        <>
-          <DefaultPackets
-            packetsData={landingPagePacketsData}
-            repeat={Infinity}
-            marginleft={0}
-          />
-
-          <CreativeMode
-            setOpenModal={handleOpenDialog}
-            setIsCreativeMode={() => setMode("educational")}
-          />
-        </>
-      )}
-      {mode === "educational" && (
-        <EducationalMode
-          game={game}
-          setGame={setGame}
-          setOpenDialog={handleOpenDialog}
-          setGameAfterDialogClose={handleGameAfterDialogCloseChange}
-          isDestroyedProblemWithPath={isDestroyedProblemWithPath}
-          gameAfterDialogClose={gameAfterDialogClose}
-          nodes={nodes}
-          setNodes={setNodes}
-          onNodesChange={onNodesChange}
-          setIsCreativeMode={() => setMode("creative")}
-          specialFlowGame={specialFlowGame}
-        />
-      )}
+      <EducationalMode
+        game={game}
+        setGame={setGame}
+        setOpenDialog={handleOpenDialog}
+        setGameAfterDialogClose={handleGameAfterDialogCloseChange}
+        gameAfterDialogClose={gameAfterDialogClose}
+      />
     </>
   );
 }

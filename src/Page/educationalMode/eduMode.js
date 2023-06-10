@@ -1,6 +1,5 @@
 import Sidebar from "./Sidebar/sidebar";
 import QuizzComponents from "./QuizzComponents/Quizzes";
-import Flow from "./Flow/reactFlow";
 import Dialog from "../DialogWindow/dialogWindow";
 import PlaygroundSpeedDial from "./QuizzHelp/quizzHelp";
 import { useState } from "react";
@@ -26,16 +25,9 @@ import "./style.css";
 function EducationalMode({
   game,
   setGame,
-  setGameAfterDialogClose,
   setOpenDialog,
-  setIsDestroyedProblemWithPath,
-  isDestroyedProblemWithPath,
+  setGameAfterDialogClose,
   gameAfterDialogClose,
-  nodes,
-  setNodes,
-  onNodesChange,
-  setIsCreativeMode,
-  specialFlowGame,
 }) {
   const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
@@ -54,9 +46,6 @@ function EducationalMode({
       {/* Extra quizz components visible only within concrete quizz */}
       <QuizzComponents
         game={game}
-        //setOpenDialog={setOpenDialog}
-        setIsDistroyedProblemWithPath={setIsDestroyedProblemWithPath}
-        isDestroyed={isDestroyedProblemWithPath}
         setOpenDialog={handleOpenOverlayDialog}
         setGame={setGame}
       />
@@ -70,24 +59,11 @@ function EducationalMode({
         gameAfterClose={gameAfterDialogClose}
       />
 
-      {/* Main content */}
-      {specialFlowGame.includes(game) && game != "noGame" && (
-        <div className="main-flow-container">
-          <Flow
-            game={game}
-            nodes={nodes}
-            setNodes={setNodes}
-            onNodesChange={onNodesChange}
-            isDestroyed={isDestroyedProblemWithPath}
-          />
-        </div>
-      )}
       {/* sidebars */}
       {game != "noGame" ? (
         <PlaygroundSpeedDial setGame={setGame} game={game} />
       ) : (
         <Sidebar
-          setIsCreativeMode={setIsCreativeMode}
           setOpenDialog={setOpenDialog}
           setOpenOverlayDialog={handleOpenOverlayDialog}
           setGame={setGame}

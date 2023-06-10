@@ -15,30 +15,11 @@ import lightbulb from "../../../images/icons/light-bulb.png";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
-const CREATIVE_WELCOME_MESSAGE =
-  "Vítej v kreativním módu. \n Pokud nebudeš vědět, co máš dělat, klikni vpravo dole na nápovědu. Pokud budeš chtít přejít do výukového módu, klikni na ikonku vedle nápovědy.";
-/**
- * Renders the sidebar component.
- * @param {function} setIsCreativeMode - Function to set the creative mode.
- * @param {function} setOpenDialog - Function to open the dialog.
- * @param {function} setOpenOverlayDialog - Function to open the overlay dialog.
- * @return {JSX.Element} The rendered component.
- */
-function Sidebar({
-  setIsCreativeMode,
-  setOpenDialog,
-  setOpenOverlayDialog,
-  setGame,
-}) {
+function Sidebar({ setOpenDialog, setOpenOverlayDialog, setGame }) {
   return (
     <Navbar>
       <NavItem>
-        <DropdownMenu
-          setIsCreativeMode={setIsCreativeMode}
-          setOpenDialog={setOpenDialog}
-          setOpenOverlayDialog={setOpenOverlayDialog}
-          setGame={setGame}
-        />
+        <DropdownMenu setOpenDialog={setOpenDialog} setGame={setGame} />
       </NavItem>
     </Navbar>
   );
@@ -71,17 +52,10 @@ function NavItem(props) {
 /**
  * Renders the dropdown menu component.
  * @param {object} props - The component props.
- * @param {function} props.setIsCreativeMode - Function to set the creative mode.
  * @param {function} props.setOpenDialog - Function to open the dialog.
- * @param {function} props.setOpenOverlayDialog - Function to open the overlay dialog.
  * @return {JSX.Element} The rendered component.
  */
-function DropdownMenu({
-  setIsCreativeMode,
-  setOpenDialog,
-  setOpenOverlayDialog,
-  setGame,
-}) {
+function DropdownMenu({ setOpenDialog, setGame }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const dropdownRef = useRef(null);
 
@@ -108,11 +82,6 @@ function DropdownMenu({
     );
   }
 
-  function handleGoToEduMode() {
-    setIsCreativeMode();
-    setOpenDialog(true, CREATIVE_WELCOME_MESSAGE);
-  }
-
   return (
     <div className="custom-dropdown" ref={dropdownRef}>
       <div className="over-flow-container">
@@ -135,16 +104,12 @@ function DropdownMenu({
             <DropdownItem leftIcon={wifi} goToMenu="typy-pripojeni">
               TYPY PŘIPOJENÍ
             </DropdownItem>
-
             <DropdownItem leftIcon={gateway} goToMenu="servery-a-krizovatky">
               SERVERY A KŘIŽOVATKY
             </DropdownItem>
             <DropdownItem leftIcon={builder} goToMenu="build-network">
               POSTAV SÍŤ
             </DropdownItem>
-            <div id="downitem" onClick={() => handleGoToEduMode()}>
-              <DropdownItem leftIcon={backarrow}>KREATIVNÍ MÓD</DropdownItem>
-            </div>
           </div>
         </CSSTransition>
 

@@ -44,7 +44,7 @@ const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
  * @param {Object} setOpenDialog - A function that opens a dialog box.
  * @param {string} game - A string representing the current game being played.
  */
-function FlowWithProvider({ setOpenDialog, game, info, setGame }) {
+function FlowWithProvider({ info, setGame }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [isInvalid, setIsInvalid] = useState(false);
@@ -103,8 +103,9 @@ function FlowWithProvider({ setOpenDialog, game, info, setGame }) {
       const deviceNodes = nodes.filter((node) => node.className === device);
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
-      if (nodeCount >= 7) {
-        setOpenDialog(true, TOO_MANY_DEVICES_ERROR);
+      if (nodeCount >= 15) {
+        setErrorMessage(TOO_MANY_DEVICES_ERROR);
+        setIsInvalid(true);
       } else {
         let newNode = {
           id: `${ipv4Address}`,
@@ -148,7 +149,7 @@ function FlowWithProvider({ setOpenDialog, game, info, setGame }) {
       setIsInvalid(true);
     }
 
-    switch (game) {
+    switch (info.type) {
       case "build-network-1":
         if (
           countNodesByType(nodes, DEVICE_TYPE.CLIENT_PLUGGED) > 0 &&

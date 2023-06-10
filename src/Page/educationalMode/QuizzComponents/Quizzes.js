@@ -88,41 +88,13 @@ function QuizzComponents({ setOpenDialog, game, setGame }) {
     case "puzzle":
       return <Puzzle info={gameInfo} setGame={setGame} />;
     case "build-network-1":
-      return (
-        <BuildNetwork1
-          setOpenDialog={setOpenDialog}
-          game={game}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <BuildNetwork1 game={game} info={gameInfo} setGame={setGame} />;
     case "build-network-2":
-      return (
-        <BuildNetwork2
-          setOpenDialog={setOpenDialog}
-          game={game}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <BuildNetwork2 info={gameInfo} setGame={setGame} />;
     case "build-network-3":
-      return (
-        <BuildNetwork3
-          setOpenDialog={setOpenDialog}
-          game={game}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <BuildNetwork3 info={gameInfo} setGame={setGame} />;
     case "build-network-4":
-      return (
-        <BuildNetwork
-          setOpenDialog={setOpenDialog}
-          game={game}
-          info={gameInfo}
-          setGame={setGame}
-        />
-      );
+      return <BuildNetwork info={gameInfo} setGame={setGame} />;
     default:
       return "";
   }
