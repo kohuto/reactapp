@@ -1,7 +1,8 @@
 import { landingPagePacketsData } from "../../Data/Packets/landingPage";
 import DefaultPackets from "../Packet";
+import CreativeModeWithoutPackets from "./creativeModeWithoutPackets";
 
-function CreativeMode({ setOpenModal, setIsCreativeMode }) {
+function CreativeMode({ info, setGame }) {
   return (
     <>
       <DefaultPackets
@@ -9,7 +10,7 @@ function CreativeMode({ setOpenModal, setIsCreativeMode }) {
         repeat={Infinity}
         marginleft={0}
       />
-      <CreativeMode setOpenModal={handleOpenDialog} />
+      <CreativeModeWithoutPackets info={info} setGame={setGame} />
     </>
   );
 }

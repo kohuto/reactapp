@@ -5,9 +5,10 @@ import { landingPageNodes } from "../../Data/Flow/creativeMode";
 import { landingPageEdges } from "../../Data/Flow/edges/landingPage";
 import DefaultPackets from "../Packet";
 import AddDeviceButtons from "./addDeviceButtons";
-import ServiceButtons from "./serviceButtons";
 import SendPacketBox from "./SendPacketBox/sendPacketBox";
 import CreativeModeFlow from "./Flow/creativeModeFlow";
+import AlertDialog from "../DialogWindow/Templates/dialogWindow";
+import BasicModal from "../DialogWindow/basicModal";
 
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
@@ -27,10 +28,11 @@ const TOO_MANY_DEVICES_ERROR = "Více už jich nepřidávej.";
  * @returns {JSX.Element} - The rendered component.
  */
 
-function CreativeModeWithoutPackets({ setOpenModal, setIsCreativeMode }) {
+function CreativeModeWithoutPackets({ info }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(landingPageNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
-
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   /**
    * A hook to update the client nodes every 10ms.
    */
@@ -81,7 +83,8 @@ function CreativeModeWithoutPackets({ setOpenModal, setIsCreativeMode }) {
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
       if (nodeCount >= 15) {
-        setOpenModal(true, TOO_MANY_DEVICES_ERROR);
+        setErrorMessage(TOO_MANY_DEVICES_ERROR);
+        setIsError(true);
       } else {
         const newNode = {
           id: `${ipv4Address}`,
@@ -115,6 +118,13 @@ function CreativeModeWithoutPackets({ setOpenModal, setIsCreativeMode }) {
 
   return (
     <>
+      {<BasicModal content={info.content} />}
+      {isError && (
+        <AlertDialog
+          content={errorMessage}
+          closeAction={() => setIsError(false)}
+        />
+      )}
       {userPacketPath.length > 0 && (
         <DefaultPackets
           packetsData={userPacketData}
@@ -126,13 +136,11 @@ function CreativeModeWithoutPackets({ setOpenModal, setIsCreativeMode }) {
       <SendPacketBox
         nodes={nodes}
         edges={edges}
-        setOpenModal={setOpenModal}
+        setErrorMessage={setErrorMessage}
+        setIsError={setIsError}
         setPath={handleSetUserPacketPath}
       />
-      <ServiceButtons
-        setIsCreativeMode={setIsCreativeMode}
-        setOpenModal={setOpenModal}
-      />
+
       <AddDeviceButtons handleAddNode={handleAddNode} nodes={nodes} />
 
       <CreativeModeFlow

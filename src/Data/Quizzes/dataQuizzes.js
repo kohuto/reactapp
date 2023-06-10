@@ -169,8 +169,8 @@ export const stockData = [
     hint: "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
   },
   {
-    content: "Tento úkol není hotový",
-    type: "build-network-4",
-    hint: "Tento úkol není hotový",
+    content: "Postav si jakoukoliv síť bez omezení.",
+    type: "build-own-network",
+    hint: "Vpravo nahoře klikni na zařízení a tím ho přidej do sítě. S přidanými prvky můžeš pohybovat. Přidej novou cestu kliknutím na zařízení a přetažením na jiné zařízení. Vlevo dole pošli paket. Vyber IP adresu odesílatele a příjemce a odešli. Odesílatel je klient, který je v dosahu WiFi nebo BTS věže - má nad hlavou ikonu WiFi.",
   },
 ];

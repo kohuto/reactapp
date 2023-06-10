@@ -415,26 +415,26 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[26].type)}
+              onClick={() => setGame(stockData[25].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 1</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[27].type)}
+              onClick={() => setGame(stockData[26].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 2</DropdownItem>
             </div>
 
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[28].type)}
+              onClick={() => setGame(stockData[27].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 3</DropdownItem>
             </div>
             <div
               className="custom-menu-item-div"
-              onClick={() => setGame(stockData[29].type)}
+              onClick={() => setGame(stockData[28].type)}
             >
               <DropdownItem leftIcon={question}>ÚKOL 4</DropdownItem>
             </div>

@@ -17,7 +17,7 @@ const WIFI_CLASSNAME = "wifi-creative";
  * @param {function} setOpenModal - A function for opening/closing a modal.
  * @param {function} setPath - A function for setting the path between the sender and recipient nodes.
  */
-function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
+function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
   const [recipientIpAddress, setRecipientIpAddress] = useState("");
   const [senderIpAddress, setSenderIpAddress] = useState("");
   const invalidSenderRecipientMessage =
@@ -32,12 +32,14 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
    */
   function handleSend() {
     if (!isInputsFilled(senderIpAddress, recipientIpAddress)) {
-      setOpenModal(true, invalidSenderRecipientMessage);
+      setErrorMessage(invalidSenderRecipientMessage);
+      setIsError(true);
       return;
     }
 
     if (!isClientPlugged(nodes, senderIpAddress)) {
-      setOpenModal(true, unplugedClientMessage);
+      setErrorMessage(unplugedClientMessage);
+      setIsError(true);
       return;
     }
 
@@ -46,8 +48,10 @@ function SendPacketBox({ nodes, edges, setOpenModal, setPath }) {
       getWirelessDeviceIpAddress(nodes, senderIpAddress),
       recipientIpAddress
     );
-    if (path === null) setOpenModal(true, noPathMessage);
-    else setPath(path);
+    if (path === null) {
+      setErrorMessage(noPathMessage);
+      setIsError(true);
+    } else setPath(path);
   }
 
   /**
