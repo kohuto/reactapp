@@ -25,10 +25,10 @@ function SortFileSize({ info, setGame }) {
   const [isIncorrect, setIsIncorrect] = useState(false);
 
   const handleSubmit = () => {
-    const deviationText = 10;
-    const deviationVideo = 500;
-    const deviationImg = 10;
-    const deviationMusic = 100;
+    const deviationText = 50;
+    const deviationVideo = 50;
+    const deviationImg = 50;
+    const deviationMusic = 50;
     const videoCount = 61400;
     const textCount = 4;
     const musicCount = 3000;
