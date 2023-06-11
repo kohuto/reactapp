@@ -23,11 +23,12 @@ function CreatePacketComponent({ info, setGame }) {
   const [content, setContent] = useState([]);
   const finalMessage =
     "Perfektní! Nezapomeň, že paket přenáší část odeslané zprávy. Navíc je v něm uložená adresa příjemce a odesílatele. Pakety jsou očíslované, aby bylo možné v cíli zprávu správně poskládat.";
-  const incorrectContent = "Špatně vyplněný obsah některého z paketů.";
+  const incorrectContent =
+    "Špatně vyplněný OBSAH některého z paketů. Do jednoho paketu se vleze 8 znaků z původní zprávy. V prvním paketu bude prvních 8 znaků, ve druhém dalších 8 znaků, ve třetím bude zbytek zprávy.";
   const incorrectSender =
-    "Špatně vyplněný odesílatel některého z paketů. Nezapomeň, že odesílatel je Karin, tudíž musíš napsat její IP adresu.";
+    "Špatně vyplněný ODESÍLATEL některého z paketů. Nezapomeň, že odesílatel je Karin, tudíž musíš napsat její IP adresu.";
   const incorrectRecipient =
-    "Špatně vyplněný příjemce některého z paketů. Nezapomeň, že příjemce je server.";
+    "Špatně vyplněný PŘÍJEMCE některého z paketů. Nezapomeň, že zpráva je první poslaná do serveru, musíš tedy napsat IP adresu serveru.";
   const unfilledInput = "Nějaké pole není vyplněné.";
   const [filledCorrectly, setfilledCorrectly] = useState(false);
   const [isIncorrect, setIsIncorrect] = useState(false);

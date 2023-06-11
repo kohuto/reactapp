@@ -49,7 +49,7 @@ export const stockData = [
   },
   {
     content:
-      "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Navíc obsahuje pořadí a ID pro zpětné sestavení zprávy.",
+      "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Pakety jsou očíslované, aby mohly být v cíli správně seřazeny.",
     type: "createPacket",
     hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vleze 8 znaků z původní zprávy.",
   },
@@ -140,7 +140,7 @@ export const stockData = [
   {
     content:
       /*"Proč je dobré, aby mezi dvěma místy vedlo více různých cest? Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam vede pouze jedna cesta.",*/
-      "Tento úkol není hotový",
+      "Tento úkol není hotový, přejdi na další aktivitu.",
     type: "problemWithPath",
     hint: "",
   },
