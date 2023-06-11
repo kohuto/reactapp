@@ -14,8 +14,9 @@ import question from "../../../images/icons/question-mark.png";
 import lightbulb from "../../../images/icons/light-bulb.png";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import info from "../../../images/icons/info.png";
 
-function Sidebar({ setOpenDialog, setOpenOverlayDialog, setGame }) {
+function Sidebar({ setOpenDialog, setGame }) {
   return (
     <Navbar>
       <NavItem>
@@ -109,6 +110,9 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </DropdownItem>
             <DropdownItem leftIcon={builder} goToMenu="build-network">
               POSTAV SÍŤ
+            </DropdownItem>
+            <DropdownItem leftIcon={info} goToMenu="build-network">
+              O APLIKACI
             </DropdownItem>
           </div>
         </CSSTransition>
