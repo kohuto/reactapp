@@ -15,27 +15,6 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.lp-service-buttons-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 2vh;
-    right: 2vw;
-    z-index: 4;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.go-to-task-buttons{
-    display: flex;
-    justify-content: space-around;
-   
-}
-
-.go-to-task-buttons button {
-    z-index: 4;
-}
-
 .lp-send-packet-container{
     display: flex;
     justify-content: center;
@@ -93,35 +72,41 @@
 }
 
 .gateway-creative .customNodeBody .ip-address {
-  top: 10px;
+  top: 15px;
 }
 .server-creative .customNodeBody .ip-address {
-  top: 33px;
+  top: 48px;
 }
 .client-unplugged-creative .customNodeBody .ip-address {
-  top: 29px;
+  top: 38px;
 }
 .client-plugged-creative .customNodeBody .ip-address {
-  top: 40px;
+  top: 50px;
 }
 .wifi-creative .customNodeBody .ip-address {
-  top: 26px;
+  top: 40px;
 }
 .bts-creative .customNodeBody .ip-address {
-  top: 58px;
+  top: 135px;
 }
 
 /* node drag move */
 .customNode:before {
-  content: '';
+  content: 'CHYŤ';
   position: absolute; 
-  left: 35%;
-  height: 5px;
-  width: 30%;
+  left: 25%;
+  
+  min-height: 8px;
+  height: 30%;
+  width: 50%;
   background: #d6d5e6;
   z-index: 10; /* zde bylo 1000 */
   border-radius: 3px;
   border: 2px solid #222138;
+  font-size: 0.5em;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center;
 }
 
 .nodrag .customNode:before {

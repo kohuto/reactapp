@@ -1,6 +1,6 @@
 import { getStraightPath } from "reactflow";
 
-function CustomConnectionLine({ fromX, fromY, toX, toY, connectionLineStyle }) {
+function CustomConnectionLine({ fromX, fromY, toX, toY }) {
   const [edgePath] = getStraightPath({
     sourceX: fromX,
     sourceY: fromY,
