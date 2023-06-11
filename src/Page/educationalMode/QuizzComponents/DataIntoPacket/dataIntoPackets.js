@@ -16,7 +16,7 @@ import { clientsZoom2Data } from "../../../../Data/Flow/client/clientsZoom2";
 import { serversZoom2Data } from "../../../../Data/Flow/server/serverZoom2";
 import { gatewaysZoom2Data } from "../../../../Data/Flow/gateway/gatewayZoom2";
 
-function DataIntoPackets({ info, setGame }) {
+function DataIntoPackets({ info }) {
   const defaultNodes = [
     ...clientsZoom2Data,
     ...serversZoom2Data,
@@ -45,8 +45,6 @@ function DataIntoPackets({ info, setGame }) {
   const [content3, setContent3] = useState("");
   const [isErrorInput, setIsErrorInput] = useState(false);
   const longMessageErrorMessage = "napis zpravu, ktera ma max 24 znaku.";
-  const finalMessage =
-    "Perfektní! Právě jsi viděl, že se zpráva před odesláním rozloží na malé části, kterým říkáme pakety. Každá informace (fotka, webová stránka, video), je před odesláním rozložená a posílá se po částech.";
   const firstInform =
     "Zpráva se rozložila na pakety. Každý paket, má určitou velikost. Může se stát, že poslední paket, který obsahuje zbytek dat, nemá stejnou velikost jako předchozí pakety. Je to proto, že poslední část zprávy je menší než velikost běžného paketu. To ale nevadí, paket dorazí do cíle stejně jako ostatní pakety. Zavři nyní toto okno a sleduj, jak se v mapě objeví pakety. Na pakety můžeš kliknout a podívat se, co je uvnitř.";
   const secondInform =
@@ -121,12 +119,6 @@ function DataIntoPackets({ info, setGame }) {
   if (showPacketsCreatedMessageBox) {
     return (
       <>
-        {isErrorInput && (
-          <AlertDialog
-            closeAction={() => setIsErrorInput(false)}
-            content={longMessageErrorMessage}
-          />
-        )}
         <div className="data-into-packets-container-bg">
           <div className="data-into-packets-container">
             <span
@@ -156,44 +148,50 @@ function DataIntoPackets({ info, setGame }) {
     );
   } else if (showChat) {
     return (
-      <div className={`chat-container ${showChat ? "" : "hidden"}`}>
-        <div className="chat-header">
-          <img
-            className="profile-image"
-            src={isSwapedSenders ? profileImageWoman : profileImageMan}
+      <>
+        {isErrorInput && (
+          <AlertDialog
+            closeAction={() => setIsErrorInput(false)}
+            content={longMessageErrorMessage}
           />
-          <h6>{isSwapedSenders ? "Xavier" : "Jeroným"}</h6>
-        </div>
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${
-              message.sender === "user" ? "user-message" : "other-message"
-            }`}
-          >
-            {message.text}
+        )}
+        <div className={`chat-container ${showChat ? "" : "hidden"}`}>
+          <div className="chat-header">
+            <img
+              className="profile-image"
+              src={isSwapedSenders ? profileImageWoman : profileImageMan}
+            />
+            <h6>{isSwapedSenders ? "Xavier" : "Jeroným"}</h6>
           </div>
-        ))}
-        <div className="input-container">
-          <img src={plus} alt="" />
-          <img src={gif} alt="" />
-          <img src={gallery} alt="" />
-          <input
-            type="text"
-            placeholder="Aa"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          />
-          <button
-            onClick={() => {
-              if (!isSwapedSenders) {
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`message ${
+                message.sender === "user" ? "user-message" : "other-message"
+              }`}
+            >
+              {message.text}
+            </div>
+          ))}
+          <div className="input-container">
+            <img src={plus} alt="" />
+            <img src={gif} alt="" />
+            <img src={gallery} alt="" />
+            <input
+              type="text"
+              placeholder="Aa"
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+            />
+            <button
+              onClick={() => {
                 handleSend();
-              }
-            }}
-          ></button>
+              }}
+            ></button>
+          </div>
+          {!isSwapedSenders && <BasicModal content={info.content} />}
         </div>
-        {!isSwapedSenders && <BasicModal content={info.content} />}
-      </div>
+      </>
     );
   } else if (showPackets1) {
     return (
