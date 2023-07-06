@@ -6,9 +6,15 @@ function CustomConnectionLine({ fromX, fromY, toX, toY }) {
     sourceY: fromY,
     targetX: toX,
     targetY: toY,
+    lineWidth: 10,
   });
 
-  return <path style={{ strokeWidth: 1, stroke: "grey" }} d={edgePath} />;
+  return (
+    <path
+      style={{ strokeWidth: 1, stroke: "grey", width: "10px" }}
+      d={edgePath}
+    />
+  );
 }
 
 export default CustomConnectionLine;

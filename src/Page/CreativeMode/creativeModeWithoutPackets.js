@@ -33,6 +33,7 @@ function CreativeModeWithoutPackets({ info }) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(landingPageEdges);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isDeleteOn, setIsDeleteOn] = useState(false);
   /**
    * A hook to update the client nodes every 10ms.
    */
@@ -75,6 +76,7 @@ function CreativeModeWithoutPackets({ info }) {
    * A callback function to add a node to the nodes state.
    * @param {string} device - The type of device to add.
    */
+
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) =>

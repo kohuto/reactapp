@@ -22,6 +22,23 @@ const CreativeModeFlow = ({
 }) => {
   const edgeUpdateSuccessful = useRef(true);
 
+  const handleNodeClick = (event, node) => {
+    console.log("kliknul jsem");
+    const id = node.id;
+    const index = nodes.findIndex((node) => node.id === id);
+    if (index !== -1) {
+      nodes.splice(index, 1);
+    }
+  };
+  const handleEdgeClick = (event, edge) => {
+    console.log("kliknul jsem");
+    const id = edge.id;
+    const index = edges.findIndex((edge) => edge.id === id);
+    if (index !== -1) {
+      edges.splice(index, 1);
+    }
+  };
+
   const onEdgeUpdateStart = () => {
     edgeUpdateSuccessful.current = false;
   };
@@ -46,6 +63,7 @@ const CreativeModeFlow = ({
 
   const defaultEdgeOptions = {
     type: "floating",
+    style: { strokeWidth: 3, stroke: "black" },
   };
   return (
     <div className="creative-mode-flow-container">
@@ -67,6 +85,9 @@ const CreativeModeFlow = ({
         edgeTypes={edgeTypes}
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineComponent={CustomConnectionLine}
+        onNodeClick={handleNodeClick}
+        onEdgeClick={handleEdgeClick}
+        connectionLineStyle={{ width: "10px" }}
       />
     </div>
   );
