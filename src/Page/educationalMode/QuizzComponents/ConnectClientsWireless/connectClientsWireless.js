@@ -12,7 +12,7 @@ import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 const FINAL_MESSAGE =
   "Perfektní! Všichni klienti jsou připojení. \n Při umisťování jsi viděl, že každé zařízení má jiný dosah. Jaký je ale jejich reálný dosah? \n Doma používáme WiFi router, který může WiFi signál vysílat do vzdálenosti 50–100 metrů, ale může být i menší, pokud máte tlusté zdi. Dosah signálu vysílaného BTS věží je až 5 km. Na těžko dostupných místech využíváme satelity, které komunikují z oběžné dráhy v různé výšce. Ty nejnižší jsou ve výšce 200 km. Ty nejvyšší jsou až 36 000 km nad zemí. Pro přenos dat na větší vzdálenosti používáme kabely.";
 const NO_MORE_NODES_MESSAGE = "více už ne";
-const FINAL_COUNT_PLUGGED_CLIENT = 10;
+const FINAL_COUNT_PLUGGED_CLIENT = 11;
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "notebook-connected",
   CLIENT_UNPLUGGED: "notebook",
