@@ -16,25 +16,10 @@ const DEVICE_TYPE = {
   SERVER: "server-creative",
 };
 
-/**
- * Counts the number of nodes of a specific type in the given array of nodes.
- *
- * @param {Object[]} nodes - An array of nodes.
- * @param {string} type - The type of node to count.
- * @returns {number} The number of nodes of the specified type.
- */
 function countNodesByType(nodes, type) {
   return nodes.filter((node) => node.className.includes(type)).length;
 }
 
-/**
- * Renders a set of buttons for adding different types of nodes to a network.
- *
- * @param {Object} props - The component props.
- * @param {function} props.handleAddNode - The function to call when a node is added.
- * @param {Object[]} props.nodes - An array of nodes already in the network.
- * @returns {JSX.Element} The rendered component.
- */
 function AddDeviceButtons({ handleAddNode, nodes }) {
   const serversLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
   const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);

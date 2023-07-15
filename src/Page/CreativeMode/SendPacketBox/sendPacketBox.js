@@ -4,19 +4,11 @@ import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
 import SelectVariants from "./selectVariants";
 
-const CLIENT_CLASSNAME = "client-unplugged-creative";
 const CLIENT_PLUGGED_CLASSNAME = "client-plugged-creative";
 const SERVER_CLASSNAME = "server-creative";
 const BTS_CLASSNAME = "bts-creative";
 const WIFI_CLASSNAME = "wifi-creative";
 
-/**
- * Component for sending packets between nodes in a network simulation.
- * @param {Object[]} nodes - The list of nodes in the network.
- * @param {Object[]} edges - The list of edges connecting the nodes in the network.
- * @param {function} setOpenModal - A function for opening/closing a modal.
- * @param {function} setPath - A function for setting the path between the sender and recipient nodes.
- */
 function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
   const [recipientIpAddress, setRecipientIpAddress] = useState("");
   const [senderIpAddress, setSenderIpAddress] = useState("");
@@ -27,9 +19,6 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
   const noPathMessage =
     "Nelze doručit. Mezi odesílatelem a příjemcem není cesta.";
 
-  /**
-   * Handles sending a packet between nodes in the network.
-   */
   function handleSend() {
     if (!isInputsFilled(senderIpAddress, recipientIpAddress)) {
       setErrorMessage(invalidSenderRecipientMessage);
@@ -54,22 +43,10 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     } else setPath(path);
   }
 
-  /**
-   * Checks if the sender and recipient IP addresses are filled.
-   * @param {Array} nodes - Array of node objects.
-   * @param {string} senderIpAddress - The IP address of the sender.
-   * @returns {boolean} - True if the sender IP address is valid, false otherwise.
-   */
   function isInputsFilled(senderIpAddress, recipientIpAddress) {
     return senderIpAddress.length > 0 && recipientIpAddress.length > 0;
   }
 
-  /**
-   * Checks if the client IP address corresponds to a node that is plugged into the network.
-   * @param {Array} nodes - Array of node objects.
-   * @param {string} clientIpAddress - The IP address of the client.
-   * @returns {boolean} - True if the client is plugged in, false otherwise.
-   */
   function isClientPlugged(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
     if (clientNode && clientNode.className.includes(CLIENT_PLUGGED_CLASSNAME)) {
@@ -79,12 +56,6 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     }
   }
 
-  /**
-   * Gets the IP address of a wireless device that is within range of the client node.
-   * @param {Array} nodes - Array of node objects.
-   * @param {string} clientIpAddress - The IP address of the client.
-   * @returns {string|null} - The IP address of the wireless device if one is within range, null otherwise.
-   */
   function getWirelessDeviceIpAddress(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
     if (clientNode && clientNode.className.includes(CLIENT_PLUGGED_CLASSNAME)) {
@@ -109,13 +80,6 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     }
   }
 
-  /**
-   * Finds a path between two nodes in the network using breadth-first search.
-   * @param {Array} edges - Array of edge objects.
-   * @param {string} id1 - The ID of the starting node.
-   * @param {string} id2 - The ID of the target node.
-   * @returns {Array|null} - An array of node IDs representing the path from id1 to id2, or null if no path exists.
-   */
   function findPath(edges, id1, id2) {
     // create a map of nodes to their neighbors
     const neighbors = new Map();
@@ -130,7 +94,6 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
       neighbors.get(edge.target).push(edge.source);
     });
 
-    // perform a breadth-first search starting from id1
     const queue = [{ id: id1, path: [id1] }];
     const visited = new Set([id1]);
     while (queue.length > 0) {
@@ -148,11 +111,6 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
 
     return null; // id2 is not reachable from id1
   }
-
-  /**
-   * Renders a component for sending a packet in the network simulation.
-   * @returns {JSX.Element} - A React component.
-   */
 
   function GetNodesTypeIpList(nodes, type) {
     const nodesType = nodes.filter(

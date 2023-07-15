@@ -1,5 +1,5 @@
 import "./PacketStyle.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import { serversZoom2Data } from "../../Data/Flow/server/serverZoom2";
 import { clientsZoom2Data } from "../../Data/Flow/client/clientsZoom2";
@@ -83,7 +83,6 @@ function getCoordinates(id, nodes) {
 }
 
 function computeX(x, marginleft, nodes) {
-  //x is array of ip adresses of nodes
   const twentyPercentOfViewportWidth = (window.innerWidth * marginleft) / 100;
   const xarray = [];
   const polomerServer = 10;
@@ -151,10 +150,6 @@ function Packet({
   const yCoordinates = computeY(path, nodes);
   const onClick = () => setShowResults(!showResults);
   const pole = computeTimes(xCoordinates.length);
-  const [animationCompleted, setAnimationCompleted] = React.useState(false);
-  const onAnimationComplete = () => {
-    setAnimationCompleted(true);
-  };
   return (
     <>
       <div>
@@ -172,7 +167,6 @@ function Packet({
             times: pole,
           }}
           style={{ backgroundColor: color }}
-          onAnimationComplete={onAnimationComplete}
         >
           {showResults ? (
             <Results content={content} from={from} to={to} />
