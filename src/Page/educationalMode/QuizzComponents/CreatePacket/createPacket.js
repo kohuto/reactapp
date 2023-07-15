@@ -8,10 +8,7 @@ import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import SimpleFlow from "../../Flow/simpleFlow";
 import { createPacketsNodes } from "../../../../Data/Flow/createPackets";
 import { createPacketsEdges } from "../../../../Data/Flow/edges/createPackets";
-/**
- * Component that allows the user to create and validate packets of a message
- * @param {function} setOpenDialog - A function that sets the open state of a dialog
- */
+
 function CreatePacketComponent({ info, setGame }) {
   const messengerServer = "195.113.76.22";
   const correctSenderIP = "214.17.55.99";

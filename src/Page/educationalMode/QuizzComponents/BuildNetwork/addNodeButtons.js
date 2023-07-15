@@ -8,7 +8,6 @@ import wifi from "../../../../images/nodes/wifi.jpg";
 import gateway from "../../../../images/nodes/gateway.jpg";
 import RuleIcon from "@mui/icons-material/Rule";
 
-// Object that defines the different types of devices that can be added
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
   CLIENT_UNPLUGGED: "client-unplugged-creative",
@@ -18,15 +17,7 @@ const DEVICE_TYPE = {
   SERVER: "server-creative",
 };
 
-/**
- * Component that renders buttons for adding nodes to a network.
- * @param {Object} props - Component props.
- * @param {Function} props.handleAddNode - Function to add a node to the network.
- * @param {Function} props.checkValidity - Function to check the validity of the network.
- * @param {Array} props.nodes - Array of nodes in the network.
- */
 function AddNodeButtons({ handleAddNode, checkValidity, nodes }) {
-  // Calculate the remaining number of nodes of each type that can be added
   const remainingNodes = {
     [DEVICE_TYPE.SERVER]: 7 - countNodesOfType(nodes, DEVICE_TYPE.SERVER),
     [DEVICE_TYPE.GATEWAY]: 7 - countNodesOfType(nodes, DEVICE_TYPE.GATEWAY),
@@ -36,7 +27,6 @@ function AddNodeButtons({ handleAddNode, checkValidity, nodes }) {
     [DEVICE_TYPE.BTS]: 7 - countNodesOfType(nodes, DEVICE_TYPE.BTS),
   };
 
-  // Array of objects that define each button to be rendered
   const buttonData = [
     {
       title: "CHYTRÁ KŘIŽOVATKA",

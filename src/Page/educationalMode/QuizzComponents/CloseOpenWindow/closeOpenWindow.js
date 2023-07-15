@@ -2,11 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import "./style.css";
 
-/**
- * A component that renders content that can be shown or hidden using a button.
- * The content is displayed with a fade-in/fade-out animation.
- * @param {object} content - The content to display.
- */
 function CloseOpen({ content }) {
   const [isVisible, setIsVisible] = useState(true);
 

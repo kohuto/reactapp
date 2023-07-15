@@ -1,6 +1,5 @@
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
-import { Divider } from "@mui/material";
 function CheckButton({ checkValidity }) {
   return (
     <div className="build-network-check-button">

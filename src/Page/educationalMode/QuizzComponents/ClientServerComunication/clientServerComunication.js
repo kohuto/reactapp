@@ -5,19 +5,12 @@ import web from "../../../../images/serverscontent/website-design.png";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
 
-/**
- * Component that demonstrates the process of client-server communication.
- * @param {Function} setOpenDialog - A function that opens a dialog box.
- * @returns {JSX.Element} - Returns a JSX element that renders the client-server communication demo.
- */
 function ClientServerCommunication({ info }) {
   const [showRequestMessage, setShowRequestMessage] = useState(false);
   const [showSendRequestComponent, setShowSendRequest] = useState(false);
   const [showAnswerMessage, setShowAnswerMessage] = useState(false);
   const [showSendAnswer, setShowSendAnswer] = useState(false);
   const [showHappyClient, setShowHappyClient] = useState(false);
-  const finalMessage =
-    "Zpamatuj si, že klienti posílají na servery požadavky a servery posílají zpět klientům odpovědi.";
   const [restartAnimation, setRestartAnimation] = useState(false);
   // set up timing for showing different messages
   useEffect(() => {

@@ -3,12 +3,6 @@ import Button from "@mui/material/Button";
 import ClientInput from "./clientInput";
 import "./style.css";
 
-/**
- * Component that renders a form to find packets by client IP addresses.
- * @param {Object} props - The component props.
- * @param {Function} props.setOpenDialog - A function to open a dialog window.
- * @returns {JSX.Element} The component JSX element.
- */
 function InputBox({ setFilledCorrectly, setIsIncorrect }) {
   const correctClients = [
     { name: "Kiara (104.169.110.92)", ip: "199.38.67.227" },

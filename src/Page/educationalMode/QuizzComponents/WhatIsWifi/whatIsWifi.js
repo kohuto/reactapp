@@ -9,10 +9,6 @@ const GATEWAY_IP = "242.47.214.213";
 const SOCKET_IP = "212.68.73.2";
 const WIFI_IP = "136.200.123.175";
 
-/**
- * The main component that renders the "What is WiFi" mini game.
- * @param {function} setOpenDialog - A function that sets the dialog box in the parent component.
- */
 function WhatIsWiFiComponent({ setOpenDialog }) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(whatIsWifiEdges);
   const [isSwitchedOn, setIsSwitchedOn] = useState(false);
@@ -25,10 +21,6 @@ function WhatIsWiFiComponent({ setOpenDialog }) {
   const wifiIntoSocketMessage =
     "Prvně zapoj wifi router do zásuvky. Zapojení provedeš tak, že klikneš na černý puntík na routeru a přetáhneš čáru na černý puntík na zásuvce.";
 
-  /**
-   * @function mojefunkc - eadasds
-   * @param {prvniparam} - nev
-   */
   const onConnect = useCallback(
     (params) => {
       const { source, target } = params;

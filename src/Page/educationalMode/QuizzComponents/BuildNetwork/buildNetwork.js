@@ -9,9 +9,7 @@ import BasicModal from "../../../DialogWindow/basicModal";
 import { useState } from "react";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
-/**
- * Object containing the possible types of devices.
- */
+
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
   CLIENT_UNPLUGGED: "client-unplugged-creative",
@@ -38,12 +36,6 @@ const MISSING_DEVICES_TASK1_ERROR =
   "Potřebuješ aspoň jeden server, jednoho klienta a tři chytré křižovatky.";
 const TOO_MANY_DEVICES_ERROR = "vice uz jich nepridavej. Uz jich mas az moc";
 
-/**
- * React component that displays the network builder with provider.
- *
- * @param {Object} setOpenDialog - A function that opens a dialog box.
- * @param {string} game - A string representing the current game being played.
- */
 function FlowWithProvider({ info, setGame }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -222,13 +214,6 @@ function FlowWithProvider({ info, setGame }) {
   );
 }
 
-/**
- * Determines whether a given node is within range of a WiFi or BTS node
- * @param {string} nodeId - The ID of the node to check
- * @param {Array} nodes - An array of all nodes in the network
- * @param {Array} edges - An array of all edges in the network
- * @returns {boolean} - Whether or not the node is within range of a WiFi or BTS node
- */
 function isNodeInRange(nodeId, nodes) {
   const node = nodes.find((node) => node.id === nodeId);
   const wifiNodes = nodes.filter((node) =>
@@ -265,12 +250,6 @@ function isNodeInRange(nodeId, nodes) {
   return false;
 }
 
-/**
- * Checks whether all nodes in the graph are connected via edges.
- * @param {Object[]} nodes - An array of objects representing nodes in the graph
- * @param {Object[]} edges - An array of objects representing edges in the graph
- * @returns {boolean} - True if all nodes are connected, false otherwise
- */
 function isConnected(nodes, edges) {
   // Create an adjacency list to represent the graph
   const adjList = {};
@@ -305,12 +284,6 @@ function isConnected(nodes, edges) {
   );
 }
 
-/**
- * Determines whether there is a bridge (a gateway node that disconnects two components of the graph) in the given graph.
- * @param {Array} nodes - The nodes in the graph.
- * @param {Array} edges - The edges in the graph.
- * @returns {boolean} True if there is a bridge in the graph, false otherwise.
- */
 function hasGatewayBridge(nodes, edges) {
   const adjList = {};
   const visited = new Set();
@@ -365,12 +338,6 @@ function hasGatewayBridge(nodes, edges) {
   return bridges;
 }
 
-/**
- * Checks if the edges in the graph connect client nodes to server nodes following the allowed edge types.
- * @param {Array} nodes - An array of objects representing the nodes in the graph.
- * @param {Array} edges - An array of objects representing the edges in the graph.
- * @returns {boolean} True if all edges connect client nodes to server nodes following the allowed edge types, false otherwise.
- */
 function hasCorrectEdge(nodes, edges) {
   const serverNodes = new Set();
   const gatewayNodes = new Set();
@@ -413,12 +380,6 @@ function hasCorrectEdge(nodes, edges) {
   return true;
 }
 
-/**
- * Checks whether the network has an articulation point between gateway nodes.
- * @param {Array} nodes - The nodes in the network.
- * @param {Array} edges - The edges in the network.
- * @returns {boolean} Whether the network has an articulation point between gateway nodes.
- */
 function hasArticulationGateway(nodes, edges) {
   const gatewayNodes = new Set();
   const gatewayEdges = [];

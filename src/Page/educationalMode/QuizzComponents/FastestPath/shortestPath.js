@@ -14,11 +14,6 @@ const FINAL_MESSAGE =
 const ERROR_MESSAGE = "Toto není délka nejrychlejší cesty";
 const CORRECT_ANSWER = "9";
 
-/**
- * ShortestPathComponent is a component that renders a CloseOpen component containing an InputBox component for entering a length value
- * @param {Object} setOpenDialog - A function that opens a dialog box to display a message to the user
- * @returns {JSX.Element} - A CloseOpen component containing an InputBox component for entering a length value
- */
 function ShortestPathComponent({ info, setGame }) {
   const [isValid, setIsValid] = useState(false);
   const [isInvalid, setIsInvalid] = useState(false);

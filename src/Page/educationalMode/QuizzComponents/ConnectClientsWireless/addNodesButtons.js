@@ -8,13 +8,7 @@ const DEVICE_TYPE = {
   WIFI: "wifi",
   BTS: "bts",
 };
-/**
- * Renders a set of buttons for adding nodes to a wireless network.
- * @param {Object} props - The component props.
- * @param {function} props.handleAddNode - The function to call when a node is added.
- * @param {Object[]} props.nodes - An array of nodes in the network.
- * @returns {JSX.Element} - The rendered component.
- */
+
 function AddNodeButtons({ handleAddNode, nodes }) {
   // Calculate the number of available nodes of each type.
   const remainingWifiNodes = 2 - countNodesByType(nodes, DEVICE_TYPE.WIFI);
@@ -53,12 +47,6 @@ function AddNodeButtons({ handleAddNode, nodes }) {
   );
 }
 
-/**
- * Counts the number of nodes in an array that match a given type.
- * @param {Object[]} nodes - An array of nodes to search.
- * @param {string} type - The type of node to count.
- * @returns {number} - The number of nodes that match the given type.
- */
 function countNodesByType(nodes, type) {
   return nodes.filter((node) => node.className === type).length;
 }

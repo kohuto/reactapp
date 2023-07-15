@@ -10,13 +10,6 @@ const FINAL_MESSAGE =
   "Perfektní! Toto je IP adresa. Nezapomeň, že díky IP adrese přesně víme, kam poslat paket.";
 const ERROR_MESSAGE = "Toto není IP adresa";
 
-/**
- * A component for validating IP addresses.
- *
- * @param {Object} props - The component props.
- * @param {function} props.setOpenDialog - A function to open a dialog.
- * @param {function} props.setOpenOverlayDialog - A function to open an overlay dialog.
- */
 function IPaddress({ info, setGame }) {
   const [ipAddress, setIpAddress] = useState("");
   const [isInvalidIP, setIsInvalidIP] = useState(false);

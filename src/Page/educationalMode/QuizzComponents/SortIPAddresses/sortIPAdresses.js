@@ -18,34 +18,18 @@ const IP_ADDRESSES = [
 const FINAL_MESSAGE =
   "Perfektní! Teď už víš, že díky IPv6 adresám se ještě hodně dlouho nemusíme bát, že by nám IP adresy došly.";
 const ERROR_MESSAGE = "Toto není správně.";
-/**
- * A component for sorting IP addresses.
- * @param {object} props - The props object.
- * @param {function} props.setOpenDialog - The function to open the final dialog.
- * @param {function} props.setOpenOverlayDialog - The function to open the error overlay dialog.
- * @returns {JSX.Element} - The component JSX.
- */
+
 function SortIPAdresses({ info, setGame }) {
   const [isCorrectlyFilled, setIsCorrectlyFilled] = useState(false);
   const [isIncorrectlyFilled, setIsIncorrectlyFilled] = useState(false);
   const [values, setValues] = useState(["", "", "", "", ""]);
 
-  /**
-   * Handles the change of an IP address input.
-   * @param {number} index - The index of the input being changed.
-   * @param {string} value - The new value of the input.
-   */
   function handleChange(index, value) {
     const newValues = [...values];
     newValues[index] = value;
     setValues(newValues);
   }
 
-  /**
-   * Handles the submission of the IP addresses.
-   * If the IP addresses are sorted correctly, opens the final dialog.
-   * Otherwise, opens the error overlay dialog.
-   */
   function handleSubmit() {
     if (values.every((value, index) => value === CORRECT_VALUES[index])) {
       setIsCorrectlyFilled(true);

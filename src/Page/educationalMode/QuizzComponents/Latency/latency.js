@@ -22,12 +22,6 @@ const CORRECT_PATH = [
 // Error message to be displayed when the user clicks an incorrect node
 const INCORRECT_CLICK_MESSAGE = "začni v klientovi a nepřeskakuj křižovatky";
 
-/**
- * A component for measuring the latency of network nodes by clicking on them in a specified order.
- *
- * @param {function} setOpenDialog - A function for opening a dialog window to display results or error messages.
- * @returns A React component that renders a network graph and measures latency on node clicks.
- */
 function LatencyComponent({ info, setGame }) {
   const [isIncorrectClick, setIsIncorrectClick] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
@@ -37,15 +31,7 @@ function LatencyComponent({ info, setGame }) {
   // State variable for storing the timestamp of when the first node is clicked
   const [startTime, setStartTime] = useState(null);
   const [finalMessage, setFinalMessage] = useState("");
-  /**
-   * Event handler for when a node is clicked.
-   * If the clicked node is the correct one in the sequence, the count of correctly clicked nodes is incremented.
-   * If it is the first node in the sequence, the start time is recorded.
-   * If it is an incorrect node, an error message is displayed in a dialog.
-   *
-   * @param {object} event - The event object representing the click event.
-   * @param {object} node - The node object that was clicked.
-   */
+
   const onNodeClick = (event, node) => {
     if (node.id === CORRECT_PATH[countClickedJitter]) {
       setCountClickedJitter(countClickedJitter + 1);

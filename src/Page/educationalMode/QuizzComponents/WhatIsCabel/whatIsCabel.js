@@ -5,12 +5,8 @@ import BasicModal from "../../../DialogWindow/basicModal";
 import { whatIsCabelNodes } from "../../../../Data/Flow/whatIsCabel";
 import { whatIsCabelEdges } from "../../../../Data/Flow/edges/whatIsCabelEdges";
 import "./style.css";
-/**
- * Renders a component that displays packets explaining what is a cable.
- * @param {object} props - The props object.
- * @returns {JSX.Element} - The component's UI.
- */
-function WhatIsCabelComponent({ info, setGame }) {
+
+function WhatIsCabelComponent({ info }) {
   return (
     <>
       <BasicModal content={info.content} />

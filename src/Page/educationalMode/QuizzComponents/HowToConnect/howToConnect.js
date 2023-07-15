@@ -11,11 +11,6 @@ const FINAL_MESSAGE =
 const ERROR_MESSAGE = "Něco není správně";
 
 function HowToConnect({ info, setGame }) {
-  /**
-   * Handle submit event when user clicks the "ZKONTROLOVAT" button.
-   * If the correct checkboxes are checked, set dialog state to show success message.
-   * Otherwise, set overlay dialog state to show error message.
-   */
   const [isFilledCorrectly, setIsFilledCorrectly] = useState(false);
   const [isIncorrect, setIsIncorrect] = useState(false);
   const handleSubmit = () => {
@@ -61,10 +56,6 @@ function HowToConnect({ info, setGame }) {
     checkbox3: false,
   });
 
-  /**
-   * Handle checkbox change event for the checkbox group.
-   * @param {Object} event - Checkbox change event.
-   */
   const handleCheckboxChange1 = (event) => {
     const { name, checked } = event.target;
     setCheckboxes1({
@@ -73,10 +64,6 @@ function HowToConnect({ info, setGame }) {
     });
   };
 
-  /**
-   * Handle checkbox change event for the checkbox group.
-   * @param {Object} event - Checkbox change event.
-   */
   const handleCheckboxChange2 = (event) => {
     const { name, checked } = event.target;
     setCheckboxes2({
@@ -85,10 +72,6 @@ function HowToConnect({ info, setGame }) {
     });
   };
 
-  /**
-   * Handle checkbox change event for the checkbox group.
-   * @param {Object} event - Checkbox change event.
-   */
   const handleCheckboxChange3 = (event) => {
     const { name, checked } = event.target;
     setCheckboxes3({
@@ -97,10 +80,6 @@ function HowToConnect({ info, setGame }) {
     });
   };
 
-  /**
-   * Handle checkbox change event for the checkbox group.
-   * @param {Object} event - Checkbox change event.
-   */
   const handleCheckboxChange4 = (event) => {
     const { name, checked } = event.target;
     setCheckboxes4({

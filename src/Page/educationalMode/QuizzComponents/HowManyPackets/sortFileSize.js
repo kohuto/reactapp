@@ -7,13 +7,6 @@ import TextField from "@mui/material/TextField";
 import files from "../../../../images/sortFileSize.png";
 import "./style.css";
 
-/**
- * Component that allows the user to sort files by their size
- * @param {Object} props - Component props
- * @param {Function} props.setOpenDialog - Function to set the state of the dialog component
- * @param {Function} props.setOpenOverlayDialog - Function to set the state of the overlay dialog component
- * @returns {JSX.Element} - Rendered component
- */
 const FINAL_MESSAGE =
   "Perfektní! Čím větší zpráva, tím více paketů bude potřeba na její odeslání.";
 const ERROR_MESSAGE = "Něco jsi nespočítal správně";

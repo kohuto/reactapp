@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNodesState } from "reactflow";
-import CloseOpen from "../CloseOpenWindow/closeOpenWindow";
 import { connectClientWirelessNodes } from "../../../../Data/Flow/connectClientWireless";
 import ReactFlow from "reactflow";
 import AddNodeButtons from "./addNodesButtons";
-import BasicModal from "../../../DialogWindow/basicModal";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import "./style.css";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
@@ -20,11 +18,6 @@ const DEVICE_TYPE = {
   BTS: "bts",
 };
 
-/**
- * A React component that allows the user to connect client devices to a wireless network.
- * @param {Object} props - The component props.
- * @param {function} props.setOpenDialog - A function that opens the dialog for displaying messages to the user.
- */
 function ConnectClientsWirelessComponent({ setGame, info }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(
     connectClientWirelessNodes

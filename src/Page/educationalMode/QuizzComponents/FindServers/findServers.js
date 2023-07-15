@@ -9,12 +9,6 @@ import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import SimpleFlow from "../../Flow/simpleFlow";
 import { findServerNodes } from "../../../../Data/Flow/findServers";
 import { findServerEdges } from "../../../../Data/Flow/edges/findServers";
-/**
- * Component that renders a find packet form and a list of packets.
- * @param {Object} props - The component props.
- * @param {Function} props.setOpenDialog - A function to open a dialog window.
- * @returns {JSX.Element} The component JSX element.
- */
 
 function FindPacketComponent({ info, setGame }) {
   const finalMessage =

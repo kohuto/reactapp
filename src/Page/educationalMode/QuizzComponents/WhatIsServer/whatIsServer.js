@@ -21,11 +21,6 @@ const CORRECT_INSTAGRAM_MESSAGE =
 const CORRECT_YOUTUBE_MESSAGE =
   "Správně! Na YouTube serveru bude uloženo spoustu videí";
 
-/**
- * Renders a component that allows the user to upload files to different servers by dragging and dropping.
- * @param {function} setOpenDialog - a function to set whether the dialog box is open or not
- * @returns {JSX.Element} - returns a JSX element representing the component
- */
 function WhatIsServerComponent({ info, setGame }) {
   const webRef = useRef(null);
   const imgRef = useRef(null);
@@ -83,12 +78,6 @@ function WhatIsServerComponent({ info, setGame }) {
    * Checks whether all servers have been filled and opens the dialog box with the final message if they have
    */
 
-  /**
-   * Checks whether two HTML elements are touching each other
-   * @param {HTMLElement} element1 - the first HTML element
-   * @param {HTMLElement} element2 - the second HTML element
-   * @returns {boolean} - returns true if the elements are touching, false otherwise
-   */
   const areElementsTouching = (element1, element2) => {
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
@@ -177,14 +166,6 @@ function WhatIsServerComponent({ info, setGame }) {
   );
 }
 
-/**
- * Renders a server component that represents a server that files can be uploaded to
- * @param {Object} props - the component props
- * @param {function} props.refProp - a reference to the server component
- * @param {string} props.imageUrl - the URL of the image to display on the server
- * @param {string} props.servername - the name of the server
- * @returns {JSX.Element} - returns a JSX element representing the server component
- */
 function UploadServer({ refProp, imageUrl, servername }) {
   return (
     <div
@@ -197,13 +178,6 @@ function UploadServer({ refProp, imageUrl, servername }) {
   );
 }
 
-/**
- * Renders a draggable component that represents a file that can be dragged and dropped onto a server
- * @param {Object} props - the component props
- * @param {function} props.refProp - a reference to the draggable component
- * @param {string} props.imageUrl - the URL of the image to display on the draggable component
- * @returns {JSX.Element} - returns a JSX element representing the draggable component
- */
 function DraggableComponent({ refProp, imageUrl }) {
   return (
     <Draggable>

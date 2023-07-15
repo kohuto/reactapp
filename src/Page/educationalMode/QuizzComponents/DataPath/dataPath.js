@@ -4,10 +4,6 @@ import { whatIsPathEdges } from "../../../../Data/Flow/edges/whatIsPath";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
 
-/**
- * Component that renders the special flow represents network for what is path game.
- * @returns {JSX.Element} - Returns a JSX element that renders the "What is Path" flowchart.
- */
 function WhereDataTravel({ info, setGame }) {
   return (
     <div className="data-path-flow-container">

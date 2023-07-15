@@ -6,11 +6,7 @@ import "./style.css";
 import { whatIsBTSEdges } from "../../../../Data/Flow/edges/whatIsBTSEdges";
 import BasicModal from "../../../DialogWindow/basicModal";
 
-/**
- * A React component that renders a container with packets data
- * for BTS (Base Transceiver Station)
- */
-function WhatIsBTSComponent({ info, setGame }) {
+function WhatIsBTSComponent({ info }) {
   return (
     <div className="what-is-bts-container">
       <BasicModal content={info.content} />
