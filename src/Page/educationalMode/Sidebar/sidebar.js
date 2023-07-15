@@ -26,12 +26,6 @@ function Sidebar({ setOpenDialog, setGame }) {
   );
 }
 
-/**
- * Renders the navbar component.
- * @param {object} props - The component props.
- * @param {JSX.Element} props.children - The child elements of the component.
- * @return {JSX.Element} The rendered component.
- */
 function Navbar(props) {
   return (
     <nav className="custom-navbar">
@@ -40,34 +34,14 @@ function Navbar(props) {
   );
 }
 
-/**
- * Renders a navigation item.
- * @param {object} props - The component props.
- * @param {JSX.Element} props.children - The child elements of the component.
- * @return {JSX.Element} The rendered component.
- */
 function NavItem(props) {
   return <li className="custom-nav-item">{props.children}</li>;
 }
 
-/**
- * Renders the dropdown menu component.
- * @param {object} props - The component props.
- * @param {function} props.setOpenDialog - Function to open the dialog.
- * @return {JSX.Element} The rendered component.
- */
 function DropdownMenu({ setOpenDialog, setGame }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const dropdownRef = useRef(null);
 
-  /**
-   * Renders a dropdown item.
-   * @param {object} props - The component props.
-   * @param {string} props.goToMenu - The menu to go to.
-   * @param {string} props.leftIcon - The URL of the left icon.
-   * @param {JSX.Element} props.children - The child elements of the component.
-   * @return {JSX.Element} The rendered component.
-   */
   function DropdownItem(props) {
     return (
       <a
@@ -92,9 +66,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
           classNames="custom-menu-primary"
           unmountOnExit
         >
-          {/**
-           * main menu with five categories
-           */}
           <div className="custom-menu">
             <DropdownItem leftIcon={internet} goToMenu="internet-z-dalky">
               INTERNET Z DÁLKY
@@ -116,10 +87,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </DropdownItem>
           </div>
         </CSSTransition>
-
-        {/**
-         * first submenu with tasks
-         */}
         <CSSTransition
           in={activeMenu === "internet-z-dalky"}
           timeout={500}
@@ -186,10 +153,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </div>
           </div>
         </CSSTransition>
-
-        {/**
-         * second submenu with tasks
-         */}
         <CSSTransition
           in={activeMenu === "klienti-a-pakety"}
           timeout={500}
@@ -246,10 +209,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </div>
           </div>
         </CSSTransition>
-
-        {/**
-         * third submenu with tasks
-         */}
         <CSSTransition
           in={activeMenu === "typy-pripojeni"}
           timeout={500}
@@ -324,10 +283,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </div>
           </div>
         </CSSTransition>
-
-        {/**
-         * fourth submenu with tasks
-         */}
         <CSSTransition
           in={activeMenu === "servery-a-krizovatky"}
           timeout={500}
@@ -391,10 +346,6 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             </div>
           </div>
         </CSSTransition>
-
-        {/**
-         * fifth submenu with tasks
-         */}
         <CSSTransition
           in={activeMenu === "build-network"}
           timeout={500}
