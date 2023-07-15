@@ -21,6 +21,7 @@ function countNodesByType(nodes, type) {
 }
 
 function AddDeviceButtons({ handleAddNode, nodes }) {
+  // Calculate the number of remaining devices of each type
   const serversLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
   const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);
   const clientsLeft =

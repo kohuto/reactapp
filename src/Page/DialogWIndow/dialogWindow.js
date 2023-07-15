@@ -9,6 +9,7 @@ function Dialog({ open, setOpen, alertMessage, setGame, gameAfterClose }) {
     setOpen(false);
   };
 
+  // Splitting the content by new lines and mapping it to Typography components
   let messageLines = alertMessage;
   if (typeof alertMessage === "string") {
     messageLines = alertMessage.split("\n").map((line, index) => (

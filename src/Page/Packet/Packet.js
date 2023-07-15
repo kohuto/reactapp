@@ -14,6 +14,7 @@ import { whatIsWifiNodes } from "../../Data/Flow/whatIsWifi";
 import { landingPageNodes } from "../../Data/Flow/creativeMode";
 import { findServerNodes } from "../../Data/Flow/findServers";
 
+// Function to get the coordinates of a specific node
 function getCoordinates(id, nodes) {
   const nodeInNodes = nodes.find((s) => s.id === id);
   if (nodeInNodes) {
@@ -82,6 +83,7 @@ function getCoordinates(id, nodes) {
   return null;
 }
 
+// Function to compute x coordinates of specific node
 function computeX(x, marginleft, nodes) {
   const twentyPercentOfViewportWidth = (window.innerWidth * marginleft) / 100;
   const xarray = [];
@@ -103,6 +105,7 @@ function computeX(x, marginleft, nodes) {
   return xarray;
 }
 
+// Function to compute y coordinates of specific node
 function computeY(y, nodes) {
   const polomerServer = 10;
   const yarray = [];
@@ -126,6 +129,7 @@ const Results = (props) => (
   </>
 );
 
+// Function to compute the animation breakpoints
 function computeTimes(length) {
   let times = [];
   for (let i = 0; i <= length; i++) {

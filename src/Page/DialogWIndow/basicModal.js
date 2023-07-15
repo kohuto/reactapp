@@ -21,6 +21,7 @@ export default function BasicModal({ content }) {
   const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
 
+  // Splitting the content by new lines and mapping it to Typography components
   let messageLines = content;
   if (typeof content === "string") {
     messageLines = content.split("\n").map((line, index) => (

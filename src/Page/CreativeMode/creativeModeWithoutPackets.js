@@ -27,6 +27,7 @@ function CreativeModeWithoutPackets({ info }) {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // change client class name if its in BTS range
   useEffect(() => {
     const intervalId = setInterval(() => {
       const clientInfoNodes = nodes.filter((node) =>
@@ -136,6 +137,7 @@ function CreativeModeWithoutPackets({ info }) {
   );
 }
 
+// check if node is in BTS or WiFi range
 function isNodeInRange(nodeId, nodes) {
   const node = nodes.find((node) => node.id === nodeId);
   const wifiNodes = nodes.filter((node) =>
@@ -170,6 +172,7 @@ function isNodeInRange(nodeId, nodes) {
   return false;
 }
 
+//get random IPv4 address
 function generateIpv4Address() {
   let ipv4Address = "";
   for (let i = 0; i < 4; i++) {

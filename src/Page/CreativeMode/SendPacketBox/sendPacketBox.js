@@ -56,6 +56,7 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     }
   }
 
+  // get all connected client nodes
   function getWirelessDeviceIpAddress(nodes, clientIpAddress) {
     const clientNode = nodes.find((node) => node.id === clientIpAddress);
     if (clientNode && clientNode.className.includes(CLIENT_PLUGGED_CLASSNAME)) {
@@ -80,6 +81,7 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     }
   }
 
+  // get shortest path of nodes from client to server
   function findPath(edges, id1, id2) {
     // create a map of nodes to their neighbors
     const neighbors = new Map();
@@ -112,6 +114,7 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     return null; // id2 is not reachable from id1
   }
 
+  // get ip address of nodes of specific type
   function GetNodesTypeIpList(nodes, type) {
     const nodesType = nodes.filter(
       (node) => node.className && node.className.includes(type)
@@ -119,6 +122,7 @@ function SendPacketBox({ nodes, edges, setPath, setErrorMessage, setIsError }) {
     const nodesTypeIds = nodesType.map((node) => node.id);
     return nodesTypeIds;
   }
+
   return (
     <div className="lp-send-packet-container">
       <div className="lp-send-packet-first-column">
