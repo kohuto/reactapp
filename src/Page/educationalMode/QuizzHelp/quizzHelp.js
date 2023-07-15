@@ -37,6 +37,7 @@ export default function PlaygroundSpeedDial({ setGame, game }) {
     setGame("noGame");
   };
 
+  // get name of next level
   const getNextLevelType = () => {
     const itemIndex = stockData.findIndex((item) => item.type === game);
     if (itemIndex !== -1) {
@@ -47,6 +48,7 @@ export default function PlaygroundSpeedDial({ setGame, game }) {
     return null;
   };
 
+  // set game to next level name
   const handleGoToNextLevel = () => {
     const nextLevelType = getNextLevelType();
     setGame(nextLevelType);
