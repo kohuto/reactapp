@@ -27,6 +27,7 @@ function SortFileSize({ info, setGame }) {
     const musicCount = 3000;
     const imageCount = 31;
 
+    // deviation for each value is allowed
     if (
       Math.abs(video - videoCount) < deviationVideo &&
       Math.abs(text - textCount) < deviationText &&

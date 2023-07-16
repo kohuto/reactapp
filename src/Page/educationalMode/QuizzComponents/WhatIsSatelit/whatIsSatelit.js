@@ -10,7 +10,7 @@ import { whatIsSatelitEdges } from "../../../../Data/Flow/edges/whatIsSatelitEdg
  * A React component that renders a container with packets data
  * for a satellite.
  */
-function WhatIsSatelitComponent({ info, setGame }) {
+function WhatIsSatelitComponent({ info }) {
   return (
     <div className="what-is-satelit-container">
       <BasicModal content={info.content} />

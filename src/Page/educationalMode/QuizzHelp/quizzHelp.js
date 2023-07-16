@@ -19,6 +19,9 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
 export default function PlaygroundSpeedDial({ setGame, game }) {
   const [open, setOpen] = useState(false);
 
+  /**
+   * get hint message for current game
+   */
   function getGameHint() {
     return stockData.find((item) => item.type === game).hint;
   }

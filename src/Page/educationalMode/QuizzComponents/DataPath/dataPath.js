@@ -4,7 +4,7 @@ import { whatIsPathEdges } from "../../../../Data/Flow/edges/whatIsPath";
 import "./style.css";
 import BasicModal from "../../../DialogWindow/basicModal";
 
-function WhereDataTravel({ info, setGame }) {
+function WhereDataTravel({ info }) {
   return (
     <div className="data-path-flow-container">
       <BasicModal content={info.content} />

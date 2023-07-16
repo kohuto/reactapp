@@ -214,6 +214,7 @@ function FlowWithProvider({ info, setGame }) {
   );
 }
 
+// check if nodes is in range of some BTS or WiFi router
 function isNodeInRange(nodeId, nodes) {
   const node = nodes.find((node) => node.id === nodeId);
   const wifiNodes = nodes.filter((node) =>
@@ -250,6 +251,7 @@ function isNodeInRange(nodeId, nodes) {
   return false;
 }
 
+// check if network is connected using BFS
 function isConnected(nodes, edges) {
   // Create an adjacency list to represent the graph
   const adjList = {};
@@ -284,6 +286,7 @@ function isConnected(nodes, edges) {
   );
 }
 
+// find bridges in network (only between gateways)
 function hasGatewayBridge(nodes, edges) {
   const adjList = {};
   const visited = new Set();
@@ -380,6 +383,7 @@ function hasCorrectEdge(nodes, edges) {
   return true;
 }
 
+// find any articulation in network
 function hasArticulationGateway(nodes, edges) {
   const gatewayNodes = new Set();
   const gatewayEdges = [];
@@ -446,6 +450,7 @@ function hasArticulationGateway(nodes, edges) {
   return ap.size > 0;
 }
 
+// get random IPv4 adress
 function generateIpv4Address() {
   let ipv4Address = "";
   for (let i = 0; i < 4; i++) {
@@ -457,6 +462,7 @@ function generateIpv4Address() {
   return ipv4Address;
 }
 
+// get number of nodes of specific type
 function countNodesByType(nodes, type) {
   return nodes.filter((node) => node.className.includes(type)).length;
 }

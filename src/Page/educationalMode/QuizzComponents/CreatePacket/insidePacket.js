@@ -1,20 +1,5 @@
 import TextField from "@mui/material/TextField";
 
-/**
- * Represents the component that displays a form to fill in the details of a packet.
- * @param {Object} props - The props that are passed to this component.
- * @param {Array} props.id - The array of packet IDs.
- * @param {function} props.setId - The function to update the packet IDs.
- * @param {Array} props.order - The array of packet order.
- * @param {function} props.setOrder - The function to update the packet order.
- * @param {Array} props.senderIP - The array of packet sender IP addresses.
- * @param {function} props.setSenderIP - The function to update the packet sender IP addresses.
- * @param {Array} props.recipientIP - The array of packet recipient IP addresses.
- * @param {function} props.setRecipientIP - The function to update the packet recipient IP addresses.
- * @param {Array} props.content - The array of packet content.
- * @param {function} props.setContent - The function to update the packet content.
- * @param {number} props.number - The index number of the packet.
- */
 function InsidePacket(props) {
   return (
     <>

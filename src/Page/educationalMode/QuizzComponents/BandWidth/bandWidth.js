@@ -21,6 +21,7 @@ function BandWidthComponent({ info, setGame }) {
     240000000 / (userInput.length * 8)
   )}x rychleji, abys zvládl přenášet data stejně rychle, jako jsou přenášena po internetu.`;
 
+  // timer set to 10 seconds
   useEffect(() => {
     const intervalId = setInterval(() => {
       const endTime = Date.now();
@@ -33,6 +34,7 @@ function BandWidthComponent({ info, setGame }) {
     return () => clearInterval(intervalId);
   }, [isStarted, startTime, userInput, finalMessage]);
 
+  // if input is incorrect, error message is shown for 0,5 second
   useEffect(() => {
     if (showError) {
       const timer = setTimeout(() => {
@@ -43,6 +45,7 @@ function BandWidthComponent({ info, setGame }) {
     }
   }, [showError]);
 
+  // start timer
   const handleStartClick = () => {
     setIsStarted(true);
     setStartTime(Date.now());

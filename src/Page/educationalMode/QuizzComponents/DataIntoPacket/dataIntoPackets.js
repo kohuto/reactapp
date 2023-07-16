@@ -52,6 +52,7 @@ function DataIntoPackets({ info }) {
   let packets1 = packetsFromClientToServer;
   let packets2 = packetsFromServerToClient;
 
+  // swap left and right avatars in chat
   function swapSenders() {
     setIsSwapedSenders(true);
     setMessages(
@@ -67,6 +68,7 @@ function DataIntoPackets({ info }) {
     );
   }
 
+  // set timers of animations
   const endPackets1 = () => {
     setTimeout(() => {
       setShowPackets1(false);
@@ -83,6 +85,9 @@ function DataIntoPackets({ info }) {
     }, 18000);
   };
 
+  /**
+   * handle click on send button. Also split message into one, two or three packets
+   */
   const handleSend = () => {
     if (newMessage.length <= 24 && newMessage.length > 0) {
       setMessages([...messages, { text: newMessage, sender: "user" }]);
@@ -105,6 +110,9 @@ function DataIntoPackets({ info }) {
     }
   };
 
+  /**
+   * handle show and hide dialog window
+   */
   const hidePacketsCreatedMessageContainer = () => {
     setShowPacketsCreatedMessageBox(false);
     setShowPackets1(true);

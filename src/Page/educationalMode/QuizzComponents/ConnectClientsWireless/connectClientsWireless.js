@@ -27,9 +27,7 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
   const [isTooMuchNodes, setIsTooMuchNodes] = useState(false);
 
   /**
-   * This useEffect hook updates the positions and classes of the client nodes every 10 milliseconds. It also
-   * checks if the game is over and opens a dialog window if necessary. The cleanup function clears the interval
-   * when the component unmounts or when the nodes state changes.
+   * updates positions and classes of the client nodes every 10 milliseconds.
    */
   useEffect(() => {
     // Check if the game is over
@@ -74,6 +72,7 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
     return () => clearInterval(intervalId);
   }, [nodes]);
 
+  // add node of specific type into network
   const handleAddNode = useCallback(
     (device) => {
       const deviceNodes = nodes.filter((node) => node.className === device);
@@ -132,10 +131,12 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
   );
 }
 
+// get number of nodes of specific type
 function countNodesByType(nodes, type) {
   return nodes.filter((node) => node.className === type).length;
 }
 
+// check if node is in range of BTS or WiFi router
 const isNodeInRange = (nodeId, nodes) => {
   const node = nodes.find((node) => node.id === nodeId);
   const wifiNodes = nodes.filter((node) => node.className === DEVICE_TYPE.WIFI);
@@ -164,6 +165,7 @@ const isNodeInRange = (nodeId, nodes) => {
   return isInRangeOfWifi || isInRangeOfBts;
 };
 
+// get random Ipv4 address
 function generateIpv4Address() {
   let ipv4Address = "";
   for (let i = 0; i < 4; i++) {

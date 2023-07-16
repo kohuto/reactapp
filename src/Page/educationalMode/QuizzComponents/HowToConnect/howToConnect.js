@@ -13,6 +13,10 @@ const ERROR_MESSAGE = "Něco není správně";
 function HowToConnect({ info, setGame }) {
   const [isFilledCorrectly, setIsFilledCorrectly] = useState(false);
   const [isIncorrect, setIsIncorrect] = useState(false);
+
+  /**
+   * handle form submition
+   */
   const handleSubmit = () => {
     if (
       checkboxes1.checkbox1 &&
@@ -33,6 +37,10 @@ function HowToConnect({ info, setGame }) {
       setIsIncorrect(true);
     }
   };
+
+  /**
+   * groups of checkboxes
+   */
   const [checkboxes1, setCheckboxes1] = useState({
     checkbox1: false,
     checkbox2: false,
@@ -56,6 +64,9 @@ function HowToConnect({ info, setGame }) {
     checkbox3: false,
   });
 
+  /**
+   * handle check
+   */
   const handleCheckboxChange1 = (event) => {
     const { name, checked } = event.target;
     setCheckboxes1({

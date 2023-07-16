@@ -30,6 +30,9 @@ function SortIPAdresses({ info, setGame }) {
     setValues(newValues);
   }
 
+  /**
+   * handle form submition
+   */
   function handleSubmit() {
     if (values.every((value, index) => value === CORRECT_VALUES[index])) {
       setIsCorrectlyFilled(true);
