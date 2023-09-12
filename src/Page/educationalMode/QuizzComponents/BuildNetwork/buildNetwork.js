@@ -19,7 +19,7 @@ const DEVICE_TYPE = {
   SERVER: "server-creative",
 };
 
-const FINAL_MESSAGE = "good job";
+const FINAL_MESSAGE = "Perfektní! Podařilo se ti vytvořit síť podle zadání.";
 const MISSING_CONNECTION_ERROR =
   "Všechna zařízení musí být navzájem propojeny kabelem (pouze klient bude připojen bezdrátově).";
 const BRIDGE_ERROR = "nesmi obsahovat mosty mezi krizovatkami";
@@ -123,22 +123,27 @@ function FlowWithProvider({ info, setGame }) {
     if (!isConnected(nodes, edges)) {
       setErrorMessage(MISSING_CONNECTION_ERROR);
       setIsInvalid(true);
+      return;
     }
     if (hasGatewayBridge(nodes, edges)) {
       setErrorMessage(BRIDGE_ERROR);
       setIsInvalid(true);
+      return;
     }
     if (hasArticulationGateway(nodes, edges)) {
       setErrorMessage(ARTICULATION_ERROR);
       setIsInvalid(true);
+      return;
     }
     if (!hasCorrectEdge(nodes, edges)) {
       setErrorMessage(INCORRECT_EDGE_ERROR);
       setIsInvalid(true);
+      return;
     }
     if (countNodesByType(nodes, DEVICE_TYPE.CLIENT_UNPLUGGED) > 0) {
       setErrorMessage(UNPLUGGED_CLIENT_ERROR);
       setIsInvalid(true);
+      return;
     }
 
     switch (info.type) {

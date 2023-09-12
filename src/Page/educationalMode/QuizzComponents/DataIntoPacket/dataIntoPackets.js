@@ -44,11 +44,11 @@ function DataIntoPackets({ info }) {
   const [content2, setContent2] = useState("");
   const [content3, setContent3] = useState("");
   const [isErrorInput, setIsErrorInput] = useState(false);
-  const longMessageErrorMessage = "napis zpravu, ktera ma max 24 znaku.";
+  const longMessageErrorMessage = "Napiš zprávu, která má maximálně 24 znaků.";
   const firstInform =
     "Zpráva se rozložila na pakety. Každý paket, má určitou velikost. Může se stát, že poslední paket, který obsahuje zbytek dat, nemá stejnou velikost jako předchozí pakety. Je to proto, že poslední část zprávy je menší než velikost běžného paketu. To ale nevadí, paket dorazí do cíle stejně jako ostatní pakety. Zavři nyní toto okno a sleduj, jak se v mapě objeví pakety. Na pakety můžeš kliknout a podívat se, co je uvnitř.";
   const secondInform =
-    "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Anička bude chtít zobrazit zprávu, pošle požadavek serveru a ten ji zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Aničce. Opět se můžeš podívat dovnitř paketů.";
+    "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Jeroným bude chtít zobrazit zprávu, pošle požadavek serveru a ten mu zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Jeronýmovi. Opět se můžeš podívat dovnitř paketů.";
   let packets1 = packetsFromClientToServer;
   let packets2 = packetsFromServerToClient;
 
@@ -254,7 +254,7 @@ function DataIntoPackets({ info }) {
             >
               &times;
             </span>
-            <p>{secondInform}adresu</p>
+            <p>{secondInform}</p>
           </div>
         </div>
       </>

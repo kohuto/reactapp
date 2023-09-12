@@ -51,7 +51,7 @@ export const stockData = [
     content:
       "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Pakety jsou očíslované, aby mohly být v cíli správně seřazeny.",
     type: "createPacket",
-    hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vleze 8 znaků z původní zprávy.",
+    hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vejde 8 znaků z původní zprávy.",
   },
   {
     content:
@@ -61,9 +61,9 @@ export const stockData = [
   },
   {
     content:
-      "Odeslaná data se před odesláním rozloží na pakety. Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vleze 1KB dat",
+      "Odeslaná data se před odesláním rozloží na pakety. Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vejde 1KB dat",
     type: "sortFileSize",
-    hint: "Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vleze 1KB dat",
+    hint: "Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vejde 1KB dat",
   },
   {
     content:
