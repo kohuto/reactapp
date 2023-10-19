@@ -25,10 +25,6 @@ function DataIntoPackets({ info }) {
 
   const [messages, setMessages] = useState([
     { text: "Ahoj Xavi! Jak se dneska daří?", sender: "other" },
-    {
-      text: "Ahoj Jeronýme!",
-      sender: "user",
-    },
   ]);
 
   const [newMessage, setNewMessage] = useState("");
@@ -46,7 +42,7 @@ function DataIntoPackets({ info }) {
   const [isErrorInput, setIsErrorInput] = useState(false);
   const longMessageErrorMessage = "Napiš zprávu, která má maximálně 24 znaků.";
   const firstInform =
-    "Zpráva se rozložila na pakety. Každý paket, má určitou velikost. Může se stát, že poslední paket, který obsahuje zbytek dat, nemá stejnou velikost jako předchozí pakety. Je to proto, že poslední část zprávy je menší než velikost běžného paketu. To ale nevadí, paket dorazí do cíle stejně jako ostatní pakety. Zavři nyní toto okno a sleduj, jak se v mapě objeví pakety. Na pakety můžeš kliknout a podívat se, co je uvnitř.";
+    "Zpráva byla rozdělena na pakety, z nichž každý má určitou velikost. Stává se, že poslední paket obsahuje zbylá data, která nejsou dostatečně velká na to, aby vyplnily celý paket. To nevadí, poslední paket dorazí do cíle stejně jako všechny ostatní pakety. Zavři toto okno a sleduj, jak se na mapě zobrazí jednotlivé pakety. Můžeš na ně kliknout a zjistit, co obsahují.";
   const secondInform =
     "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Jeroným bude chtít zobrazit zprávu, pošle požadavek serveru a ten mu zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Jeronýmovi. Opět se můžeš podívat dovnitř paketů.";
   let packets1 = packetsFromClientToServer;
@@ -88,23 +84,27 @@ function DataIntoPackets({ info }) {
   /**
    * handle click on send button. Also split message into one, two or three packets
    */
+
   const handleSend = () => {
     if (newMessage.length <= 24 && newMessage.length > 0) {
-      setMessages([...messages, { text: newMessage, sender: "user" }]);
-      setNewMessage("");
-      setShowChat(false);
-      setShowPacketsCreatedMessageBox(true);
-
       setContent1(newMessage.substring(0, 8));
       if (newMessage.length > 8) setContent2(newMessage.substring(8, 16));
-      if (newMessage.length > 16);
-      setContent3(newMessage.substring(16, 24));
-      packets1[0].content = content1;
-      packets1[1].content = content2;
-      packets1[2].content = content3;
-      packets2[0].content = content1;
-      packets2[1].content = content2;
-      packets2[2].content = content3;
+      if (newMessage.length > 16) setContent3(newMessage.substring(16, 24));
+
+      packets1[0].content = newMessage.substring(0, 8);
+      packets1[1].content =
+        newMessage.length > 8 ? newMessage.substring(8, 16) : "";
+      packets1[2].content =
+        newMessage.length > 16 ? newMessage.substring(16, 24) : "";
+      packets2[0].content = newMessage.substring(0, 8);
+      packets2[1].content =
+        newMessage.length > 8 ? newMessage.substring(8, 16) : "";
+      packets2[2].content =
+        newMessage.length > 16 ? newMessage.substring(16, 24) : "";
+      setMessages([...messages, { text: newMessage, sender: "user" }]);
+      setShowChat(false);
+      setShowPacketsCreatedMessageBox(true);
+      setNewMessage("");
     } else {
       setIsErrorInput(true);
     }

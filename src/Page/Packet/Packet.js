@@ -87,7 +87,7 @@ function getCoordinates(id, nodes) {
 function computeX(x, marginleft, nodes) {
   const twentyPercentOfViewportWidth = (window.innerWidth * marginleft) / 100;
   const xarray = [];
-  const polomerServer = 10;
+  const polomerServer = -20;
   for (let i = 0; i < x.length; i++) {
     xarray.push(
       getCoordinates(x[i], nodes).x -
@@ -107,7 +107,7 @@ function computeX(x, marginleft, nodes) {
 
 // Function to compute y coordinates of specific node
 function computeY(y, nodes) {
-  const polomerServer = 10;
+  const polomerServer = 20;
   const yarray = [];
   for (let i = 0; i < y.length; i++) {
     yarray.push(getCoordinates(y[i], nodes).y + polomerServer);
@@ -138,17 +138,7 @@ function computeTimes(length) {
   return times;
 }
 
-function Packet({
-  content,
-  from,
-  to,
-  path,
-  color,
-  speed,
-  repeat,
-  marginleft,
-  nodes,
-}) {
+function Packet({ content, from, to, path, speed, repeat, marginleft, nodes }) {
   const [showResults, setShowResults] = React.useState(false);
   const xCoordinates = computeX(path, marginleft, nodes);
   const yCoordinates = computeY(path, nodes);
@@ -170,7 +160,6 @@ function Packet({
             duration: speed,
             times: pole,
           }}
-          style={{ backgroundColor: color }}
         >
           {showResults ? (
             <Results content={content} from={from} to={to} />
