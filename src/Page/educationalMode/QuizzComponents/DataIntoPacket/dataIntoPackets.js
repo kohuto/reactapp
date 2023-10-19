@@ -32,6 +32,7 @@ function DataIntoPackets({ info }) {
   const [showPackets1, setShowPackets1] = useState(false);
   const [showPackets2, setShowPackets2] = useState(false);
   const [isSwapedSenders, setIsSwapedSenders] = useState(false);
+  const [wasSwapedSenders, setWasSwapedSenders] = useState(false);
   const [showPacketsCreatedMessageBox, setShowPacketsCreatedMessageBox] =
     useState(false);
   const [showPacketsInServerMessageBox, setShowPacketsInServerMessageBox] =
@@ -45,12 +46,30 @@ function DataIntoPackets({ info }) {
     "Zpráva byla rozdělena na pakety, z nichž každý má určitou velikost. Stává se, že poslední paket obsahuje zbylá data, která nejsou dostatečně velká na to, aby vyplnily celý paket. To nevadí, poslední paket dorazí do cíle stejně jako všechny ostatní pakety. Zavři toto okno a sleduj, jak se na mapě zobrazí jednotlivé pakety. Můžeš na ně kliknout a zjistit, co obsahují.";
   const secondInform =
     "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Jeroným bude chtít zobrazit zprávu, pošle požadavek serveru a ten mu zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Jeronýmovi. Opět se můžeš podívat dovnitř paketů.";
-  let packets1 = packetsFromClientToServer;
-  let packets2 = packetsFromServerToClient;
+  var packets1 = packetsFromClientToServer;
+  var packets2 = packetsFromServerToClient;
 
   // swap left and right avatars in chat
   function swapSenders() {
-    setIsSwapedSenders(true);
+    setIsSwapedSenders(!isSwapedSenders);
+    setWasSwapedSenders(true);
+
+    for (let i = 0; i < 3; i++) {
+      let temp_from_1 = packets1[i].from;
+      packets1[i].from = packets1[i].to;
+      packets1[i].to = temp_from_1;
+      packets1[i].path = packets1[i].path.reverse();
+
+      let temp_from_2 = packets2[i].from;
+      packets2[i].from = packets2[i].to;
+      packets2[i].to = temp_from_2;
+      packets2[i].path = packets2[i].path.reverse();
+
+      let temp_packet_1 = packets1[i];
+      packets1[i] = packets2[i];
+      packets2[i] = temp_packet_1;
+    }
+
     setMessages(
       messages.map((message) => {
         if (message.sender === "user") {
@@ -69,7 +88,7 @@ function DataIntoPackets({ info }) {
     setTimeout(() => {
       setShowPackets1(false);
       setShowPacketsInServerMessageBox(true);
-    }, 19000);
+    }, 19000); //19000
   };
 
   const endPackets2 = () => {
@@ -78,7 +97,7 @@ function DataIntoPackets({ info }) {
       setShowPacketsInServerMessageBox(true);
       swapSenders();
       setShowChat(true);
-    }, 18000);
+    }, 18000); //18000
   };
 
   /**
@@ -197,7 +216,7 @@ function DataIntoPackets({ info }) {
               }}
             ></button>
           </div>
-          {!isSwapedSenders && <BasicModal content={info.content} />}
+          {!wasSwapedSenders && <BasicModal content={info.content} />}
         </div>
       </>
     );

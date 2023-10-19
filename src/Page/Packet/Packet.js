@@ -122,8 +122,8 @@ const Results = (props) => (
   <>
     <div id="results" className="search-results">
       <p>{props.content}</p>
-      <p>from: {props.from}</p>
-      <p>to: {props.to}</p>
+      <p>Odesílatel: {props.from}</p>
+      <p>Příjemce: {props.to}</p>
     </div>
     <div className="arrow-down"></div>
   </>
