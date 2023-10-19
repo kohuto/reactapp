@@ -66,6 +66,7 @@
   
   .csc-send-answer {
     opacity: 0;
+    background-color: white;
     transform: translateX(0);
     top: 50vh;
     left: 75vw;

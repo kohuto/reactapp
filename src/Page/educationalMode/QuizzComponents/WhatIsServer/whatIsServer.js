@@ -17,9 +17,9 @@ const FINAL_MESSAGE =
 const CORRECT_WEB_MESSAGE =
   "Správně! Weby bývají často uložené na serverech, které patří tzv. poskytovatelům webhostingů.";
 const CORRECT_INSTAGRAM_MESSAGE =
-  "Správně! Instagram bude mít na svém serveru uloženo spoustu obrázků";
+  "Správně! Instagram bude mít na svém serveru uloženou spoustu obrázků";
 const CORRECT_YOUTUBE_MESSAGE =
-  "Správně! Na YouTube serveru bude uloženo spoustu videí";
+  "Správně! Na YouTube serveru bude uložená spousta videí";
 
 function WhatIsServerComponent({ info, setGame }) {
   const webRef = useRef(null);
