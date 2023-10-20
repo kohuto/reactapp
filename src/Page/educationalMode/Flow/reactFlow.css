@@ -412,7 +412,7 @@
 .electric-socket {
   width: 50px;
   height: 50px;
-  background-image: url("../../../images/nodes/electric-socket.png");
+  background-image: url("../../../images/nodes/socket.svg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
