@@ -14,7 +14,7 @@ export const whatIsWifiNodes = [
     type: "custom",
     position: { x: 50, y: 450 },
     data: { label: "205.243.255.95" },
-    className: "server",
+    className: "server-plain",
     dragHandle: "noDrag",
     targetPosition: "right",
   },

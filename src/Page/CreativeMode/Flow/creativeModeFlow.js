@@ -17,25 +17,24 @@ const CreativeModeFlow = ({
   nodes,
   edges,
   setEdges,
+  setNodes,
   onNodesChange,
   onEdgesChange,
+  isDeleteMode,
 }) => {
   const edgeUpdateSuccessful = useRef(true);
 
   const handleNodeClick = (event, node) => {
-    console.log("kliknul jsem");
-    const id = node.id;
-    const index = nodes.findIndex((node) => node.id === id);
-    if (index !== -1) {
-      nodes.splice(index, 1);
+    if (isDeleteMode) {
+      console.log("kliknul jsem");
+      setNodes((prevNodes) => prevNodes.filter((n) => n.id !== node.id));
     }
   };
+
   const handleEdgeClick = (event, edge) => {
-    console.log("kliknul jsem");
-    const id = edge.id;
-    const index = edges.findIndex((edge) => edge.id === id);
-    if (index !== -1) {
-      edges.splice(index, 1);
+    if (isDeleteMode) {
+      console.log("kliknul jsem");
+      setEdges((prevEdges) => prevEdges.filter((e) => e.id !== edge.id));
     }
   };
 

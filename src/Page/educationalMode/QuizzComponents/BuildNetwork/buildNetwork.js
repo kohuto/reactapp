@@ -9,6 +9,9 @@ import BasicModal from "../../../DialogWindow/basicModal";
 import { useState } from "react";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import IconButton from "@mui/material/IconButton";
+import ToggleButton from "@mui/material/ToggleButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
@@ -42,6 +45,7 @@ function FlowWithProvider({ info, setGame }) {
   const [isInvalid, setIsInvalid] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isDeleteMode, setIsDeleteMode] = useState(false);
 
   /**
    * Checks if clients are plugged in and updates their class accordingly.
@@ -95,7 +99,7 @@ function FlowWithProvider({ info, setGame }) {
       const deviceNodes = nodes.filter((node) => node.className === device);
       const nodeCount = deviceNodes.length;
       const ipv4Address = generateIpv4Address();
-      if (nodeCount >= 15) {
+      if (nodeCount >= 10) {
         setErrorMessage(TOO_MANY_DEVICES_ERROR);
         setIsInvalid(true);
       } else {
@@ -192,6 +196,14 @@ function FlowWithProvider({ info, setGame }) {
 
   return (
     <>
+      <ToggleButton
+        value="delete"
+        selected={isDeleteMode}
+        onChange={() => setIsDeleteMode(!isDeleteMode)}
+      >
+        <DeleteIcon />
+      </ToggleButton>
+
       <BasicModal content={info.content} />
       {isInvalid && (
         <AlertDialog
@@ -212,8 +224,10 @@ function FlowWithProvider({ info, setGame }) {
         setEdges={setEdges}
         edges={edges}
         nodes={nodes}
+        setNodes={setNodes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        isDeleteMode={isDeleteMode}
       />
     </>
   );
