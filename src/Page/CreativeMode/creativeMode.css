@@ -54,6 +54,7 @@
   height: 50px;
   width: 77px;
 }
+
 .client-unplugged-creative .customNodeBody {
   height: 40px;
   width: 49px;
@@ -77,6 +78,7 @@
 .server-creative .customNodeBody .ip-address {
   top: 48px;
 }
+
 .client-unplugged-creative .customNodeBody .ip-address {
   top: 38px;
 }
@@ -109,6 +111,7 @@
   align-items: center;
 }
 
+
 .nodrag .customNode:before {
   display: none;
 }
@@ -138,6 +141,7 @@ div.targetHandle {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .client-unplugged-creative div.targetHandle {
   background-image: url("../../images/nodes/notebook.svg");
   background-size: cover;

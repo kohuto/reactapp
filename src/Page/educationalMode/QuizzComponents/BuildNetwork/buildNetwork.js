@@ -9,7 +9,6 @@ import BasicModal from "../../../DialogWindow/basicModal";
 import { useState } from "react";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
-import IconButton from "@mui/material/IconButton";
 import ToggleButton from "@mui/material/ToggleButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 

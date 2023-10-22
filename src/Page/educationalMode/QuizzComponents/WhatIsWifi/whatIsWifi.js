@@ -1,25 +1,33 @@
 import { useCallback, useState } from "react";
-import ReactFlow, { useEdgesState, addEdge } from "reactflow";
+import ReactFlow, { useEdgesState, addEdge, useNodesState } from "reactflow";
 import { whatIsWifiNodes } from "../../../../Data/Flow/whatIsWifi";
 import { whatIsWifiEdges } from "../../../../Data/Flow/edges/whatIsWifiEdges";
+import "../../../CreativeMode/creativeMode.css";
 import "./style.css";
+import WhatIsWifiFlow from "./what-is-wifi-flow";
+import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
+import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 
 // IP addresses used in the component
 const GATEWAY_IP = "242.47.214.213";
 const SOCKET_IP = "212.68.73.2";
 const WIFI_IP = "136.200.123.175";
 
-function WhatIsWiFiComponent({ setOpenDialog }) {
+function WhatIsWiFiComponent({ info, setGame }) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(whatIsWifiEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(whatIsWifiNodes);
   const [isSwitchedOn, setIsSwitchedOn] = useState(false);
   const [isWifiInSocket, setIsWifiInSocket] = useState(false);
+  const [isIncorret, setIsIncorrect] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [isCorrectConnected, setIsCorrectConnected] = useState(false);
   const finalMessage =
     "Perfektní! Podařilo se ti zapojit wifi router a nyní se pomocí wifi signálu můžeš připojit k internetu.";
   const switchOnWifiMessage = "Nyní zapni wifi.";
   const plugWifiMessage =
     "Nyní musíš wifi router zapojit do sítě. Na počítači sice vidíme wifi router jako dostupný, není ale připojen k chytré křižovatce, proto se nemůžeme připojit k internetu.";
   const wifiIntoSocketMessage =
-    "Prvně zapoj wifi router do zásuvky. Zapojení provedeš tak, že klikneš na černý puntík na routeru a přetáhneš čáru na černý puntík na zásuvce.";
+    "Prvně zapoj wifi router do zásuvky (klikni na router a přetáhni kabel do zásuvky).";
 
   const onConnect = useCallback(
     (params) => {
@@ -37,13 +45,15 @@ function WhatIsWiFiComponent({ setOpenDialog }) {
           ) {
             // wifi is switched on and trying to connect it into gateway
             setEdges((els) => addEdge(params, els));
-            setOpenDialog(true, finalMessage, "noGame");
+            setIsCorrectConnected(true);
           } else {
-            setOpenDialog(true, "chces wifi do gateway");
+            setAlertMessage("chces wifi do gateway");
+            setIsIncorrect(true);
           }
         } else {
           // wifi is in socket, but is not switched on
-          setOpenDialog(true, switchOnWifiMessage);
+          setAlertMessage(switchOnWifiMessage);
+          setIsIncorrect(true);
         }
       } else {
         if (
@@ -53,9 +63,11 @@ function WhatIsWiFiComponent({ setOpenDialog }) {
           // wifi is not in socket but trying to put it into socket
           setEdges((els) => addEdge(params, els));
           setIsWifiInSocket(true);
-          setOpenDialog(true, switchOnWifiMessage);
+          setAlertMessage(switchOnWifiMessage);
+          setIsIncorrect(true);
         } else {
-          setOpenDialog(true, wifiIntoSocketMessage);
+          setAlertMessage(wifiIntoSocketMessage);
+          setIsIncorrect(true);
         }
       }
     },
@@ -66,9 +78,13 @@ function WhatIsWiFiComponent({ setOpenDialog }) {
   function handleToggleSwitch() {
     if (isWifiInSocket) {
       setIsSwitchedOn((prevSwitch) => !prevSwitch);
-      if (isSwitchedOn) setOpenDialog(true, plugWifiMessage);
+      if (isSwitchedOn) {
+        setAlertMessage(plugWifiMessage);
+        setIsIncorrect(true);
+      }
     } else {
-      setOpenDialog(true, wifiIntoSocketMessage);
+      setAlertMessage(wifiIntoSocketMessage);
+      setIsIncorrect(true);
     }
   }
 
@@ -83,18 +99,28 @@ function WhatIsWiFiComponent({ setOpenDialog }) {
         <h1>Dostupné wifi sítě</h1>
         <p>{isSwitchedOn ? WIFI_IP : "Žádné dostupné sítě"}</p>
       </div>
-      <ReactFlow
-        nodes={whatIsWifiNodes}
+      <WhatIsWifiFlow
+        setEdges={setEdges}
+        setNodes={setNodes}
         edges={edges}
-        zoomOnScroll={false}
-        panOnDrag={false}
-        zoomOnPinch={false}
-        zoomOnDoubleClick={false}
+        nodes={nodes}
+        onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        selectNodesOnDrag={false}
-        attributionPosition="top-right"
       />
+      {isIncorret && (
+        <AlertDialog
+          content={alertMessage}
+          closeAction={() => setIsIncorrect(false)}
+        />
+      )}
+      {isCorrectConnected && (
+        <NextLevelModal
+          content={finalMessage}
+          game={info.type}
+          setGame={setGame}
+        />
+      )}
     </div>
   );
 }

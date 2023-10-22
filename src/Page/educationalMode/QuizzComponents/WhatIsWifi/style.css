@@ -2,7 +2,7 @@
     background-image: url("../../../../images/background/dum.svg");
     background-size: 300px;
     background-repeat: no-repeat;
-    background-position: 500px 200px;
+    background-position: 450px 300px;
     height: 95vh;
     width: 80%; 
     margin-left: 20%;
@@ -26,6 +26,84 @@
     padding: 10px;
 }
 
-.electric-socket .react-flow__handle-top {
-    visibility: hidden;
-}
+/*-----------------------------------*/
+
+.what-is-wifi-server .customNode:before {
+    display: none;
+  }
+.what-is-wifi-wifi .customNode:before {
+    display: none;
+  }
+.what-is-wifi-gateway .customNode:before {
+    display: none;
+  }
+
+.what-is-wifi-electric-socket .customNode:before {
+    display: none;
+  }
+
+  .what-is-wifi-server div.targetHandle {
+    background-image: url("../../../../images/nodes/server_komplet.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .what-is-wifi-server .customNodeBody .ip-address {
+    top: 48px;
+  }
+
+  .what-is-wifi-server .customNodeBody {
+    height: 50px;
+    width: 77px;
+  }
+
+
+
+  .what-is-wifi-wifi .customNodeBody {
+    height: 80px;
+    width: 90px;
+  }
+
+  .what-is-wifi-wifi .customNodeBody .ip-address {
+    top: 40px;
+  }
+
+  .what-is-wifi-wifi div.targetHandle {
+    background-image: url("../../../../images/nodes/wifi.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .what-is-wifi-gateway .customNodeBody {
+    height: 17px;
+    width: 77px;
+  }
+
+  .what-is-wifi-gateway .customNodeBody .ip-address {
+    top: 15px;
+  }
+
+  .what-is-wifi-gateway div.targetHandle {
+    background-image: url("../../../../images/nodes/chytrakrizovatka_kratka.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .what-is-wifi-electric-socket .customNodeBody {
+    height: 80px;
+    width: 80px;
+  }
+
+  .what-is-wifi-electric-socket .customNodeBody .ip-address {
+    top: 0px;
+  }
+
+  .what-is-wifi-electric-socket div.targetHandle {
+    background-image: url("../../../../images/nodes/socket.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+  }
+
+  .what-is-wifi-electric-socket .customNodeBody .ip-address {
+    display: none;
+  }
