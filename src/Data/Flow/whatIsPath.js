@@ -26,7 +26,7 @@ export const whatIsPathNodes = [
   {
     id: "164.176.197.211",
     type: "custom",
-    position: { x: 715, y: 1160 },
+    position: { x: 785, y: 1020 },
     className: "server-small",
     data: { label: "164.176.197.211" },
     dragHandle: "noDrag",
@@ -34,7 +34,7 @@ export const whatIsPathNodes = [
   {
     id: "18.24.34.114",
     type: "custom",
-    position: { x: 885, y: 1080 },
+    position: { x: 800, y: 900 },
     className: "server-small",
     data: { label: "18.24.34.114" },
     dragHandle: "noDrag",
@@ -42,7 +42,7 @@ export const whatIsPathNodes = [
   {
     id: "31.172.218.103",
     type: "custom",
-    position: { x: 685, y: 1220 },
+    position: { x: 535, y: 1300 },
     className: "server-small",
     data: { label: "31.172.218.103" },
     dragHandle: "noDrag",
@@ -50,7 +50,7 @@ export const whatIsPathNodes = [
   {
     id: "50.241.244.156",
     type: "custom",
-    position: { x: 605, y: 1380 },
+    position: { x: 605, y: 1400 },
     className: "server-small",
     data: { label: "50.241.244.156" },
     dragHandle: "noDrag",
@@ -67,7 +67,7 @@ export const whatIsPathNodes = [
   {
     id: "152.209.153.144",
     type: "custom",
-    position: { x: 555, y: 1150 },
+    position: { x: 355, y: 1200 },
     className: "server-small",
     data: { label: "152.209.153.144" },
     dragHandle: "noDrag",
@@ -75,7 +75,7 @@ export const whatIsPathNodes = [
   {
     id: "24.139.17.240",
     type: "custom",
-    position: { x: 355, y: 1000 },
+    position: { x: 535, y: 1000 },
     className: "server-small",
     data: { label: "24.139.17.240" },
     dragHandle: "noDrag",
@@ -107,7 +107,7 @@ export const whatIsPathNodes = [
   {
     id: "150.113.117.10",
     type: "custom",
-    position: { x: 1025, y: 2040 },
+    position: { x: 955, y: 2040 },
     className: "server-small",
     data: { label: "150.113.117.10" },
     dragHandle: "noDrag",
@@ -155,7 +155,7 @@ export const whatIsPathNodes = [
   {
     id: "241.56.61.247",
     type: "custom",
-    position: { x: 1495, y: 1750 },
+    position: { x: 1195, y: 1750 },
     className: "server-small",
     data: { label: "241.56.61.247" },
     dragHandle: "noDrag",
@@ -235,7 +235,7 @@ export const whatIsPathNodes = [
   {
     id: "171.164.198.139",
     type: "custom",
-    position: { x: 1155, y: 750 },
+    position: { x: 1195, y: 720 },
     className: "server-small",
     data: { label: "171.164.198.139" },
     dragHandle: "noDrag",
@@ -243,7 +243,7 @@ export const whatIsPathNodes = [
   {
     id: "165.17.12.227",
     type: "custom",
-    position: { x: 1275, y: 370 },
+    position: { x: 1075, y: 570 },
     className: "server-small",
     data: { label: "165.17.12.227" },
     dragHandle: "noDrag",
@@ -259,7 +259,7 @@ export const whatIsPathNodes = [
   {
     id: "86.199.13.22",
     type: "custom",
-    position: { x: 325, y: 250 },
+    position: { x: 365, y: 650 },
     className: "server-small",
     data: { label: "86.199.13.22" },
     dragHandle: "noDrag",
@@ -312,7 +312,7 @@ export const whatIsPathNodes = [
   {
     id: "2.190.80.23",
     type: "custom",
-    position: { x: 625, y: 1200 },
+    position: { x: 525, y: 1200 },
     className: "client-small",
     data: { label: "2.190.80.23" },
     dragHandle: "noDrag",
@@ -320,7 +320,7 @@ export const whatIsPathNodes = [
   {
     id: "121.143.228.41",
     type: "custom",
-    position: { x: 655, y: 1320 },
+    position: { x: 695, y: 1340 },
     className: "client-small",
     data: { label: "121.143.228.41" },
     dragHandle: "noDrag",
@@ -344,7 +344,7 @@ export const whatIsPathNodes = [
   {
     id: "210.78.90.69",
     type: "custom",
-    position: { x: 515, y: 1100 },
+    position: { x: 495, y: 1130 },
     className: "client-small",
     data: { label: "210.78.90.69" },
     dragHandle: "noDrag",
@@ -352,7 +352,7 @@ export const whatIsPathNodes = [
   {
     id: "255.150.14.24",
     type: "custom",
-    position: { x: 395, y: 1100 },
+    position: { x: 345, y: 1250 },
     className: "client-small",
     data: { label: "255.150.14.24" },
     dragHandle: "noDrag",
@@ -376,7 +376,7 @@ export const whatIsPathNodes = [
   {
     id: "183.153.175.41",
     type: "custom",
-    position: { x: 955, y: 1750 },
+    position: { x: 955, y: 1850 },
     className: "client-small",
     data: { label: "183.153.175.41" },
     dragHandle: "noDrag",
@@ -384,7 +384,7 @@ export const whatIsPathNodes = [
   {
     id: "91.36.193.244",
     type: "custom",
-    position: { x: 1095, y: 1990 },
+    position: { x: 1205, y: 1950 },
     className: "client-small",
     data: { label: "91.36.193.244" },
     dragHandle: "noDrag",
@@ -400,7 +400,7 @@ export const whatIsPathNodes = [
   {
     id: "178.26.52.107",
     type: "custom",
-    position: { x: 855, y: 1620 },
+    position: { x: 855, y: 1720 },
     className: "client-small",
     data: { label: "178.26.52.107" },
     dragHandle: "noDrag",
@@ -432,7 +432,7 @@ export const whatIsPathNodes = [
   {
     id: "123.47.39.33",
     type: "custom",
-    position: { x: 1545, y: 1650 },
+    position: { x: 1145, y: 1700 },
     className: "client-small",
     data: { label: "123.47.39.33" },
     dragHandle: "noDrag",
@@ -504,7 +504,7 @@ export const whatIsPathNodes = [
   {
     id: "210.139.78.195",
     type: "custom",
-    position: { x: 905, y: 670 },
+    position: { x: 975, y: 670 },
     className: "client-small",
     data: { label: "210.139.78.195" },
     dragHandle: "noDrag",
@@ -520,7 +520,7 @@ export const whatIsPathNodes = [
   {
     id: "110.184.228.105",
     type: "custom",
-    position: { x: 1175, y: 340 },
+    position: { x: 1175, y: 540 },
     className: "client-small",
     data: { label: "110.184.228.105" },
     dragHandle: "noDrag",
@@ -536,7 +536,7 @@ export const whatIsPathNodes = [
   {
     id: "152.177.76.80",
     type: "custom",
-    position: { x: 225, y: 220 },
+    position: { x: 285, y: 620 },
     className: "client-small",
     data: { label: "152.177.76.80" },
     dragHandle: "noDrag",
@@ -579,7 +579,7 @@ export const whatIsPathNodes = [
   {
     id: "152.13.188.174",
     type: "custom",
-    position: { x: 795, y: 1167 },
+    position: { x: 815, y: 1167 },
     className: "gateway-small",
     data: { label: "152.13.188.174" },
     dragHandle: "noDrag",
@@ -611,7 +611,7 @@ export const whatIsPathNodes = [
   {
     id: "85.125.75.64",
     type: "custom",
-    position: { x: 1045, y: 1100 },
+    position: { x: 1145, y: 900 },
     className: "gateway-small",
     data: { label: "85.125.75.64" },
     dragHandle: "noDrag",
@@ -619,7 +619,7 @@ export const whatIsPathNodes = [
   {
     id: "43.84.67.114",
     type: "custom",
-    position: { x: 605, y: 1290 },
+    position: { x: 435, y: 1320 },
     className: "gateway-small",
     data: { label: "43.84.67.114" },
     dragHandle: "noDrag",
@@ -675,7 +675,7 @@ export const whatIsPathNodes = [
   {
     id: "70.71.155.180",
     type: "custom",
-    position: { x: 465, y: 1050 },
+    position: { x: 465, y: 1100 },
     className: "gateway-small",
     data: { label: "70.71.155.180" },
     dragHandle: "noDrag",
@@ -683,7 +683,7 @@ export const whatIsPathNodes = [
   {
     id: "127.230.6.154",
     type: "custom",
-    position: { x: 505, y: 950 },
+    position: { x: 475, y: 1050 },
     className: "gateway-small",
     data: { label: "127.230.6.154" },
     dragHandle: "noDrag",
@@ -691,7 +691,7 @@ export const whatIsPathNodes = [
   {
     id: "194.112.46.82",
     type: "custom",
-    position: { x: 505, y: 800 },
+    position: { x: 305, y: 690 },
     className: "gateway-small",
     data: { label: "194.112.46.82" },
     dragHandle: "noDrag",
@@ -699,7 +699,7 @@ export const whatIsPathNodes = [
   {
     id: "139.171.251.254",
     type: "custom",
-    position: { x: 355, y: 900 },
+    position: { x: 445, y: 1070 },
     className: "gateway-small",
     data: { label: "139.171.251.254" },
     dragHandle: "noDrag",
@@ -723,7 +723,7 @@ export const whatIsPathNodes = [
   {
     id: "244.44.72.92",
     type: "custom",
-    position: { x: 705, y: 1280 },
+    position: { x: 505, y: 1260 },
     className: "gateway-small",
     data: { label: "244.44.72.92" },
     dragHandle: "noDrag",
@@ -755,7 +755,7 @@ export const whatIsPathNodes = [
   {
     id: "253.170.131.59",
     type: "custom",
-    position: { x: 975, y: 2000 },
+    position: { x: 905, y: 1800 },
     className: "gateway-small",
     data: { label: "253.170.131.59" },
     dragHandle: "noDrag",
@@ -779,7 +779,7 @@ export const whatIsPathNodes = [
   {
     id: "100.0.214.167",
     type: "custom",
-    position: { x: 1055, y: 1800 },
+    position: { x: 1075, y: 1780 },
     className: "gateway-small",
     data: { label: "100.0.214.167" },
     dragHandle: "noDrag",
@@ -835,7 +835,7 @@ export const whatIsPathNodes = [
   {
     id: "244.146.178.108",
     type: "custom",
-    position: { x: 1405, y: 1750 },
+    position: { x: 1305, y: 1750 },
     className: "gateway-small",
     data: { label: "244.146.178.108" },
     dragHandle: "noDrag",
@@ -851,7 +851,7 @@ export const whatIsPathNodes = [
   {
     id: "62.136.182.25",
     type: "custom",
-    position: { x: 1305, y: 1850 },
+    position: { x: 1305, y: 1800 },
     className: "gateway-small",
     data: { label: "62.136.182.25" },
     dragHandle: "noDrag",
@@ -955,7 +955,7 @@ export const whatIsPathNodes = [
   {
     id: "119.42.164.123",
     type: "custom",
-    position: { x: 905, y: 620 },
+    position: { x: 995, y: 650 },
     className: "gateway-small",
     data: { label: "119.42.164.123" },
     dragHandle: "noDrag",
@@ -963,7 +963,7 @@ export const whatIsPathNodes = [
   {
     id: "197.238.77.25",
     type: "custom",
-    position: { x: 1105, y: 823 },
+    position: { x: 1055, y: 733 },
     className: "gateway-small",
     data: { label: "197.238.77.25" },
     dragHandle: "noDrag",
@@ -979,7 +979,7 @@ export const whatIsPathNodes = [
   {
     id: "174.12.151.6",
     type: "custom",
-    position: { x: 1205, y: 420 },
+    position: { x: 1205, y: 590 },
     className: "gateway-small",
     data: { label: "174.12.151.6" },
     dragHandle: "noDrag",
@@ -995,7 +995,7 @@ export const whatIsPathNodes = [
   {
     id: "70.157.149.183",
     type: "custom",
-    position: { x: 355, y: 220 },
+    position: { x: 355, y: 620 },
     className: "gateway-small",
     data: { label: "70.157.149.183" },
     dragHandle: "noDrag",

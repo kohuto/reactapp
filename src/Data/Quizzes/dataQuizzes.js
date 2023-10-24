@@ -139,10 +139,9 @@ export const stockData = [
   },
   {
     content:
-      /*"Proč je dobré, aby mezi dvěma místy vedlo více různých cest? Zavři okno a sleduj paket, který byl poslán do messenger serveru, kam vede pouze jedna cesta.",*/
-      "Tento úkol není hotový, přejdi na další aktivitu.",
+      "Kabel spojující křižovatky 10.5.112.134 a 174.175.243.159 byl poškozen, což vedlo k rozpadu internetové sítě na dvě části. Kolik dalších spojení bychom museli nyní minimálně přidat do sítě, abychom předešli tomu, že by se síť znovu rozpadla na dvě části po odstranění jedné libovolné cesty nebo křižovatky?",
     type: "problemWithPath",
-    hint: "",
+    hint: "Kolik dalších spojení bychom museli nyní minimálně přidat do sítě, abychom předešli tomu, že by se síť znovu rozpadla na dvě části po odstranění jedné libovolné cesty nebo křižovatky?",
   },
   {
     content:

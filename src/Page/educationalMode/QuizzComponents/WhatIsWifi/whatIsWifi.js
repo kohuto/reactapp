@@ -7,7 +7,7 @@ import "./style.css";
 import WhatIsWifiFlow from "./what-is-wifi-flow";
 import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
-
+import BasicModal from "../../../DialogWindow/basicModal";
 // IP addresses used in the component
 const GATEWAY_IP = "242.47.214.213";
 const SOCKET_IP = "212.68.73.2";
@@ -22,12 +22,12 @@ function WhatIsWiFiComponent({ info, setGame }) {
   const [alertMessage, setAlertMessage] = useState("");
   const [isCorrectConnected, setIsCorrectConnected] = useState(false);
   const finalMessage =
-    "Perfektní! Podařilo se ti zapojit wifi router a nyní se pomocí wifi signálu můžeš připojit k internetu.";
-  const switchOnWifiMessage = "Nyní zapni wifi.";
+    "Podařilo se ti zapojit wifi router a nyní se pomocí wifi signálu můžeš připojit k internetu.";
+  const switchOnWifiMessage = "Zapni wifi.";
   const plugWifiMessage =
-    "Nyní musíš wifi router zapojit do sítě. Na počítači sice vidíme wifi router jako dostupný, není ale připojen k chytré křižovatce, proto se nemůžeme připojit k internetu.";
+    "Zapoj wifi router do sítě. Sice vidíme wifi router jako dostupný, není ale připojen k chytré křižovatce, proto se nemůžeme připojit k internetu.";
   const wifiIntoSocketMessage =
-    "Prvně zapoj wifi router do zásuvky (klikni na router a přetáhni kabel do zásuvky).";
+    "Zapoj wifi router do zásuvky (klikni na router a přetáhni kabel do zásuvky).";
 
   const onConnect = useCallback(
     (params) => {
@@ -78,10 +78,9 @@ function WhatIsWiFiComponent({ info, setGame }) {
   function handleToggleSwitch() {
     if (isWifiInSocket) {
       setIsSwitchedOn((prevSwitch) => !prevSwitch);
-      if (isSwitchedOn) {
-        setAlertMessage(plugWifiMessage);
-        setIsIncorrect(true);
-      }
+
+      setAlertMessage(plugWifiMessage);
+      setIsIncorrect(true);
     } else {
       setAlertMessage(wifiIntoSocketMessage);
       setIsIncorrect(true);
@@ -89,39 +88,42 @@ function WhatIsWiFiComponent({ info, setGame }) {
   }
 
   return (
-    <div className="what-is-wifi-container">
-      <div className="switch-on-off-button">
-        <button onClick={handleToggleSwitch}>
-          {isSwitchedOn ? "Vypnout" : "Zapnout"}
-        </button>
-      </div>
-      <div className="wifi-list">
-        <h1>Dostupné wifi sítě</h1>
-        <p>{isSwitchedOn ? WIFI_IP : "Žádné dostupné sítě"}</p>
-      </div>
-      <WhatIsWifiFlow
-        setEdges={setEdges}
-        setNodes={setNodes}
-        edges={edges}
-        nodes={nodes}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-      />
-      {isIncorret && (
-        <AlertDialog
-          content={alertMessage}
-          closeAction={() => setIsIncorrect(false)}
+    <>
+      <BasicModal content={info.content} />
+      <div className="what-is-wifi-container">
+        <div className="switch-on-off-button">
+          <button onClick={handleToggleSwitch}>
+            {isSwitchedOn ? "Vypnout" : "Zapnout"}
+          </button>
+        </div>
+        <div className="wifi-list">
+          <h1>Dostupné wifi sítě</h1>
+          <p>{isSwitchedOn ? WIFI_IP : "Žádné dostupné sítě"}</p>
+        </div>
+        <WhatIsWifiFlow
+          setEdges={setEdges}
+          setNodes={setNodes}
+          edges={edges}
+          nodes={nodes}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
         />
-      )}
-      {isCorrectConnected && (
-        <NextLevelModal
-          content={finalMessage}
-          game={info.type}
-          setGame={setGame}
-        />
-      )}
-    </div>
+        {isIncorret && (
+          <AlertDialog
+            content={alertMessage}
+            closeAction={() => setIsIncorrect(false)}
+          />
+        )}
+        {isCorrectConnected && (
+          <NextLevelModal
+            content={finalMessage}
+            game={info.type}
+            setGame={setGame}
+          />
+        )}
+      </div>
+    </>
   );
 }
 

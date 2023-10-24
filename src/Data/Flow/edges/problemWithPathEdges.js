@@ -36,12 +36,6 @@ export const problemWithPathEdges = [
     type: "straight",
   },
   {
-    id: "71.20.12.201-174.175.243.159",
-    source: "71.20.12.201",
-    target: "174.175.243.159",
-    type: "straight",
-  },
-  {
     id: "48.189.46.255-159.199.179.144",
     source: "48.189.46.255",
     target: "159.199.179.144",
