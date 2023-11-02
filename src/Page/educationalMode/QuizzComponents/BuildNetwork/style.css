@@ -4,3 +4,10 @@
     right: 2.5vw;
     z-index: 10;
 }
+
+.delete-button {
+    position: absolute;
+    bottom: 4vh;
+    right: 13vw;
+    z-index: 10;
+}

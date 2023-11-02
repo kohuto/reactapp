@@ -20,7 +20,12 @@ function countNodesByType(nodes, type) {
   return nodes.filter((node) => node.className.includes(type)).length;
 }
 
-function AddDeviceButtons({ handleAddNode, nodes }) {
+function AddDeviceButtons({
+  handleAddNode,
+  nodes,
+  setIsDeleteMode,
+  isDeleteMode,
+}) {
   // Calculate the number of remaining devices of each type
   const serversLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.SERVER);
   const gatewaysLeft = 15 - countNodesByType(nodes, DEVICE_TYPE.GATEWAY);

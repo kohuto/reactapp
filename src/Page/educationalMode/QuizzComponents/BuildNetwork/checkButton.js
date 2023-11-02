@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 function CheckButton({ checkValidity }) {
   return (
     <div className="build-network-check-button">
-      <Tooltip title="ZKONTROLOVAT" placement="left">
+      <Tooltip title="ZKONTROLOVAT" placement="top">
         <Button variant="outlined" onClick={checkValidity}>
           ZKONTROLOVAT
         </Button>

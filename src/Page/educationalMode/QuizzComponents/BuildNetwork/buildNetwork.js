@@ -11,7 +11,7 @@ import AlertDialog from "../../../DialogWindow/Templates/dialogWindow";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
 import ToggleButton from "@mui/material/ToggleButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import Tooltip from "@mui/material/Tooltip";
 const DEVICE_TYPE = {
   CLIENT_PLUGGED: "client-plugged-creative",
   CLIENT_UNPLUGGED: "client-unplugged-creative",
@@ -195,14 +195,20 @@ function FlowWithProvider({ info, setGame }) {
 
   return (
     <>
-      <ToggleButton
-        value="delete"
-        selected={isDeleteMode}
-        onChange={() => setIsDeleteMode(!isDeleteMode)}
-      >
-        <DeleteIcon />
-      </ToggleButton>
-
+      <div className="delete-button">
+        <Tooltip
+          title="ZAPNI/VYPNI MAZACÍ MÓD (KDYŽ JE MAZACÍ MÓD AKTIVNÍ, MŮŽEŠ ODEBÍRAT CESTY/ZAŘÍZENÍ)"
+          placement="top"
+        >
+          <ToggleButton
+            value="delete"
+            selected={isDeleteMode}
+            onChange={() => setIsDeleteMode(!isDeleteMode)}
+          >
+            <DeleteIcon />
+          </ToggleButton>
+        </Tooltip>
+      </div>
       <BasicModal content={info.content} />
       {isInvalid && (
         <AlertDialog
@@ -217,7 +223,12 @@ function FlowWithProvider({ info, setGame }) {
           game={info.type}
         />
       )}
-      <AddDeviceButtons handleAddNode={handleAddNode} nodes={nodes} />
+      <AddDeviceButtons
+        handleAddNode={handleAddNode}
+        nodes={nodes}
+        setIsDeleteMode={setIsDeleteMode}
+        isDeleteMode={isDeleteMode}
+      />
       <CheckButton checkValidity={checkValidity} />
       <CreativeModeFlow
         setEdges={setEdges}
