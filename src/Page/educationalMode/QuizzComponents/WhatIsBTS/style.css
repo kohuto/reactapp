@@ -3,8 +3,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    background-image: url("../../../../images/whatisbtsbg.png");
+    background-image: url("../../../../images/background/bg_bts.svg");
     background-repeat: no-repeat;
-    background-size: 800px 600px;
-    background-position: 0px 50px;
+
 }
