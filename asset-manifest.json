@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.5fa17655.css",
-    "main.js": "/reactapp/static/js/main.cf6e7bc4.js",
+    "main.css": "/reactapp/static/css/main.0b9ea50a.css",
+    "main.js": "/reactapp/static/js/main.3baa24b6.js",
     "static/media/europe-map.svg": "/reactapp/static/media/europe-map.b736b2b9c44d908d445d.svg",
     "static/media/serverwebhost.svg": "/reactapp/static/media/serverwebhost.04cf856bc5500e3f3acb925165afc9d3.svg",
     "static/media/serverig.svg": "/reactapp/static/media/serverig.170f5c4f26f9e28c7a1eee00fd8b24ad.svg",
@@ -10,13 +10,27 @@
     "static/media/bg_satelit.svg": "/reactapp/static/media/bg_satelit.328f7e5a11724d88d668.svg",
     "static/media/bg_bts.svg": "/reactapp/static/media/bg_bts.0f9f601c09a973e21792.svg",
     "static/media/PCpuzzle.svg": "/reactapp/static/media/PCpuzzle.182de8cbc6c85160209764158fb50049.svg",
+    "static/media/omezena_vzdalenost.png": "/reactapp/static/media/omezena_vzdalenost.c21075e41f5d07b4218e.png",
+    "static/media/ukol3.png": "/reactapp/static/media/ukol3.ac48b953a7f41dc3f78e.png",
     "static/media/notebookconnected.svg": "/reactapp/static/media/notebookconnected.91682c9d7db2bad9e241.svg",
     "static/media/picture.png": "/reactapp/static/media/picture.71af6d24a85e4ba7e9a8.png",
     "static/media/sortFileSize.png": "/reactapp/static/media/sortFileSize.a78df743e3b97d850c30.png",
+    "static/media/vytvor_paket.png": "/reactapp/static/media/vytvor_paket.476a27b3f1faf12cdb20.png",
+    "static/media/wifi.png": "/reactapp/static/media/wifi.fc9b3d3f4c5f667600dd.png",
     "static/media/internet.png": "/reactapp/static/media/internet.ca5bf7114dc2f4891963.png",
+    "static/media/ukol1.png": "/reactapp/static/media/ukol1.78ec5e95dc2c6baef4f6.png",
     "static/media/woman.png": "/reactapp/static/media/woman.3f889d0af5f26871fbcc.png",
     "static/media/man.png": "/reactapp/static/media/man.ab45eb1d42b1faaf3d12.png",
+    "static/media/ukol2.png": "/reactapp/static/media/ukol2.beb119d9b4d7ea917bda.png",
+    "static/media/najdi_paket.png": "/reactapp/static/media/najdi_paket.e0c0dd1005a2411284ba.png",
+    "static/media/sestaveni_zpravy.png": "/reactapp/static/media/sestaveni_zpravy.aa69b05ecedfb71a3b88.png",
+    "static/media/ipv4ipv6.png": "/reactapp/static/media/ipv4ipv6.9b76ad7ea2cc2d02130a.png",
+    "static/media/jak_se_pripojit.png": "/reactapp/static/media/jak_se_pripojit.2ee84ea80aed4a65c00e.png",
+    "static/media/problem_na_ceste.jpg": "/reactapp/static/media/problem_na_ceste.7de75646742febe38274.jpg",
+    "static/media/pocet_cest.jpg": "/reactapp/static/media/pocet_cest.1210611f616e1646bf54.jpg",
+    "static/media/nejrychlejsicesta.jpg": "/reactapp/static/media/nejrychlejsicesta.06a96930f4df06133e9f.jpg",
     "static/media/packet.png": "/reactapp/static/media/packet.ca29bf5de5ac5e9fff33.png",
+    "static/media/server.jpg": "/reactapp/static/media/server.859805d0fef3411d8533.jpg",
     "static/media/plusmess.png": "/reactapp/static/media/plusmess.132696644e79a1f05c3b.png",
     "static/media/send-message.png": "/reactapp/static/media/send-message.cce7f972efaf9447fcdf.png",
     "static/media/druzice.svg": "/reactapp/static/media/druzice.c95aeaf5fed1b1d8aae9.svg",
@@ -43,11 +57,11 @@
     "static/media/paket.svg": "/reactapp/static/media/paket.ed826b73ce07888eb6f4.svg",
     "static/media/socket.svg": "/reactapp/static/media/socket.10342f23d4ab8dd87bba.svg",
     "index.html": "/reactapp/index.html",
-    "main.5fa17655.css.map": "/reactapp/static/css/main.5fa17655.css.map",
-    "main.cf6e7bc4.js.map": "/reactapp/static/js/main.cf6e7bc4.js.map"
+    "main.0b9ea50a.css.map": "/reactapp/static/css/main.0b9ea50a.css.map",
+    "main.3baa24b6.js.map": "/reactapp/static/js/main.3baa24b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fa17655.css",
-    "static/js/main.cf6e7bc4.js"
+    "static/css/main.0b9ea50a.css",
+    "static/js/main.3baa24b6.js"
   ]
 }
