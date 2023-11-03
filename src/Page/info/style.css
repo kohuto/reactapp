@@ -118,3 +118,8 @@ article .ukol-3 {
     height: 439px;
 }
 
+
+.about-app p, .about-app h2 {
+    color: aliceblue;
+}
+

@@ -3,13 +3,12 @@ function AboutApp({ setIsDocumentationMode }) {
   return (
     <div className="about-app">
       <p>
-        Aplikace vznikla jako bakalářská Ondřeje Kohuta pod vedením Anny
+        Aplikace vznikla jako bakalářská práce Ondřeje Kohuta pod vedením Anny
         Yaghobové na MFF UK. Aplikace vizualizuje fungování internetu a formou
         interaktivních úkolů umožňuje lepší pochopení klíčových konceptů
         problematiky. Obsah aplikace je koncipován tak, aby šla použít jak ve
         výuce, tak při samostudiu.
       </p>
-      <h2>STRUKTURA APLIKACE</h2>
       <p>
         Aktivity jsou rozděleny do pěti kapitol. První čtyři rozebírají různá
         témata, poslední (POSTAV SÍŤ) pouze ověřuje pochopení problematiky. U

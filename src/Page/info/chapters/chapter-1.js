@@ -133,29 +133,32 @@ function FirstChapter() {
           Vizualizace tedy zachovává typické chování, na které jsou žáci zvyklí
           např. z Google Maps.
         </p>
-        <h2>Poznámky</h2>
-        <p>
-          Před zahájením této aktivity je doporučeno rozvést diskusi s žáky.
-          Nejdříve pusťte žákům vizualizaci v aktivitě Komunikace klient-server.
-          Poté rozveďte debatu o tom, kudy se dostal požadavek klienta na
-          server.
-        </p>
-        <p>
-          Téma bylo v aplikaci rozděleno do tří částí. První (Putování
-          informací) představí žákovi povrchně pomocí vhodné analogie pojmy
-          cesta pro informace a chytrá křižovatka a v rámci vizualizace ukáže
-          souvislost z předchozími pojmy server a klient. Druhá (Cesta) a třetí
-          (Chytrá křižovatka) pak detailněji rozebere dva nové pojmy.
-        </p>
-        <p>
-          Žákům je potřeba neustále připomínat, že se nejedná o reálnou
-          topologii sítě. Pro věrnější ukázku je možné využít jiné aplikace,
-          které se zaměřují na věrohodné znázornění rozmístění prvků sítě. Na
-          naší mapě jde ovšem učinit zásadní klíčové pozorování, tedy že
-          internet je skutečně decentralizovaná síť navzájem propojených
-          zařízení. Také lze mapu například použít pro hledání cest mezi dvěma
-          zařízeními.
-        </p>
+        <div class="note">
+          {" "}
+          <h2>Poznámky</h2>
+          <p>
+            Před zahájením této aktivity je doporučeno rozvést diskusi s žáky.
+            Nejdříve pusťte žákům vizualizaci v aktivitě Komunikace
+            klient-server. Poté rozveďte debatu o tom, kudy se dostal požadavek
+            klienta na server.
+          </p>
+          <p>
+            Téma bylo v aplikaci rozděleno do tří částí. První (Putování
+            informací) představí žákovi povrchně pomocí vhodné analogie pojmy
+            cesta pro informace a chytrá křižovatka a v rámci vizualizace ukáže
+            souvislost z předchozími pojmy server a klient. Druhá (Cesta) a
+            třetí (Chytrá křižovatka) pak detailněji rozebere dva nové pojmy.
+          </p>
+          <p>
+            Žákům je potřeba neustále připomínat, že se nejedná o reálnou
+            topologii sítě. Pro věrnější ukázku je možné využít jiné aplikace,
+            které se zaměřují na věrohodné znázornění rozmístění prvků sítě. Na
+            naší mapě jde ovšem učinit zásadní klíčové pozorování, tedy že
+            internet je skutečně decentralizovaná síť navzájem propojených
+            zařízení. Také lze mapu například použít pro hledání cest mezi dvěma
+            zařízeními.
+          </p>
+        </div>
       </article>
     </>
   );
