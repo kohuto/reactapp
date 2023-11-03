@@ -1,36 +1,39 @@
 function FifthChapter() {
   return (
     <>
-      <h1>POSTAV SÍŤ</h1>
       <article>
-        V rámci této kapitoly se žáci nenaučí žádné nové téma, jedná se pouze o
-        sérii čtyř úloh, které propojují doposud získané znalosti dohromady. Žák
-        by měl před zahájením těchto čtyř úkolů znát základní prvky, ze kterých
-        se skládá síť (server, klient, cesta, křižovatka), měl by znát princip
-        komunikace mezi serverem a klientem, měl by znát základní typy připojení
-        k internetu (Wi-Fi či mobilní signál) a měl by znát základní vlastnosti,
-        které by měla splňovat síť (př. všechny prvky jsou vzájemně propojené
-        nebo že síť neobsahuje mosty a artikulace). V každé úloze musí žák
-        postavit síť na základě požadavků. Nové zařízení se přidá kliknutí do
-        menu v pravé části obrazovky. S každým zařízeními se může v mapě volně
-        pohybovat. Novou cestu žák vytvoří tak, že klikne na jedno zařízení a
-        přetáhne cestu na druhé zařízení. Při ověření správnosti řešení se ověří
-        i obecné vlastnosti sítě. Síť nesmí obsahovat mosty a artikulace,
-        všechny uzly kromě klientů jsou propojené (klient je v dosahu Wi-fi nebo
-        BTS), cesta může spojovat pouze dvě křižovatky, nebo křižovatku s
-        některým z koncových uzlů (server, BTS věž, Wi-Fi router). Mezi jinou
-        dvojící zařízení nesmí cesta vést (nesmí být tedy například spojen
-        server s Wi-Fi routerem). Můžete žákům také klást doplňující podmínky,
-        nebo diskutovat nad různými otázkami např. „Jaký nejmenší počet
-        křižovatek je potřeba přidat, aby síť splňovala zadání“, nebo „Umístěte
-        do mapy alespoň 5 křižovatek“, či „Vytvořte síť tak, aby paket musel po
-        cestě mezi klientem a serverem navštívit minimálně šest zařízení“.
-        Topologie, které žáci v rámci úkolů vytvoří, samozřejmě nebudou
-        odpovídat realitě. Je ale možné s nimi vždy danou situaci probrat za
-        využití jiných nástrojů. Lze využít například mapy, které vizualizují
-        reálné umístění serverů, BTS věží atd. Pro zjištění počtu křižovatek na
-        cestě mezi dvěma místy je možné využít příkaz tracert spuštěný v
-        příkazové řádce apod.
+        <h1>POSTAV SÍŤ</h1>
+        <p>
+          V rámci této kapitoly se žáci nenaučí žádné nové téma, jedná se pouze
+          o sérii čtyř úloh, které propojují doposud získané znalosti dohromady.
+          Žák by měl před zahájením těchto čtyř úkolů znát základní prvky, ze
+          kterých se skládá síť (server, klient, cesta, křižovatka), měl by znát
+          princip komunikace mezi serverem a klientem, měl by znát základní typy
+          připojení k internetu (Wi-Fi či mobilní signál) a měl by znát základní
+          vlastnosti, které by měla splňovat síť (př. všechny prvky jsou
+          vzájemně propojené nebo že síť neobsahuje mosty a artikulace). V každé
+          úloze musí žák postavit síť na základě požadavků. Nové zařízení se
+          přidá kliknutí do menu v pravé části obrazovky. S každým zařízeními se
+          může v mapě volně pohybovat. Novou cestu žák vytvoří tak, že klikne na
+          jedno zařízení a přetáhne cestu na druhé zařízení. Při ověření
+          správnosti řešení se ověří i obecné vlastnosti sítě. Síť nesmí
+          obsahovat mosty a artikulace, všechny uzly kromě klientů jsou
+          propojené (klient je v dosahu Wi-fi nebo BTS), cesta může spojovat
+          pouze dvě křižovatky, nebo křižovatku s některým z koncových uzlů
+          (server, BTS věž, Wi-Fi router). Mezi jinou dvojící zařízení nesmí
+          cesta vést (nesmí být tedy například spojen server s Wi-Fi routerem).
+          Můžete žákům také klást doplňující podmínky, nebo diskutovat nad
+          různými otázkami např. „Jaký nejmenší počet křižovatek je potřeba
+          přidat, aby síť splňovala zadání“, nebo „Umístěte do mapy alespoň 5
+          křižovatek“, či „Vytvořte síť tak, aby paket musel po cestě mezi
+          klientem a serverem navštívit minimálně šest zařízení“. Topologie,
+          které žáci v rámci úkolů vytvoří, samozřejmě nebudou odpovídat
+          realitě. Je ale možné s nimi vždy danou situaci probrat za využití
+          jiných nástrojů. Lze využít například mapy, které vizualizují reálné
+          umístění serverů, BTS věží atd. Pro zjištění počtu křižovatek na cestě
+          mezi dvěma místy je možné využít příkaz tracert spuštěný v příkazové
+          řádce apod.
+        </p>
       </article>
       <article>
         <h1>Úkol 1</h1>

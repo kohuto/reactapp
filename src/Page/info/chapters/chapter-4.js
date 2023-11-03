@@ -1,15 +1,17 @@
 function FourthChapter() {
   return (
     <>
-      <h1>SERVERY A KŘIŽOVATKY</h1>
       <article>
-        Servery a křižovatky je poslední ze čtyř témat, která aplikace
-        zpracovává. Nejprve je rozebrána identifikace zařízení pomocí IP adres.
-        Poté se kapitola věnuje struktuře sítě a jaký vliv má struktura na
-        přenos dat. Žák by měl před zahájením aktivit v této kapitole znát
-        základní prvky, ze kterých se skládá počítačová síť (klient, server,
-        chytrá křižovatka a cesta pro informace) a měl by vědět, že data jsou
-        přenášena v paketech po cestách určených pro přenos informací.
+        <h1>SERVERY A KŘIŽOVATKY</h1>
+        <p>
+          Servery a křižovatky je poslední ze čtyř témat, která aplikace
+          zpracovává. Nejprve je rozebrána identifikace zařízení pomocí IP
+          adres. Poté se kapitola věnuje struktuře sítě a jaký vliv má struktura
+          na přenos dat. Žák by měl před zahájením aktivit v této kapitole znát
+          základní prvky, ze kterých se skládá počítačová síť (klient, server,
+          chytrá křižovatka a cesta pro informace) a měl by vědět, že data jsou
+          přenášena v paketech po cestách určených pro přenos informací.
+        </p>
       </article>
       <article>
         <h1>IP adresa</h1>
@@ -40,21 +42,24 @@ function FourthChapter() {
           adresa (IPv4 i IPv6).
         </p>
         <div class="image ip-adresa"></div>
-        <h2>Poznámky</h2>
-        <p>
-          Tuto aktivitu je možné zařadit už dříve. Tematicky by bylo možné téma
-          probrat již na začátku kapitoly Klienti a pakety. Není to však
-          potřeba.
-        </p>
-        <p>
-          V rámci aktivity je nastíněna otázka, proč bylo potřeba zavést IPv6
-          adresy. Pokud žáci sami nevymyslí odpověď, můžete je navést tím, že
-          jim řeknete, že celkový počet adres je 4 294 967 296 a třeba toto
-          číslo porovnat s počtem lidí na planetě 8 . Poté se zamyslete nad tím,
-          kolik zařízení je součástí internetové sítě a jaký asi bude vývoj do
-          budoucna. Tyto úvahy žáky mohly navést k tomu, že hrozí riziko
-          nedostatku IP adres.
-        </p>
+        <div class="note">
+          {" "}
+          <h2>Poznámky</h2>
+          <p>
+            Tuto aktivitu je možné zařadit už dříve. Tematicky by bylo možné
+            téma probrat již na začátku kapitoly Klienti a pakety. Není to však
+            potřeba.
+          </p>
+          <p>
+            V rámci aktivity je nastíněna otázka, proč bylo potřeba zavést IPv6
+            adresy. Pokud žáci sami nevymyslí odpověď, můžete je navést tím, že
+            jim řeknete, že celkový počet adres je 4 294 967 296 a třeba toto
+            číslo porovnat s počtem lidí na planetě 8 . Poté se zamyslete nad
+            tím, kolik zařízení je součástí internetové sítě a jaký asi bude
+            vývoj do budoucna. Tyto úvahy žáky mohly navést k tomu, že hrozí
+            riziko nedostatku IP adres.
+          </p>
+        </div>
       </article>
       <article>
         <h1>IPv4 a IPv6</h1>
@@ -109,15 +114,19 @@ function FourthChapter() {
           ta nejkratší.
         </p>
         <div class="image nejrychlejsi-cesta"></div>
-        <h2>Poznámky</h2>
-        <p>
-          Úloha odpovídá úloze o hledání nejkratší cesty v ohodnoceném
-          neorientovaném grafu. Téma grafy je rovněž součástí nového RVP (spadá
-          do kategorie data a modelování). Zde se jedná o konkrétní využití v
-          praxi, je tedy možné žáky na tento fakt upozornit, či témata vzájemně
-          provázat. Tato aktivita se dá rovněž propojit s algoritmizací, jelikož
-          úlohu lze vyřešit pomocí Dijkstrova algoritmu.
-        </p>
+        <div class="note">
+          {" "}
+          <h2>Poznámky</h2>
+          <p>
+            Úloha odpovídá úloze o hledání nejkratší cesty v ohodnoceném
+            neorientovaném grafu. Téma grafy je rovněž součástí nového RVP
+            (spadá do kategorie data a modelování). Zde se jedná o konkrétní
+            využití v praxi, je tedy možné žáky na tento fakt upozornit, či
+            témata vzájemně provázat. Tato aktivita se dá rovněž propojit s
+            algoritmizací, jelikož úlohu lze vyřešit pomocí Dijkstrova
+            algoritmu.
+          </p>
+        </div>
       </article>
       <article>
         <h1>Počet cest</h1>
@@ -167,20 +176,22 @@ function FourthChapter() {
           ani artikulace. Níže je vyznačeno možné řešení.
         </p>
         <div class="image problem-na-ceste"></div>
-        <h2>Poznámky</h2>
-        <p>
-          Tuto úlohu lze propojit s tematickým celkem grafy. Rovněž doporučujeme
-          zmínit libovolnou ukázku, kdy síť požadované vlastnosti neměla a jaké
-          to mělo{" "}
-          <a
-            target="_blank"
-            href="https://www.theguardian.com/world/2011/apr/06/georgian-woman-cuts-web-access"
-          >
-            následky
-          </a>{" "}
-          . Pořadí je rovněž možné prohodit, první zmínit problém a následně
-          zkusit přijít na to, co mohlo být příčinou problému.
-        </p>
+        <div class="note">
+          <h2>Poznámky</h2>
+          <p>
+            Tuto úlohu lze propojit s tematickým celkem grafy. Rovněž
+            doporučujeme zmínit libovolnou ukázku, kdy síť požadované vlastnosti
+            neměla a jaké to mělo{" "}
+            <a
+              target="_blank"
+              href="https://www.theguardian.com/world/2011/apr/06/georgian-woman-cuts-web-access"
+            >
+              následky
+            </a>{" "}
+            . Pořadí je rovněž možné prohodit, první zmínit problém a následně
+            zkusit přijít na to, co mohlo být příčinou problému.
+          </p>
+        </div>
       </article>
       <article>
         <h1>Sestavení zprávy</h1>
@@ -206,11 +217,14 @@ function FourthChapter() {
         <h2>Řešení</h2>
         <p>Takto vypadá poskládaný obrázek.</p>
         <div class="image sestaveni-zpravy"></div>
-        <h2>Poznámky</h2>
-        <p>
-          Úkol lze zařadit rovněž do kapitoly Klienti a pakety. Zde je úkol
-          proto, že se jedná o ukončení celé cesty paketu.
-        </p>
+        <div class="note">
+          {" "}
+          <h2>Poznámky</h2>
+          <p>
+            Úkol lze zařadit rovněž do kapitoly Klienti a pakety. Zde je úkol
+            proto, že se jedná o ukončení celé cesty paketu.
+          </p>{" "}
+        </div>
       </article>
     </>
   );

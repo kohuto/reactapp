@@ -37,15 +37,18 @@ function SecondChapter() {
           animace, ve které jsou pakety doručeny do serveru. Až poté, co dorazí
           do serveru, jsou pakety doručeny k příjemci zprávy.
         </p>
-        <h2>Poznámky</h2>
-        <p>
-          Před zahájením aktivity je doporučeno připomenout dřívější vizualizaci
-          Komunikace klient-server. Žáci si tak propojí to, co již umí, a bude
-          jim jasné, proč je zpráva nejdříve doručena na server. Následně je
-          možné nastínit následující otázky: Proč se zpráva nepošle přímo
-          příjemci? Kolik zpráv, videí či fotek si pošlete s kamarády? Zvládlo
-          by se vše uložit do telefonu? Kde jsou tedy data uložená?
-        </p>
+        <div class="note">
+          <h2>Poznámky</h2>
+          <p>
+            Před zahájením aktivity je doporučeno připomenout dřívější
+            vizualizaci Komunikace klient-server. Žáci si tak propojí to, co již
+            umí, a bude jim jasné, proč je zpráva nejdříve doručena na server.
+            Následně je možné nastínit následující otázky: Proč se zpráva
+            nepošle přímo příjemci? Kolik zpráv, videí či fotek si pošlete s
+            kamarády? Zvládlo by se vše uložit do telefonu? Kde jsou tedy data
+            uložená?
+          </p>
+        </div>
       </article>
       <article>
         <h1>Vytvoř paket</h1>
@@ -112,13 +115,16 @@ function SecondChapter() {
           posílá na server požadavek).
         </p>
         <div class="image najdi-paket"></div>
-        <h2>Poznámky</h2>
-        <p>
-          V případě, že žáci nevědí, jak úlohu vyřešit, doporučujeme připomenout
-          předchozí aktivitu Posílání dat a Komunikace klient-server. Můžete
-          žákům klást návodné otázky jako „V jaké podobě jsou na server posílané
-          požadavky?“ nebo „Jak poznáme, do jakého serveru paket míří?“.
-        </p>
+        <div class="note">
+          <h2>Poznámky</h2>
+          <p>
+            V případě, že žáci nevědí, jak úlohu vyřešit, doporučujeme
+            připomenout předchozí aktivitu Posílání dat a Komunikace
+            klient-server. Můžete žákům klást návodné otázky jako „V jaké podobě
+            jsou na server posílané požadavky?“ nebo „Jak poznáme, do jakého
+            serveru paket míří?“.
+          </p>
+        </div>
       </article>
       <article>
         <h1>Jak velká bude zpráva</h1>
@@ -148,16 +154,18 @@ function SecondChapter() {
           potřeba dosáhnout přesně hodnoty uvedené v řešení.
         </p>
         <div class="image jak-velka-bude-zprava"></div>
-        <h2>Poznámky</h2>
-        <p>
-          V rámci výpočtu je dobré navázat na předchozí aktivity, ze kterých
-          žáci vědí, že obsah paketu nejsou pouze užitečná data (text rozložené
-          zprávy), ale také doplňující informace (ID, pořadí…). Počet paketů v
-          ukázkovém řešení výše je ale spočítán pouze pro užitečná data. Reálný
-          počet paketů bude vyšší. Kdyby si žák tento fakt uvědomil, bude mu
-          odpověď stále uznána, jelikož je pro každou odpověď nastavená
-          tolerance 50 paketů.
-        </p>
+        <div class="note">
+          <h2>Poznámky</h2>
+          <p>
+            V rámci výpočtu je dobré navázat na předchozí aktivity, ze kterých
+            žáci vědí, že obsah paketu nejsou pouze užitečná data (text
+            rozložené zprávy), ale také doplňující informace (ID, pořadí…).
+            Počet paketů v ukázkovém řešení výše je ale spočítán pouze pro
+            užitečná data. Reálný počet paketů bude vyšší. Kdyby si žák tento
+            fakt uvědomil, bude mu odpověď stále uznána, jelikož je pro každou
+            odpověď nastavená tolerance 50 paketů.
+          </p>
+        </div>
       </article>
     </>
   );

@@ -15,12 +15,20 @@ import lightbulb from "../../../images/icons/light-bulb.png";
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import info from "../../../images/icons/info.png";
-
-function Sidebar({ setOpenDialog, setGame }) {
+import AboutApp from "../aboutApp";
+function Sidebar({
+  setOpenDialog,
+  setGame,
+  setIsDocumentationMode = { setIsDocumentationMode },
+}) {
   return (
     <Navbar>
       <NavItem>
-        <DropdownMenu setOpenDialog={setOpenDialog} setGame={setGame} />
+        <DropdownMenu
+          setIsDocumentationMode={setIsDocumentationMode}
+          setOpenDialog={setOpenDialog}
+          setGame={setGame}
+        />
       </NavItem>
     </Navbar>
   );
@@ -38,7 +46,7 @@ function NavItem(props) {
   return <li className="custom-nav-item">{props.children}</li>;
 }
 
-function DropdownMenu({ setOpenDialog, setGame }) {
+function DropdownMenu({ setOpenDialog, setGame, setIsDocumentationMode }) {
   const [activeMenu, setActiveMenu] = useState("custom-main");
   const dropdownRef = useRef(null);
 
@@ -82,7 +90,7 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             <DropdownItem leftIcon={builder} goToMenu="build-network">
               POSTAV SÍŤ
             </DropdownItem>
-            <DropdownItem leftIcon={info} goToMenu="build-network">
+            <DropdownItem leftIcon={info} goToMenu="documentation">
               O APLIKACI
             </DropdownItem>
           </div>
@@ -393,6 +401,20 @@ function DropdownMenu({ setOpenDialog, setGame }) {
             >
               <DropdownItem leftIcon={question}>ÚKOL 4</DropdownItem>
             </div>
+          </div>
+        </CSSTransition>
+        <CSSTransition
+          in={activeMenu === "documentation"}
+          timeout={500}
+          classNames="custom-menu-secondary"
+          unmountOnExit
+        >
+          <div className="custom-menu">
+            <DropdownItem goToMenu="custom-main" leftIcon={backarrow}>
+              <h2>O APLIKACI</h2>
+            </DropdownItem>
+
+            <AboutApp setIsDocumentationMode={setIsDocumentationMode} />
           </div>
         </CSSTransition>
       </div>

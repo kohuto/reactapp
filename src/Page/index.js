@@ -42,6 +42,7 @@ function Page() {
             setOpenDialog={handleOpenDialog}
             setGameAfterDialogClose={handleGameAfterDialogCloseChange}
             gameAfterDialogClose={gameAfterDialogClose}
+            setIsDocumentationMode={setIsDocumentationMode}
           />
         </>
       )}

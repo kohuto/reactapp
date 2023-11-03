@@ -11,6 +11,7 @@ function EducationalMode({
   setOpenDialog,
   setGameAfterDialogClose,
   gameAfterDialogClose,
+  setIsDocumentationMode,
 }) {
   const [overlayDialogMessage, setOverlayDialogMessage] = useState("");
   const [openOverlayDialog, setOpenOverlayDialog] = useState(false);
@@ -41,8 +42,8 @@ function EducationalMode({
       ) : (
         <Sidebar
           setOpenDialog={setOpenDialog}
-          setOpenOverlayDialog={handleOpenOverlayDialog}
           setGame={setGame}
+          setIsDocumentationMode={setIsDocumentationMode}
         />
       )}
     </>
