@@ -9,7 +9,7 @@ function Page() {
   useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
-  const [isDocumentationMode, setIsDocumentationMode] = useState(true);
+  const [isDocumentationMode, setIsDocumentationMode] = useState(false);
 
   function handleOpenDialog(isOpen, content, gameAfterClose = game) {
     setGame("noGame");
