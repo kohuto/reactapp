@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Dialog from "./DialogWindow/dialogWindow";
 import EducationalMode from "./educationalMode/eduMode";
+import Documentation from "./info/documentation";
 
 function Page() {
   const [game, setGame] = useState("noGame");
@@ -8,6 +9,7 @@ function Page() {
   useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [gameAfterDialogClose, setGameAfterDialogClose] = useState("noGame");
+  const [isDocumentationMode, setIsDocumentationMode] = useState(true);
 
   function handleOpenDialog(isOpen, content, gameAfterClose = game) {
     setGame("noGame");
@@ -22,21 +24,27 @@ function Page() {
 
   return (
     <>
-      <Dialog
-        open={openDialog}
-        setOpen={setOpenDialog}
-        alertMessage={dialogMessage}
-        setGame={setGame}
-        gameAfterClose={gameAfterDialogClose}
-      />
+      {isDocumentationMode ? (
+        <Documentation setIsDocumentationMode={setIsDocumentationMode} />
+      ) : (
+        <>
+          <Dialog
+            open={openDialog}
+            setOpen={setOpenDialog}
+            alertMessage={dialogMessage}
+            setGame={setGame}
+            gameAfterClose={gameAfterDialogClose}
+          />
 
-      <EducationalMode
-        game={game}
-        setGame={setGame}
-        setOpenDialog={handleOpenDialog}
-        setGameAfterDialogClose={handleGameAfterDialogCloseChange}
-        gameAfterDialogClose={gameAfterDialogClose}
-      />
+          <EducationalMode
+            game={game}
+            setGame={setGame}
+            setOpenDialog={handleOpenDialog}
+            setGameAfterDialogClose={handleGameAfterDialogCloseChange}
+            gameAfterDialogClose={gameAfterDialogClose}
+          />
+        </>
+      )}
     </>
   );
 }

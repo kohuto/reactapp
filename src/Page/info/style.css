@@ -1,0 +1,32 @@
+.chapter-container{
+    margin-top: 10vh;
+}
+article {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 40px;
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center; 
+}
+h2 {
+    color: #0066cc;
+}
+p, ul {
+    line-height: 1.6;
+}
+ul {
+    list-style-type: square;
+}
+.note {
+    background-color: #ffffe0;
+    border-left: 6px solid #ffd700;
+    margin: 20px 0;
+    padding: 15px;
+    font-style: italic;
+}

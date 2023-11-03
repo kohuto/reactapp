@@ -1,0 +1,24 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+  
+  .menu-item {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-item:hover {
+    background-color: #e2e2e2;
+  }
+  
