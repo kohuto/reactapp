@@ -39,9 +39,8 @@ function ThirdChapter() {
 
         <h2>Poznámky</h2>
         <p>
-          Vývoj optických vláken je poměrně intenzivní, proto je potřeba
-          informace, proto je možné, že informace uvedené v aplikaci nebudou
-          aktuální.
+          Vývoj optických vláken je poměrně intenzivní, proto je možné, že
+          informace uvedené v aplikaci nebudou aktuální.
         </p>
       </article>
       <article>
@@ -72,10 +71,11 @@ function ThirdChapter() {
           už pomocí kabelu) připojíme k nejbližší chytré křižovatce, čímž získá
           přístup do celé sítě.
         </p>
+        <div class="image wifi"></div>
         <h2>Poznámky</h2>
         <p>
-          Následující aktivitu je možné realizovat i přímo ve třídě (Mazná,
-          2024).
+          Následující aktivitu je možné realizovat i přímo ve třídě s opravdovým
+          routerem.
         </p>
         <p>
           Žáci mají tendenci odhazovat doposud získané znalosti o tom, co je to
@@ -83,13 +83,12 @@ function ThirdChapter() {
           Hrozí tak riziko, že žák přestane pracovat s tím, co se doposud naučil
           a vrátí se ke své původní představě. V rámci aktivity je tudíž
           doporučeno provázat nové informace s tím, co již ví například z
-          aktivity Putování informací (sekce 4.2.3).
+          aktivity Putování informací.
         </p>
         <p>
-          V aktivitě Putování informací (sekce 4.2.3) jsme zmínili dělení
-          křižovatek na routery a switche. Je možné se k tomuto dělení vrátit a
-          propojit žákům tuto starou informaci s novou terminologií Wi-Fi
-          router.
+          V aktivitě Putování informací jsme zmínili dělení křižovatek na
+          routery a switche. Je možné se k tomuto dělení vrátit a propojit žákům
+          tuto starou informaci s novou terminologií Wi-Fi router.
         </p>
       </article>
       <article>
@@ -118,10 +117,13 @@ function ThirdChapter() {
 
         <h2>Poznámky</h2>
         <p>
-          Po této aktivitě doporučujeme s žáky použít mapu výskytů BTS věží
-          (gsmweb.cz). Žáci opět získají reálnější představu o tomto způsobu
-          připojení. Pokud se některá BTS věž nachází ve vaší blízkosti, můžete
-          ji s žáky navštívit.
+          Po této aktivitě doporučujeme s žáky použít{" "}
+          <a target="_blank" href="https://gsmweb.cz/mapa/">
+            mapu výskytů BTS věží
+          </a>
+          . Žáci opět získají reálnější představu o tomto způsobu připojení.
+          Pokud se některá BTS věž nachází ve vaší blízkosti, můžete ji s žáky
+          navštívit.
         </p>
       </article>
       <article>
@@ -160,13 +162,13 @@ function ThirdChapter() {
           aktivit, dopraven až k serveru.
         </p>
         <p>
-          Ukazuje se (Yaghobová, 2021), že žáci mají stále představu satelitu
-          jako hlavního přenosového média. Z tohoto důvodu je možné navázat na
-          vizualizaci debatou, ve které by mohly zaznít otázky jako „Kolik
-          kilometrů navíc musí urazit paket přenášený satelitem oproti paketu
-          přenášeném kabelem?“ nebo „Jak dopadne přenos v případě nepřízně
-          počasí?“. Otázky by žáky měly navést k tomu, že tento způsob přenosu
-          ve srovnání s kabely není optimální.
+          Ukazuje se, že žáci mají stále představu satelitu jako hlavního
+          přenosového média. Z tohoto důvodu je možné navázat na vizualizaci
+          debatou, ve které by mohly zaznít otázky jako „Kolik kilometrů navíc
+          musí urazit paket přenášený satelitem oproti paketu přenášeném
+          kabelem?“ nebo „Jak dopadne přenos v případě nepřízně počasí?“. Otázky
+          by žáky měly navést k tomu, že tento způsob přenosu ve srovnání s
+          kabely není optimální.
         </p>
         <p>
           Doporučujeme sledovat aktuální informace o Starlink a dalších
@@ -207,14 +209,23 @@ function ThirdChapter() {
         <p>
           Aktivita v podstatě simuluje ping test. Aby žáci získali reálnou
           představu o době odezvy v reálném prostředí, doporučujeme v návaznosti
-          na tuto aktivitu vyzkoušet libovolný online ping test
-          (traceroute-online.com, 2021). Zároveň je užitečné sledovat
-          geografickou polohu serverů, vůči kterým měříte dobu odezvy, a
-          srovnávat, jak doba odezvy souvisí se vzdálenosti.
+          na tuto aktivitu vyzkoušet libovolný{" "}
+          <a target="_blank" href="https://traceroute-online.com/">
+            online ping test
+          </a>{" "}
+          . Zároveň je užitečné sledovat geografickou polohu serverů, vůči
+          kterým měříte dobu odezvy, a srovnávat, jak doba odezvy souvisí se
+          vzdálenosti.
         </p>
         <p>
-          S pokročilejšími žáky můžete spouštět příkaz ping i skrz terminál.
-          (Microsoft, 2023).
+          S pokročilejšími žáky můžete spouštět příkaz ping i skrz{" "}
+          <a
+            target="_blank"
+            href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping"
+          >
+            terminál
+          </a>
+          .
         </p>
       </article>
       <article>
@@ -245,8 +256,11 @@ function ThirdChapter() {
 
         <h2>Poznámky</h2>
         <p>
-          Po dokončení této aktivity doporučujeme s žáky vyzkoušet jakýkoliv
-          online speed test (Ookla, LLC, 2023).
+          Po dokončení této aktivity doporučujeme s žáky vyzkoušet jakýkoliv{" "}
+          <a target="_blank" href="https://www.speedtest.net/">
+            online speed test
+          </a>
+          .
         </p>
         <p>
           V rámci mezipředmětových vztahů můžete tuto a předchozí aktivitu
@@ -291,6 +305,7 @@ function ThirdChapter() {
           klienty, objeví se navazující text, ve kterém je srovnán reálný dosah
           zařízení včetně satelitů.
         </p>
+        <div class="image omezena-vzdalenost"></div>
         <h2>Poznámky</h2>
         <p>
           Kvůli přehlednosti zde nebyly přidány žádné další prvky sítě. Žáci by
@@ -316,6 +331,7 @@ function ThirdChapter() {
           více odpovědí.
         </p>
         <h2>Řešení</h2>
+        <div class="image jak-se-pripojit"></div>
         <p></p>
         <h2>Poznámky</h2>
         <p>

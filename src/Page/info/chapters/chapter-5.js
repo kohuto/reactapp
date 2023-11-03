@@ -3,54 +3,34 @@ function FifthChapter() {
     <>
       <h1>POSTAV SÍŤ</h1>
       <article>
-        Jedná se o poslední kapitolu v této části aplikace. V rámci této
-        kapitoly se žáci nenaučí žádné nové téma, jedná se pouze o sérii čtyř
-        úloh, které propojují doposud získané znalosti dohromady. Proto v
-        následujícím textu již nebudeme uvádět typy aktivit a jakou znalost si
-        žák danou aktivitou osvojí. V každé úloze je před žáka předložen obecný
-        problém a žák musí aplikovat informace, které se doposud naučil. Žák by
-        měl před zahájením těchto čtyř úkolů znát základní prvky, ze kterých se
-        skládá síť (server, klient, cesta, křižovatka), měl by znát princip
+        V rámci této kapitoly se žáci nenaučí žádné nové téma, jedná se pouze o
+        sérii čtyř úloh, které propojují doposud získané znalosti dohromady. Žák
+        by měl před zahájením těchto čtyř úkolů znát základní prvky, ze kterých
+        se skládá síť (server, klient, cesta, křižovatka), měl by znát princip
         komunikace mezi serverem a klientem, měl by znát základní typy připojení
         k internetu (Wi-Fi či mobilní signál) a měl by znát základní vlastnosti,
         které by měla splňovat síť (př. všechny prvky jsou vzájemně propojené
-        atd.). V každé úloze musí žák postavit síť, zadání úloh se liší pouze v
-        požadavcích, které musí síť splňovat. Všechny úlohy však mají společné
-        následující chování. Žák má v pravé části obrazovky menu, ve kterém může
-        kliknutím přidat nová zařízení do mapy. S každým zařízeními může poté v
-        mapě volně pohybovat a umisťovat je na libovolnou pozici. Novou cestu
-        žák vytvoří tak, že klikne na jedno zařízení a přetáhne cestu na druhé
-        zařízení. V každém úkolu je žákem vytvořená síť testovaná i na obecné
-        vlastnosti, které by internetová síť měla splňovat. Tyto vlastnosti
-        nejsou uvedeny v zadání, jelikož se očekává, že je žák zná z předchozích
-        aktivit a bude je schopen aplikovat i při řešení následujících úloh. V
-        případě, že některá z vlastností není dodržena, je na to žák upozorněn
-        po zmáčknutí vyhodnocovacího tlačítka v dialogovém okně. Konkrétně se
-        jedná o následující vlastnosti. Všechny uzly musí být navzájem propojené
-        (mezi libovolnými dvěma uzly musí vést alespoň jedna cesta). Výjimku
-        tvoří pouze klienti, kteří však musí být v dosahu nějakého bezdrátového
-        zařízení, cože se pozná tak, že mají nad hlavou ikonku Wi-Fi. Hrana mezi
-        dvěma křižovatkami nesmí být most 68 (sekce 4.5.5) a uzel nesmí být
-        artikulace (sekce 4.5.5). Cesta může spojovat pouze dvě křižovatky, nebo
-        křižovatku s některým z koncových uzlů (server, BTS věž, Wi-Fi router).
-        Mezi jinou dvojící zařízení nesmí cesta vést (nesmí být tedy například
-        spojen server s Wi-Fi routerem). U každé ze čtyř úloh existuje velké
-        množství správných řešení. Úlohy jsou navíc dostatečně otevřené na to,
-        aby učiteli umožnili prostor pro vlastní rozšíření. Můžete tak žákům
-        například klást doplňující podmínky, nebo diskutovat nad různými
-        otázkami. Příkladem otázky může například být „Jaký nejmenší počet
+        nebo že síť neobsahuje mosty a artikulace). V každé úloze musí žák
+        postavit síť na základě požadavků. Nové zařízení se přidá kliknutí do
+        menu v pravé části obrazovky. S každým zařízeními se může v mapě volně
+        pohybovat. Novou cestu žák vytvoří tak, že klikne na jedno zařízení a
+        přetáhne cestu na druhé zařízení. Při ověření správnosti řešení se ověří
+        i obecné vlastnosti sítě. Síť nesmí obsahovat mosty a artikulace,
+        všechny uzly kromě klientů jsou propojené (klient je v dosahu Wi-fi nebo
+        BTS), cesta může spojovat pouze dvě křižovatky, nebo křižovatku s
+        některým z koncových uzlů (server, BTS věž, Wi-Fi router). Mezi jinou
+        dvojící zařízení nesmí cesta vést (nesmí být tedy například spojen
+        server s Wi-Fi routerem). Můžete žákům také klást doplňující podmínky,
+        nebo diskutovat nad různými otázkami např. „Jaký nejmenší počet
         křižovatek je potřeba přidat, aby síť splňovala zadání“, nebo „Umístěte
         do mapy alespoň 5 křižovatek“, či „Vytvořte síť tak, aby paket musel po
-        cestě mezi klientem a serverem navštívit minimálně tři zařízení“.
+        cestě mezi klientem a serverem navštívit minimálně šest zařízení“.
         Topologie, které žáci v rámci úkolů vytvoří, samozřejmě nebudou
         odpovídat realitě. Je ale možné s nimi vždy danou situaci probrat za
         využití jiných nástrojů. Lze využít například mapy, které vizualizují
         reálné umístění serverů, BTS věží atd. Pro zjištění počtu křižovatek na
         cestě mezi dvěma místy je možné využít příkaz tracert spuštěný v
-        příkazové řádce apod. V následujících rozborech nebudeme tyto obecné
-        poznámky, které jsou platné pro všechny úlohy, uvádět znovu. Bude vždy
-        zmíněno zadání specifické pro konkrétní úlohu a komentář ke vzorovému
-        řešení.
+        příkazové řádce apod.
       </article>
       <article>
         <h1>Úkol 1</h1>
@@ -67,6 +47,7 @@ function FifthChapter() {
           informace, že server je v jiné zemi, kvůli vzdálenosti je proto
           potřeba přidat alespoň tři křižovatky.
         </p>
+        <div class="image ukol-1"></div>
       </article>
       <article>
         <h1>Úkol 2</h1>
@@ -83,6 +64,7 @@ function FifthChapter() {
           potřeba přidat do mapy BTS věž. Aby bylo možné propojit BTS věž se
           serverem, je nutné přidat alespoň jednu chytrou křižovatku.
         </p>
+        <div class="image ukol-2"></div>
       </article>
       <article>
         <h1>Úkol 3</h1>
@@ -101,6 +83,7 @@ function FifthChapter() {
           křižovatku (byť je na pováženou, zda připojit tři servery k jedné
           křižovatce).
         </p>
+        <div class="image ukol-3"></div>
       </article>
       <article>
         <h1>Samostatné stavění</h1>

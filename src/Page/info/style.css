@@ -30,3 +30,91 @@ ul {
     padding: 15px;
     font-style: italic;
 }
+
+.image {
+    background-size: cover;
+    background-position: center;
+}
+
+.server {
+    background-image: url('./chapters/images/server.jpg');
+    width: 321px;
+    height: 362px;
+}
+.vytvor-paket {
+    background-image: url('./chapters/images/vytvor_paket.png');
+    width: 685px;
+    height: 247px;
+}
+.najdi-paket {
+    background-image: url('./chapters/images/najdi_paket.png');
+    width: 316px;
+    height: 371px;
+}
+.jak-velka-bude-zprava {
+    background-image: url('./chapters/images/jak_velka_bude_zprava.png');
+    width: 685px;
+    height: 82px;
+}
+.wifi {
+    background-image: url('./chapters/images/wifi.png');
+    width: 1008px;
+    height: 625px;
+}
+
+.omezena-vzdalenost {
+    background-image: url('./chapters/images/omezena_vzdalenost.png');
+    width: 572px;
+    height: 454px;
+}
+.jak-se-pripojit {
+    background-image: url('./chapters/images/jak_se_pripojit.png');
+    width: 606px;
+    height: 242px;
+}
+.ip-adresa {
+    background-image: url('./chapters/images/ip_adresa.png');
+    width: 234px;
+    height: 134px;
+}
+.ipv4-ipv6 {
+    background-image: url('./chapters/images/ipv4ipv6.png');
+    width: 265px;
+    height: 294px;
+}
+.nejrychlejsi-cesta {
+    background-image: url('./chapters/images/nejrychlejsicesta.jpg');
+    width: 517px;
+    height: 283px;
+}
+.pocet-cest {
+    background-image: url('./chapters/images/pocet_cest.jpg');
+    width: 548px;
+    height: 274px;
+}
+.problem-na-ceste {
+    background-image: url('./chapters/images/problem_na_ceste.jpg');
+    width: 547px;
+    height: 410px;
+}
+.sestaveni-zpravy {
+    background-image: url('./chapters/images/sestaveni_zpravy.png');
+    width: 362px;
+    height: 361px;
+}
+.ukol-1 {
+    background-image: url('./chapters/images/ukol1.png');
+    width: 685px;
+    height: 206px;
+}
+.ukol-2 {
+    background-image: url('./chapters/images/ukol2.png');
+    width: 685px;
+    height: 178px;
+}
+.ukol-3 {
+    background-image: url('./chapters/images/ukol3.png');
+    width: 685px;
+    height: 439px;
+}
+

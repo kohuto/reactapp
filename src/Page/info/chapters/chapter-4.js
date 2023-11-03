@@ -39,11 +39,12 @@ function FourthChapter() {
           textového pole. Jako správné řešení je uznána jakákoliv validní IP
           adresa (IPv4 i IPv6).
         </p>
+        <div class="image ip-adresa"></div>
         <h2>Poznámky</h2>
         <p>
           Tuto aktivitu je možné zařadit už dříve. Tematicky by bylo možné téma
-          probrat již na začátku kapitoly Klienti a pakety (sekce 4.3). Není to
-          však potřeba.
+          probrat již na začátku kapitoly Klienti a pakety. Není to však
+          potřeba.
         </p>
         <p>
           V rámci aktivity je nastíněna otázka, proč bylo potřeba zavést IPv6
@@ -78,6 +79,7 @@ function FourthChapter() {
           dvojteček), zde jich je pouze 5. Třetí adresa je neplatná, protože
           první číslo je 297, zatímco IPv4 tvoří čísla z intervalu 0–255.
         </p>
+        <div class="image ipv4-ipv6"></div>
       </article>
       <article>
         <h1>Nejrychlejší cesta</h1>
@@ -106,6 +108,7 @@ function FourthChapter() {
           níže. Výsledek demonstruje to, že nejrychlejší cesta nemusí být nutně
           ta nejkratší.
         </p>
+        <div class="image nejrychlejsi-cesta"></div>
         <h2>Poznámky</h2>
         <p>
           Úloha odpovídá úloze o hledání nejkratší cesty v ohodnoceném
@@ -138,6 +141,7 @@ function FourthChapter() {
           chytrou křižovatkou. Na obrázku níže jsou všechny cesty znázorněny 7
           různými barvami.
         </p>
+        <div class="image pocet-cest"></div>
       </article>
       <article>
         <h1>Problém na cestě</h1>
@@ -153,20 +157,29 @@ function FourthChapter() {
         <h2>Zadání</h2>
         <p>
           Žák má spočítat, jaký je minimální počet hran (kabelů), které je
-          potřeba do sítě přidat, aby síť neobsahovala mosty a artikulace.
+          potřeba do sítě přidat, aby se síť nerozpadla při odebrání libovolné
+          jedné cesty nebo zařízení (odborně řečeno: síť nesmí obsahovat mosty a
+          artikulace).
         </p>
         <h2>Řešení</h2>
         <p>
           Je potřeba přidat minimálně čtyři hrany, aby síť neobsahovala mosty
-          ani artikulace. Níže je vyznačeno možné řešení (Obrázek 37).
+          ani artikulace. Níže je vyznačeno možné řešení.
         </p>
+        <div class="image problem-na-ceste"></div>
         <h2>Poznámky</h2>
         <p>
-          Tuto úlohu lze propojit s tematickým celkem grafy (sekce 4.1). Rovněž
-          doporučujeme zmínit ukázku, kdy síť požadované vlastnosti neměla a
-          jaké to mělo následky (Parfitt, 2011). Pořadí je rovněž možné
-          prohodit, první zmínit problém a následně zkusit přijít na to, co
-          mohlo být příčinou problému.
+          Tuto úlohu lze propojit s tematickým celkem grafy. Rovněž doporučujeme
+          zmínit libovolnou ukázku, kdy síť požadované vlastnosti neměla a jaké
+          to mělo{" "}
+          <a
+            target="_blank"
+            href="https://www.theguardian.com/world/2011/apr/06/georgian-woman-cuts-web-access"
+          >
+            následky
+          </a>{" "}
+          . Pořadí je rovněž možné prohodit, první zmínit problém a následně
+          zkusit přijít na to, co mohlo být příčinou problému.
         </p>
       </article>
       <article>
@@ -192,11 +205,11 @@ function FourthChapter() {
         </p>
         <h2>Řešení</h2>
         <p>Takto vypadá poskládaný obrázek.</p>
+        <div class="image sestaveni-zpravy"></div>
         <h2>Poznámky</h2>
         <p>
-          Úkol lze zařadit rovněž do kapitoly Klienti a pakety (sekce 4.3). Zde
-          je úkol proto, že se jedná o ukončení celé cesty paketu. Navíc může
-          úkol sloužit jako opakování poznatků ze sekce 4.3.
+          Úkol lze zařadit rovněž do kapitoly Klienti a pakety. Zde je úkol
+          proto, že se jedná o ukončení celé cesty paketu.
         </p>
       </article>
     </>

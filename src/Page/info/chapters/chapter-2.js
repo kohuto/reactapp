@@ -39,12 +39,12 @@ function SecondChapter() {
         </p>
         <h2>Poznámky</h2>
         <p>
-          Před zahájením aktivity je doporučeno připomenout vizualizaci
-          Komunikace klient-server (sekce 4.2.2). Žáci si tak propojí to, co již
-          umí, a bude jim jasné, proč je zpráva nejdříve doručena na server.
-          Následně je možné nastínit následující otázky: Proč se zpráva nepošle
-          přímo příjemci? Kolik zpráv, videí či fotek si pošlete s kamarády?
-          Zvládlo by se vše uložit do telefonu? Kde jsou tedy data uložená?
+          Před zahájením aktivity je doporučeno připomenout dřívější vizualizaci
+          Komunikace klient-server. Žáci si tak propojí to, co již umí, a bude
+          jim jasné, proč je zpráva nejdříve doručena na server. Následně je
+          možné nastínit následující otázky: Proč se zpráva nepošle přímo
+          příjemci? Kolik zpráv, videí či fotek si pošlete s kamarády? Zvládlo
+          by se vše uložit do telefonu? Kde jsou tedy data uložená?
         </p>
       </article>
       <article>
@@ -65,16 +65,18 @@ function SecondChapter() {
         <p>
           Žák je seznámen s tím, jaké informace musí být uloženy v paketu.
           Následně je vyzván k tomu, aby vytvořil tři pakety, ve kterých bude
-          odeslána konkrétní zpráva.
+          odeslána zpráva "AHOJ XAVI, JAK SE MÁŠ?".
         </p>
         <h2>Řešení</h2>
         <p>
           Správně vyplněný obsah všech paketů je znázorněn níže. V aplikaci se
-          držíme konvence, že obsah jednoho paketu (vyjma posledního) je 8
-          znaků. Příjemce i odesílatel jsou zařízení, která mají přiřazenou
-          konkrétní IP adresu. Při vyplňování těchto polí je proto potřeba uvést
-          IP adresy. Při vyplňování příjemce je potřeba vyplnit...
+          držíme konvence, že obsah jednoho paketu (vyjma posledního) je 8 znaků
+          z původní zprávy. Příjemce i odesílatel jsou zařízení, která mají
+          přiřazenou konkrétní IP adresu. Při vyplňování těchto polí je proto
+          potřeba uvést IP adresy. Pakety jsou očíslované, proto je potřeba do
+          PAKET 1 umístit první část zprávy atd.
         </p>
+        <div class="image vytvor-paket"></div>
       </article>
       <article>
         <h1>Najdi paket</h1>
@@ -109,13 +111,13 @@ function SecondChapter() {
           dostává od serveru odpověď, odesílatelem je naopak ve chvíli, kdy
           posílá na server požadavek).
         </p>
+        <div class="image najdi-paket"></div>
         <h2>Poznámky</h2>
         <p>
           V případě, že žáci nevědí, jak úlohu vyřešit, doporučujeme připomenout
-          předchozí aktivitu Posílání dat (sekce 4.3.1) a Komunikace
-          klient-server (sekce 4.2.2). Můžete žákům klást návodné otázky jako „V
-          jaké podobě jsou na server posílané požadavky?“ nebo „Jak poznáme, do
-          jakého serveru paket míří?“.
+          předchozí aktivitu Posílání dat a Komunikace klient-server. Můžete
+          žákům klást návodné otázky jako „V jaké podobě jsou na server posílané
+          požadavky?“ nebo „Jak poznáme, do jakého serveru paket míří?“.
         </p>
       </article>
       <article>
@@ -145,6 +147,7 @@ function SecondChapter() {
           níže. U každého řešení jak nastavená přiměřená tolerance, není proto
           potřeba dosáhnout přesně hodnoty uvedené v řešení.
         </p>
+        <div class="image jak-velka-bude-zprava"></div>
         <h2>Poznámky</h2>
         <p>
           V rámci výpočtu je dobré navázat na předchozí aktivity, ze kterých

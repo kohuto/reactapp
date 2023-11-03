@@ -16,10 +16,13 @@ function FirstChapter() {
           učitelům poskytne lepší představu o tom, jak žáci chápou dané téma.
           Také může předem odhalit jakékoliv nesprávné představy, které žáci
           mohou mít, a umožní učitelům se zaměřit na jejich korekci během
-          aktivit. Pro diskusi můžete například použít pracovní listy
-          (Matematicko-fyzikální fakulta Univerzity Karlovy, 2023) nebo pro
-          úvodní seznámení s tématem můžete využít pořad Datová Lhota (Česká
-          televize, 2020).
+          aktivit. Pro diskusi můžete například použít pracovní listy nebo pro
+          úvodní seznámení s tématem můžete využít pořad Datová Lhota. Oba dva
+          materiály jsou k dispozici na stránkách{" "}
+          <a target="_blank" href="https://internet4kids.mff.cuni.cz/projekty/">
+            internet4kids
+          </a>
+          .
         </p>
       </article>
       <article>
@@ -50,7 +53,8 @@ function FirstChapter() {
           Řešením úlohy je přetáhnout webovku na server webhostingu, obrázek na
           server Instagramu a video na server YouTube.
         </p>
-        <img src="./images/server.jpg"></img>
+
+        <div class="image server"></div>
         <div class="note">
           <h2>Poznámky</h2>
           <p>
@@ -132,9 +136,9 @@ function FirstChapter() {
         <h2>Poznámky</h2>
         <p>
           Před zahájením této aktivity je doporučeno rozvést diskusi s žáky.
-          Nejdříve pusťte žákům vizualizaci v aktivitě Komunikace klient-server
-          (sekce 4.2.2). Poté rozveďte debatu o tom, kudy se dostal požadavek
-          klienta na server.
+          Nejdříve pusťte žákům vizualizaci v aktivitě Komunikace klient-server.
+          Poté rozveďte debatu o tom, kudy se dostal požadavek klienta na
+          server.
         </p>
         <p>
           Téma bylo v aplikaci rozděleno do tří částí. První (Putování
