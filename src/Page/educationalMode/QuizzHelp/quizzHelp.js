@@ -83,7 +83,7 @@ export default function PlaygroundSpeedDial({ setGame, game, reloadGame }) {
               icon={
                 <Badge
                   
-                  badgeContent={!isHovered ? <ErrorIcon style={{ color: 'red' }} /> : null}
+                  badgeContent={!isHovered ? <ErrorIcon style={{ color: 'red', animation: 'blink 1s infinite' }} /> : null}
                   anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',

@@ -4,3 +4,12 @@
     left: 1vw;
     z-index: 99;
 }
+
+@keyframes blink {
+    0%, 100% {
+      transform: scale(1);    /* Původní velikost */
+    }
+    50% {
+      transform: scale(1.5);  /* Zvětšená velikost */
+    }
+  }
