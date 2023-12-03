@@ -7,6 +7,7 @@ function WhatIsPacketComponent({ info, setGame }) {
         content={info.content}
         setGame={setGame}
         game={info.type}
+        header={info.header}
       />
     </>
   );

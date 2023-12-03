@@ -4,6 +4,7 @@ import img from "../../../../images/PCpuzzle.svg";
 import "./style.css";
 import { useState } from "react";
 import NextLevelModal from "../../../DialogWindow/Templates/nextLevelModal";
+import BasicModal from "../../../DialogWindow/basicModal";
 
 const FINAL_MESSAGE = "perfektní!";
 function Puzzle({ info, setGame }) {
@@ -14,6 +15,7 @@ function Puzzle({ info, setGame }) {
 
   return (
     <>
+      <BasicModal content={info.content} header={info.header}/>
       {isFinished && (
         <NextLevelModal
           content={FINAL_MESSAGE}

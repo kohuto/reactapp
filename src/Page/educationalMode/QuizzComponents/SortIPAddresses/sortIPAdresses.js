@@ -43,7 +43,7 @@ function SortIPAdresses({ info, setGame }) {
 
   return (
     <>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       {isIncorrectlyFilled && (
         <AlertDialog
           content={ERROR_MESSAGE}

@@ -41,11 +41,11 @@ function DataIntoPackets({ info }) {
   const [content2, setContent2] = useState("");
   const [content3, setContent3] = useState("");
   const [isErrorInput, setIsErrorInput] = useState(false);
-  const longMessageErrorMessage = "Napiš zprávu, která má maximálně 24 znaků.";
+  const longMessageErrorMessage = "Napiš zprávu, která má minimálně 9 a maximálně 24 znaků.";
   const firstInform =
-    "Zpráva byla rozdělena na pakety, z nichž každý má určitou velikost. Stává se, že poslední paket obsahuje zbylá data, která nejsou dostatečně velká na to, aby vyplnily celý paket. To nevadí, poslední paket dorazí do cíle stejně jako všechny ostatní pakety. Zavři toto okno a sleduj, jak se na mapě zobrazí jednotlivé pakety. Můžeš na ně kliknout a zjistit, co obsahují.";
+    "Zpráva byla rozdělena na pakety, z nichž každý má určitou velikost. Stává se, že poslední paket obsahuje zbylá data, která nejsou dostatečně velká na to, aby vyplnily celý paket. To nevadí, poslední paket dorazí do cíle stejně jako všechny ostatní pakety. Zavřete toto okno a sledujte, jak se v mapě zobrazí jednotlivé pakety. Můžete na ně kliknout a zjistit, co obsahují.";
   const secondInform =
-    "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Jeroným bude chtít zobrazit zprávu, pošle požadavek serveru a ten mu zprávu pošle. Zavři nyní okno a podívej, jak zpráva dorazí ze serveru k Jeronýmovi. Opět se můžeš podívat dovnitř paketů.";
+    "Zpráva dorazila v paketech do messenger serveru. Z předchozí kapitoly už víme, že klient posílá zprávy na server. Jiní klienti si pak zprávu můžou od serveru vyžádat. Když si Jeroným bude chtít zobrazit Xavierovu zprávu, pošle požadavek serveru a ten mu zprávu pošle. Zavřte toto okno a podívejte se, jak zpráva dorazí ze serveru k Jeronýmovi.";
   var packets1 = packetsFromClientToServer;
   var packets2 = packetsFromServerToClient;
 
@@ -105,7 +105,7 @@ function DataIntoPackets({ info }) {
    */
 
   const handleSend = () => {
-    if (newMessage.length <= 24 && newMessage.length > 0) {
+    if (newMessage.length <= 24 && newMessage.length > 8) {
       setContent1(newMessage.substring(0, 8));
       if (newMessage.length > 8) setContent2(newMessage.substring(8, 16));
       if (newMessage.length > 16) setContent3(newMessage.substring(16, 24));
@@ -216,7 +216,7 @@ function DataIntoPackets({ info }) {
               }}
             ></button>
           </div>
-          {!wasSwapedSenders && <BasicModal content={info.content} />}
+          {!wasSwapedSenders && <BasicModal content={info.content} header={info.header} />}
         </div>
       </>
     );

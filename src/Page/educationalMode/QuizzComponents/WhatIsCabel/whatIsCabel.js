@@ -9,7 +9,7 @@ import "./style.css";
 function WhatIsCabelComponent({ info }) {
   return (
     <>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <div className="what-is-cabel-labels">
         <div>OPTICKÝ KABEL:</div>
         <div>METALICKÝ KABEL:</div>

@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
+import RefreshIcon from '@mui/icons-material/Refresh';
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { stockData } from "../../../Data/Quizzes/dataQuizzes";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ErrorIcon from '@mui/icons-material/Error';
+import Badge from "@mui/material/Badge";
+
 import "./style.css";
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
@@ -16,8 +20,16 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   left: theme.spacing(2),
 }));
 
-export default function PlaygroundSpeedDial({ setGame, game }) {
-  const [open, setOpen] = useState(false);
+export default function PlaygroundSpeedDial({ setGame, game, reloadGame }) {
+  const [open, setOpen] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+
+  useEffect(() => {
+    setOpen(true);        // Nastavit Speed Dial jako otevřený
+    setIsHovered(false);  // Resetovat isHovered na false
+  }, [game]); // Tento efekt se spustí pokaždé, když se změní 'game'
+  
 
   /**
    * get hint message for current game
@@ -27,14 +39,6 @@ export default function PlaygroundSpeedDial({ setGame, game }) {
   }
 
   const hint = getGameHint();
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const handleBackToMenu = () => {
     setGame("noGame");
@@ -57,7 +61,6 @@ export default function PlaygroundSpeedDial({ setGame, game }) {
     setGame(nextLevelType);
   };
 
-  const handleDisplayTask = () => {};
 
   const TooltipTitle = styled("span")({
     fontSize: "1.2rem", // Set the desired font size here
@@ -71,24 +74,43 @@ export default function PlaygroundSpeedDial({ setGame, game }) {
             ariaLabel="SpeedDial playground example"
             icon={<SpeedDialIcon />}
             open={open}
-            onOpen={handleOpen}
-            onClose={handleClose}
-            onClick={handleDisplayTask}
+            
+            onClick={() => setOpen(!open)}
             direction="down"
           >
+            
             <SpeedDialAction
-              icon={<QuestionMarkIcon />}
+              icon={
+                <Badge
+                  
+                  badgeContent={!isHovered ? <ErrorIcon style={{ color: 'red' }} /> : null}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <QuestionMarkIcon />
+                </Badge>
+              }
               tooltipTitle={<TooltipTitle>{hint}</TooltipTitle>}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             />
+
             <SpeedDialAction
               icon={<NavigateNextIcon />}
-              tooltipTitle={<TooltipTitle>Další úkol</TooltipTitle>}
+              tooltipTitle={<TooltipTitle>Další aktivita</TooltipTitle>}
               onClick={handleGoToNextLevel}
             />
             <SpeedDialAction
               icon={<ArrowBackIcon />}
               tooltipTitle={<TooltipTitle>Zpět do menu</TooltipTitle>}
               onClick={handleBackToMenu}
+            />
+            <SpeedDialAction
+              icon={<RefreshIcon />}
+              tooltipTitle={<TooltipTitle>Obnovit úkol</TooltipTitle>}
+              onClick={reloadGame}
             />
           </StyledSpeedDial>
         </Box>

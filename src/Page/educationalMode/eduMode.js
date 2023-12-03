@@ -21,6 +21,15 @@ function EducationalMode({
     setGameAfterDialogClose(gameAfterClose);
     setOpenOverlayDialog(isOpen);
   }
+
+  // zajisti refresh aktuálního úkolu
+  function reloadGame() {
+    const currentGame = game;
+    setGame("noGame"); 
+    setTimeout(() => setGame(currentGame), 0); // Nastaví hru zpět na původní hru
+  };
+  
+
   return (
     <>
       <QuizzComponents
@@ -38,7 +47,7 @@ function EducationalMode({
       />
 
       {game !== "noGame" ? (
-        <PlaygroundSpeedDial setGame={setGame} game={game} />
+        <PlaygroundSpeedDial setGame={setGame} game={game} reloadGame={reloadGame}/>
       ) : (
         <Sidebar
           setOpenDialog={setOpenDialog}

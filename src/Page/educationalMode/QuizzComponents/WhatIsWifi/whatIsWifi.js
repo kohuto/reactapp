@@ -89,7 +89,7 @@ function WhatIsWiFiComponent({ info, setGame }) {
 
   return (
     <>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <div className="what-is-wifi-container">
         <div className="switch-on-off-button">
           <button onClick={handleToggleSwitch}>

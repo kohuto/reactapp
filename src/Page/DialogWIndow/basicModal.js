@@ -1,9 +1,12 @@
 import { useState } from "react";
-import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import CardHeader from "@mui/material/CardHeader"; // Přidání importu CardHeader
+
 
 const style = {
   position: "absolute",
@@ -15,13 +18,15 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  
 };
 
-export default function BasicModal({ content }) {
+export default function BasicModal({ content, header }) {
   const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
 
-  // Splitting the content by new lines and mapping it to Typography components
   let messageLines = content;
   if (typeof content === "string") {
     messageLines = content.split("\n").map((line, index) => (
@@ -39,18 +44,22 @@ export default function BasicModal({ content }) {
         open={open}
         onClose={handleClose}
         closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              {messageLines}
-            </Typography>
+          <CardHeader title={header} sx={{ textAlign: 'left' }}/>
+            {messageLines}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
+              <Button
+                variant="outlined"
+                endIcon={<NavigateNextIcon />}
+                onClick={handleClose}
+                sx={{ mt: 2 }}
+              >
+                POKRAČOVAT
+              </Button>
+            </div>
+
           </Box>
         </Fade>
       </Modal>

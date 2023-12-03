@@ -15,11 +15,11 @@ function Documentation({ setIsDocumentationMode }) {
         setIsDocumentationMode={setIsDocumentationMode}
       />
       <div className="chapter-container">
-        {chapter == 1 && <FirstChapter />}
-        {chapter == 2 && <SecondChapter />}
-        {chapter == 3 && <ThirdChapter />}
-        {chapter == 4 && <FourthChapter />}
-        {chapter == 5 && <FifthChapter />}
+        {chapter === 1 && <FirstChapter />}
+        {chapter === 2 && <SecondChapter />}
+        {chapter === 3 && <ThirdChapter />}
+        {chapter === 4 && <FourthChapter />}
+        {chapter === 5 && <FifthChapter />}
       </div>
     </>
   );

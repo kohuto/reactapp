@@ -35,7 +35,7 @@ function IPaddress({ info, setGame }) {
 
   return (
     <>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       {isInvalidIP && (
         <AlertDialog
           content={ERROR_MESSAGE}

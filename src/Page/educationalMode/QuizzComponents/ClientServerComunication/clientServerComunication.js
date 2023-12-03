@@ -55,7 +55,7 @@ function ClientServerCommunication({ info }) {
 
   return (
     <div>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <div className="csc-client">
         <img src={client}></img>
       </div>

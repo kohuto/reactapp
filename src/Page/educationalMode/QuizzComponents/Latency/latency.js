@@ -66,7 +66,7 @@ function LatencyComponent({ info, setGame }) {
   return (
     <>
       <div className="latency-container">
-        <BasicModal content={info.content} />
+        <BasicModal content={info.content} header={info.header}/>
         {isFinished && (
           <NextLevelModal
             content={finalMessage}

@@ -30,7 +30,7 @@ import BuildNetwork2 from "./BuildNetwork2/buildNetwork";
 import BuildNetwork3 from "./BuildNetwork3/buildNetwork";
 import CreativeMode from "../../CreativeMode/creativeMode";
 
-function QuizzComponents({ setOpenDialog, game, setGame }) {
+function QuizzComponents({ game, setGame }) {
   const gameInfo = stockData.find((item) => item.type === game);
 
   switch (game) {

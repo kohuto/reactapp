@@ -75,7 +75,7 @@ function BandWidthComponent({ info, setGame }) {
           game={info.type}
         />
       )}
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <div className="typing-challenge-text">
         <p>{text}</p>
       </div>

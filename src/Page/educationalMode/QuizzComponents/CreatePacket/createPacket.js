@@ -84,7 +84,7 @@ function CreatePacketComponent({ info, setGame }) {
           content={finalMessage}
         />
       )}
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <div className="create-packet-packets-container">
         <div className="create-packet-packet1">
           <div className="create-packet-content">

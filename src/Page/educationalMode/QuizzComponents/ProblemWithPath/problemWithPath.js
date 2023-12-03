@@ -27,7 +27,7 @@ function ProblemWithPath({ info, setGame }) {
   return (
     <>
       <SimpleFlow nodes={problemWithPathNodes} edges={problemWithPathEdges} />
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       {isInvalid && (
         <AlertDialog
           closeAction={() => setIsInvalid(false)}

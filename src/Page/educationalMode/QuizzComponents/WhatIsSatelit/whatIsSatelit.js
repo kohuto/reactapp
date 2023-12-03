@@ -13,7 +13,7 @@ import { whatIsSatelitEdges } from "../../../../Data/Flow/edges/whatIsSatelitEdg
 function WhatIsSatelitComponent({ info }) {
   return (
     <div className="what-is-satelit-container">
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <SimpleFlow nodes={whatIsSatelitNodes} edges={whatIsSatelitEdges} />
       <DefaultPackets
         packetsData={satelitData}

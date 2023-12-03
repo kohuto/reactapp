@@ -11,7 +11,7 @@ import { countPathsEdges } from "../../../../Data/Flow/edges/countPathsEdges";
 import { countPathsNodes } from "../../../../Data/Flow/countPaths";
 
 const FINAL_MESSAGE =
-  "Perfektní! Je dobré, aby mezi dvěma místy vedlo velké množství různých cest. Proč je to výhodné se dozvíš v dalším úkolu.";
+  "Perfektní! Je dobré, aby mezi dvěma místy vedlo velké množství různých cest, což půjde vidět v následující aktivitě";
 const ERROR_MESSAGE = "Toto není správný počet různých cest.";
 const CORRECT_ANSWER = "7";
 
@@ -30,7 +30,7 @@ function CountPaths({ info, setGame }) {
   return (
     <>
       {" "}
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       {isInvalid && (
         <AlertDialog
           content={ERROR_MESSAGE}

@@ -1,175 +1,200 @@
 export const stockData = [
   {
     content:
-      "Určitě jsi někdy viděl video na YouTube nebo sis prohlížel fotky na instagramu. Přemýšlel jsi ale nad tím, kde jsou uložené? Nebo kde jsou uloženy webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Nahrávání dat na SERVER říkáme UPLOAD.",
+      "Jistě jste někdy viděli video na YouTube nebo jste si prohlíželi fotky na Instagramu. Přemýšleli jste ale nad tím, kde jsou tyto fotky a videa uložené? Nebo kde jsou uložené webové stránky včetně této aplikace? \n Všechny informace, které najdeme na internetu, jsou uloženy v zařízeních, kterým říkáme SERVERY. SERVERY jsou většinou drahé výkonné počítače v budovách firem, které nemívají obrazovku a typicky běží nonstop. Například společnost Seznam má ve své budově SERVER, na kterém je uložená stránka www.seznam.cz. Proces nahrávání dat na SERVER označujeme jako UPLOAD.",
     type: "whatIsServer",
-    hint: "Uploadni soubory do správného serveru. Upload provedeš přetažením souboru do serveru.",
+    hint: "Uploadněte všechny tři soubory na správný server. Upload provedete přetažením souboru na jeden ze čtyř serverů.",
+    header: "SERVER"
   },
   {
     content:
-      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Představ si to jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.",
+      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Můžete si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.",
     type: "whatIsClient",
     hint: "",
+    header: "KLIENT"
   },
   {
     content:
-      "Už víš, že se informace ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane třeba webovka na tvůj počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na tvém počítači.",
+      "Již víte, že se informace ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane například webovka na váš počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na vašem počítači.",
     type: "client-server-communication",
-    hint: "Animace znázorňuje komunikaci klienta a serveru.",
+    hint: "Sledujte animaci, která znázorňuje komunikaci klienta a serveru. Klient posílá požadavek v balíčku dat, server pošle nazpět v jiném balíčku dat požadovanou webovou stránku. Až budete chtít, přejděte na další aktivitu.",
+    header: "KOMUNIKACE KLIENT-SERVER"
   },
   {
     content:
-      "Kudy se dostanou požadavky, které jsi viděl v minulém úkolu, na server? \n Požadavek je doručen na server podobně jako dopis poštou tvému kamarádovi. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), které jede po silnicích až ke kamarádovi (do serveru). Po cestě navíc auto většinou projede mnoho křižovatek. CESTY a KŘIŽOVATKY najdeš i v internetové síti. Více se o nich dozvíš později.",
+      "Kudy se požadavky, o kterých byla řeč v minulém úkolu, dostanou na server? \n Požadavek je doručen na server podobně jako dopis poštou kamarádovi. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), které jede po silnicích až ke kamarádovi (do serveru). Po cestě auto (balíček dat) projede mnoho křižovatek. Tyto CESTY a KŘIŽOVATKY jsou základními prvky internetové sítě, o kterých se dozvíte více později.",
     type: "whereDataTravel",
-    hint: "Takto by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je ale daleko více zařízení! \n Vyzkoušej se sítí pohybovat a přiblížit ji.",
+    hint: "Takto by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je ale daleko více zařízení! \n Síť můžete přibližovat pomocí tlačítek +- v pravém rohu nebo kolečkem myši. Tažením můžete síť posouvat do všech stran. Až budete chtít, přejděte na další aktivitu.",
+    header: "PUTOVÁNÍ INFORMACÍ"
   },
   {
     content:
       "Aby se data dostala z jednoho zařízení do druhého, putují po CESTÁCH. CESTY mohou být bezdrátové (WiFi, satelity), většinou ale mají podobu kabelů (kovových nebo optických), které jsou nejčastěji zakopané pod zemí a pod mořem.",
     type: "whatIsPath",
-    hint: "Tady zatím není žádný úkol.",
+    hint: "Mapa na této webové stránce zobrazuje, kudy vedou pod mořem kabely. Až budete chtít, přejděte na další aktivitu.",
+    header: "CESTA"
   },
   {
     content:
       "KŘIŽOVATKY propojují cesty pro informace. Když do KŘIŽOVATKY přijede po cestě balíček informací, tak ho pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, směr určí chytrá KŘIŽOVATKA. Pokud nějaká cesta nefunguje, chytrá KŘIŽOVATKA najde objížďku. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíl ale pro nás není příliš důležitý.",
     type: "whatIsGateway",
     hint: "Tady zatím není žádný úkol.",
+    header: "CHYTRÁ KŘIŽOVATKA"
   },
   {
     content:
-      "Internet je síť složená ze zařízení, která si posílají balíčky dat. Co jsou ale ty balíčky zač? \n Každá tvoje zpráva, video či fotka je před odesláním rozdělena na části - PAKETY. PAKETY jsou malé balíčky dat obsahující část původní zprávy. Jsou posílány po cestách mezi klienty a servery. Poté, co se zpráva rozloží, putují PAKETY do cíle nezávisle na sobě.",
+      "Internet je síť složená ze zařízení, která si posílají balíčky dat. Co jsou ale ty balíčky zač? \n Každá zpráva, video či fotka je před odesláním rozdělena na části - PAKETY. PAKETY jsou malé balíčky dat obsahující část původní zprávy. Jsou posílány po cestách mezi klienty a servery. Poté, co se zpráva rozloží, putují PAKETY do cíle nezávisle na sobě.",
     type: "dataIntoPackets",
-    hint: "Jak by to vypadalo, kdyby chtěl Xavier odepsat Jeronýmovi? Napiš zprávu a odešli ji.",
+    hint: "Co se stane se Xavierovou odpovědí po odeslání? Napište libovolnou zprávu, odešlete ji a sledujte, co se se zprávou bude dít. Zpráva musí mít minimálně 9 a maximálně 24 znaků",
+    header: "POSÍLÁNÍ DAT"
   },
   {
     content:
-      "Zpráva je před odesláním rozložena na PAKETY. Jak se ale pozná, kam má být paket doručen? A kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako posílání dopisu. Na obálku napíšeš adresu odesílatele a příjemce. V paketu jsou uloženy tzv. IP adresy. \n Pakety putují nezávisle na sobě, proto mohou dorazit v jiném pořadí. Aby se správně seřadily, je v paketu uloženo pořadí. \n Po internetu je posíláno obrovské množství zpráv. Aby se od sebe zprávy odlišily, obsahují pakety identifikační číslo (ID). Pakety, které tvoří jednu zprávu, mají stejné ID.",
+      "Zpráva je před odesláním rozložena na PAKETY. Jak se ale pozná, kam má být paket doručen? A kam má být paket vrácen v případě nějakých problémů? \n Je to podobné, jako posílání dopisu. Na obálku se napíše adresa odesílatele a příjemce. V paketu jsou uloženy tzv. IP adresy. \n Pakety putují nezávisle na sobě, proto mohou dorazit v jiném pořadí. Aby se správně seřadily, je v paketu uloženo pořadí. \n Po internetu je posíláno obrovské množství zpráv. Aby se od sebe zprávy odlišily, obsahují pakety identifikační číslo (ID). Pakety, které tvoří jednu zprávu, mají stejné ID.",
     type: "whatIsPacket",
     hint: "",
+    header: "PAKET"
   },
   {
     content:
       "Každý paket v sobě nese část odeslané zprávy. Je v něm uložená adresa zařízení, do kterého paket míří, a také adresa zařízení, ze kterého byl paket odeslán. Pakety jsou očíslované, aby mohly být v cíli správně seřazeny.",
     type: "createPacket",
-    hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplň obsah tří paketů, na které se zpráva rozložila. Do jednoho paketu se vejde 8 znaků z původní zprávy.",
+    hint: "Karin (214.17.55.99) poslala Xavierovi (15.103.46.12) přes messenger zprávu: AHOJ XAVI, JAK SE MÁŠ? \n Vyplňte obsah tří paketů, na které se zpráva po odeslání rozložila. Do jednoho paketu se vejde 8 znaků z původní zprávy.",
+    header: "VYTVOŘ PAKET"
   },
   {
     content:
-      "Kiara, Annika a Eustác brouzdají na internetu. Každý z nich nedávno navštívil nějaký server. Napiš ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil který server?",
+      "Kiara, Annika a Eustác brouzdají na internetu. Každý z nich nedávno navštívil nějaký server. Napište ke každému jménu adresu serveru, který osoba navštívila. Jak poznáš, kdo navštívil jaký server?",
     type: "findServer",
-    hint: "Ke každému jménu napiš adresu serveru, který daný člověk navštívil.",
+    hint: "Napište ke každému jménu adresu serveru, který osoba navštívila.",
+    header: "NAJDI PAKET"
   },
   {
     content:
-      "Odeslaná data se před odesláním rozloží na pakety. Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vejde 1KB dat",
+      "Data se před odesláním rozloží na pakety. Napište, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vejde 1KB dat.",
     type: "sortFileSize",
-    hint: "Napiš, na kolik paketů se rozloží každý ze 4 souborů, když se do jednoho paketu vejde 1KB dat",
+    hint: "Napište, na kolik paketů se rozloží každý ze 4 souborů (video, text, obrázek, hudba), když se do jednoho paketu vejde 1KB dat.",
+    header: "JAK VELKÁ BUDE ZPRÁVA"
   },
   {
     content:
       "Nejvíce cest je tvořeno KABELY. Ty mohou být metalické (kovové) nebo optické. V metalických jsou data přenášena pomocí elektrických signálů, zatímco v optických pomocí světelných signálů. \n Množství posílaných dat neustále roste. V roce 2019 se poslalo za hodinu stejné množství dat, jako za celý rok 2000. Řešením jsou optické KABELY, jelikož přenáší data až 10000x větší rychlostí i na daleko větší vzdálenosti.",
     type: "whatIsCabel",
-    hint: "Animace znázorňuje srovnání rychlosti přenosu v optickém a metelickém kabelu.",
+    hint: "Sledujte animaci, která znázorňuje srovnání rychlosti přenosu v optickém a metalickém kabelu. Je patrné, že data jsou optickými kabely přenášeny daleko větší rychlostí. Až budete chtít, přejděte na další aktivitu.",
+    header: "KABELY"
   },
   {
     content:
-      "Data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WIFI, což je označení pro signál, který je vysílán z WIFI ROUTERU. \n ROUTER je krabička, kterou bys určitě našel doma. Vede z něj kabel, kterým je připojen k chytré křižovatce. Vysílá WIFI SIGNÁL k zařízením (počítače, telefony), která posílají data pomocí WIFI SIGNÁLU zpět k ROUTERU. Ten data pošle kabelem do chytré křižovatky. \n Po zavření okna si zkus zapojit WIFI ROUTER.",
+      "Data mohou být přenášena i bezdrátově, tedy bez použití kabelů. Příkladem bezdrátového připojení je WIFI, což je označení pro signál, který je vysílán z WIFI ROUTERU. \n ROUTER je krabička, která je ve většině domácností. Vede z něj kabel, kterým je připojen k chytré křižovatce. Vysílá WIFI SIGNÁL k zařízením (počítače, telefony), která posílají data pomocí WIFI SIGNÁLU zpět k ROUTERU. Ten data pošle kabelem do chytré křižovatky. \n Po zavření okna zapojte WIFI ROUTER.",
     type: "whatIsWiFi",
-    hint: "",
+    hint: "Zapojte wifi router. První je potřeba router přetažením zapojit do zásuvky. Následně je potřeba ho zapnout. Poté zbývá router přetažením propojit s chytrou křižovatkou a připojit ho tak ke zbytku internetu.",
+    header: "WIFI"
   },
   {
     content:
-      "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který může využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat.",
+      "Bezdrátovým připojením je také MOBILNÍ SIGNÁL vysílaný BTS VĚŽEMI. Princip je podobný jako u WIFI, jsou to však různé signály. \n BTS VĚŽE jsou většinou na kopcích nebo vyšších domech a kabelem jsou připojeny k chytré křižovatce. Vysílají signál, který mohou využít pro přenos dat (či telefonních hovorů) zařízení se SIM kartou (většinou mobily). VĚŽ vyšle signál, pomocí kterého pošle zařízení data zpět k BTS VĚŽI. VĚŽ pošle data kabelem do chytré křižovatky. \n Rozlišujeme věže typu 4G a 5G, které se liší jak v dosahu signálu, tak v rychlosti přenosu dat.",
     type: "whatIsBTS",
-    hint: "Animace znázorňuje, jak jsou přenášena data pomocí BTS věže.",
+    hint: "Sledujte animaci, která znázorňuje, jak jsou přenášena data pomocí BTS věže. Až budete chtít, přejděte na další aktivitu.",
+    header: "MOBILNÍ DATA"
   },
   {
     content:
       "Satelity jsou zařízení umístěna na oběžné dráze okolo Země. \n Satelitní připojení je nejméně používané, používají ho zařízení na obtížně přístupných místech. Když někdo pošle signál ze Země k satelitu, antény na satelitu signál zachytí a odrazí ho zpět na Zemi.",
     type: "whatIsSatelit",
-    hint: "Animace znázorňuje, jak jsou přenášena data pomocí satelitu.",
+    hint: "Sledujte animaci, která znázorňuje, jak jsou přenášena data pomocí satelitu. Až budete chtít, přejděte na další aktivitu.",
+    header: "SATELIT"
   },
   {
     content:
-      "“Proč je ten internet takový pomalý?” Co vlastně znamená, že je internet rychlý nebo pomalý. \n Rychlost internetu má dva aspekty - DOBU ODEZVY a ŠÍŘKU PÁSMA. DOBA ODEZVY nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím je vyšší, tím déle trvá, než je paket doručen. To může být ovlivněno třeba přetížením křižovatek, nebo posíláním přes satelit. \n Malou DOBU ODEZVY potřebuješ třeba při hraní her, nebo při online hovoru. Velká doba odezvy totiž způsobí zasekávání online hry. U hovoru způsobí, že člověk na druhém konci slyší i s několika sekundovým zpožděním.",
+      "Co znamená, že je internet rychlý nebo pomalý? \n Rychlost internetu má dva aspekty - DOBU ODEZVY a ŠÍŘKU PÁSMA. DOBA ODEZVY nám říká, jak dlouho trvá paketu, než dorazí od odesílatele k příjemci. Čím je vyšší, tím déle trvá, než je paket doručen. To může být ovlivněno třeba přetížením křižovatek, nebo posíláním přes satelit. \n Malá DOBA ODEZVY je potřeba při hraní her, nebo při online hovoru. Velká doba odezvy totiž způsobí zasekávání online hry. U hovoru způsobí, že člověk na druhém konci slyší s několika sekundovým zpožděním.",
     type: "raceAroundWorld",
-    hint: "Naklikej co nejrychleji cestu od klienta až do serveru.",
+    hint: "Naklikejte co nejrychleji cestu od klienta až do serveru. Kliknutím na klienta se spustí stopky, poté postupně klikejte na všechny chytré křižovatky po cestě. Kliknutím na server se stopky zastaví.",
+    header: "DOBA ODEZVY"
   },
   {
     content:
-      "Druhý aspket rychlosti je ŠÍŘKA PÁSMA. \n Představ si posílání dat jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Velkou šířku pásma potřebuješ třeba při stahování videa, protože je potřeba najednou přenést velké množství dat. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu).",
+      "Druhý aspekt rychlosti je ŠÍŘKA PÁSMA. \n Posílání dat si lze představit jako vodu, která teče potrubím. Pak by rychlost vody v potrubí byla DOBA ODEZVY. \n Šířka potrubí (kolik vody najednou může protéct) by byla ŠÍŘKA PÁSMA. ŠÍŘKA PÁSMA udává, kolik dat lze po cestě najednou poslat. \n Například při stahování videa je potřeba větší šířka pásma, protože se přenáší velké množství dat najednou. \n Šířka pásma se měří v Mb/s (kolik Mb dat přeneseš za sekundu).",
     type: "typingChallenge",
-    hint: "Klikni na START a zkus za 10 sekund opsat do textového pole co nejvíce textu.",
+    hint: "Klikněte na START. Poté klikněte do textového pole a za 10 sekund opište co nejvíce znaků z šedého obdélníku. Při přepisování však nesmíte udělat žádnou chybu.",
+    header: "ŠÍŘKA PÁSMA"
   },
   {
     content:
-      "Připoj všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidáš kliknutím na jeho ikonu v nabídce, poté jej můžeš libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad hlavou ikonu wifi.",
+      "Připojte všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidejte kliknutím na jeho ikonu v nabídce, poté jej můžete libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad sebou ikonu wifi.",
     type: "connectClientsWireless",
-    hint: "Připoj všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidáš kliknutím na jeho ikonu v nabídce, poté jej můžeš libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad hlavou ikonu wifi.",
+    hint: "Připojte všechny klienty k internetu pomocí dvou WiFi routerů a dvou BTS věží. Zařízení přidejte kliknutím na jeho ikonu v nabídce, poté jej můžete libovolně přemisťovat. Každý klient musí být v dosahu alespoň jednoho zařízení. Klient je v dosahu zařízení, když má nad sebou ikonu wifi.",
+    header: "OMEZENÁ VZDÁLENOST"
   },
   {
     content:
-      "Ne vždy lze použít libovolný typ připojení. Zaškrtni pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
+      "Ne vždy lze použít libovolný typ připojení. Zaškrtněte pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
     type: "howToConnect",
-    hint: "Zaškrtni pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
+    hint: "Zaškrtněte pro každou ze čtyř situací, jaký typ připojení je vhodný. V jednom sloupečku může být i více možností.",
+    header: "JAK SE PŘIPOJIT"
   },
   {
     content:
-      "Stejně jako při posílání dopisu i v paketu musí být uložená cílová adresa. Těmto adresám říkáme IP ADRESY. \n Pokud chceš třeba otevřít webovou stránku, musí počítač zjistit IP ADRESU serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP ADRES - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel v rozsahu 0-255 oddělených tečkou (př. 192.168.0.255). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334).",
+      "Stejně jako při posílání dopisu i v paketu musí být uložená cílová adresa. Těmto adresám říkáme IP ADRESY. \n Před otevřením webové stránky, musí počítač zjistit IP ADRESU serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP ADRES - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel v rozsahu 0-255 oddělených tečkou (př. 192.168.0.255). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334).",
     type: "IPadress",
-    hint: "Napiš do textového pole níže, jakou IP adresu má tvůj počítač.",
+    hint: "Napište do textového pole, jakou IP adresu má váš počítač.",
+    header: "IPV4, IPV6"
   },
   {
     content:
       "Novější IPv6 adresy vznikly, protože IPv4 adres začal být nedostatek. Existuje 340 282 366 920 938 463 374 607 431 768 211 456 různých IPv6 adres, což je dost na to, abychom na každý mm2 po celé zemi mohli umístit více než 650 000 000 000 000 000 adres.",
     type: "sortIPAdresses",
-    hint: "Pro každou z adres urči, jestli se jedná o IPv4, IPv6 nebo o neplatnou IP adresu.",
+    hint: "Pro každou z adres určete, jestli se jedná o IPv4, IPv6 nebo o neplatnou IP adresu.",
+    header: "IP ADRESA"
   },
   {
     content:
-      "Paket si cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Když jedeš autem, tak je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.\n Po zavření okna se u každé cesty objeví číslo, které udává, jak dlouho po dané cestě paket pojede. Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru Messengeru.",
+    "Paket cestu od odesílatele k příjemci nevybírá sám. Trasu určí chytrá křižovatka, která vybere nejrychlejší cestu, po které paket pošle. Nejrychlejší cesta ale není vždycky ta nejkratší, závisí to i na vytíženosti jednotlivých cest. Při jízdě autem je také občas rychlejší udělat objížďku, protože na nejkratší cestě je zrovna zácpa.",
     type: "shortestPath",
-    hint: "Do textového pole napiš, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru.",
+    hint: "Číslo u cesty udává, jak dlouho po dané cestě paket pojede. Do textového pole napište, jak dlouho pojede paket nejrychlejší cestou od klienta do serveru.",
+    header: "NEJRYCHLEJŠÍ CESTA"
   },
   {
     content:
-      "Zkus spočítat, po kolika různých cestách by mohl putovat paket od klienta do serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole.",
+      "Je dobré, aby mezi dvěma místy vedlo velké množství různých cest. Kdyby se některá z křižovatek nebo cest poškodila, paket může do cíle dorazit náhradní cestou",
     type: "countOfPaths",
-    hint: "Zkus spočítat, po kolika různých cestách by mohl putovat paket od klienta do serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou. Počet cest napiš do textového pole.",
+    hint: "Spočítejte, po kolika různých cestách může putovat paket od klienta do serveru. Paket nesmí projet dvakrát stejnou chytrou křižovatkou.",
+    header: "POČET CEST"
   },
   {
     content:
-      "Kabel spojující křižovatky 10.5.112.134 a 174.175.243.159 byl poškozen, což vedlo k rozpadu internetové sítě na dvě části. Kolik dalších spojení bychom museli nyní minimálně přidat do sítě, abychom předešli tomu, že by se síť znovu rozpadla na dvě části po odstranění jedné libovolné cesty nebo křižovatky?",
+      "Když mezi dvěma místy existuje pouze jedna trasa, tak nám hrozí, že když se některá z cest či zařízení poškodí, pakety se nebudou mít kudy dostat do cíle. Proto je dobré, aby mezi dvěma místy vedlo několik různých tras.",
     type: "problemWithPath",
-    hint: "Kolik dalších spojení bychom museli nyní minimálně přidat do sítě, abychom předešli tomu, že by se síť znovu rozpadla na dvě části po odstranění jedné libovolné cesty nebo křižovatky?",
+    hint: "Kabel spojující křižovatky 10.5.112.134 a 174.175.243.159 byl poškozen, což vedlo k rozpadu internetové sítě na dvě části. Kolik dalších spojení bychom museli nyní minimálně přidat do sítě, abychom předešli tomu, že by se síť znovu rozpadla na dvě části po odstranění jedné libovolné cesty nebo křižovatky?",
+    header: "PROBLÉM NA CESTĚ"
   },
   {
     content:
-      "Klientovi přišla v paketech fotka. Pakety putují nezávisle na sobě, proto je potřeba je seřadit. Zkus fotku poskládat zpět do původní podoby. Pomohou ti čísla udávající pořadí paketu.",
+      "Když zpráva dorazí do cíle je potřeba ji sestavit zpět do původní podoby. Před odesláním je totiž rozložena na několik paketů, které pak do cíle putují nezávisle na sobě. Ke zpětnému sestavení slouží čísla na paketech, která udávají původní pořadí.",
     type: "puzzle",
-    hint: "Poskládej obrázek zpět do původní podoby. Pomohou ti čísla udávající pořadí paketu.",
+    hint: "Klientovi přišla v paketech fotka. Poskládejte fotku zpět do původní podoby. Pomůžou vám čísla, která udávají pořadí paketů.",
+    header: "SESTAVENÍ ZPRÁVY"
   },
   {
     content:
-      "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
+      "Vytvořte síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi.",
     type: "build-network-1",
-    hint: "Vytvoř síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi",
+    hint: "Vytvořte síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
   },
   {
     content:
-      "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
+      "Vytvořte takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku. ",
     type: "build-network-2",
-    hint: "Vytvoř takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku",
+    hint: "Vytvořte takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
   },
   {
     content:
-      "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
+      "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
     type: "build-network-3",
-    hint: "Vytvoř síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
+    hint: "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
   },
   {
-    content: "Postav si jakoukoliv síť bez omezení.",
+    content: "Postavte si jakoukoliv síť bez omezení.",
     type: "build-own-network",
-    hint: "Vpravo nahoře klikni na zařízení a tím ho přidej do sítě. S přidanými prvky můžeš pohybovat. Přidej novou cestu kliknutím na zařízení a přetažením na jiné zařízení. Vlevo dole pošli paket. Vyber IP adresu odesílatele a příjemce a odešli. Odesílatel je klient, který je v dosahu WiFi nebo BTS věže - má nad hlavou ikonu WiFi.",
+    hint: "Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit. Vlevo dole pošlete paket. Vyberte IP adresu odesílatele a příjemce a odešlete. Odesílatel je klient, který je v dosahu WiFi nebo BTS věže - má nad sebou ikonu WiFi.",
   },
 ];

@@ -7,7 +7,7 @@ import BasicModal from "../../../DialogWindow/basicModal";
 function WhereDataTravel({ info }) {
   return (
     <div className="data-path-flow-container">
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <ReactFlow
         nodes={whatIsPathNodes}
         edges={whatIsPathEdges}

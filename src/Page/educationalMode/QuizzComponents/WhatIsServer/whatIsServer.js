@@ -135,7 +135,7 @@ function WhatIsServerComponent({ info, setGame }) {
           closeAction={() => setIsCorrectlyFilled(false)}
         />
       )}
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <UploadServer
         refProp={servernoRef}
         imageUrl={server}

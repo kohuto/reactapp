@@ -101,7 +101,7 @@ function HowToConnect({ info, setGame }) {
 
   return (
     <>
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       {isFilledCorrectly && (
         <NextLevelModal
           content={FINAL_MESSAGE}

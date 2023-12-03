@@ -32,7 +32,7 @@ function FindPacketComponent({ info, setGame }) {
           closeAction={() => setIsIncorrect(false)}
         />
       )}
-      <BasicModal content={info.content} />
+      <BasicModal content={info.content} header={info.header}/>
       <SimpleFlow nodes={findServerNodes} edges={findServerEdges} />
       <DefaultPackets
         packetsData={findServerData}
