@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.0b9ea50a.css",
-    "main.js": "/reactapp/static/js/main.3519f1eb.js",
+    "main.css": "/reactapp/static/css/main.48a80570.css",
+    "main.js": "/reactapp/static/js/main.e2599ddc.js",
     "static/media/europe-map.svg": "/reactapp/static/media/europe-map.b736b2b9c44d908d445d.svg",
     "static/media/serverwebhost.svg": "/reactapp/static/media/serverwebhost.04cf856bc5500e3f3acb925165afc9d3.svg",
     "static/media/serverig.svg": "/reactapp/static/media/serverig.170f5c4f26f9e28c7a1eee00fd8b24ad.svg",
@@ -57,11 +57,11 @@
     "static/media/paket.svg": "/reactapp/static/media/paket.ed826b73ce07888eb6f4.svg",
     "static/media/socket.svg": "/reactapp/static/media/socket.10342f23d4ab8dd87bba.svg",
     "index.html": "/reactapp/index.html",
-    "main.0b9ea50a.css.map": "/reactapp/static/css/main.0b9ea50a.css.map",
-    "main.3519f1eb.js.map": "/reactapp/static/js/main.3519f1eb.js.map"
+    "main.48a80570.css.map": "/reactapp/static/css/main.48a80570.css.map",
+    "main.e2599ddc.js.map": "/reactapp/static/js/main.e2599ddc.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b9ea50a.css",
-    "static/js/main.3519f1eb.js"
+    "static/css/main.48a80570.css",
+    "static/js/main.e2599ddc.js"
   ]
 }
