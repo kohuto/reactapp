@@ -3,7 +3,8 @@ import Draggable from "react-draggable";
 import web from "../../../../images/serverscontent/website-design.png";
 import video from "../../../../images/serverscontent/multimedia.png";
 import picture from "../../../../images/serverscontent/picture.png";
-import server from "../../../../images/nodes/server-messenger.svg";
+import chat from "../../../../images/serverscontent/chat.png";
+import serverchat from "../../../../images/nodes/server-messenger.svg";
 import serverig from "../../../../images/nodes/serverig.svg";
 import serverweb from "../../../../images/nodes/serverwebhost.svg";
 import serveryoutube from "../../../../images/nodes/serveryoutube.svg";
@@ -20,16 +21,21 @@ const CORRECT_INSTAGRAM_MESSAGE =
   "Správně! Instagram bude mít na svém serveru uloženou spoustu obrázků";
 const CORRECT_YOUTUBE_MESSAGE =
   "Správně! Na YouTube serveru bude uložená spousta videí";
+const CORRECT_CHAT_MESSAGE =
+  "Správně! Na WhatsApp serveru bude uložená spousta zpráv";
 
 function WhatIsServerComponent({ info, setGame }) {
   const webRef = useRef(null);
+  const chatRef = useRef(null);
   const imgRef = useRef(null);
   const videoRef = useRef(null);
   const serverimgRef = useRef(null);
   const servernoRef = useRef(null);
   const servervideoRef = useRef(null);
+  const serverchatRef = useRef(null);
   const serverwebRef = useRef(null);
   const [correctWebServerTouch, setcorrectWebServerTouch] = useState(false);
+  const [correctChatServerTouch, setcorrectChatServerTouch] = useState(false);
   const [correctInstagramServerTouch, setcorrectInstagramServerTouch] =
     useState(false);
   const [correctYouTubeServerTouch, setcorrectYouTubeServerTouch] =
@@ -43,15 +49,21 @@ function WhatIsServerComponent({ info, setGame }) {
    */
   const checkTouching = useCallback(() => {
     const web = webRef.current;
+    const chat = chatRef.current;
     const img = imgRef.current;
     const video = videoRef.current;
     const serverimg = serverimgRef.current;
     const servervideo = servervideoRef.current;
     const serverweb = serverwebRef.current;
+    const serverchat = serverchatRef.current;
 
     if (web && serverweb) {
       const touching = areElementsTouching(web, serverweb);
       setcorrectWebServerTouch(touching);
+    }
+    if (chat && serverchat) {
+      const touching = areElementsTouching(chat, serverchat);
+      setcorrectChatServerTouch(touching);
     }
     if (img && serverimg) {
       const touching = areElementsTouching(img, serverimg);
@@ -102,6 +114,12 @@ function WhatIsServerComponent({ info, setGame }) {
       setInfoMessage(CORRECT_WEB_MESSAGE);
       setIsCorrectlyFilled(true);
     }
+    if (correctChatServerTouch) {
+      chatRef.current.style.display = "none";
+      setFilledServer(filledServer + 1);
+      setInfoMessage(CORRECT_CHAT_MESSAGE);
+      setIsCorrectlyFilled(true);
+    }
     if (correctInstagramServerTouch) {
       imgRef.current.style.display = "none";
       setFilledServer(filledServer + 1);
@@ -118,6 +136,7 @@ function WhatIsServerComponent({ info, setGame }) {
     correctWebServerTouch,
     correctInstagramServerTouch,
     correctYouTubeServerTouch,
+    correctChatServerTouch,
   ]);
   return (
     <>
@@ -137,9 +156,9 @@ function WhatIsServerComponent({ info, setGame }) {
       )}
       <BasicModal content={info.content} header={info.header}/>
       <UploadServer
-        refProp={servernoRef}
-        imageUrl={server}
-        servername="no-upload"
+        servername="upload-chat"
+        refProp={serverchatRef}
+        imageUrl={serverchat}
       />
       <UploadServer
         servername="upload-video"
@@ -158,9 +177,9 @@ function WhatIsServerComponent({ info, setGame }) {
       />
       <div className="what-is-server-container">
         <p>Soubory:</p>
-        <DraggableComponent refProp={webRef} imageUrl={web} />
         <DraggableComponent refProp={imgRef} imageUrl={picture} />
         <DraggableComponent refProp={videoRef} imageUrl={video} />
+        <DraggableComponent refProp={chatRef} imageUrl={chat} />
       </div>
     </>
   );

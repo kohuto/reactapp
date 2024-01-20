@@ -9,7 +9,6 @@ function WhatIsPathComponent({ info, setGame }) {
   };
 
   const iframeStyle = {
-    border: '1px solid black', // Přidává rámeček
     zIndex: 20
   };
 
@@ -19,10 +18,11 @@ function WhatIsPathComponent({ info, setGame }) {
       <div style={containerStyle}>
         <iframe 
           src="https://www.fiberatlantic.com" 
-          width="900"
+          width="600"
           height="600"
           style={iframeStyle}
           title="Embedded Webpage"
+          
         >
           Omlouváme se, ale mapu nelze ve vašem prohlížeči vykreslit. Prohlédněte si mapu na tomto <a href='https://www.fiberatlantic.com'> odkazu</a>
         </iframe>
@@ -32,9 +32,3 @@ function WhatIsPathComponent({ info, setGame }) {
 }
 
 export default WhatIsPathComponent;
-
-/*<NextLevelModal
-  content={info.content}
-  setGame={setGame}
-  game={info.type}
-/>*/

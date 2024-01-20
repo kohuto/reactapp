@@ -34,13 +34,7 @@ export default function NextLevelModal({ content, setGame, game, header }) {
         {needHeader.includes(game) && <CardHeader title={header} sx={{ textAlign: 'left' }}/>}
         <div>{messageLines}</div>
         <div className="next-level-button" style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
-          {/*<Button
-            variant="outlined"
-            startIcon={<ArrowBackIosNewIcon />}
-            onClick={() => setGame("noGame")}
-          >
-            Zpět do menu
-    </Button>*/}
+      
           <Button
             variant="outlined"
             endIcon={<NavigateNextIcon />}
@@ -56,7 +50,7 @@ export default function NextLevelModal({ content, setGame, game, header }) {
     <>
       <Dialog
         open={true}
-        onClose={() => setGame("noGame")}
+        onClose={() => setGame(getNextLevelType())}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

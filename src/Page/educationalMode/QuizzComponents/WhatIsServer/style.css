@@ -23,7 +23,7 @@
     padding: 10px;
   }
   
-  .upload-video, .upload-image, .upload-web, .no-upload {
+  .upload-video, .upload-image, .upload-web, .upload-chat {
     width: 150px;
     height: 110px;
     position: absolute;
@@ -43,7 +43,7 @@
     top: 15vh;
     left: 30vw;
   }
-  .no-upload {
+  .upload-chat {
     top: 45vh;
     left: 30vw;
   }
