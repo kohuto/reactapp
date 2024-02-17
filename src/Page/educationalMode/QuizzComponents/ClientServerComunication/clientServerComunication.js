@@ -63,21 +63,18 @@ function ClientServerCommunication({ info }) {
         <img src={server}></img>
       </div>
       {showRequestMessage && (
-        <div className="csc-message csc-clients-wish">
-          <p>Chtěl bych se podívat na webovku</p>
+        <div className="csc-clients-wish">
         </div>
       )}
       <div
-        className={`csc-message csc-request ${
+        className={`csc-request ${
           showSendRequestComponent ? "show" : ""
         }`}
       >
-        <p>pošli mi webovku</p>
       </div>
       <div
-        className={`csc-message csc-answer ${showAnswerMessage ? "show" : ""}`}
+        className={`csc-answer ${showAnswerMessage ? "show" : ""}`}
       >
-        <p>ok, pošlu ti webovku</p>
       </div>
       <div
         className={`csc-message csc-send-answer ${
@@ -87,11 +84,10 @@ function ClientServerCommunication({ info }) {
         <img src={web}></img>
       </div>
       <div
-        className={`csc-message csc-happy-client ${
+        className={`csc-happy-client ${
           showHappyClient ? "show" : ""
         }`}
       >
-        <p>juchů, to je moje webovka</p>
       </div>
     </div>
   );

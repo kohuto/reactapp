@@ -23,10 +23,15 @@
 
 .csc-clients-wish {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    background-image: url('../../../../images/idea-bubble.png'); /* Nastavte cestu k vašemu obrázku */
+    background-size: cover; /* Pokryje celou plochu divu */
+    background-repeat: no-repeat; /* Zabrání opakování obrázku */
     position: absolute;
-    top: 37vh;
-    left: 32vw;
-}
+    width: 200px;
+    height: 200px;
+    top: 28vh;
+    left: 36vw;
+  }
   .csc-message {
     opacity: 0;
     position: absolute;
@@ -43,6 +48,12 @@
   
   .csc-request {
     opacity: 0;
+    background-image: url('../../../../images/posli-mi-webovku.png'); /* Nastavte cestu k vašemu obrázku */
+    background-size: cover; /* Pokryje celou plochu divu */
+    background-repeat: no-repeat; /* Zabrání opakování obrázku */
+    position: absolute;
+    width: 150px;
+    height: 90px;
     transform: translateX(0);
     top: 50vh;
     left: 35vw;
@@ -55,8 +66,14 @@
   }
   
   .csc-answer {
+    background-image: url('../../../../images/idea-bubble-repsonse.png'); /* Nastavte cestu k vašemu obrázku */
+    background-size: cover; /* Pokryje celou plochu divu */
+    background-repeat: no-repeat; /* Zabrání opakování obrázku */
+    position: absolute;
+    width: 200px;
+    height: 200px;
     opacity: 0;
-    top: 37vh;
+    top: 26vh;
     left: 73vw;
   }
   
@@ -85,8 +102,14 @@
   
   .csc-happy-client {
     opacity: 0;
-    top: 37vh;
-    left: 32vw;
+    background-image: url('../../../../images/idea-bubble-final.png'); /* Nastavte cestu k vašemu obrázku */
+    background-size: cover; /* Pokryje celou plochu divu */
+    background-repeat: no-repeat; /* Zabrání opakování obrázku */
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 28vh;
+    left: 36vw;
   }
   
   .csc-happy-client.show {
