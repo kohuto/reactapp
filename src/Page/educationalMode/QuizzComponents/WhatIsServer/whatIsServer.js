@@ -44,6 +44,8 @@ function WhatIsServerComponent({ info, setGame }) {
   const [infoMessage, setInfoMessage] = useState("");
   const [isCorrectlyFilled, setIsCorrectlyFilled] = useState(false);
 
+  const [introTutorialOpen, setIntroTutorialOpen] = useState(true)
+
   /**
    * Checks whether the draggable components are touching the correct server components
    */
@@ -147,7 +149,14 @@ function WhatIsServerComponent({ info, setGame }) {
           setGame={setGame}
         />
       )}
-
+      {
+        introTutorialOpen && (
+          <AlertDialog
+          content={"U každé aktivity je na levé straně rozbalovací nabídka. V ní, kromě dalších akcí, primárně najdete pod ikonou otazníku ZADÁNÍ aktivity."}
+          closeAction={() => setIntroTutorialOpen(false)}
+        />
+        )
+      }
       {isCorrectlyFilled && (
         <AlertDialog
           content={infoMessage}

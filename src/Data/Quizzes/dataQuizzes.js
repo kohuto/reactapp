@@ -8,21 +8,21 @@ export const stockData = [
   },
   {
     content:
-      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. Můžete si to představit jako návštěvníka restaurace, který si objedná jídlo. Restaurace je server, který poskytuje služby (nabízí jídlo), a návštěvník je klient, který požaduje služby (objednává si jídlo). Klient v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.",
+      "KLIENT je zařízení (počítač, telefon, tablet), nebo přesněji program (appka), který požaduje po serveru službu. KLIENT v počítačové síti si může od serveru vyžádat třeba přístup k webové stráce nebo poslání videa.",
     type: "whatIsClient",
     hint: "",
     header: "KLIENT"
   },
   {
     content:
-      "Již víte, že se informace ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane například webovka na váš počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na vašem počítači.",
+      "Informace se ukládají na serverech (webovky na web servery, historie chatu na chat servery, stav hry na game servery). \n Jak se ale dostane např. webovka na váš počítač? Klient (webový prohlížeč) pošle na server, kde je webová stránka uložená, balíček dat s informací, co má server udělat. My chceme, aby server poslal webovou stránku. Server ji pošle zpátky klientovi a klient stránku zobrazí na vašem počítači.",
     type: "client-server-communication",
-    hint: "Sledujte animaci, která znázorňuje komunikaci klienta a serveru. Klient posílá požadavek v balíčku dat, server pošle nazpět v jiném balíčku dat požadovanou webovou stránku. Až budete chtít, přejděte na další aktivitu.",
+    hint: "Sledujte animaci, která znázorňuje komunikaci klienta a serveru. Klient posílá požadavek v balíčku dat, server pošle nazpět v jiném balíčku dat požadovanou webovou stránku. Až budete chtít, přejděte na další aktivitu pomocí šipky níže.",
     header: "KOMUNIKACE KLIENT-SERVER"
   },
   {
     content:
-      "Kudy se požadavky, o kterých byla řeč v minulém úkolu, dostanou na server? \n Požadavek je doručen na server podobně jako dopis poštou kamarádovi. Dopis (požadavek) je naložen do poštovního auta (balíčku dat), které jede po silnicích až ke kamarádovi (do serveru). Po cestě auto (balíček dat) projede mnoho křižovatek. Tyto CESTY a KŘIŽOVATKY jsou základními prvky internetové sítě, o kterých se dozvíte více později.",
+      "Kudy se požadavky z minulého úkolu dostanou na server? \n Požadavek je uložen do balíčku dat, který putuje po cestách do serveru. Balíček dat projede mnoho křižovatek. Tyto CESTY a KŘIŽOVATKY jsou základními prvky internetové sítě.",
     type: "whereDataTravel",
     hint: "Takto by mohla vypadat internetová síť plná křižovatek, cest, serverů a klientů. Ve skutečné internetové síti je ale daleko více zařízení! \n Síť můžete přibližovat pomocí tlačítek +- v pravém rohu nebo kolečkem myši. Tažením můžete síť posouvat do všech stran. Až budete chtít, přejděte na další aktivitu.",
     header: "PUTOVÁNÍ INFORMACÍ"
@@ -36,7 +36,7 @@ export const stockData = [
   },
   {
     content:
-      "KŘIŽOVATKY propojují cesty pro informace. Když do KŘIŽOVATKY přijede po cestě balíček informací, tak ho pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, směr určí chytrá KŘIŽOVATKA. Pokud nějaká cesta nefunguje, chytrá KŘIŽOVATKA najde objížďku. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíl ale pro nás není příliš důležitý.",
+      "KŘIŽOVATKY propojují cesty. Když do KŘIŽOVATKY přijede po cestě balíček dat, tak ho pošle směrem k jeho cíli. Balíček neurčí směr další cesty sám, směr určí chytrá KŘIŽOVATKA. Pokud nějaká cesta nefunguje, chytrá KŘIŽOVATKA najde objížďku. \n Jsou dva hlavní typy křižovatek: ROUTER a SWITCH. Rozdíl ale pro nás není důležitý.",
     type: "whatIsGateway",
     hint: "Tady zatím není žádný úkol.",
     header: "CHYTRÁ KŘIŽOVATKA"

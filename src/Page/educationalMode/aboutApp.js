@@ -4,22 +4,15 @@ function AboutApp({ setIsDocumentationMode }) {
     <div className="about-app">
       <p>
         Aplikace vznikla jako bakalářská práce Ondřeje Kohuta pod vedením Anny
-        Yaghobové na MFF UK. Aplikace vizualizuje fungování internetu a formou
-        interaktivních úkolů umožňuje lepší pochopení klíčových konceptů
-        problematiky. Obsah aplikace je koncipován tak, aby šla použít jak ve
-        výuce, tak při samostudiu.
+        Yaghobové na MFF UK. Aplikace vizualizuje fungování internetu a díky aktivitám umožňuje lepší pochopení klíčových konceptů
+        problematiky. Aplikaci může používat i ten, kdo neví o fungování internetu nic. 
       </p>
       <p>
         Aktivity jsou rozděleny do pěti kapitol. První čtyři rozebírají různá
-        témata, poslední (POSTAV SÍŤ) pouze ověřuje pochopení problematiky. U
-        každé aktivity najdete v levém horním rohu rozbalovací nabídku, ve které
-        naleznete zadání daného úkolu, tlačítko pro přechod k další aktivitě a
-        tlačítko pro návrat zpět do menu.
+        témata, poslední (POSTAV SÍŤ) pouze ověřuje pochopení problematiky.
       </p>
       <p>
-        Kliknutím na tlačítko níže přejdete k rozboru všech úloh, který krom
-        řešení obsahuje rozšiřující poznámky jako témata pro další diskuzi,
-        návrhy rozšiřujících aktivit apod.
+        Kliknutím na tlačítko níže přejdete k rozboru všech úloh.
       </p>
       <Button
         variant="outlined"
