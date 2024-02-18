@@ -3,6 +3,7 @@ import Dialog from "./DialogWindow/dialogWindow";
 import EducationalMode from "./educationalMode/eduMode";
 import Documentation from "./info/documentation";
 
+
 function Page() {
   const [game, setGame] = useState("noGame");
   const [dialogMessage, setDialogMessage] = useState("");

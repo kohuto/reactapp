@@ -4,6 +4,7 @@ import Dialog from "../DialogWindow/dialogWindow";
 import PlaygroundSpeedDial from "./QuizzHelp/quizzHelp";
 import { useState } from "react";
 import "./style.css";
+import ActivityNavigation from "./navigation";
 
 function EducationalMode({
   game,
@@ -45,6 +46,8 @@ function EducationalMode({
         setGame={setGame}
         gameAfterClose={gameAfterDialogClose}
       />
+
+      <ActivityNavigation game={game} />
 
       {game !== "noGame" ? (
         <PlaygroundSpeedDial setGame={setGame} game={game} reloadGame={reloadGame}/>
