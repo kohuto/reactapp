@@ -16,7 +16,7 @@ function ClientInput(props) {
           onChange={(e) => props.onChange(e.target.value)}
         >
           <MenuItem value={"5.10.40.25"}>5.10.40.25</MenuItem>
-          <MenuItem value={"51.251.205.152"}>51.251.205.152</MenuItem>
+          <MenuItem value={"50.251.205.152"}>50.251.205.152</MenuItem>
           <MenuItem value={"199.38.67.227"}>199.38.67.227</MenuItem>
         </Select>
       </FormControl>

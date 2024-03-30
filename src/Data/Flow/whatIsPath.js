@@ -4,7 +4,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1065, y: 1280 },
     className: "server-small",
-    data: { label: "214.98.126.104" },
     dragHandle: "noDrag",
   },
   {
@@ -12,7 +11,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1165, y: 1310 },
     className: "server-small",
-    data: { label: "161.76.18.151" },
     dragHandle: "noDrag",
   },
   {
@@ -20,7 +18,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 800, y: 1280 },
     className: "server-small",
-    data: { label: "187.219.83.42" },
     dragHandle: "noDrag",
   },
   {
@@ -28,7 +25,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 785, y: 1020 },
     className: "server-small",
-    data: { label: "164.176.197.211" },
     dragHandle: "noDrag",
   },
   {
@@ -36,7 +32,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 800, y: 900 },
     className: "server-small",
-    data: { label: "18.24.34.114" },
     dragHandle: "noDrag",
   },
   {
@@ -44,7 +39,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 535, y: 1300 },
     className: "server-small",
-    data: { label: "31.172.218.103" },
     dragHandle: "noDrag",
   },
   {
@@ -52,7 +46,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 605, y: 1400 },
     className: "server-small",
-    data: { label: "50.241.244.156" },
     dragHandle: "noDrag",
   },
 
@@ -61,7 +54,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 325, y: 1780 },
     className: "server-small",
-    data: { label: "4.241.146.124" },
     dragHandle: "noDrag",
   },
   {
@@ -69,7 +61,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 355, y: 1200 },
     className: "server-small",
-    data: { label: "152.209.153.144" },
     dragHandle: "noDrag",
   },
   {
@@ -77,7 +68,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 535, y: 1000 },
     className: "server-small",
-    data: { label: "24.139.17.240" },
     dragHandle: "noDrag",
   },
   {
@@ -85,7 +75,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 795, y: 1400 },
     className: "server-small",
-    data: { label: "227.81.247.134" },
     dragHandle: "noDrag",
   },
   {
@@ -93,7 +82,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 825, y: 1450 },
     className: "server-small",
-    data: { label: "9.160.41.252" },
     dragHandle: "noDrag",
   },
   {
@@ -101,7 +89,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 925, y: 1650 },
     className: "server-small",
-    data: { label: "197.54.1.189" },
     dragHandle: "noDrag",
   },
   {
@@ -109,7 +96,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 955, y: 2040 },
     className: "server-small",
-    data: { label: "150.113.117.10" },
     dragHandle: "noDrag",
   },
   {
@@ -117,7 +103,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 575, y: 1530 },
     className: "server-small",
-    data: { label: "9.61.107.6" },
     dragHandle: "noDrag",
   },
   {
@@ -125,7 +110,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 895, y: 1580 },
     className: "server-small",
-    data: { label: "21.253.248.33" },
     dragHandle: "noDrag",
   },
   {
@@ -133,7 +117,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1055, y: 1520 },
     className: "server-small",
-    data: { label: "197.54.1.189" },
     dragHandle: "noDrag",
   },
   {
@@ -141,7 +124,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1095, y: 1420 },
     className: "server-small",
-    data: { label: "98.131.154.187" },
     dragHandle: "noDrag",
   },
   {
@@ -149,7 +131,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1295, y: 1420 },
     className: "server-small",
-    data: { label: "72.2.16.86" },
     dragHandle: "noDrag",
   },
   {
@@ -157,7 +138,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1195, y: 1750 },
     className: "server-small",
-    data: { label: "241.56.61.247" },
     dragHandle: "noDrag",
   },
   {
@@ -165,7 +145,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1485, y: 1550 },
     className: "server-small",
-    data: { label: "72.83.135.1" },
     dragHandle: "noDrag",
   },
   {
@@ -173,7 +152,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1225, y: 1180 },
     className: "server-small",
-    data: { label: "152.56.204.194" },
     dragHandle: "noDrag",
   },
   {
@@ -181,7 +159,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1525, y: 1220 },
     className: "server-small",
-    data: { label: "1.233.70.18" },
     dragHandle: "noDrag",
   },
   {
@@ -189,7 +166,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1405, y: 1020 },
     className: "server-small",
-    data: { label: "238.88.35.10" },
     dragHandle: "noDrag",
   },
   {
@@ -197,7 +173,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1365, y: 850 },
     className: "server-small",
-    data: { label: "255.136.37.41" },
     dragHandle: "noDrag",
   },
   {
@@ -205,7 +180,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1865, y: 890 },
     className: "server-small",
-    data: { label: "197.234.165.5" },
     dragHandle: "noDrag",
   },
   {
@@ -213,7 +187,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 690 },
     className: "server-small",
-    data: { label: "12.17.193.233" },
     dragHandle: "noDrag",
   },
   {
@@ -221,7 +194,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 955, y: 990 },
     className: "server-small",
-    data: { label: "60.47.202.91" },
     dragHandle: "noDrag",
   },
   {
@@ -229,7 +201,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 955, y: 720 },
     className: "server-small",
-    data: { label: "94.201.149.236" },
     dragHandle: "noDrag",
   },
   {
@@ -237,7 +208,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1195, y: 720 },
     className: "server-small",
-    data: { label: "171.164.198.139" },
     dragHandle: "noDrag",
   },
   {
@@ -245,7 +215,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1075, y: 570 },
     className: "server-small",
-    data: { label: "165.17.12.227" },
     dragHandle: "noDrag",
   },
   {
@@ -253,7 +222,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 1590 },
     className: "server-small",
-    data: { label: "147.1.12.217" },
     dragHandle: "noDrag",
   },
   {
@@ -261,7 +229,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 365, y: 650 },
     className: "server-small",
-    data: { label: "86.199.13.22" },
     dragHandle: "noDrag",
   },
 
@@ -274,7 +241,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1005, y: 1280 },
     className: "client-small",
-    data: { label: "184.180.21.31" },
     dragHandle: "noDrag",
   },
   {
@@ -282,7 +248,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 995, y: 1350 },
     className: "client-small",
-    data: { label: "112.131.144.230" },
     dragHandle: "noDrag",
   },
   {
@@ -290,7 +255,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 905, y: 1220 },
     className: "client-small",
-    data: { label: "39.181.71.66" },
     dragHandle: "noDrag",
   },
   {
@@ -298,7 +262,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 795, y: 1200 },
     className: "client-small",
-    data: { label: "251.108.3.43" },
     dragHandle: "noDrag",
   },
   {
@@ -306,7 +269,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 965, y: 1100 },
     className: "client-small",
-    data: { label: "127.77.4.239" },
     dragHandle: "noDrag",
   },
   {
@@ -314,7 +276,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 525, y: 1200 },
     className: "client-small",
-    data: { label: "2.190.80.23" },
     dragHandle: "noDrag",
   },
   {
@@ -322,7 +283,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 695, y: 1340 },
     className: "client-small",
-    data: { label: "121.143.228.41" },
     dragHandle: "noDrag",
   },
   {
@@ -330,7 +290,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 575, y: 1640 },
     className: "client-small",
-    data: { label: "2.197.104.62" },
     dragHandle: "noDrag",
   },
   {
@@ -338,7 +297,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 305, y: 1700 },
     className: "client-small",
-    data: { label: "159.136.10.164" },
     dragHandle: "noDrag",
   },
   {
@@ -346,7 +304,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 495, y: 1130 },
     className: "client-small",
-    data: { label: "210.78.90.69" },
     dragHandle: "noDrag",
   },
   {
@@ -354,7 +311,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 345, y: 1250 },
     className: "client-small",
-    data: { label: "255.150.14.24" },
     dragHandle: "noDrag",
   },
   {
@@ -362,7 +318,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 855, y: 1360 },
     className: "client-small",
-    data: { label: "191.179.223.144" },
     dragHandle: "noDrag",
   },
   {
@@ -370,7 +325,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 825, y: 1500 },
     className: "client-small",
-    data: { label: "122.185.172.94" },
     dragHandle: "noDrag",
   },
   {
@@ -378,7 +332,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 955, y: 1850 },
     className: "client-small",
-    data: { label: "183.153.175.41" },
     dragHandle: "noDrag",
   },
   {
@@ -386,7 +339,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 1950 },
     className: "client-small",
-    data: { label: "91.36.193.244" },
     dragHandle: "noDrag",
   },
   {
@@ -394,7 +346,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 515, y: 1470 },
     className: "client-small",
-    data: { label: "13.240.139.88" },
     dragHandle: "noDrag",
   },
   {
@@ -402,7 +353,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 855, y: 1720 },
     className: "client-small",
-    data: { label: "178.26.52.107" },
     dragHandle: "noDrag",
   },
   {
@@ -410,7 +360,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1155, y: 1470 },
     className: "client-small",
-    data: { label: "59.4.74.139" },
     dragHandle: "noDrag",
   },
   {
@@ -418,7 +367,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1005, y: 1460 },
     className: "client-small",
-    data: { label: "58.200.71.105" },
     dragHandle: "noDrag",
   },
   {
@@ -426,7 +374,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 1450 },
     className: "client-small",
-    data: { label: "205.37.104.11" },
     dragHandle: "noDrag",
   },
   {
@@ -434,7 +381,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1145, y: 1700 },
     className: "client-small",
-    data: { label: "123.47.39.33" },
     dragHandle: "noDrag",
   },
   {
@@ -442,7 +388,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1455, y: 1500 },
     className: "client-small",
-    data: { label: "100.235.0.71" },
     dragHandle: "noDrag",
   },
   {
@@ -450,7 +395,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 1245 },
     className: "client-small",
-    data: { label: "80.4.44.38" },
     dragHandle: "noDrag",
   },
   {
@@ -458,7 +402,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1725, y: 1120 },
     className: "client-small",
-    data: { label: "130.153.199.52" },
     dragHandle: "noDrag",
   },
   {
@@ -466,7 +409,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 1120 },
     className: "client-small",
-    data: { label: "68.240.167.252" },
     dragHandle: "noDrag",
   },
   {
@@ -474,7 +416,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 990 },
     className: "client-small",
-    data: { label: "204.205.103.157" },
     dragHandle: "noDrag",
   },
   {
@@ -482,7 +423,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1915, y: 790 },
     className: "client-small",
-    data: { label: "24.44.1.71" },
     dragHandle: "noDrag",
   },
   {
@@ -490,7 +430,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1395, y: 650 },
     className: "client-small",
-    data: { label: "47.61.220.14" },
     dragHandle: "noDrag",
   },
   {
@@ -498,7 +437,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 905, y: 930 },
     className: "client-small",
-    data: { label: "182.241.87.10" },
     dragHandle: "noDrag",
   },
   {
@@ -506,7 +444,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 975, y: 670 },
     className: "client-small",
-    data: { label: "210.139.78.195" },
     dragHandle: "noDrag",
   },
   {
@@ -514,7 +451,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1025, y: 790 },
     className: "client-small",
-    data: { label: "116.41.5.210" },
     dragHandle: "noDrag",
   },
   {
@@ -522,7 +458,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1175, y: 540 },
     className: "client-small",
-    data: { label: "110.184.228.105" },
     dragHandle: "noDrag",
   },
   {
@@ -530,7 +465,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1295, y: 1590 },
     className: "client-small",
-    data: { label: "3.188.222.146" },
     dragHandle: "noDrag",
   },
   {
@@ -538,7 +472,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 285, y: 620 },
     className: "client-small",
-    data: { label: "152.177.76.80" },
     dragHandle: "noDrag",
   },
   /* //////////////////////////////////////////////////// */
@@ -549,7 +482,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1095, y: 1330 },
     className: "gateway-small",
-    data: { label: "147.96.108.21" },
     dragHandle: "noDrag",
   },
   {
@@ -557,7 +489,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1125, y: 1230 },
     className: "gateway-small",
-    data: { label: "153.137.234.244" },
     dragHandle: "noDrag",
   },
   {
@@ -565,7 +496,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1215, y: 1310 },
     className: "gateway-small",
-    data: { label: "60.189.8.165" },
     dragHandle: "noDrag",
   },
   {
@@ -573,7 +503,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 885, y: 1320 },
     className: "gateway-small",
-    data: { label: "141.232.212.227" },
     dragHandle: "noDrag",
   },
   {
@@ -581,7 +510,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 815, y: 1167 },
     className: "gateway-small",
-    data: { label: "152.13.188.174" },
     dragHandle: "noDrag",
   },
   {
@@ -589,7 +517,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1005, y: 900 },
     className: "gateway-small",
-    data: { label: "192.225.154.100" },
     dragHandle: "noDrag",
   },
   {
@@ -597,7 +524,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 905, y: 900 },
     className: "gateway-small",
-    data: { label: "187.132.52.96" },
     dragHandle: "noDrag",
   },
   {
@@ -605,7 +531,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 895, y: 1000 },
     className: "gateway-small",
-    data: { label: "203.101.73.159" },
     dragHandle: "noDrag",
   },
   {
@@ -613,7 +538,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1145, y: 900 },
     className: "gateway-small",
-    data: { label: "85.125.75.64" },
     dragHandle: "noDrag",
   },
   {
@@ -621,7 +545,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 435, y: 1320 },
     className: "gateway-small",
-    data: { label: "43.84.67.114" },
     dragHandle: "noDrag",
   },
   {
@@ -629,7 +552,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 985, y: 1200 },
     className: "gateway-small",
-    data: { label: "211.67.180.202" },
     dragHandle: "noDrag",
   },
   {
@@ -637,7 +559,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 605, y: 1480 },
     className: "gateway-small",
-    data: { label: "223.4.8.20" },
     dragHandle: "noDrag",
   },
   {
@@ -645,7 +566,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 455, y: 1580 },
     className: "gateway-small",
-    data: { label: "217.111.129.107" },
     dragHandle: "noDrag",
   },
   {
@@ -653,7 +573,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 435, y: 1680 },
     className: "gateway-small",
-    data: { label: "90.202.79.101" },
     dragHandle: "noDrag",
   },
   {
@@ -661,7 +580,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 435, y: 1780 },
     className: "gateway-small",
-    data: { label: "86.207.231.189" },
     dragHandle: "noDrag",
   },
   {
@@ -669,7 +587,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 385, y: 1880 },
     className: "gateway-small",
-    data: { label: "195.13.133.245" },
     dragHandle: "noDrag",
   },
   {
@@ -677,7 +594,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 465, y: 1100 },
     className: "gateway-small",
-    data: { label: "70.71.155.180" },
     dragHandle: "noDrag",
   },
   {
@@ -685,7 +601,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 475, y: 1050 },
     className: "gateway-small",
-    data: { label: "127.230.6.154" },
     dragHandle: "noDrag",
   },
   {
@@ -693,7 +608,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 305, y: 690 },
     className: "gateway-small",
-    data: { label: "194.112.46.82" },
     dragHandle: "noDrag",
   },
   {
@@ -701,7 +615,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 445, y: 1070 },
     className: "gateway-small",
-    data: { label: "139.171.251.254" },
     dragHandle: "noDrag",
   },
   {
@@ -709,7 +622,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 705, y: 1400 },
     className: "gateway-small",
-    data: { label: "12.25.68.13" },
     dragHandle: "noDrag",
   },
   {
@@ -717,7 +629,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 785, y: 1350 },
     className: "gateway-small",
-    data: { label: "252.141.62.183" },
     dragHandle: "noDrag",
   },
   {
@@ -725,7 +636,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 505, y: 1260 },
     className: "gateway-small",
-    data: { label: "244.44.72.92" },
     dragHandle: "noDrag",
   },
   {
@@ -733,7 +643,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 505, y: 1380 },
     className: "gateway-small",
-    data: { label: "245.23.186.119" },
     dragHandle: "noDrag",
   },
   {
@@ -741,7 +650,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 475, y: 1180 },
     className: "gateway-small",
-    data: { label: "206.110.156.51" },
     dragHandle: "noDrag",
   },
   {
@@ -749,7 +657,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 995, y: 1500 },
     className: "gateway-small",
-    data: { label: "217.116.75.71" },
     dragHandle: "noDrag",
   },
   {
@@ -757,7 +664,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 905, y: 1800 },
     className: "gateway-small",
-    data: { label: "253.170.131.59" },
     dragHandle: "noDrag",
   },
   {
@@ -765,7 +671,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1155, y: 1900 },
     className: "gateway-small",
-    data: { label: "148.249.83.146" },
     dragHandle: "noDrag",
   },
   {
@@ -773,7 +678,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1195, y: 1850 },
     className: "gateway-small",
-    data: { label: "70.184.56.117" },
     dragHandle: "noDrag",
   },
   {
@@ -781,7 +685,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1075, y: 1780 },
     className: "gateway-small",
-    data: { label: "100.0.214.167" },
     dragHandle: "noDrag",
   },
   {
@@ -789,7 +692,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 995, y: 1700 },
     className: "gateway-small",
-    data: { label: "132.61.8.225" },
     dragHandle: "noDrag",
   },
   {
@@ -797,7 +699,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 715, y: 1590 },
     className: "gateway-small",
-    data: { label: "146.252.110.200" },
     dragHandle: "noDrag",
   },
   {
@@ -805,7 +706,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 895, y: 1500 },
     className: "gateway-small",
-    data: { label: "111.175.133.151" },
     dragHandle: "noDrag",
   },
   {
@@ -813,7 +713,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 955, y: 1420 },
     className: "gateway-small",
-    data: { label: "36.91.134.142" },
     dragHandle: "noDrag",
   },
   {
@@ -821,7 +720,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1020, y: 1400 },
     className: "gateway-small",
-    data: { label: "81.8.198.111" },
     dragHandle: "noDrag",
   },
   {
@@ -829,7 +727,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 1500 },
     className: "gateway-small",
-    data: { label: "255.172.212.254" },
     dragHandle: "noDrag",
   },
   {
@@ -837,7 +734,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 1750 },
     className: "gateway-small",
-    data: { label: "244.146.178.108" },
     dragHandle: "noDrag",
   },
   {
@@ -845,7 +741,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1275, y: 1690 },
     className: "gateway-small",
-    data: { label: "80.103.55.164" },
     dragHandle: "noDrag",
   },
   {
@@ -853,7 +748,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 1800 },
     className: "gateway-small",
-    data: { label: "62.136.182.25" },
     dragHandle: "noDrag",
   },
   {
@@ -861,7 +755,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1405, y: 1550 },
     className: "gateway-small",
-    data: { label: "94.96.165.173" },
     dragHandle: "noDrag",
   },
   {
@@ -869,7 +762,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1405, y: 1390 },
     className: "gateway-small",
-    data: { label: "155.21.161.111" },
     dragHandle: "noDrag",
   },
   {
@@ -877,7 +769,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1405, y: 1240 },
     className: "gateway-small",
-    data: { label: "9.15.69.218" },
     dragHandle: "noDrag",
   },
   {
@@ -885,7 +776,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1365, y: 1600 },
     className: "gateway-small",
-    data: { label: "219.238.233.252" },
     dragHandle: "noDrag",
   },
   {
@@ -893,7 +783,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1225, y: 1100 },
     className: "gateway-small",
-    data: { label: "154.3.202.173" },
     dragHandle: "noDrag",
   },
   {
@@ -901,7 +790,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1725, y: 1320 },
     className: "gateway-small",
-    data: { label: "252.241.212.237" },
     dragHandle: "noDrag",
   },
   {
@@ -909,7 +797,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1475, y: 1100 },
     className: "gateway-small",
-    data: { label: "207.83.12.80" },
     dragHandle: "noDrag",
   },
   {
@@ -917,7 +804,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1575, y: 1000 },
     className: "gateway-small",
-    data: { label: "110.53.112.104" },
     dragHandle: "noDrag",
   },
   {
@@ -925,7 +811,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1305, y: 910 },
     className: "gateway-small",
-    data: { label: "226.93.229.239" },
     dragHandle: "noDrag",
   },
   {
@@ -933,7 +818,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1765, y: 790 },
     className: "gateway-small",
-    data: { label: "255.44.167.4" },
     dragHandle: "noDrag",
   },
   {
@@ -941,7 +825,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1355, y: 600 },
     className: "gateway-small",
-    data: { label: "45.210.194.225" },
     dragHandle: "noDrag",
   },
   {
@@ -949,7 +832,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 805, y: 1550 },
     className: "gateway-small",
-    data: { label: "236.4.122.206" },
     dragHandle: "noDrag",
   },
   {
@@ -957,7 +839,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 995, y: 650 },
     className: "gateway-small",
-    data: { label: "119.42.164.123" },
     dragHandle: "noDrag",
   },
   {
@@ -965,7 +846,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1055, y: 733 },
     className: "gateway-small",
-    data: { label: "197.238.77.25" },
     dragHandle: "noDrag",
   },
   {
@@ -973,7 +853,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1105, y: 663 },
     className: "gateway-small",
-    data: { label: "4.206.89.123" },
     dragHandle: "noDrag",
   },
   {
@@ -981,7 +860,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1205, y: 590 },
     className: "gateway-small",
-    data: { label: "174.12.151.6" },
     dragHandle: "noDrag",
   },
   {
@@ -989,7 +867,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 1105, y: 1590 },
     className: "gateway-small",
-    data: { label: "148.115.20.236" },
     dragHandle: "noDrag",
   },
   {
@@ -997,7 +874,6 @@ export const whatIsPathNodes = [
     type: "custom",
     position: { x: 355, y: 620 },
     className: "gateway-small",
-    data: { label: "70.157.149.183" },
     dragHandle: "noDrag",
   },
 ];

@@ -152,7 +152,7 @@ function WhatIsServerComponent({ info, setGame }) {
       {
         introTutorialOpen && (
           <AlertDialog
-          content={"U každé aktivity je na levé straně rozbalovací nabídka. V ní, kromě dalších akcí, primárně najdete pod ikonou otazníku ZADÁNÍ aktivity."}
+          content={"U každé aktivity je na levé straně rozbalovací nabídka. V ní, kromě dalších akcí, najdete pod ikonou otazníku ZADÁNÍ aktivity."}
           closeAction={() => setIntroTutorialOpen(false)}
         />
         )

@@ -155,7 +155,7 @@ export const stockData = [
     content:
       "Stejně jako při posílání dopisu i v paketu musí být uložená cílová adresa. Těmto adresám říkáme IP ADRESY. \n Před otevřením webové stránky, musí počítač zjistit IP ADRESU serveru, kde je stránka uložená, aby věděl, kam poslat požadavek. \n Existují dvě hlavní verze IP ADRES - IPv4 a IPv6. IPv4 se skládá ze čtyř čísel v rozsahu 0-255 oddělených tečkou (př. 192.168.0.255). IPv6 se skládá z osmi čísel (př. 2001:0db8:85a3:0000:0000:8a2e:0370:7334).",
     type: "IPadress",
-    hint: "Napište do textového pole, jakou IP adresu má váš počítač.",
+    hint: "Napište do textového pole, jakou IP adresu má váš počítač. Tuto informaci lze najít třeba na internetu.",
     header: "IPV4, IPV6",
     navigation: "SERVERY A KŘIŽOVATKY > IPV4, IPV6"
   },
