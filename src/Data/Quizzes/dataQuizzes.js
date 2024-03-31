@@ -203,19 +203,19 @@ export const stockData = [
     content:
       "Vytvořte síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi.",
     type: "build-network-1",
-    hint: "Vytvořte síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
+    hint: "Vytvořte síť, aby měl uživatel přístup z domova k webové stránce uložené na serveru v cizí zemi.",
   },
   {
     content:
       "Vytvořte takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku. ",
     type: "build-network-2",
-    hint: "Vytvořte takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
+    hint: "Vytvořte takovou síť, aby se uživatel mohl připojit přes data a vyhledat si nějakou webovou stránku.",
   },
   {
     content:
       "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
     type: "build-network-3",
-    hint: "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením. Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit.",
+    hint: "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
   },
   {
     content: "Postavte si jakoukoliv síť bez omezení.",

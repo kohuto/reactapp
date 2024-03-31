@@ -403,6 +403,7 @@
   padding-top: 62px;
   background-color: transparent;
 }
+
 .bts-build {
   background: url("../../../images/nodes/BTSvez.svg") no-repeat center center;
   border: none;
@@ -424,7 +425,10 @@
   top: 20px;
   visibility: hidden;
 }
+  .wifi .react-flow__handle-bottom {
 
+  visibility: hidden;
+}
 
 .gateway-10001 {
   background-image: url("../../../images/gateway/křižovatka10001.svg");
@@ -458,6 +462,9 @@
 }
 .gateway-2241091725 {
   background-image: url("../../../images/gateway/gateway-2241091725.svg");
+}
+.gateway-5124720627 {
+  background-image: url("../../../images/gateway/gateway-5124720627.svg");
 }
 
 .server-1951137622 {
@@ -531,11 +538,22 @@
 .bts-22319122 {
   background-image: url("../../../images/bts/bts-22319122.svg");
 }
+.bts-1001993737 {
+  background-image: url("../../../images/bts/bts-1001993737.svg");
+}
+
 .reciver-2298390 {
   background-image: url("../../../images/reciver/reciver-2298390.svg");
 
 }
 .satelit-1238901 {
   background-image: url("../../../images/satelit/satelit-1238901.svg");
+}
+
+.wifi-136200123175 {
+  background-image: url("../../../images/wifi/wifi-136200123175.svg");
+}
+.wifi-51399082 {
+  background-image: url("../../../images/wifi/wifi-51399082.svg");
 }
 

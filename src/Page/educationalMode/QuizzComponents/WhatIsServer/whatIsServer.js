@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Draggable from "react-draggable";
 import web from "../../../../images/serverscontent/website-design.png";
+import tutorial1 from "../../../../images/video/test1.mp4"
+import tutorial2 from "../../../../images/video/menu-navigation.mp4"
 import video from "../../../../images/serverscontent/multimedia.png";
 import picture from "../../../../images/serverscontent/picture.png";
 import chat from "../../../../images/serverscontent/chat.png";
@@ -44,7 +46,8 @@ function WhatIsServerComponent({ info, setGame }) {
   const [infoMessage, setInfoMessage] = useState("");
   const [isCorrectlyFilled, setIsCorrectlyFilled] = useState(false);
 
-  const [introTutorialOpen, setIntroTutorialOpen] = useState(true)
+  const [introTutorial1Open, setIntroTutorial1Open] = useState(true)
+  const [introTutorial2Open, setIntroTutorial2Open] = useState(false)
 
   /**
    * Checks whether the draggable components are touching the correct server components
@@ -150,10 +153,36 @@ function WhatIsServerComponent({ info, setGame }) {
         />
       )}
       {
-        introTutorialOpen && (
+        introTutorial2Open && (
           <AlertDialog
-          content={"U každé aktivity je na levé straně rozbalovací nabídka. V ní, kromě dalších akcí, najdete pod ikonou otazníku ZADÁNÍ aktivity."}
-          closeAction={() => setIntroTutorialOpen(false)}
+          content={
+            <>
+          <video width="320" height="240" autoPlay muted loop>
+         <source src={tutorial2} type="video/mp4" />
+        </video>
+       <div>
+        Aktivity lze přeskakovat, resetovat, nebo<br></br> ukončit a vrátit se do hlavního menu.
+       </div>
+         </>
+  }
+          closeAction={() => setIntroTutorial2Open(false)}
+        />
+        )
+      }
+      {
+        introTutorial1Open && (
+          <AlertDialog
+          content={
+            <>
+          <video width="320" height="240" autoPlay muted loop>
+         <source src={tutorial1} type="video/mp4" />
+        </video>
+       <div>
+        V menu vlevo najdete vždy zadání aktivity.
+       </div>
+         </>
+  }
+          closeAction={() => {setIntroTutorial1Open(false);setIntroTutorial2Open(true)}}
         />
         )
       }

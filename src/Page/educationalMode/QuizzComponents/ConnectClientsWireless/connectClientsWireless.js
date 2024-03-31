@@ -42,8 +42,8 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
     const intervalId = setInterval(() => {
       // Separate the client nodes into two groups: plugged and unplugged
       const [clientInfoNodes, clientBuildNodes] = [
-        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_PLUGGED),
-        nodes.filter((node) => node.className === DEVICE_TYPE.CLIENT_UNPLUGGED),
+        nodes.filter((node) => node.className.includes(DEVICE_TYPE.CLIENT_PLUGGED)),
+        nodes.filter((node) => node.className.includes(DEVICE_TYPE.CLIENT_UNPLUGGED)),
       ];
       const tempClientNodes = [...clientInfoNodes, ...clientBuildNodes];
       // Update the class of each client node based on whether it's within range of a WiFi or BTS node
@@ -75,18 +75,25 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
   // add node of specific type into network
   const handleAddNode = useCallback(
     (device) => {
-      const deviceNodes = nodes.filter((node) => node.className === device);
+      const deviceNodes = nodes.filter((node) => node.className.includes(device));
       const nodeCount = deviceNodes.length;
-      const ipv4Address = generateIpv4Address();
+      let ipv4Address = "";
       if (nodeCount >= 2) {
         setIsTooMuchNodes(true);
       } else {
+        if ((device == "wifi")){
+        
+          ipv4Address = nodeCount==1 ? "136.200.123.175" : "51.39.90.82"
+        }
+        else{
+          
+          ipv4Address = nodeCount==1 ? "223.19.12.2" : "100.199.37.37"
+        }
         const newNode = {
           id: `${ipv4Address}`,
           type: "default",
           position: { x: 300, y: 300 },
           className: `${device}`,
-          data: { label: `${ipv4Address}` },
         };
         setNodes((prevNodes) => [...prevNodes, newNode]);
       }
@@ -133,14 +140,14 @@ function ConnectClientsWirelessComponent({ setGame, info }) {
 
 // get number of nodes of specific type
 function countNodesByType(nodes, type) {
-  return nodes.filter((node) => node.className === type).length;
+  return nodes.filter((node) => node.className.includes(type)).length;
 }
 
 // check if node is in range of BTS or WiFi router
 const isNodeInRange = (nodeId, nodes) => {
   const node = nodes.find((node) => node.id === nodeId);
-  const wifiNodes = nodes.filter((node) => node.className === DEVICE_TYPE.WIFI);
-  const btsNodes = nodes.filter((node) => node.className === DEVICE_TYPE.BTS);
+  const wifiNodes = nodes.filter((node) => node.className.includes(DEVICE_TYPE.WIFI));
+  const btsNodes = nodes.filter((node) => node.className.includes(DEVICE_TYPE.BTS));
   const WIFI_RANGE = 100;
   const BTS_RANGE = 200;
 
@@ -164,17 +171,5 @@ const isNodeInRange = (nodeId, nodes) => {
 
   return isInRangeOfWifi || isInRangeOfBts;
 };
-
-// get random Ipv4 address
-function generateIpv4Address() {
-  let ipv4Address = "";
-  for (let i = 0; i < 4; i++) {
-    ipv4Address += Math.floor(Math.random() * 256);
-    if (i !== 3) {
-      ipv4Address += ".";
-    }
-  }
-  return ipv4Address;
-}
 
 export default ConnectClientsWirelessComponent;
