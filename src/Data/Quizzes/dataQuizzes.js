@@ -217,9 +217,9 @@ export const stockData = [
     type: "build-network-3",
     hint: "Vytvořte síť routerů mezi 3 klienty a 3 servery, která bude odolná vůči výpadkům a zahlcením.",
   },
-  {
+  /*{
     content: "Postavte si jakoukoliv síť bez omezení.",
     type: "build-own-network",
     hint: "Pro přidání zařízení do sítě klikněte na jeho ikonu v pravé části obrazovky. Jakmile je zařízení přidáno, můžete ho v rámci sítě přesouvat. Chcete-li vytvořit spojení mezi zařízeními, klikněte na jedno zařízení a táhněte kurzorem k druhému zařízení. Pokud potřebujete nějaké zařízení nebo cestu mezi zařízeními odstranit, klikněte na ikonu koše v dolní části obrazovky a následně klikněte na zařízení nebo cestu, kterou chcete odstranit. Vlevo dole pošlete paket. Vyberte IP adresu odesílatele a příjemce a odešlete. Odesílatel je klient, který je v dosahu WiFi nebo BTS věže - má nad sebou ikonu WiFi.",
-  },
+  },*/
 ];
